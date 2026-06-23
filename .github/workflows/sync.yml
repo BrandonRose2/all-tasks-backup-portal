@@ -1,0 +1,46 @@
+name: Sync Manus Tasks
+
+on:
+  schedule:
+    # Runs every Monday at 6:00 AM PST
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+    # Also allows manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run sync script
+        env:
+          MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
+        run: python scripts/sync_tasks.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet client/public/tasks_data.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated task data
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "Manus Sync Bot"
+          git config user.email "sync-bot@manus-dashboard.local"
+          git add client/public/tasks_data.json
+          git commit -m "chore: sync tasks from Manus API [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
+          git push
+
+      - name: No changes detected
+        if: steps.changes.outputs.changed != 'true'
+        run: echo "No task changes detected. Dashboard is already up to date."
