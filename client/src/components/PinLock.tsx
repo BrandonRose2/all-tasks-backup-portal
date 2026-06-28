@@ -8,6 +8,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Delete } from "lucide-react";
+import { trpc } from "@/lib/trpc";
 
 const SESSION_KEY = "task_intel_unlocked";
 
@@ -73,12 +74,17 @@ export default function PinLock({ children }: PinLockProps) {
     };
   }, [locked]);
 
+  const logAttempt = trpc.loginAttempts.log.useMutation();
+
   useEffect(() => {
     if (digits.length === 4 && !checking) {
       setChecking(true);
       sha256(digits.join("")).then((hash) => {
         sha256(CORRECT_PIN).then((correctHash) => {
-          if (hash === correctHash) {
+          const success = hash === correctHash;
+          // Fire-and-forget — log the attempt to the backend
+          logAttempt.mutate({ success, attemptNumber: attempts + 1 });
+          if (success) {
             sessionStorage.setItem(SESSION_KEY, "true");
             setTimeout(() => setUnlocked(true), 300);
           } else {

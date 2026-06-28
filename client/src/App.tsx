@@ -8,13 +8,15 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Apps from "./pages/Apps";
 import GitHubRepos from "./pages/GitHubRepos";
-
+import Admin from "./pages/Admin";
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/apps"} component={Apps} />
       <Route path={"/github"} component={GitHubRepos} />
+      <Route path={"/admin"} component={Admin} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
