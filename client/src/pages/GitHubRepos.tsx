@@ -24,7 +24,7 @@ import {
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
-const GITHUB_PAT = "REDACTED_GITHUB_PAT";
+const GITHUB_PAT = import.meta.env.VITE_GITHUB_PAT as string;
 const GITHUB_USERNAME = "BrandonRose2";
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663449376037/6HAcW2mfRmxrM6oLjQmHt6/logo-icon-WtjLyRW8qf6yaEgLNX8XN9.webp";
