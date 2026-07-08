@@ -84,6 +84,7 @@ function vitePluginManusDebugCollector(): Plugin {
 }
 
 export default defineConfig({
+  base: "/all-tasks-backup-portal/",
   plugins: [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()],
   resolve: {
     alias: {
