@@ -5,7 +5,6 @@ on:
     # Every Friday at 6:00 AM PST (14:00 UTC)
     - cron: "0 14 * * 5"
   workflow_dispatch:
-    # Also allows manual trigger from GitHub Actions UI
 
 permissions:
   contents: write
@@ -22,26 +21,25 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run Friday full sync
+      - name: Run Friday sync
         env:
-          MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
-          GITHUB_TOKEN_SYNC: ${{ secrets.SYNC_GITHUB_PAT }}
+          SYNC_GITHUB_PAT: ${{ secrets.SYNC_GITHUB_PAT }}
         run: python scripts/friday_sync.py
 
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet client/public/ || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet client/public/github_repos.json client/public/claude_tasks.json || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "Friday Sync Bot"
           git config user.email "sync-bot@all-tasks-backup-portal.local"
-          git add client/public/tasks_data.json client/public/github_repos.json client/public/claude_tasks.json
-          git commit -m "chore: Friday full sync [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
+          git add client/public/github_repos.json client/public/claude_tasks.json
+          git commit -m "chore: Friday sync — GitHub repos + Claude tasks [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
           git push
 
       - name: No changes detected
         if: steps.changes.outputs.changed != 'true'
-        run: echo "✅ All data is already up to date — no changes needed."
+        run: echo "✅ Already up to date — no changes needed."
