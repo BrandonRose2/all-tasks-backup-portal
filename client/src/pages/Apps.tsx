@@ -241,7 +241,7 @@ export default function Apps() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   useEffect(() => {
-    fetch("/apps_websites.json")
+    fetch(`${import.meta.env.BASE_URL}apps_websites.json`)
       .then((r) => r.json())
       .then((d) => { setData(d); setLoading(false); })
       .catch(() => setLoading(false));

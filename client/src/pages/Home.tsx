@@ -511,7 +511,7 @@ export default function Home() {
 
   // Load data
   useEffect(() => {
-    fetch("/tasks_data.json")
+    fetch(`${import.meta.env.BASE_URL}tasks_data.json`)
       .then((r) => r.json())
       .then((data: { tasks?: Task[] } | Task[]) => {
         // Handle both {tasks: [...]} and plain array formats
