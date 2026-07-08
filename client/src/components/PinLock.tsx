@@ -82,8 +82,8 @@ export default function PinLock({ children }: PinLockProps) {
       sha256(digits.join("")).then((hash) => {
         sha256(CORRECT_PIN).then((correctHash) => {
           const success = hash === correctHash;
-          // Fire-and-forget — log the attempt to the backend
-          logAttempt.mutate({ success, attemptNumber: attempts + 1 });
+          // Fire-and-forget — log the attempt to the backend (ignore errors on static hosts)
+          try { logAttempt.mutate({ success, attemptNumber: attempts + 1 }); } catch (_) { /* no-op */ }
           if (success) {
             sessionStorage.setItem(SESSION_KEY, "true");
             setTimeout(() => setUnlocked(true), 300);
