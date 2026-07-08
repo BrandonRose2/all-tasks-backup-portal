@@ -513,9 +513,28 @@ export default function Home() {
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}tasks_data.json`)
       .then((r) => r.json())
-      .then((data: { tasks?: Task[] } | Task[]) => {
+      .then((data: any) => {
         // Handle both {tasks: [...]} and plain array formats
-        const taskList = Array.isArray(data) ? data : (data as { tasks?: Task[] }).tasks ?? [];
+        const rawList: any[] = Array.isArray(data) ? data : (data.tasks ?? []);
+        // Normalize API field names to expected Task interface
+        const taskList: Task[] = rawList.map((t: any, i: number) => ({
+          num: t.num ?? t.id ?? i,
+          title: t.title ?? "",
+          url: t.url ?? t.task_url ?? "",
+          status: t.status ?? "stopped",
+          type: t.type ?? "standard",
+          agent: t.agent ?? t.agent_profile ?? "",
+          credits: t.credits ?? t.credits_used ?? 0,
+          created: t.created
+            ? t.created
+            : t.created_at
+              ? (String(t.created_at).length === 10
+                  ? new Date(Number(t.created_at) * 1000)
+                  : new Date(Number(t.created_at))
+                ).toISOString().slice(0, 10)
+              : "",
+          messages: t.messages ?? t.message_count ?? 0,
+        }));
         setTasks(taskList);
         setLoading(false);
       })
