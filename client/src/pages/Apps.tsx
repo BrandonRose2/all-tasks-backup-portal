@@ -23,6 +23,7 @@ import {
   Coins,
   Calendar,
   Cpu,
+  Mic,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Link } from "wouter";
@@ -324,6 +325,17 @@ export default function Apps() {
             <Globe size={13} />
             Apps & Websites
           </div>
+          <a
+            href="https://drive.google.com/drive/folders/1Gxg3gg06CVLO-F05kke5CXvdXgVXSPsP"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-2 rounded-md text-xs text-muted-foreground hover:text-foreground hover:bg-accent transition-colors mt-1"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            <Mic size={13} />
+            Ai Recordings
+            <span className="ml-auto text-[10px] bg-muted px-1.5 py-0.5 rounded font-mono text-muted-foreground">Drive</span>
+          </a>
         </div>
 
         {/* Category filters */}

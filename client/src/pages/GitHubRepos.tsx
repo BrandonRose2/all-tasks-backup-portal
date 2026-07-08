@@ -20,6 +20,7 @@ import {
   BookOpen,
   GitFork,
   AlertCircle,
+  Mic,
 } from "lucide-react";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
@@ -228,6 +229,17 @@ export default function GitHubRepos() {
             GitHub Repos
             <span className="ml-auto text-[10px] bg-amber-400/20 px-1.5 py-0.5 rounded font-mono">{stats.total}</span>
           </div>
+          <a
+            href="https://drive.google.com/drive/folders/1Gxg3gg06CVLO-F05kke5CXvdXgVXSPsP"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-2 rounded-md text-xs text-muted-foreground hover:text-foreground hover:bg-accent transition-colors border border-transparent"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            <Mic size={13} />
+            Ai Recordings
+            <span className="ml-auto text-[10px] bg-muted px-1.5 py-0.5 rounded font-mono text-muted-foreground">Drive</span>
+          </a>
         </div>
 
         {/* Stats */}
