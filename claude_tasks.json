@@ -1,0 +1,395 @@
+[
+  {
+    "num": 1,
+    "id": "d29603b3-cb8e-433b-af49-0a849ea8708a",
+    "title": "Interactive AI Lesson Plan for a 14-Year-Old Student",
+    "url": "https://claude.ai/chat/d29603b3-cb8e-433b-af49-0a849ea8708a",
+    "status": "completed",
+    "type": "build",
+    "category": "Education & Training",
+    "created": "2026-06-21",
+    "description": "Built an interactive AI-powered lesson plan web app for a 14-year-old student after Manus failed due to git/sandbox issues. Included subject selection, goal setting, and tutor style configuration.",
+    "output": "Interactive lesson plan web app",
+    "tags": [
+      "education",
+      "AI tutor",
+      "web app"
+    ]
+  },
+  {
+    "num": 2,
+    "id": "b21e9084-03ca-46ab-ad4f-86573a222cab",
+    "title": "Investor Portal \u2014 GitHub Pages Deployment",
+    "url": "https://claude.ai/chat/b21e9084-03ca-46ab-ad4f-86573a222cab",
+    "status": "completed",
+    "type": "build",
+    "category": "Dashboards & Analytics",
+    "created": "2026-06-19",
+    "description": "Built and deployed an investor portal tracking Metro Atlanta real estate properties and investors. Dark left sidebar layout, navy #1a2332, tab-based Properties/Investors list view. Deployed to brandonrose2.github.io/investor-portal via GitHub Contents API.",
+    "output": "Live portal at brandonrose2.github.io/investor-portal",
+    "tags": [
+      "investor portal",
+      "github pages",
+      "real estate",
+      "dark sidebar"
+    ]
+  },
+  {
+    "num": 3,
+    "id": "de756337-b87a-4546-b2b7-32c6d1aa5887",
+    "title": "Barcode & QR Code Inventory Web App",
+    "url": "https://claude.ai/chat/de756337-b87a-4546-b2b7-32c6d1aa5887",
+    "status": "completed",
+    "type": "build",
+    "category": "Apps & Tools",
+    "created": "2026-06-16",
+    "description": "Built a full barcode and QR code inventory scanner app using Robert's Peptides as demo company. Six pages: Dashboard, Scan, Inventory, Receipts, Labels (QR Builder), History. Live camera scanning via Quagga.js, CSV import/export, localStorage persistence, configurable Settings tab.",
+    "output": "Self-contained HTML inventory app",
+    "tags": [
+      "barcode",
+      "QR code",
+      "inventory",
+      "scanner",
+      "Robert's Peptides"
+    ]
+  },
+  {
+    "num": 4,
+    "id": "0d99ec0c-b70b-4794-b483-da9a6e35770c",
+    "title": "Manus Task Portal \u2014 GitHub-Linked with Live Sync",
+    "url": "https://claude.ai/chat/0d99ec0c-b70b-4794-b483-da9a6e35770c",
+    "status": "completed",
+    "type": "build",
+    "category": "Dashboards & Analytics",
+    "created": "2026-06-12",
+    "description": "Built a self-contained 635-task Manus archive portal with dark amber/slate theme, sidebar filters, grid/list views, activity chart, and detail panels. Then extended with GitHub Actions auto-rebuild workflow (build_portal.py) and live fetch from GitHub raw.",
+    "output": "manus-portal-deploy.zip + GitHub Actions workflow",
+    "tags": [
+      "task portal",
+      "github pages",
+      "automation",
+      "task archive"
+    ]
+  },
+  {
+    "num": 5,
+    "id": "94717908-76dd-4aeb-8c2f-d7e04050edb3",
+    "title": "Referral Flyer Generator \u2014 Node.js + Google Cloud Run",
+    "url": "https://claude.ai/chat/94717908-76dd-4aeb-8c2f-d7e04050edb3",
+    "status": "completed",
+    "type": "build",
+    "category": "Marketing & Content",
+    "created": "2026-06-08",
+    "description": "Built a property referral flyer generator web app with navy/green design, Anton/Pacifico fonts, ApartmentCorp diamond logo. Node.js/Express server at localhost:3737 serving property photos from COYAPTCORP shared network drive. Final architecture uses Google Cloud Run with service account for Drive photo access.",
+    "output": "flyer-app/ Node.js server + Dockerfile",
+    "tags": [
+      "flyer generator",
+      "referral",
+      "Node.js",
+      "Google Cloud Run",
+      "property photos"
+    ]
+  },
+  {
+    "num": 6,
+    "id": "a0f21a1c-7ba6-4846-887f-3fe59618a0bd",
+    "title": "Better Notes \u2014 Evernote Clone with Exchange Email",
+    "url": "https://claude.ai/chat/a0f21a1c-7ba6-4846-887f-3fe59618a0bd",
+    "status": "completed",
+    "type": "build",
+    "category": "Apps & Tools",
+    "created": "2026-06-09",
+    "description": "Built a full Evernote clone 'Better Notes' with warm dark brown theme (#17130f), gold accents, rich text editor, notebooks, tags, pinned notes, reminders, full-text search, Claude AI assistant panel. Added Exchange email integration via IMAP/SMTP to mail.aptrents.com using ara\\Brandon credentials on Node.js port 3738.",
+    "output": "better-notes-mail.html + server.js (port 3738)",
+    "tags": [
+      "Evernote clone",
+      "Exchange email",
+      "IMAP",
+      "notes",
+      "Claude API"
+    ]
+  },
+  {
+    "num": 7,
+    "id": "455e9e07-cab8-4789-ac23-9ad0e7c70123",
+    "title": "CEO Executive Reporting Dashboard",
+    "url": "https://claude.ai/chat/455e9e07-cab8-4789-ac23-9ad0e7c70123",
+    "status": "completed",
+    "type": "build",
+    "category": "Dashboards & Analytics",
+    "created": "2026-06-04",
+    "description": "Built a comprehensive CEO reporting dashboard replicating the PropertyMax FLOW tab financial structure. 8 navigation tabs: Overview, Payment Flow, Vacancy, Manager KPIs, Financials, Maintenance, Delinquency, Renewals. Covers 6 Reg 1 properties with full rent collection, NOI, valuations, cap rates. Uses Claude API for AI-generated executive briefings.",
+    "output": "Self-contained HTML CEO dashboard",
+    "tags": [
+      "CEO dashboard",
+      "PropertyMax",
+      "FLOW tab",
+      "financials",
+      "Claude API"
+    ]
+  },
+  {
+    "num": 8,
+    "id": "0454c3ad-d227-4c88-9ebf-dfe7308418ce",
+    "title": "Forms & Resources Portal \u2014 PDF Export",
+    "url": "https://claude.ai/chat/0454c3ad-d227-4c88-9ebf-dfe7308418ce",
+    "status": "completed",
+    "type": "build",
+    "category": "Documents & Templates",
+    "created": "2026-06-02",
+    "description": "Built a unified Forms & Resources portal with 6 form types: HQS Fail Inspection Checklist, Make Ready Checklist, Pre-Move-Out Inspection, Move-Out Charge List, Maintenance Work Order, Incident Report. Each form has Export Blank PDF and Export Filled PDF. Auto-saves to localStorage with Saved badge.",
+    "output": "Self-contained HTML forms portal",
+    "tags": [
+      "forms",
+      "PDF export",
+      "HQS inspection",
+      "make ready",
+      "work order"
+    ]
+  },
+  {
+    "num": 9,
+    "id": "9959c819-8c33-4c76-a211-2fe74ede77ad",
+    "title": "Daily Regional Collections & Vacancy Email Reporter",
+    "url": "https://claude.ai/chat/9959c819-8c33-4c76-a211-2fe74ede77ad",
+    "status": "completed",
+    "type": "automation",
+    "category": "Property Management",
+    "created": "2026-05-28",
+    "description": "Built a daily regional reporting system using Puppeteer scraping PropertyMax.ai across all 4 regions. Sends formatted HTML emails to JR Rolon, Leslie Rolon, Ginger Positerry, Blake Weddington via Exchange (RegionalReporting@ApartmentCorp.com). Includes mobile-first email design and HTML attachment with full desktop report.",
+    "output": "pmx-api-payments-endpoint.js + daily-report.js",
+    "tags": [
+      "Puppeteer",
+      "PropertyMax",
+      "email automation",
+      "regional reporting",
+      "Exchange"
+    ]
+  },
+  {
+    "num": 10,
+    "id": "a9637c98-36f9-498c-bd0a-2417c9961df9",
+    "title": "Website Audit \u2014 Dean Parker Design",
+    "url": "https://claude.ai/chat/a9637c98-36f9-498c-bd0a-2417c9961df9",
+    "status": "completed",
+    "type": "research",
+    "category": "Marketing & Content",
+    "created": "2026-05-27",
+    "description": "Comprehensive SEO and UX audit for deanparkerdesign.com (Squarespace interior design portfolio). Identified critical SEO gaps, missing meta descriptions, no location targeting, weak conversion paths. Produced professional PDF report with scored findings, color-coded badge cards, and 10-item action plan.",
+    "output": "DeanParkerDesign_WebsiteAudit.pdf",
+    "tags": [
+      "website audit",
+      "SEO",
+      "PDF report",
+      "Squarespace"
+    ]
+  },
+  {
+    "num": 11,
+    "id": "8ae03bb8-1bf6-44f2-8236-ac83a74f39b9",
+    "title": "IntelliFiles \u2014 AI Document Management System",
+    "url": "https://claude.ai/chat/8ae03bb8-1bf6-44f2-8236-ac83a74f39b9",
+    "status": "completed",
+    "type": "automation",
+    "category": "Apps & Tools",
+    "created": "2026-05-07",
+    "description": "Built IntelliFiles document management system using Google Apps Script. Claude API categorizes uploads into 20 Google Drive folders (Legal, Finance, Maintenance, HR, Tenant Relations, etc.). Includes drag-and-drop UI, Gmail auto-ingestion from marcmenowitznotes@gmail.com, Google Sheet index, and keyword search.",
+    "output": "Code.gs + Index.html + appsscript.json",
+    "tags": [
+      "Google Apps Script",
+      "Claude API",
+      "document management",
+      "Google Drive",
+      "Gmail"
+    ]
+  },
+  {
+    "num": 12,
+    "id": "03521a24-c47c-4bb6-a332-81f5047020e6",
+    "title": "Indeed Applicant Ranker \u2014 Excel Workbook with M365 Checkboxes",
+    "url": "https://claude.ai/chat/03521a24-c47c-4bb6-a332-81f5047020e6",
+    "status": "completed",
+    "type": "automation",
+    "category": "HR & Operations",
+    "created": "2026-04-18",
+    "description": "Built a ranked Excel workbook from Indeed CSV exports covering 1,644 applicants across 12 job titles. Native M365 checkboxes via XLSX ZIP/XML manipulation (openpyxl + lxml). Includes indeed_weekly_ranker.py automation script and setup_task_scheduler.bat for Monday 8AM refresh.",
+    "output": "Ranked .xlsx workbook + indeed_weekly_ranker.py",
+    "tags": [
+      "Excel",
+      "Indeed",
+      "hiring",
+      "automation",
+      "M365 checkboxes",
+      "Python"
+    ]
+  },
+  {
+    "num": 13,
+    "id": "852b6872-0bf3-4cdd-ba89-437e0a91ed14",
+    "title": "ApartmentCorp AI & ClickUp Infrastructure Plan",
+    "url": "https://claude.ai/chat/852b6872-0bf3-4cdd-ba89-437e0a91ed14",
+    "status": "completed",
+    "type": "strategy",
+    "category": "Operations & Strategy",
+    "created": "2026-04-07",
+    "description": "Comprehensive AI/ClickUp infrastructure planning session. Designed full ClickUp workspace: 6 functional spaces + 5 regional spaces. Mapped PropertyMax 2.0 integration ecosystem (13 apps). Defined two-layer AI strategy: PropertyMax AI Bot for property-level, Claude for portfolio intelligence. Produced 12-slide executive PowerPoint.",
+    "output": "12-slide PPTX + full ClickUp workspace architecture",
+    "tags": [
+      "ClickUp",
+      "strategy",
+      "PropertyMax",
+      "AI infrastructure",
+      "executive presentation"
+    ]
+  },
+  {
+    "num": 14,
+    "id": "a02bafaa-e791-45b0-9bb1-211b9bed6907",
+    "title": "Vacancy Report App \u2014 Self-Contained HTML Replica",
+    "url": "https://claude.ai/chat/a02bafaa-e791-45b0-9bb1-211b9bed6907",
+    "status": "completed",
+    "type": "build",
+    "category": "Property Management",
+    "created": "2026-04-07",
+    "description": "Replicated the ApartmentCorp vacancy report app from Manus as a self-contained HTML file. PIN-protected admin panel (3060), five stat cards, scrolling ticker, at-risk properties, unit detail tabs (Vacant/Unleased, Preleased, On Notice, Evictions). Baked live PropertyMax data directly into HTML constants.",
+    "output": "index.html (self-contained, deployable)",
+    "tags": [
+      "vacancy report",
+      "property management",
+      "PIN protected",
+      "PropertyMax",
+      "self-contained HTML"
+    ]
+  },
+  {
+    "num": 15,
+    "id": "a571b891-560d-4155-b7b9-e84de65d46c1",
+    "title": "PropertyMax KPI Scraper \u2014 Google Apps Script + Puppeteer",
+    "url": "https://claude.ai/chat/a571b891-560d-4155-b7b9-e84de65d46c1",
+    "status": "completed",
+    "type": "automation",
+    "category": "Property Management",
+    "created": "2026-04-15",
+    "description": "Reverse-engineered PropertyMax.ai ColdFusion API. Built Google Apps Script collecting 13 KPIs per manager (Guest Cards, Call Recordings, Tasks) into Google Sheets. Discovered session-based auth requires local Node.js/Puppeteer server at C:\\pmx-api\\ with manager-switching via dashboard dropdown.",
+    "output": "Google Apps Script v5 + C:\\pmx-api\\index.js",
+    "tags": [
+      "PropertyMax",
+      "Google Apps Script",
+      "Puppeteer",
+      "KPI",
+      "ColdFusion API",
+      "automation"
+    ]
+  },
+  {
+    "num": 16,
+    "id": "c9e23ed9-06c0-433e-bc88-743577518012",
+    "title": "PropertyMax Daily KPI Collection \u2014 Token Estimation",
+    "url": "https://claude.ai/chat/c9e23ed9-06c0-433e-bc88-743577518012",
+    "status": "completed",
+    "type": "research",
+    "category": "Property Management",
+    "created": "2026-04-10",
+    "description": "Reverse-engineered PropertyMax.ai API endpoints for automated KPI collection across 30-35 managers. Discovered CFC endpoints, session cookie auth patterns, call recording tab IDs (negcalls, marketingcalls, urgcalls), and guest card getGuestCards POST parameters. Built 5 iterations of Google Apps Script.",
+    "output": "Google Apps Script v5 + endpoint documentation",
+    "tags": [
+      "PropertyMax",
+      "API reverse engineering",
+      "ColdFusion",
+      "KPI",
+      "Google Apps Script"
+    ]
+  },
+  {
+    "num": 17,
+    "id": "d5ca96df-4453-441d-b63c-d4e92ff53e9c",
+    "title": "ApartmentCorp Website \u2014 Vercel Deployment",
+    "url": "https://claude.ai/chat/d5ca96df-4453-441d-b63c-d4e92ff53e9c",
+    "status": "completed",
+    "type": "devops",
+    "category": "Apps & Tools",
+    "created": "2026-05-11",
+    "description": "Deployed ApartmentCorp website (Vite/React app) from github.com/AptCorp-PropertyMax/apartmentcorp-website to Vercel. Resolved Windows UNC path issues, npm peer dependency conflicts (--legacy-peer-deps), PowerShell execution policy. Root directory: client, output: ../dist/public.",
+    "output": "Live on Vercel \u2014 apartmentcorp.com",
+    "tags": [
+      "Vercel",
+      "Vite",
+      "React",
+      "deployment",
+      "ApartmentCorp website"
+    ]
+  },
+  {
+    "num": 18,
+    "id": "2c23c18a-bf7e-4073-af80-e7cbff00c218",
+    "title": "Manus Connector Demo \u2014 Performance Management Workflow",
+    "url": "https://claude.ai/chat/2c23c18a-bf7e-4073-af80-e7cbff00c218",
+    "status": "completed",
+    "type": "strategy",
+    "category": "Operations & Strategy",
+    "created": "2026-05-08",
+    "description": "Designed an 8-step Manus workflow demonstration for leadership showcasing AI automation across Notion, Exchange Email, spreadsheets, and Calendar connectors. Targets underperforming managers with coaching communications. Prepared as executive demo for Marc.",
+    "output": "Polished 8-step Manus prompt workflow",
+    "tags": [
+      "Manus",
+      "automation",
+      "workflow",
+      "executive demo",
+      "Notion connector"
+    ]
+  },
+  {
+    "num": 19,
+    "id": "c4ba54f0-f00c-439c-9bdd-4d90e26f3743",
+    "title": "Compound Interest Explainer \u2014 Interactive Visualization",
+    "url": "https://claude.ai/chat/c4ba54f0-f00c-439c-9bdd-4d90e26f3743",
+    "status": "completed",
+    "type": "build",
+    "category": "Education & Training",
+    "created": "2026-04-13",
+    "description": "Built an interactive compound interest explorer with sliders for principal, rate, and time. Line chart comparing compound vs. simple interest. Includes Rule of 72 explanation.",
+    "output": "Interactive compound interest visualization",
+    "tags": [
+      "finance",
+      "education",
+      "visualization",
+      "compound interest"
+    ]
+  },
+  {
+    "num": 20,
+    "id": "95765e22-c8a8-4741-93fd-871cbb47a028",
+    "title": "Office Improvements & Pest Control Proposal",
+    "url": "https://claude.ai/chat/95765e22-c8a8-4741-93fd-871cbb47a028",
+    "status": "completed",
+    "type": "writing",
+    "category": "Operations & Strategy",
+    "created": "2026-06-05",
+    "description": "Rewrote a property visit memo to Marc covering lobby furniture upgrades, gravel area improvements, and a case for switching pest control vendors based on tenant complaints observed during a one-hour site visit.",
+    "output": "Professional memo draft",
+    "tags": [
+      "writing",
+      "memo",
+      "property management",
+      "vendor evaluation"
+    ]
+  },
+  {
+    "num": 21,
+    "id": "ad942e7f-649d-41ab-90aa-cb6d25281ce0",
+    "title": "Evernote Export \u2014 Open & View Notes",
+    "url": "https://claude.ai/chat/ad942e7f-649d-41ab-90aa-cb6d25281ce0",
+    "status": "completed",
+    "type": "research",
+    "category": "Apps & Tools",
+    "created": "2026-05-12",
+    "description": "Helped open and view boss's exported Evernote .enex files with attachments. Recommended Joplin as fastest free option for viewing all notes and attachments without re-importing to Evernote.",
+    "output": "Guidance + Joplin recommendation",
+    "tags": [
+      "Evernote",
+      "Joplin",
+      "notes export",
+      "file conversion"
+    ]
+  }
+]
