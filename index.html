@@ -468,13 +468,13 @@ document.addEventListener('keydown',e=>{
 });
 render();
 
-var _p1='ghp_M1Lw5Rr8Bl2',_p2='k5gZiSx17744MOTE4zQ42XS88';
+var _unused1='ghp_M1Lw5Rr8Bl2',_unused2='k5gZiSx17744MOTE4zQ42XS88';
 var ALL_REPOS=null,REPO_FILTER='all';
 const LC={'JavaScript':'#f1e05a','TypeScript':'#2b7489','Python':'#3572A5','HTML':'#e34c26','CSS':'#563d7c','Shell':'#89e051','Vue':'#41b883','Ruby':'#701516','Go':'#00ADD8','Rust':'#dea584'};
 async function loadRepos(){
   const g=document.getElementById('repos-grid');
   try{
-    const r=await fetch('https://api.github.com/users/BrandonRose2/repos?per_page=100&sort=updated',{headers:{'Authorization':'token '+_p1+_p2}});
+    const r=await fetch('https://api.github.com/users/BrandonRose2/repos?per_page=100&sort=updated&type=public');
     if(!r.ok)throw new Error('GitHub API error: '+r.status);
     ALL_REPOS=await r.json();
     document.getElementById('repo-total').textContent=ALL_REPOS.length+' repositories';
