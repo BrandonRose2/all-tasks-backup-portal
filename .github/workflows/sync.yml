@@ -2,8 +2,8 @@ name: Sync Manus Tasks
 
 on:
   schedule:
-    # Runs every Monday at 6:00 AM PST
-    - cron: "0 14 * * 1"
+    # Runs every day at 4:00 AM PST (12:00 UTC)
+    - cron: "0 12 * * *"
   workflow_dispatch:
     # Also allows manual trigger from GitHub Actions UI
 
@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
 
@@ -38,7 +38,8 @@ jobs:
           git config user.name "Manus Sync Bot"
           git config user.email "sync-bot@manus-dashboard.local"
           git add client/public/tasks_data.json
-          git commit -m "chore: sync tasks from Manus API [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
+          TASK_COUNT=$(python3 -c "import json; d=json.load(open('client/public/tasks_data.json')); print(d['meta']['total'])")
+          git commit -m "chore: sync tasks from Manus API — ${TASK_COUNT} tasks [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
           git push
 
       - name: No changes detected
