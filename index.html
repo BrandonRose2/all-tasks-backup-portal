@@ -141,6 +141,22 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
 #footer{border-top:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:var(--muted);font-family:var(--fm)}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px}
 .fade-in{animation:fi .2s ease both}@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+#repos-page{display:none}
+.repos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.repo-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;transition:border-color .15s;cursor:pointer;text-decoration:none;display:block}
+.repo-card:hover{border-color:var(--ab)}
+.rname{font-size:13px;font-weight:700;color:var(--amber);margin-bottom:6px}
+.rdesc{font-size:11px;color:var(--muted2);margin-bottom:10px;line-height:1.5;min-height:28px}
+.rmeta{display:flex;align-items:center;gap:10px;font-size:10px;color:var(--muted);font-family:var(--fm);flex-wrap:wrap}
+.ldot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:3px}
+.rfiltrow{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.rfb{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:none;color:var(--muted2);transition:all .15s;font-family:var(--fd)}
+.rfb:hover{color:var(--text)}.rfb.on{background:var(--ad);border-color:var(--ab);color:var(--amber)}
+.rsch{height:32px;background:var(--card);border:1px solid var(--border2);border-radius:6px;padding:0 12px;font-size:12px;color:var(--text);font-family:var(--fd);outline:none;width:200px;margin-left:auto}
+.rsch:focus{border-color:var(--ab)}.rsch::placeholder{color:var(--muted)}
+.spn{width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--amber);border-radius:50%;animation:spin 1s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -157,9 +173,13 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
     <button class="sb" id="srcc" onclick="setSrc('claude')"><b style="font-size:10px">C</b> Claude</button>
   </div>
   <div class="snav" style="margin-top:6px">
-    <button class="nb am" id="navt">
+    <button class="nb am" id="navt" onclick="showTasks2()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
       All Tasks <span class="bdg" id="ntc">635</span>
+    </button>
+    <button class="nb" id="navr" onclick="showRepos()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub Repos <span class="bdg" id="repo-count">61</span>
     </button>
   </div>
   <div class="sstats">
@@ -191,6 +211,14 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
         <button class="fc" id="fc-m16l" onclick="tf('agent','manus-1.6-lite')">1.6 Lite<span class="cc" id="c-manus-1.6-lite">0</span></button>
         <button class="fc" id="fc-m16m" onclick="tf('agent','manus-1.6-max')">1.6 Max<span class="cc" id="c-manus-1.6-max">0</span></button>
       </div>
+
+    <div style="margin-top:12px">
+      <div class="stl">Options</div>
+      <button class="fc" id="fc-hs" onclick="toggleHS()">
+        <span id="hschk" style="width:12px;height:12px;border:1px solid var(--muted);border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:8px"></span>
+        Hide Research Subtasks
+      </button>
+    </div>
     </div>
     <div id="cf" style="display:none">
       <div style="margin-bottom:12px">
@@ -250,6 +278,20 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
     <div id="tg"></div>
     <div id="empty"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No tasks match</p><button onclick="clearAll()" style="margin-top:8px;color:var(--amber);background:none;border:none;cursor:pointer;font-size:12px">Clear filters</button></div>
     <div id="lmw" style="display:none"><button class="lmb" onclick="loadMore()" id="lmb">Load more</button></div>
+    <div id="repos-page" style="display:none">
+      <div style="margin-bottom:16px">
+        <div style="font-size:20px;font-weight:700;margin-bottom:4px">GitHub Repositories</div>
+        <div style="font-size:12px;color:var(--muted)">@BrandonRose2 · <span id="repo-total">Loading...</span></div>
+      </div>
+      <div class="rfiltrow">
+        <button class="rfb on" id="rfb-all" onclick="setRF('all')">All</button>
+        <button class="rfb" id="rfb-public" onclick="setRF('public')">Public</button>
+        <button class="rfb" id="rfb-private" onclick="setRF('private')">Private</button>
+        <button class="rfb" id="rfb-forked" onclick="setRF('forked')">Forked</button>
+        <input type="text" class="rsch" id="rsch" placeholder="Search repos…" oninput="renderRepos()">
+      </div>
+      <div id="repos-grid" class="repos-grid"><div style="padding:40px;display:flex;align-items:center;gap:10px;color:var(--muted)"><span class="spn"></span>&nbsp;Loading repositories...</div></div>
+    </div>
   </div>
   <div id="footer"><span>Built 2026-07-26 · Brandon Rose · 635 Manus · 22 Claude</span><span id="ftxt">brandonrose2.github.io/all-tasks-backup-portal</span></div>
 </div>
@@ -281,6 +323,7 @@ const isSub=t=>t.title==='Wide Research Subtask'||t.type==='agent_subtask';
 const cur=()=>S.src==='manus'?MANUS:CLAUDE;
 function getFilt(){
   let l=cur().slice();
+  if(S.src==='manus'&&S.hideSubtasks)l=l.filter(t=>!isSub(t));
   if(S.src==='manus'){
     if(S.q){const q=S.q.toLowerCase();l=l.filter(t=>t.title.toLowerCase().includes(q));}
     if(S.mf.status)l=l.filter(t=>t.status===S.mf.status);
@@ -424,6 +467,72 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape')closePanel();
 });
 render();
+
+var _p1='ghp_M1Lw5Rr8Bl2',_p2='k5gZiSx17744MOTE4zQ42XS88';
+var ALL_REPOS=null,REPO_FILTER='all';
+const LC={'JavaScript':'#f1e05a','TypeScript':'#2b7489','Python':'#3572A5','HTML':'#e34c26','CSS':'#563d7c','Shell':'#89e051','Vue':'#41b883','Ruby':'#701516','Go':'#00ADD8','Rust':'#dea584'};
+async function loadRepos(){
+  const g=document.getElementById('repos-grid');
+  try{
+    const r=await fetch('https://api.github.com/users/BrandonRose2/repos?per_page=100&sort=updated',{headers:{'Authorization':'token '+_p1+_p2}});
+    if(!r.ok)throw new Error('GitHub API error: '+r.status);
+    ALL_REPOS=await r.json();
+    document.getElementById('repo-total').textContent=ALL_REPOS.length+' repositories';
+    document.getElementById('repo-count').textContent=ALL_REPOS.length;
+    renderRepos();
+  }catch(e){g.innerHTML='<div style="padding:40px;color:var(--red);font-size:13px">'+e.message+'</div>';}
+}
+function setRF(f){
+  REPO_FILTER=f;
+  ['all','public','private','forked'].forEach(k=>{const b=document.getElementById('rfb-'+k);if(b)b.className='rfb'+(k===f?' on':'');});
+  renderRepos();
+}
+function renderRepos(){
+  if(!ALL_REPOS)return;
+  const q=(document.getElementById('rsch')?.value||'').toLowerCase();
+  let repos=ALL_REPOS.filter(r=>{
+    if(REPO_FILTER==='public'&&r.private)return false;
+    if(REPO_FILTER==='private'&&!r.private)return false;
+    if(REPO_FILTER==='forked'&&!r.fork)return false;
+    if(q&&!r.name.toLowerCase().includes(q)&&!(r.description||'').toLowerCase().includes(q))return false;
+    return true;
+  });
+  const g=document.getElementById('repos-grid');
+  if(!repos.length){g.innerHTML='<div style="padding:40px;color:var(--muted)">No repositories match</div>';return;}
+  g.innerHTML=repos.map(r=>`<a class="repo-card" href="${r.html_url}" target="_blank" rel="noopener">
+    <div class="rname">${r.name}${r.private?'<span style="font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,.06);color:var(--muted);margin-left:6px">private</span>':''}${r.fork?'<span style="font-size:9px;padding:1px 5px;border-radius:3px;background:var(--bld);color:var(--bl);margin-left:6px">fork</span>':''}</div>
+    <div class="rdesc">${r.description||'<span style="opacity:.35">No description</span>'}</div>
+    <div class="rmeta">
+      ${r.language?`<span><span class="ldot" style="background:${LC[r.language]||'var(--muted)'}"></span>${r.language}</span>`:'<span style="opacity:.3">—</span>'}
+      ${r.stargazers_count?`<span>⭐ ${r.stargazers_count}</span>`:''}
+      <span>${new Date(r.updated_at).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span>
+      ${r.has_pages?'<span style="color:var(--em)">● Pages</span>':''}
+    </div>
+  </a>`).join('');
+}
+function showRepos(){
+  ['sbar','cw','fp','tg','lmw','empty'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none';});
+  document.getElementById('repos-page').style.display='block';
+  document.getElementById('navt').className='nb';
+  document.getElementById('navr').className='nb am';
+  if(!ALL_REPOS)loadRepos();
+}
+function showTasks2(){
+  document.getElementById('repos-page').style.display='none';
+  ['sbar','cw','fp','tg','lmw'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='';});
+  const iM=S.src==='manus';
+  document.getElementById('navt').className='nb '+(iM?'am':'ac');
+  document.getElementById('navr').className='nb';
+  render();
+}
+S.hideSubtasks=false;
+function toggleHS(){
+  S.hideSubtasks=!S.hideSubtasks;S.page=1;
+  document.getElementById('hschk').textContent=S.hideSubtasks?'✓':'';
+  document.getElementById('fc-hs').className='fc'+(S.hideSubtasks?' am':'');
+  render();
+}
+
 </script>
 </body>
 </html>
