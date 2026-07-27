@@ -157,6 +157,27 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
 .rsch:focus{border-color:var(--ab)}.rsch::placeholder{color:var(--muted)}
 .spn{width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--amber);border-radius:50%;animation:spin 1s linear infinite;display:inline-block}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Multi-select & Delete ── */
+.sel-bar{display:none;align-items:center;gap:10px;padding:8px 14px;background:var(--card2);border:1px solid var(--border2);border-radius:8px;margin-bottom:12px;animation:fi .2s ease both}
+.sel-bar.show{display:flex}
+.sel-count{font-size:12px;font-weight:600;color:var(--text)}
+.sel-all-btn{padding:4px 10px;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:none;color:var(--muted2);transition:all .15s;font-family:var(--fd)}
+.sel-all-btn:hover{color:var(--text);border-color:var(--border)}
+.del-btn{padding:5px 12px;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid rgba(248,113,113,.4);background:var(--red-dim,rgba(248,113,113,.1));color:var(--red,#f87171);font-family:var(--fd);transition:all .15s;display:flex;align-items:center;gap:5px;margin-left:auto}
+.del-btn:hover{background:rgba(248,113,113,.2)}
+.clr-sel-btn{padding:4px 8px;border-radius:5px;font-size:11px;cursor:pointer;border:none;background:none;color:var(--muted);transition:color .15s}
+.clr-sel-btn:hover{color:var(--text)}
+.tc{position:relative}
+.tc-cb{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:4px;border:1px solid var(--border2);background:var(--card2);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s,background .15s,border-color .15s;font-size:10px;color:white;z-index:2}
+.tc:hover .tc-cb,.tc-cb.checked,.sel-mode .tc-cb{opacity:1}
+.tc-cb.checked{background:var(--amber);border-color:var(--amber)}
+.tc.selected{border-color:var(--amber)!important;background:rgba(245,166,35,.06)!important}
+.tc.selected.tcc{border-color:var(--cl)!important;background:rgba(204,120,92,.06)!important}
+.tc.selected .tc-cb{background:var(--amber);border-color:var(--amber);opacity:1}
+.tc.selected.tcc .tc-cb{background:var(--cl);border-color:var(--cl)}
+.restore-btn{padding:4px 10px;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--eb);background:var(--ed);color:var(--em);font-family:var(--fd);transition:all .15s}
+.restore-btn:hover{background:rgba(52,211,153,.2)}
 </style>
 </head>
 <body>
@@ -274,6 +295,16 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
       <div class="sc"><div class="sl" id="sl4">Awaiting</div><div class="sv" id="sv4">—</div><div class="ss" id="sv4s">— running</div></div>
     </div>
     <div id="cw"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px"><div><span style="font-size:12px;font-weight:600">Task Activity</span>&nbsp;&nbsp;<span style="font-size:10px;color:var(--muted);font-family:var(--fm)">Last 8 months</span></div></div><div id="cb"></div></div>
+    <div class="sel-bar" id="sel-bar">
+      <span class="sel-count" id="sel-count">0 selected</span>
+      <button class="sel-all-btn" onclick="selectAll()">Select All</button>
+      <button class="clr-sel-btn" onclick="clearSelection()">✕ Clear</button>
+      <button class="restore-btn" id="restore-btn" onclick="restoreDeleted()" style="display:none">↩ Restore Deleted</button>
+      <button class="del-btn" onclick="deleteSelected()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        Delete Selected
+      </button>
+    </div>
     <div id="fp"></div>
     <div id="tg"></div>
     <div id="empty"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No tasks match</p><button onclick="clearAll()" style="margin-top:8px;color:var(--amber);background:none;border:none;cursor:pointer;font-size:12px">Clear filters</button></div>
@@ -532,6 +563,146 @@ function toggleHS(){
   document.getElementById('fc-hs').className='fc'+(S.hideSubtasks?' am':'');
   render();
 }
+
+
+// ── Multi-select & Delete ─────────────────────────────────────────────────────
+var SELECTED = new Set();
+var DELETED_M = new Set(JSON.parse(localStorage.getItem('deleted_manus')||'[]'));
+var DELETED_C = new Set(JSON.parse(localStorage.getItem('deleted_claude')||'[]'));
+
+function saveDeleted(){
+  localStorage.setItem('deleted_manus', JSON.stringify([...DELETED_M]));
+  localStorage.setItem('deleted_claude', JSON.stringify([...DELETED_C]));
+}
+
+function toggleSelect(num, isManus, e){
+  e.stopPropagation();
+  const key = (isManus?'m':'c') + num;
+  if(SELECTED.has(key)) SELECTED.delete(key);
+  else SELECTED.add(key);
+  updateSelUI();
+  // Update card visual
+  const card = document.querySelector('[data-key="'+key+'"]');
+  if(card){
+    card.classList.toggle('selected', SELECTED.has(key));
+    const cb = card.querySelector('.tc-cb');
+    if(cb) cb.classList.toggle('checked', SELECTED.has(key));
+    if(cb) cb.textContent = SELECTED.has(key) ? '✓' : '';
+  }
+}
+
+function updateSelUI(){
+  const count = SELECTED.size;
+  document.getElementById('sel-count').textContent = count + ' selected';
+  document.getElementById('sel-bar').classList.toggle('show', count > 0);
+  // Show restore btn if there are deleted tasks
+  const delCount = (S.src==='manus'?DELETED_M:DELETED_C).size;
+  const rb = document.getElementById('restore-btn');
+  if(rb) rb.style.display = delCount > 0 ? 'flex' : 'none';
+}
+
+function selectAll(){
+  const filt = getFilt();
+  filt.forEach(t => {
+    const isManus = S.src === 'manus';
+    const key = (isManus?'m':'c') + t.num;
+    SELECTED.add(key);
+  });
+  updateSelUI();
+  render();
+}
+
+function clearSelection(){
+  SELECTED.clear();
+  updateSelUI();
+  render();
+}
+
+function deleteSelected(){
+  if(!SELECTED.size) return;
+  const isManus = S.src === 'manus';
+  const confirmMsg = 'Delete ' + SELECTED.size + ' task' + (SELECTED.size>1?'s':'') + '? (Stored locally — use Restore to undo)';
+  if(!confirm(confirmMsg)) return;
+  SELECTED.forEach(key => {
+    const num = parseInt(key.slice(1));
+    if(isManus) DELETED_M.add(num);
+    else DELETED_C.add(num);
+  });
+  saveDeleted();
+  SELECTED.clear();
+  updateSelUI();
+  render();
+  // Show restore button
+  const rb = document.getElementById('restore-btn');
+  if(rb) rb.style.display = 'flex';
+}
+
+function restoreDeleted(){
+  const isManus = S.src === 'manus';
+  if(isManus) DELETED_M.clear();
+  else DELETED_C.clear();
+  saveDeleted();
+  SELECTED.clear();
+  updateSelUI();
+  render();
+  const rb = document.getElementById('restore-btn');
+  if(rb) rb.style.display = 'none';
+}
+
+// Patch getFilt to exclude deleted tasks
+const _origGetFilt2 = getFilt;
+getFilt = function(){
+  let l = _origGetFilt2();
+  const isManus = S.src === 'manus';
+  const deleted = isManus ? DELETED_M : DELETED_C;
+  if(deleted.size) l = l.filter(t => !deleted.has(t.num));
+  return l;
+};
+
+// Patch mCard and cCard to add checkbox + data-key
+const _origMCard = mCard;
+mCard = function(t){
+  const base = _origMCard(t);
+  const key = 'm' + t.num;
+  const isSelected = SELECTED.has(key);
+  // Add data-key and checkbox to card
+  return base
+    .replace('class="tc tm"', 'class="tc tm' + (isSelected?' selected':'') + '" data-key="' + key + '"')
+    .replace('onclick="openM(' + t.num + ')"', 'onclick="handleCardClick(' + t.num + ', true, event)"')
+    .replace('<div class="ss2 m"></div>', '<div class="ss2 m"></div><div class="tc-cb' + (isSelected?' checked':'') + '" onclick="toggleSelect(' + t.num + ',true,event)">' + (isSelected?'✓':'') + '</div>');
+};
+
+const _origCCard = cCard;
+cCard = function(t){
+  const base = _origCCard(t);
+  const key = 'c' + t.num;
+  const isSelected = SELECTED.has(key);
+  return base
+    .replace('class="tc tcc"', 'class="tc tcc' + (isSelected?' selected':'') + '" data-key="' + key + '"')
+    .replace('onclick="openC(' + t.num + ')"', 'onclick="handleCardClick(' + t.num + ', false, event)"')
+    .replace('<div class="ss2 c"></div>', '<div class="ss2 c"></div><div class="tc-cb' + (isSelected?' checked':'') + '" onclick="toggleSelect(' + t.num + ',false,event)">' + (isSelected?'✓':'') + '</div>');
+};
+
+function handleCardClick(num, isManus, e){
+  // If clicking the checkbox area, don't open panel
+  if(e.target.classList.contains('tc-cb')) return;
+  // If in selection mode, toggle selection instead of opening panel
+  if(SELECTED.size > 0){
+    toggleSelect(num, isManus, e);
+    return;
+  }
+  if(isManus) openM(num);
+  else openC(num);
+}
+
+// Show restore button on load if there are deleted items
+document.addEventListener('DOMContentLoaded', () => {
+  const delCount = DELETED_M.size + DELETED_C.size;
+  if(delCount > 0){
+    const rb = document.getElementById('restore-btn');
+    if(rb) rb.style.display = 'flex';
+  }
+});
 
 </script>
 </body>
