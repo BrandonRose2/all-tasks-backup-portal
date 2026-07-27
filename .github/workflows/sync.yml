@@ -2,8 +2,8 @@ name: Sync Manus Tasks
 
 on:
   schedule:
-    # Runs every day at 4:00 AM PST (12:00 UTC)
-    - cron: "0 12 * * *"
+    # Runs every Friday at 4:00 AM PST (12:00 UTC)
+    - cron: "0 12 * * 5"
   workflow_dispatch:
     # Also allows manual trigger from GitHub Actions UI
 
@@ -32,16 +32,44 @@ jobs:
         run: |
           git diff --quiet client/public/tasks_data.json || echo "changed=true" >> $GITHUB_OUTPUT
 
+      - name: Get task count
+        id: taskcount
+        run: |
+          TASK_COUNT=$(python3 -c "import json; d=json.load(open('client/public/tasks_data.json')); print(d['meta']['total'])")
+          echo "count=${TASK_COUNT}" >> $GITHUB_OUTPUT
+
       - name: Commit and push updated task data
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "Manus Sync Bot"
           git config user.email "sync-bot@manus-dashboard.local"
           git add client/public/tasks_data.json
-          TASK_COUNT=$(python3 -c "import json; d=json.load(open('client/public/tasks_data.json')); print(d['meta']['total'])")
-          git commit -m "chore: sync tasks from Manus API — ${TASK_COUNT} tasks [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
+          git commit -m "chore: sync tasks from Manus API — ${{ steps.taskcount.outputs.count }} tasks [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
           git push
 
       - name: No changes detected
         if: steps.changes.outputs.changed != 'true'
         run: echo "No task changes detected. Dashboard is already up to date."
+
+      - name: Send email notification
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: brandonrose2@gmail.com
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "Manus Task Sync — ${{ steps.taskcount.outputs.count }} tasks [${{ job.status }}]"
+          to: brandon@apartmentcorp.com,brandonrose2@gmail.com
+          from: "Manus Sync Bot <brandonrose2@gmail.com>"
+          body: |
+            Weekly Manus task sync completed.
+
+            Status: ${{ job.status }}
+            Total tasks: ${{ steps.taskcount.outputs.count }}
+            Changes detected: ${{ steps.changes.outputs.changed == 'true' && 'Yes — portal updated and redeployed' || 'No — portal already up to date' }}
+            Run date: $(TZ='America/Los_Angeles' date '+%A, %B %d %Y at %I:%M %p PST')
+
+            View your portal: https://brandonrose2.github.io/all-tasks-backup-portal/
+            View workflow run: https://github.com/BrandonRose2/all-tasks-backup-portal/actions
