@@ -659,50 +659,59 @@ getFilt = function(){
   return l;
 };
 
-// Patch mCard and cCard to add checkbox + data-key
+
+
+
+// ── Clean card implementations with checkbox + delete support ─────────────────
 const _origMCard = mCard;
+const _origCCard = cCard;
+
 mCard = function(t){
-  const base = _origMCard(t);
-  const key = 'm' + t.num;
-  const isSelected = SELECTED.has(key);
-  // Add data-key and checkbox to card
-  return base
-    .replace('class="tc tm"', 'class="tc tm' + (isSelected?' selected':'') + '" data-key="' + key + '"')
-    .replace('onclick="openM(' + t.num + ')"', 'onclick="handleCardClick(' + t.num + ', true, event)"')
-    .replace('<div class="ss2 m"></div>', '<div class="ss2 m"></div><div class="tc-cb' + (isSelected?' checked':'') + '" onclick="toggleSelect(' + t.num + ',true,event)">' + (isSelected?'✓':'') + '</div>');
+  const isSub2 = t.title==='Wide Research Subtask'||t.type==='agent_subtask';
+  const key = 'm'+t.num;
+  const isSel = SELECTED.has(key);
+  const selClass = isSel?' selected':'';
+  const cbHtml = '<div class="tc-cb'+(isSel?' checked':'')+'" onclick="toggleSelect('+t.num+',true,event)">'+(isSel?'✓':'')+'</div>';
+  if(isSub2){
+    return '<div class="tc tm'+selClass+'" data-key="'+key+'" onclick="handleCardClick('+t.num+',true,event)">'+
+      cbHtml+'<div style="padding:8px 14px"><span style="font-size:11px;color:var(--muted)">↳ Subtask · '+fk(t.credits)+' cr</span></div></div>';
+  }
+  const st=MST[t.status]||MST.stopped;
+  return '<div class="tc tm'+selClass+'" data-key="'+key+'" onclick="handleCardClick('+t.num+',true,event)">'+
+    '<div class="ss2 m"></div>'+cbHtml+
+    '<div class="tbadges"><span class="b '+st.bc+'"><span class="dot '+st.dc+'"></span> '+st.l+'</span>'+
+    (t.type==='project'?'<span class="b bp">Project</span>':'')+
+    (t.credits>1000?'<span class="b bhv">★ High Value</span>':'')+
+    '</div>'+
+    '<div class="ttitle">'+t.title+'</div>'+
+    '<div class="tmeta"><span>'+(AL[t.agent]||t.agent)+'</span>'+
+    '<span style="'+(t.credits>500?'color:var(--amber);opacity:.8':'')+'">'+ fk(t.credits)+' cr</span>'+
+    '<span>'+fd(t.created)+'</span></div></div>';
 };
 
-const _origCCard = cCard;
 cCard = function(t){
-  const base = _origCCard(t);
-  const key = 'c' + t.num;
-  const isSelected = SELECTED.has(key);
-  return base
-    .replace('class="tc tcc"', 'class="tc tcc' + (isSelected?' selected':'') + '" data-key="' + key + '"')
-    .replace('onclick="openC(' + t.num + ')"', 'onclick="handleCardClick(' + t.num + ', false, event)"')
-    .replace('<div class="ss2 c"></div>', '<div class="ss2 c"></div><div class="tc-cb' + (isSelected?' checked':'') + '" onclick="toggleSelect(' + t.num + ',false,event)">' + (isSelected?'✓':'') + '</div>');
+  const key = 'c'+t.num;
+  const isSel = SELECTED.has(key);
+  const selClass = isSel?' selected':'';
+  const col = CT[t.type]||'var(--cl)';
+  const cbHtml = '<div class="tc-cb'+(isSel?' checked':'')+'" onclick="toggleSelect('+t.num+',false,event)">'+(isSel?'✓':'')+'</div>';
+  return '<div class="tc tcc'+selClass+'" data-key="'+key+'" onclick="handleCardClick('+t.num+',false,event)">'+
+    '<div class="ss2 c"></div>'+cbHtml+
+    '<div class="tbadges"><span class="b bcl">◆ Claude</span>'+
+    '<span class="b" style="background:rgba(255,255,255,.05);border-color:var(--border);color:'+col+'">'+(TL[t.type]||t.type)+'</span>'+
+    '<span class="b bcat">'+t.category+'</span></div>'+
+    '<div class="ttitle">'+t.title+'</div>'+
+    '<div class="tmeta"><span>'+t.category+'</span><span>'+fd(t.created)+'</span></div></div>';
 };
 
 function handleCardClick(num, isManus, e){
-  // If clicking the checkbox area, don't open panel
   if(e.target.classList.contains('tc-cb')) return;
-  // If in selection mode, toggle selection instead of opening panel
-  if(SELECTED.size > 0){
-    toggleSelect(num, isManus, e);
-    return;
-  }
-  if(isManus) openM(num);
-  else openC(num);
+  if(SELECTED.size > 0){ toggleSelect(num, isManus, e); return; }
+  if(isManus) openM(num); else openC(num);
 }
 
-// Show restore button on load if there are deleted items
-document.addEventListener('DOMContentLoaded', () => {
-  const delCount = DELETED_M.size + DELETED_C.size;
-  if(delCount > 0){
-    const rb = document.getElementById('restore-btn');
-    if(rb) rb.style.display = 'flex';
-  }
-});
+// Show restore btn if deletions exist on load
+(function(){ const d=DELETED_M.size+DELETED_C.size; if(d>0){const rb=document.getElementById('restore-btn');if(rb)rb.style.display='flex';}})();
 
 </script>
 </body>
