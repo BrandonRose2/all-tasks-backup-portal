@@ -178,6 +178,21 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
 .tc.selected.tcc .tc-cb{background:var(--cl);border-color:var(--cl)}
 .restore-btn{padding:4px 10px;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--eb);background:var(--ed);color:var(--em);font-family:var(--fd);transition:all .15s}
 .restore-btn:hover{background:rgba(52,211,153,.2)}
+
+#deleted-page{display:none}
+.trash-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;color:var(--muted);text-align:center;gap:10px}
+.trash-empty svg{opacity:.2}
+.del-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;opacity:.6;position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.del-card-title{font-size:13px;font-weight:600;color:var(--muted2);line-height:1.35;flex:1}
+.del-card-meta{font-size:10px;color:var(--muted);font-family:var(--fm);margin-top:4px}
+.restore-one{padding:4px 10px;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--eb);background:var(--ed);color:var(--em);font-family:var(--fd);transition:all .15s;white-space:nowrap}
+.restore-one:hover{background:rgba(52,211,153,.2)}
+.del-grid{display:flex;flex-direction:column;gap:8px}
+.del-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+.del-hdr-title{font-size:20px;font-weight:700}
+.del-hdr-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.restore-all-btn{padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--eb);background:var(--ed);color:var(--em);font-family:var(--fd);transition:all .15s}
+.restore-all-btn:hover{background:rgba(52,211,153,.2)}
 </style>
 </head>
 <body>
@@ -201,6 +216,10 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
     <button class="nb" id="navr" onclick="showRepos()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       GitHub Repos <span class="bdg" id="repo-count">61</span>
+    </button>
+    <button class="nb" id="nav-trash" onclick="showTrash()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+      Deleted <span class="bdg" id="trash-count">0</span>
     </button>
   </div>
   <div class="sstats">
@@ -322,6 +341,16 @@ html{font-family:var(--fd);background:var(--bg);color:var(--text);height:100%}bo
         <input type="text" class="rsch" id="rsch" placeholder="Search repos…" oninput="renderRepos()">
       </div>
       <div id="repos-grid" class="repos-grid"><div style="padding:40px;display:flex;align-items:center;gap:10px;color:var(--muted)"><span class="spn"></span>&nbsp;Loading repositories...</div></div>
+    </div>
+    <div id="deleted-page" style="display:none">
+      <div class="del-hdr">
+        <div>
+          <div class="del-hdr-title">🗑 Deleted Tasks</div>
+          <div class="del-hdr-sub" id="del-sub">Stored locally in your browser</div>
+        </div>
+        <button class="restore-all-btn" onclick="restoreAll()">↩ Restore All</button>
+      </div>
+      <div id="del-grid" class="del-grid"></div>
     </div>
   </div>
   <div id="footer"><span>Built 2026-07-26 · Brandon Rose · 635 Manus · 22 Claude</span><span id="ftxt">brandonrose2.github.io/tasks-dashboard</span></div>
@@ -712,6 +741,116 @@ function handleCardClick(num, isManus, e){
 
 // Show restore btn if deletions exist on load
 (function(){ const d=DELETED_M.size+DELETED_C.size; if(d>0){const rb=document.getElementById('restore-btn');if(rb)rb.style.display='flex';}})();
+
+
+function updateTrashCount(){
+  const total = DELETED_M.size + DELETED_C.size;
+  const el = document.getElementById('trash-count');
+  if(el) el.textContent = total;
+  // Show/hide nav badge style
+  const btn = document.getElementById('nav-trash');
+  if(btn) btn.style.opacity = total > 0 ? '1' : '0.5';
+}
+
+function showTrash(){
+  // Hide other pages
+  ['sbar','cw','fp','tg','lmw','empty','repos-page','deleted-page'].forEach(id=>{
+    const e=document.getElementById(id);if(e)e.style.display='none';
+  });
+  document.getElementById('deleted-page').style.display='block';
+  // Update nav
+  ['navt','navr','nav-trash'].forEach(id=>{
+    const e=document.getElementById(id);
+    if(e) e.className='nb'+(id==='nav-trash'?' am':'');
+  });
+  renderTrash();
+}
+
+function renderTrash(){
+  const grid = document.getElementById('del-grid');
+  const sub  = document.getElementById('del-sub');
+  const allDeleted = [];
+
+  // Manus deleted
+  DELETED_M.forEach(num => {
+    const t = MANUS.find(x=>x.num===num);
+    if(t) allDeleted.push({t, src:'manus'});
+  });
+  // Claude deleted
+  DELETED_C.forEach(num => {
+    const t = CLAUDE.find(x=>x.num===num);
+    if(t) allDeleted.push({t, src:'claude'});
+  });
+
+  if(sub) sub.textContent = allDeleted.length + ' deleted task' + (allDeleted.length!==1?'s':'') + ' · stored locally in your browser';
+
+  if(!allDeleted.length){
+    grid.innerHTML = '<div class="trash-empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg><div style="font-size:14px;font-weight:600">No deleted tasks</div><div style="font-size:12px">Tasks you delete will appear here</div></div>';
+    return;
+  }
+
+  grid.innerHTML = allDeleted.map(({t, src}) => {
+    const isManus = src==='manus';
+    const badge = isManus
+      ? '<span class="b bw" style="font-size:9px">⚡ Manus</span>'
+      : '<span class="b bcl" style="font-size:9px">◆ Claude</span>';
+    const meta = isManus
+      ? (AL[t.agent]||t.agent) + ' · ' + fk(t.credits) + ' cr · ' + fd(t.created)
+      : t.category + ' · ' + fd(t.created);
+    return '<div class="del-card">'+
+      '<div style="flex:1">'+
+        '<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">'+badge+
+          (isManus && t.type==='project' ? '<span class="b bp" style="font-size:9px">Project</span>' : '')+
+        '</div>'+
+        '<div class="del-card-title">'+t.title+'</div>'+
+        '<div class="del-card-meta">'+meta+'</div>'+
+      '</div>'+
+      '<button class="restore-one" onclick="restoreOne('+t.num+','+isManus+')">↩ Restore</button>'+
+    '</div>';
+  }).join('');
+}
+
+function restoreOne(num, isManus){
+  if(isManus) DELETED_M.delete(num);
+  else DELETED_C.delete(num);
+  saveDeleted();
+  updateTrashCount();
+  renderTrash();
+}
+
+function restoreAll(){
+  const isManus = DELETED_M.size > 0;
+  DELETED_M.clear();
+  DELETED_C.clear();
+  saveDeleted();
+  updateTrashCount();
+  renderTrash();
+}
+
+// Patch deleteSelected to update trash count after deleting
+const _origDeleteSelected = deleteSelected;
+deleteSelected = function(){
+  _origDeleteSelected();
+  updateTrashCount();
+  // Show trash button highlight
+  const btn = document.getElementById('nav-trash');
+  if(btn){ btn.style.background='rgba(248,113,113,.15)'; setTimeout(()=>btn.style.background='',2000); }
+};
+
+// Patch showTasks2 to hide deleted page too
+const _origShowTasks2 = showTasks2;
+showTasks2 = function(){
+  const dp = document.getElementById('deleted-page');
+  if(dp) dp.style.display='none';
+  _origShowTasks2();
+  ['navt','navr','nav-trash'].forEach(id=>{
+    const e=document.getElementById(id);
+    if(e && id!=='navt') e.className='nb';
+  });
+};
+
+// Init trash count on load
+updateTrashCount();
 
 </script>
 </body>
