@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
 <title>Brandon's Tasks Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -853,5 +854,224 @@ showTasks2 = function(){
 updateTrashCount();
 
 </script>
+  <style>
+    /* Client-side visual access gate. It does not secure public GitHub Pages files. */
+    #case-lock-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      overflow: auto;
+      color: #f7f8fb;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(96, 165, 250, .18), transparent 35%),
+        radial-gradient(circle at 82% 86%, rgba(167, 139, 250, .14), transparent 36%),
+        linear-gradient(145deg, #090b13 0%, #101525 48%, #080b12 100%);
+      transition: opacity .28s ease, visibility .28s ease;
+    }
+    #case-lock-screen.is-unlocking { opacity: 0; visibility: hidden; pointer-events: none; }
+    .case-lock-grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .34;
+      background-image: linear-gradient(rgba(148, 163, 184, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, .09) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, #000 0%, transparent 72%);
+    }
+    .case-lock-card {
+      position: relative;
+      width: min(100%, 430px);
+      padding: 40px;
+      border: 1px solid rgba(148, 163, 184, .22);
+      border-radius: 22px;
+      background: rgba(15, 19, 31, .86);
+      box-shadow: 0 26px 90px rgba(0, 0, 0, .48), inset 0 1px 0 rgba(255, 255, 255, .06);
+      backdrop-filter: blur(18px);
+      text-align: center;
+    }
+    .case-lock-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      border: 1px solid rgba(96, 165, 250, .45);
+      border-radius: 18px;
+      color: #bfdbfe;
+      background: linear-gradient(145deg, rgba(59, 130, 246, .26), rgba(30, 41, 59, .76));
+      box-shadow: 0 10px 30px rgba(37, 99, 235, .18);
+    }
+    .case-lock-eyebrow { margin-bottom: 9px; color: #93c5fd; font-family: var(--fm, monospace); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .case-lock-card h1 { margin: 0; color: #f8fafc; font-size: 25px; letter-spacing: -.035em; line-height: 1.14; }
+    .case-lock-card p { max-width: 32ch; margin: 13px auto 28px; color: #aab2c2; font-size: 13px; line-height: 1.6; }
+    .case-pin-form { display: grid; gap: 12px; }
+    .case-pin-input {
+      width: 100%;
+      height: 54px;
+      border: 1px solid rgba(148, 163, 184, .30);
+      border-radius: 12px;
+      outline: none;
+      color: #f8fafc;
+      background: rgba(2, 6, 23, .72);
+      font-family: var(--fm, monospace);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: .48em;
+      text-align: center;
+      transition: border-color .18s ease, box-shadow .18s ease;
+    }
+    .case-pin-input:focus { border-color: #60a5fa; box-shadow: 0 0 0 4px rgba(59, 130, 246, .18); }
+    .case-pin-input.case-input-error { border-color: #fb7185; animation: case-shake .32s ease-in-out; }
+    .case-unlock-button {
+      height: 50px;
+      border: 0;
+      border-radius: 12px;
+      color: #08101e;
+      background: linear-gradient(135deg, #bfdbfe, #60a5fa);
+      box-shadow: 0 10px 24px rgba(59, 130, 246, .25);
+      cursor: pointer;
+      font-family: var(--fd, sans-serif);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      transition: transform .16s ease, filter .16s ease;
+    }
+    .case-unlock-button:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .case-unlock-button:active { transform: translateY(0); }
+    .case-lock-message { min-height: 18px; margin: 0; color: #fda4af; font-size: 12px; }
+    .case-lock-footer { margin-top: 22px; color: #6f7b91; font-size: 10px; line-height: 1.5; }
+    @keyframes case-shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-7px)} 75%{transform:translateX(7px)} }
+
+    #case-file-vault {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 9000;
+      width: min(440px, calc(100vw - 32px));
+      max-height: calc(100vh - 40px);
+      overflow: auto;
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, .25);
+      border-radius: 18px;
+      color: #e5e7eb;
+      background: rgba(12, 16, 27, .96);
+      box-shadow: 0 22px 65px rgba(0, 0, 0, .5);
+      backdrop-filter: blur(18px);
+    }
+    #case-file-vault[hidden], #case-vault-toggle[hidden] { display: none; }
+    .case-vault-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    .case-vault-header h2 { margin: 0; color: #f8fafc; font-size: 16px; letter-spacing: -.02em; }
+    .case-vault-header p { margin: 5px 0 0; color: #94a3b8; font-size: 11px; line-height: 1.5; }
+    .case-vault-close, #case-vault-toggle { display: grid; place-items: center; border: 1px solid rgba(148, 163, 184, .24); border-radius: 9px; color: #cbd5e1; background: rgba(30, 41, 59, .72); cursor: pointer; }
+    .case-vault-close { width: 32px; height: 32px; flex: 0 0 auto; font-size: 19px; line-height: 1; }
+    #case-vault-toggle { position: fixed; right: 20px; bottom: 20px; z-index: 8999; height: 42px; padding: 0 14px; font-family: var(--fd, sans-serif); font-size: 12px; font-weight: 700; gap: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+    .case-vault-close:hover, #case-vault-toggle:hover { border-color: rgba(96, 165, 250, .7); color: #dbeafe; }
+    .case-file-list { display: grid; gap: 9px; }
+    .case-file-link { display: flex; align-items: center; gap: 11px; padding: 11px; border: 1px solid rgba(148, 163, 184, .15); border-radius: 11px; color: #e5e7eb; background: rgba(30, 41, 59, .40); text-decoration: none; transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+    .case-file-link:hover { border-color: rgba(96, 165, 250, .62); color: #eff6ff; background: rgba(30, 58, 138, .22); transform: translateY(-1px); }
+    .case-file-type { display: grid; width: 31px; height: 31px; flex: 0 0 auto; place-items: center; border-radius: 8px; color: #bfdbfe; background: rgba(59, 130, 246, .17); font-family: var(--fm, monospace); font-size: 9px; font-weight: 800; }
+    .case-file-copy { min-width: 0; flex: 1; }
+    .case-file-name { overflow: hidden; color: #e5e7eb; font-size: 12px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+    .case-file-detail { margin-top: 3px; color: #8491a5; font-size: 10px; }
+    .case-file-arrow { color: #93c5fd; font-size: 17px; }
+    .case-vault-note { margin: 14px 0 0; padding-top: 13px; border-top: 1px solid rgba(148, 163, 184, .14); color: #7c879a; font-size: 10px; line-height: 1.5; }
+    @media (max-width: 520px) { .case-lock-card { padding: 30px 23px; border-radius: 18px; } .case-lock-card h1 { font-size: 22px; } #case-file-vault { right: 12px; bottom: 12px; width: calc(100vw - 24px); } #case-vault-toggle { right: 12px; bottom: 12px; } }
+  </style>
+
+  <section id="case-lock-screen" aria-labelledby="case-lock-title">
+    <div class="case-lock-grid" aria-hidden="true"></div>
+    <div class="case-lock-card">
+      <div class="case-lock-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><circle cx="12" cy="15" r="1"></circle></svg>
+      </div>
+      <div class="case-lock-eyebrow">Restricted Access</div>
+      <h1 id="case-lock-title">Case Documentation Portal</h1>
+      <p>Enter the access PIN to open the case-file vault and the underlying workspace.</p>
+      <form id="case-pin-form" class="case-pin-form" novalidate>
+        <label for="case-pin-input" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Access PIN</label>
+        <input id="case-pin-input" class="case-pin-input" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]*" type="password" aria-describedby="case-lock-message" placeholder="••••" />
+        <button class="case-unlock-button" type="submit">Unlock case files</button>
+      </form>
+      <p id="case-lock-message" class="case-lock-message" aria-live="polite"></p>
+      <div class="case-lock-footer">Client-side access screen · Document links become available after unlock</div>
+    </div>
+  </section>
+
+  <aside id="case-file-vault" hidden aria-labelledby="case-vault-title" role="dialog" aria-modal="false">
+    <div class="case-vault-header">
+      <div>
+        <h2 id="case-vault-title">Case File Vault</h2>
+        <p>Five documentation files are available in this repository.</p>
+      </div>
+      <button id="case-vault-close" class="case-vault-close" type="button" aria-label="Close case file vault">×</button>
+    </div>
+    <nav class="case-file-list" aria-label="Case documentation files">
+      <a class="case-file-link" href="case-notes-and-strategy.md"><span class="case-file-type">MD</span><span class="case-file-copy"><span class="case-file-name">Case notes and strategy</span><span class="case-file-detail">Markdown documentation</span></span><span class="case-file-arrow" aria-hidden="true">→</span></a>
+      <a class="case-file-link" href="Report_Nicole_Ginger_Sandra_Demotion.pdf"><span class="case-file-type">PDF</span><span class="case-file-copy"><span class="case-file-name">Nicole–Ginger–Sandra demotion report</span><span class="case-file-detail">Supporting report</span></span><span class="case-file-arrow" aria-hidden="true">→</span></a>
+      <a class="case-file-link" href="ApartmentCorp_Indeed_Job_Listing.md"><span class="case-file-type">MD</span><span class="case-file-copy"><span class="case-file-name">ApartmentCorp Indeed job listing</span><span class="case-file-detail">Preserved Markdown copy</span></span><span class="case-file-arrow" aria-hidden="true">→</span></a>
+      <a class="case-file-link" href="ApartmentCorp_Indeed_Job_Listing.pdf"><span class="case-file-type">PDF</span><span class="case-file-copy"><span class="case-file-name">ApartmentCorp Indeed job listing</span><span class="case-file-detail">Preserved PDF copy</span></span><span class="case-file-arrow" aria-hidden="true">→</span></a>
+      <a class="case-file-link" href="Robert_Sagarang_Case_Monitor_Dashboard.html"><span class="case-file-type">HTML</span><span class="case-file-copy"><span class="case-file-name">Robert Sagarang case monitor</span><span class="case-file-detail">Interactive dashboard</span></span><span class="case-file-arrow" aria-hidden="true">→</span></a>
+    </nav>
+    <p class="case-vault-note">This is a client-side PIN screen on a public static site. It is not a substitute for authenticated access control.</p>
+  </aside>
+  <button id="case-vault-toggle" hidden type="button" aria-label="Open case file vault">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h3.086a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 12.243 7H18.5A2.5 2.5 0 0 1 21 9.5v8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"></path></svg>
+    Case files
+  </button>
+
+  <script>
+    (() => {
+      const ACCESS_PIN = "2597";
+      const form = document.getElementById("case-pin-form");
+      const input = document.getElementById("case-pin-input");
+      const message = document.getElementById("case-lock-message");
+      const screen = document.getElementById("case-lock-screen");
+      const vault = document.getElementById("case-file-vault");
+      const closeVault = document.getElementById("case-vault-close");
+      const toggleVault = document.getElementById("case-vault-toggle");
+
+      const openVault = () => {
+        vault.hidden = false;
+        toggleVault.hidden = true;
+        closeVault.focus();
+      };
+      const hideVault = () => {
+        vault.hidden = true;
+        toggleVault.hidden = false;
+        toggleVault.focus();
+      };
+      const unlock = () => {
+        screen.classList.add("is-unlocking");
+        window.setTimeout(() => {
+          screen.hidden = true;
+          openVault();
+        }, 280);
+      };
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (input.value === ACCESS_PIN) {
+          message.textContent = "";
+          unlock();
+          return;
+        }
+        message.textContent = "Incorrect PIN. Please try again.";
+        input.classList.remove("case-input-error");
+        void input.offsetWidth;
+        input.classList.add("case-input-error");
+        input.select();
+      });
+      input.addEventListener("input", () => {
+        input.value = input.value.replace(/\D/g, "");
+        if (input.value.length < 4) message.textContent = "";
+      });
+      closeVault.addEventListener("click", hideVault);
+      toggleVault.addEventListener("click", openVault);
+      window.setTimeout(() => input.focus(), 120);
+    })();
+  </script>
 </body>
 </html>
