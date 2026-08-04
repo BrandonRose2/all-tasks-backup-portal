@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "source": "Manus API v2 task.listMessages",
-  "archive_status": "completed_with_failures",
+  "archive_status": "complete",
   "total_indexed_tasks": 779,
-  "complete_task_count": 774,
+  "complete_task_count": 775,
   "partial_artifact_task_count": 4,
-  "failed_task_count": 1,
+  "failed_task_count": 0,
   "tasks": {
     "4s0Qu11aj1LJLZ0wbcfhjp": {
       "task_updated_at": "1785867041",
@@ -58,10 +58,10 @@
       "status": "complete"
     },
     "VdCghpdVTxXCdJVSdJSjoB": {
-      "task_updated_at": "1785865940",
-      "archived_at": "2026-08-04T18:26:55.304675Z",
+      "task_updated_at": "1785870205",
+      "archived_at": "2026-08-04T19:08:15.767526Z",
       "messages_path": "tasks/VdCghpdVTxXCdJVSdJSjoB.json",
-      "event_count": 1,
+      "event_count": 3,
       "attachment_count": 0,
       "archived_attachment_count": 0,
       "referenced_only_attachment_count": 0,
@@ -138,20 +138,20 @@
       "status": "complete"
     },
     "872IgKOR9sHygIUYCY0oJO": {
-      "task_updated_at": "1785867664",
-      "archived_at": "2026-08-04T18:27:05.483952Z",
+      "task_updated_at": "1785868829",
+      "archived_at": "2026-08-04T19:08:21.387073Z",
       "messages_path": "tasks/872IgKOR9sHygIUYCY0oJO.json",
-      "event_count": 88,
+      "event_count": 94,
       "attachment_count": 16,
       "archived_attachment_count": 16,
       "referenced_only_attachment_count": 0,
       "status": "complete"
     },
     "XeGbefjCZUbapQmKEWVe8n": {
-      "task_updated_at": "1785867091",
-      "archived_at": "2026-08-04T18:27:05.752743Z",
+      "task_updated_at": "1785870232",
+      "archived_at": "2026-08-04T19:08:21.651210Z",
       "messages_path": "tasks/XeGbefjCZUbapQmKEWVe8n.json",
-      "event_count": 5,
+      "event_count": 7,
       "attachment_count": 0,
       "archived_attachment_count": 0,
       "referenced_only_attachment_count": 0,
@@ -178,10 +178,10 @@
       "status": "complete"
     },
     "2OvYQwlQxM6bzSGQ5Rcslq": {
-      "task_updated_at": "1785866765",
-      "archived_at": "2026-08-04T18:27:07.930765Z",
+      "task_updated_at": "1785868328",
+      "archived_at": "2026-08-04T19:08:22.111504Z",
       "messages_path": "tasks/2OvYQwlQxM6bzSGQ5Rcslq.json",
-      "event_count": 20,
+      "event_count": 21,
       "attachment_count": 0,
       "archived_attachment_count": 0,
       "referenced_only_attachment_count": 0,
@@ -1149,9 +1149,13 @@
     },
     "4fDujTRdFazCwMpWxWqGd3": {
       "task_updated_at": "1782463054",
-      "archived_at": "2026-08-04T18:29:15.838054Z",
-      "status": "failed",
-      "error": "Manus API HTTP 500 for /task.listMessages: {\"error\":{\"code\":\"internal\",\"message\":\"node server request failed\"},\"ok\":false,\"request_id\":\"0a8d7eeb9017a1046afb925a120b50fc\"}"
+      "archived_at": "2026-08-04T19:08:22.336083Z",
+      "messages_path": "tasks/4fDujTRdFazCwMpWxWqGd3.json",
+      "event_count": 3,
+      "attachment_count": 0,
+      "archived_attachment_count": 0,
+      "referenced_only_attachment_count": 0,
+      "status": "complete"
     },
     "duQWhI7cEwVYJGiRjtjQon": {
       "task_updated_at": "1782462916",
@@ -7034,12 +7038,12 @@
       "status": "complete"
     },
     "9Ap8dG4ztrNsH94FP2Q6UC": {
-      "task_updated_at": "1785866885",
-      "archived_at": "2026-08-04T18:45:20.942711Z",
+      "task_updated_at": "1785869155",
+      "archived_at": "2026-08-04T19:09:31.729614Z",
       "messages_path": "tasks/9Ap8dG4ztrNsH94FP2Q6UC.json",
-      "event_count": 3471,
-      "attachment_count": 138,
-      "archived_attachment_count": 138,
+      "event_count": 3473,
+      "attachment_count": 140,
+      "archived_attachment_count": 140,
       "referenced_only_attachment_count": 0,
       "status": "complete"
     },
@@ -7794,15 +7798,9 @@
       "status": "complete"
     }
   },
-  "failures": [
-    {
-      "task_id": "4fDujTRdFazCwMpWxWqGd3",
-      "title": "Wide Research Subtask",
-      "error": "Manus API HTTP 500 for /task.listMessages: {\"error\":{\"code\":\"internal\",\"message\":\"node server request failed\"},\"ok\":false,\"request_id\":\"0a8d7eeb9017a1046afb925a120b50fc\"}"
-    }
-  ],
-  "last_attempt_at": "2026-08-04T18:26:52.399087Z",
-  "task_index_last_synced": "2026-08-04T18:26:52.086178+00:00",
-  "last_synced": "2026-08-04T18:46:27.960964Z",
-  "last_mode": "full"
+  "failures": [],
+  "last_attempt_at": "2026-08-04T19:08:15.016428Z",
+  "task_index_last_synced": "2026-08-04T19:08:14.359933+00:00",
+  "last_synced": "2026-08-04T19:09:31.905003Z",
+  "last_mode": "updated"
 }

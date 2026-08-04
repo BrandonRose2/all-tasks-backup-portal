@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PropertyMax.ai — Marrero Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',Arial,sans-serif;}
+html,body{background:linear-gradient(135deg,#0a0e1a 0%,#111827 50%,#0d1220 100%);min-height:100vh;font-size:12px;color:#e0e6f0;}
+.topbar{background:linear-gradient(90deg,#080d1a 0%,#0f1e3a 30%,#1a2d50 50%,#0f1e3a 70%,#080d1a 100%);padding:6px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid transparent;border-image:linear-gradient(90deg,transparent,#4a8fd8,#8ab8f0,#4a8fd8,transparent) 1;box-shadow:0 2px 20px rgba(74,143,216,0.3);}
+.logo-wrap{display:flex;align-items:center;gap:10px;}
+.logo-icon{background:linear-gradient(135deg,#2a5fa8,#5a9fe8,#2a5fa8);color:#fff;font-weight:700;font-size:12px;padding:4px 9px;border-radius:4px;box-shadow:0 2px 8px rgba(90,159,232,0.5),inset 0 1px 0 rgba(255,255,255,0.3);text-shadow:0 1px 2px rgba(0,0,0,0.5);}
+.logo-text{color:#e8f0ff;font-size:14px;font-weight:700;line-height:1.2;letter-spacing:0.3px;}
+.logo-text small{display:block;color:#6a9fd8;font-size:9px;font-weight:400;letter-spacing:0.5px;}
+.top-center{text-align:center;color:#7aa8d8;font-size:10px;}
+.top-center strong{color:#c8dcf8;display:block;font-size:11px;font-weight:600;}
+.top-right{display:flex;align-items:center;gap:8px;}
+.btn-user{background:linear-gradient(135deg,#1e3a6e,#2a5fa8,#1e3a6e);color:#c8dcf8;border:1px solid #3a6ab0;border-radius:4px;padding:4px 12px;font-size:10px;font-weight:600;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.15);}
+.btn-sign{background:linear-gradient(135deg,#6e1a1a,#a82a2a,#6e1a1a);color:#ffc8c8;border:1px solid #b03a3a;border-radius:4px;padding:4px 12px;font-size:10px;font-weight:600;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.15);}
+.navbar{background:linear-gradient(90deg,#0a1f0a,#1a4a1a,#0a1f0a);display:flex;height:28px;border-bottom:1px solid #2a6a2a;box-shadow:0 2px 10px rgba(0,0,0,0.5);}
+.navbar a{color:#90c890;text-decoration:none;padding:0 14px;font-size:10px;font-weight:600;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,0.08);letter-spacing:0.3px;}
+.navbar a.act{background:linear-gradient(180deg,#1a5a1a,#0e3a0e);color:#a0f0a0;box-shadow:inset 0 -2px 0 #4aaa4a;}
+.navbar a:hover{background:rgba(255,255,255,0.06);color:#c0f0c0;}
+.subnav{background:linear-gradient(90deg,#1a1a2e,#252540,#1a1a2e);display:flex;align-items:center;height:20px;padding:0 10px;border-bottom:1px solid #333355;}
+.subnav a{color:#8888aa;text-decoration:none;padding:0 10px;font-size:9px;border-right:1px solid #333355;line-height:20px;}
+.subnav a:hover{color:#c0c0e0;}
+.info-bar{background:linear-gradient(90deg,#0e1520,#161f30,#0e1520);display:flex;justify-content:space-between;align-items:center;padding:3px 16px;border-bottom:1px solid #1e2d45;font-size:10px;color:#6a8aaa;}
+.info-bar .greeting{color:#5a9fd8;font-style:italic;font-size:11px;font-weight:500;}
+.page{padding:8px;display:flex;flex-direction:column;gap:7px;}
+.row-top{display:grid;grid-template-columns:265px 1fr 265px;gap:7px;align-items:stretch;}
+.col{display:flex;flex-direction:column;gap:7px;}
+.col-center{display:flex;flex-direction:column;gap:7px;}
+.col-center .w:last-child{flex:1;display:flex;flex-direction:column;}
+.col-center .w:last-child > div:not(.tkt-hdr):not(.comp-hdr):not(.comp-body){flex:1;}
+.col-right{display:flex;flex-direction:column;gap:7px;}
+.col-right .w:last-child{flex:1;display:flex;flex-direction:column;}
+.col-right .w:last-child .wb{flex:1;}
+.w{background:linear-gradient(160deg,#141c2e 0%,#0f1520 60%,#0c1018 100%);border-radius:6px;border:1px solid #1e2d45;box-shadow:0 4px 16px rgba(0,0,0,0.6),0 1px 0 rgba(255,255,255,0.04) inset;overflow:hidden;}
+.wh{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;font-weight:600;font-size:11px;color:#fff;letter-spacing:0.3px;position:relative;}
+.wh::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(255,255,255,0.08);}
+.wh.red{background:linear-gradient(90deg,#4a0808,#8a1a1a,#6a1010);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15);}
+.wh.orange{background:linear-gradient(90deg,#3a1a00,#7a3a00,#5a2800);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15);}
+.wh.blue{background:linear-gradient(90deg,#0a1e40,#1a3a70,#0e2a58);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15);}
+.wh.green{background:linear-gradient(90deg,#0a2a0a,#1a5a1a,#0e3a0e);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15);}
+.wh.teal{background:linear-gradient(90deg,#0a2a2a,#1a5a5a,#0e3a3a);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15);}
+.wh.purple{background:linear-gradient(90deg,#1a0a2a,#3a1a5a,#280e3a);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15);}
+.wh .cnt{background:rgba(0,0,0,0.35);border-radius:10px;padding:1px 8px;font-size:10px;margin-right:5px;border:1px solid rgba(255,255,255,0.1);}
+.wh .nb{background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));border:1px solid rgba(255,255,255,0.2);border-radius:3px;padding:2px 9px;font-size:10px;font-weight:600;cursor:pointer;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2);}
+.wh .nb.r{color:#ffaaaa;}.wh .nb.g{color:#aaffaa;}.wh .nb.b{color:#aaccff;}
+.wb{padding:9px 11px;}
+.sel-red{width:100%;border:1px solid #5a1a1a;border-radius:4px;padding:4px 8px;font-size:10px;background:linear-gradient(135deg,#2a0808,#3a1010);color:#ffaaaa;margin-bottom:7px;cursor:pointer;}
+.sel-red option{background:#1a0808;color:#ffaaaa;}
+.c-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #1e2d45;font-size:11px;}
+.c-row:last-child{border-bottom:none;}
+.c-lbl{color:#6a8aaa;}.c-neg{color:#ff6666;font-weight:700;}.c-pos{color:#66cc66;font-weight:700;}
+.c-nav{display:flex;align-items:center;justify-content:space-between;margin-top:7px;}
+.c-nav span{font-size:10px;color:#6a8aaa;}
+.arr{background:linear-gradient(135deg,#0e2a58,#1a3a70);color:#aaccff;border:1px solid #2a4a80;border-radius:3px;padding:2px 8px;font-size:11px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);}
+.edt{background:linear-gradient(135deg,#0a2a0a,#1a4a1a);color:#aaffaa;border:1px solid #2a5a2a;border-radius:3px;padding:2px 9px;font-size:10px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);}
+.ttabs{display:flex;gap:4px;margin-bottom:7px;}
+.tt{padding:3px 10px;border-radius:4px;font-size:10px;color:#fff;border:none;cursor:pointer;font-weight:600;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.15);}
+.tt.b{background:linear-gradient(135deg,#0e2a58,#1a3a70);}.tt.g{background:linear-gradient(135deg,#0a2a0a,#1a4a1a);}.tt.o{background:linear-gradient(135deg,#3a1a00,#6a3000);}.tt.r{background:linear-gradient(135deg,#4a0808,#7a1a1a);}
+.sbox{width:100%;border:1px solid #1e2d45;border-radius:4px;padding:4px 8px;font-size:10px;background:linear-gradient(135deg,#0a0f1a,#0e1520);color:#c0d0e8;margin-bottom:5px;}
+.sbox::placeholder{color:#4a6a8a;}
+.empty{color:#3a5a7a;font-size:10px;font-style:italic;padding:4px 0;}
+.sec-lbl{font-weight:600;font-size:10px;color:#5a8aaa;margin-bottom:5px;letter-spacing:0.3px;}
+.appt{padding:6px 0;border-bottom:1px solid #1e2d45;font-size:10px;display:flex;justify-content:space-between;align-items:flex-start;}
+.appt:last-child{border-bottom:none;}
+.appt-t{flex:1;line-height:1.5;color:#8aa8c8;}
+.appt-t strong{color:#5a9fd8;display:block;font-size:10px;font-weight:600;}
+.appt-e{color:#5a9fd8;font-size:15px;cursor:pointer;margin-left:6px;flex-shrink:0;}
+.msg-f{display:flex;gap:4px;margin-bottom:6px;}
+.msg-f select{flex:1;border:1px solid #1e2d45;border-radius:3px;padding:3px 5px;font-size:10px;background:#0a0f1a;color:#8aa8c8;}
+.msg{padding:6px 0;border-bottom:1px solid #1e2d45;}
+.msg:last-child{border-bottom:none;}
+.msg-meta{color:#3a5a7a;font-size:9px;}.msg-who{color:#5a9fd8;font-size:10px;margin:2px 0;font-weight:500;}
+.msg-body{font-size:10px;color:#8aa8c8;line-height:1.4;margin-bottom:4px;}
+.vbtn{background:linear-gradient(135deg,#3a1a00,#6a3800);color:#ffcc88;border:1px solid #7a4a10;border-radius:3px;padding:2px 11px;font-size:10px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);}
+.call-tabs{display:flex;gap:3px;padding:6px 9px;background:rgba(0,0,0,0.3);border-bottom:1px solid #1e2d45;flex-wrap:wrap;}
+.ct{padding:3px 12px;border-radius:4px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid #1e2d45;background:linear-gradient(135deg,#0e1520,#141c2e);color:#6a8aaa;}
+.ct.act{background:linear-gradient(135deg,#0e2a58,#1a3a70);color:#aaccff;border-color:#2a4a80;box-shadow:0 2px 6px rgba(26,58,112,0.5),inset 0 1px 0 rgba(255,255,255,0.15);}
+.call-bar{display:flex;gap:6px;padding:6px 9px;border-bottom:1px solid #1e2d45;align-items:center;background:rgba(0,0,0,0.2);}
+.call-bar input{flex:1;border:1px solid #1e2d45;border-radius:3px;padding:3px 9px;font-size:10px;background:#0a0f1a;color:#c0d0e8;}
+.call-bar input::placeholder{color:#3a5a7a;}
+.call-bar .fbtn{background:linear-gradient(135deg,#1e2a3e,#2a3a50);color:#8aa8c8;border:1px solid #2a3a50;border-radius:3px;padding:3px 10px;font-size:10px;cursor:pointer;}
+.call-bar .mbtn{background:linear-gradient(135deg,#3a1a00,#6a3000);color:#ffcc88;border:1px solid #7a4a10;border-radius:3px;padding:3px 10px;font-size:10px;font-weight:700;cursor:pointer;}
+.ci{padding:10px 11px;border-bottom:1px solid #1e2d45;}
+.ci:last-child{border-bottom:none;}
+.ci-hdr{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.badge{display:inline-flex;align-items:center;padding:2px 9px;border-radius:3px;font-size:10px;font-weight:600;}
+.badge.in{background:rgba(26,90,26,0.4);color:#66cc66;border:1px solid #2a6a2a;}
+.badge.out{background:rgba(90,42,0,0.4);color:#ffaa44;border:1px solid #7a4a10;}
+.ci-time{color:#3a5a7a;font-size:10px;}
+.ci-av{background:linear-gradient(135deg,#0e2a58,#1a3a70);color:#aaccff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;border:1px solid #2a4a80;}
+.ci-share{background:linear-gradient(135deg,#0e2a58,#1a3a70);color:#aaccff;border:1px solid #2a4a80;border-radius:3px;padding:2px 8px;font-size:9px;cursor:pointer;margin-left:auto;}
+.ci-x{color:#cc4444;font-size:15px;cursor:pointer;margin-left:6px;}
+.ci-prop{font-weight:600;font-size:10px;color:#c0d0e8;margin-bottom:1px;}
+.ci-sub{font-size:10px;color:#6a8aaa;margin-bottom:4px;}
+.ci-body{display:flex;gap:9px;align-items:flex-start;}
+.ci-sum{font-size:10px;color:#8aa8c8;line-height:1.5;flex:1;}
+.audio{display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,#0a0f1a,#141c2e);border:1px solid #1e2d45;border-radius:16px;padding:4px 10px;font-size:10px;flex-shrink:0;min-width:195px;}
+.audio .pb{background:linear-gradient(135deg,#0e2a58,#1a3a70);color:#aaccff;border:1px solid #2a4a80;border-radius:50%;width:22px;height:22px;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.abar{flex:1;height:3px;background:#1e2d45;border-radius:2px;}
+.ci-acts{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;}
+.ci-acts label{display:flex;align-items:center;gap:3px;font-size:10px;color:#5a7a9a;cursor:pointer;}
+.tkt-hdr{background:linear-gradient(90deg,#0a1e40,#1a3a70,#0e2a58);color:#aaccff;padding:7px 11px;font-weight:600;font-size:11px;border-bottom:1px solid #2a4a80;}
+.tkt-row{display:flex;align-items:center;padding:6px 11px;border-bottom:1px solid #1e2d45;gap:6px;font-size:10px;}
+.tkt-row:nth-child(even){background:rgba(26,58,112,0.08);}
+.tkt-d{width:58px;flex-shrink:0;color:#3a5a7a;}.tkt-f{width:130px;flex-shrink:0;line-height:1.5;}
+.tkt-f a{color:#5a9fd8;text-decoration:none;}
+.tkt-ty{width:85px;flex-shrink:0;color:#8aa8c8;font-weight:600;}
+.tkt-ds{flex:1;color:#5a9fd8;}
+.tvbtn{background:linear-gradient(135deg,#0e2a58,#1a3a70);color:#aaccff;border:1px solid #2a4a80;border-radius:3px;padding:2px 10px;font-size:10px;cursor:pointer;flex-shrink:0;box-shadow:0 2px 4px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.1);}
+.tdel{background:linear-gradient(135deg,#4a0808,#7a1a1a);color:#ffaaaa;border:1px solid #8a2a2a;border-radius:3px;padding:2px 7px;font-size:10px;cursor:pointer;flex-shrink:0;}
+.comp-hdr{background:linear-gradient(90deg,#0a2a0a,#1a5a1a,#0e3a0e);color:#aaffaa;padding:6px 11px;font-weight:600;font-size:11px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;border-top:1px solid #1e2d45;}
+.comp-body{display:none;background:transparent;}
+.comp-body.open{display:flex;flex-direction:column;}
+.comp-row{display:flex;align-items:center;padding:6px 11px;border-bottom:1px solid #1e2d45;gap:6px;font-size:10px;}
+.comp-row:nth-child(even){background:rgba(26,90,26,0.06);}
+.comp-d{width:58px;flex-shrink:0;color:#3a5a7a;}.comp-f{width:130px;flex-shrink:0;line-height:1.5;}
+.comp-f a{color:#66cc66;text-decoration:none;}
+.comp-ty{width:85px;flex-shrink:0;color:#66cc66;font-weight:600;}
+.comp-ds{flex:1;color:#5aaa5a;}
+.cvbtn{background:linear-gradient(135deg,#0a2a0a,#1a4a1a);color:#aaffaa;border:1px solid #2a5a2a;border-radius:3px;padding:2px 10px;font-size:10px;cursor:pointer;flex-shrink:0;}
+.s8-sel{display:flex;gap:4px;margin-bottom:6px;}
+.s8-sel select{flex:1;border:1px solid #1e2d45;border-radius:3px;padding:3px 5px;font-size:10px;background:#0a0f1a;color:#8aa8c8;}
+.gtabs{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px;}
+.gt{padding:3px 9px;border-radius:4px;font-size:10px;font-weight:600;color:#fff;border:none;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.12);}
+.gt.b{background:linear-gradient(135deg,#0e2a58,#1a3a70);}.gt.g{background:linear-gradient(135deg,#0a2a0a,#1a4a1a);}.gt.o{background:linear-gradient(135deg,#3a1a00,#6a3000);}.gt.r{background:linear-gradient(135deg,#4a0808,#7a1a1a);}.gt.t{background:linear-gradient(135deg,#0a2a2a,#1a5a5a);}.gt.p{background:linear-gradient(135deg,#1a0a2a,#3a1a5a);}.gt.gr{background:linear-gradient(135deg,#1e2a3e,#2a3a50);}
+.dir-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #1e2d45;}
+.dir-item:last-child{border-bottom:none;}
+.av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:10px;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.5);}
+.dn{font-weight:600;color:#5a9fd8;font-size:10px;}.ds{color:#3a5a7a;font-size:9px;}.dp{color:#66cc66;font-size:9px;}
+.mf{display:flex;gap:4px;margin-bottom:5px;}
+.mf select{flex:1;border:1px solid #1e2d45;border-radius:3px;padding:3px 5px;font-size:10px;background:#0a0f1a;color:#8aa8c8;}
+.mph{font-size:10px;font-weight:600;color:#8aa8c8;margin-bottom:5px;}
+.mi{padding:6px 0;border-bottom:1px solid #1e2d45;font-size:10px;}
+.mi:last-child{border-bottom:none;}
+.mi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1px;}
+.mi-unit{font-weight:600;color:#c0d0e8;}.mi-tech{color:#5a7a9a;font-size:9px;}.mi-meta{color:#3a5a7a;font-size:9px;}.mi-issue{color:#ff6666;font-size:10px;margin-top:2px;}
+.ba{background:linear-gradient(135deg,#0a2a0a,#1a4a1a);color:#aaffaa;border-radius:3px;padding:1px 6px;font-size:9px;border:1px solid #2a5a2a;}
+.bo{background:linear-gradient(135deg,#3a1a00,#6a3000);color:#ffcc88;border-radius:3px;padding:1px 6px;font-size:9px;border:1px solid #7a4a10;}
+.mdel{background:linear-gradient(135deg,#4a0808,#7a1a1a);color:#ffaaaa;border:1px solid #8a2a2a;border-radius:50%;width:18px;height:18px;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.row-full{width:100%;}
+.rc{background:linear-gradient(160deg,#141c2e 0%,#0f1520 60%,#0c1018 100%);border-radius:6px;border:1px solid #1e2d45;box-shadow:0 4px 16px rgba(0,0,0,0.6),0 1px 0 rgba(255,255,255,0.04) inset;overflow:hidden;}
+.rc-hdr{background:linear-gradient(90deg,#080e20,#0f1e40,#1a2e58,#0f1e40,#080e20);color:#aaccff;padding:7px 14px;font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2a4a80;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);}
+.rc-badge{background:rgba(58,122,192,0.4);color:#aaccff;border-radius:10px;padding:1px 10px;font-size:9px;border:1px solid #2a4a80;}
+.rc-body{padding:10px 14px;}
+.rc-top{display:flex;align-items:center;gap:18px;margin-bottom:9px;flex-wrap:wrap;}
+.rc-bldg{display:flex;align-items:center;gap:7px;}
+.rc-bldg label{font-weight:600;color:#5a9fd8;font-size:10px;white-space:nowrap;}
+.rc-bldg select{border:1px solid #2a4a80;border-radius:4px;padding:4px 9px;font-size:10px;color:#aaccff;background:linear-gradient(135deg,#0a1020,#0e1830);min-width:230px;}
+.rc-link{background:rgba(26,58,112,0.3);border:1px solid #2a4a80;border-radius:4px;padding:5px 11px;font-size:10px;display:flex;align-items:center;gap:7px;}
+.rc-link a{color:#5a9fd8;text-decoration:underline;font-weight:600;}
+.rc-scroll{overflow-x:auto;width:100%;}
+.rc-tbl th.h-br{background:linear-gradient(135deg,#0a1e40,#1a3a70);color:#aaccff;text-align:center;font-size:10px;padding:6px 4px;letter-spacing:0.5px;font-weight:700;}
+.rc-tbl th.h-br-sub{font-size:8px;font-weight:700;padding:4px 4px;text-align:center;}
+.rc-tbl td.br-sep{border-left:2px solid #2a4a80!important;}
+.rc-tbl th.br-sep{border-left:2px solid rgba(255,255,255,0.15)!important;}
+.rc-tbl{width:100%;border-collapse:collapse;font-size:10px;}
+.rc-tbl th{padding:5px 8px;text-align:center;font-size:9px;white-space:nowrap;color:#fff;}
+.rc-tbl th.tl{text-align:left;}
+.rc-tbl th.h-prop{background:linear-gradient(135deg,#0a1e40,#1a3a70);text-align:left;color:#aaccff;}
+.rc-tbl th.h-loc{background:linear-gradient(135deg,#0a1e40,#1a3a70);text-align:left;color:#aaccff;}
+.rc-tbl th.h-prox{background:linear-gradient(135deg,#1e2a3e,#2a3a50);}
+.rc-tbl th.h-low{background:linear-gradient(135deg,#0a2a0a,#1a4a1a);}
+.rc-tbl th.h-mid{background:linear-gradient(135deg,#0a1e40,#1a3a70);}
+.rc-tbl th.h-high{background:linear-gradient(135deg,#4a0808,#7a1a1a);}
+.rc-tbl th.h-avg{background:linear-gradient(135deg,#3a2a00,#6a4a00);}
+.rc-tbl th.h-mkt{background:linear-gradient(135deg,#1a0a2a,#3a1a5a);}
+.rc-tbl td{padding:4px 8px;border-bottom:1px solid #1e2d45;vertical-align:middle;color:#8aa8c8;}
+.rc-tbl td.t-prox{text-align:center;}
+.rc-tbl td.t-low{background:rgba(26,90,26,0.2);color:#88dd88;font-weight:700;text-align:right;}
+.rc-tbl td.t-mid{background:rgba(26,58,112,0.2);color:#88aaff;font-weight:700;text-align:right;}
+.rc-tbl td.t-high{background:rgba(122,26,26,0.2);color:#ff8888;font-weight:700;text-align:right;}
+.rc-tbl td.t-avg{background:rgba(106,74,0,0.2);color:#ffcc66;font-weight:700;text-align:right;}
+.rc-tbl td.t-mkt{background:rgba(74,26,122,0.2);color:#cc88ff;font-weight:700;text-align:right;}
+.rc-tbl td.t-na{color:#2a4a6a;text-align:right;font-style:italic;}
+.rc-tbl tr.subj td{background:rgba(255,220,50,0.06)!important;font-weight:700;}
+.rc-tbl tr.subj td.t-low{background:rgba(26,90,26,0.35)!important;}
+.rc-tbl tr.subj td.t-mid{background:rgba(26,58,112,0.35)!important;}
+.rc-tbl tr.subj td.t-high{background:rgba(122,26,26,0.35)!important;}
+.rc-tbl tr.subj td.t-avg{background:rgba(106,74,0,0.35)!important;}
+.rc-tbl tr.subj td.t-mkt{background:rgba(74,26,122,0.35)!important;}
+.rc-tbl tr.slg td{background:linear-gradient(90deg,#0a2a0a,#1a4a1a);color:#aaffaa;font-size:9px;font-weight:700;padding:4px 8px;}
+.rc-tbl tr.slb td{background:linear-gradient(90deg,#0a1e40,#1a3a70);color:#aaccff;font-size:9px;font-weight:700;padding:4px 8px;}
+.rc-tbl tr.sly td{background:linear-gradient(90deg,#3a2a00,#6a4a00);color:#ffcc66;font-size:9px;font-weight:700;padding:4px 8px;}
+.rc-tbl tr.aff td{background:rgba(26,90,26,0.05);}
+.rc-tbl tr.mkt-r td{background:rgba(26,58,112,0.05);}
+.rc-tbl tr.bm td{background:rgba(255,220,50,0.04);font-style:italic;font-size:9px;}
+.prox-pill{display:inline-block;padding:1px 7px;border-radius:8px;font-size:9px;font-weight:700;color:#fff;}
+.prox-h{background:linear-gradient(135deg,#6a1a1a,#aa2a2a);}
+.prox-m{background:linear-gradient(135deg,#5a2a00,#9a4a00);}
+.prox-l{background:linear-gradient(135deg,#0a3a0a,#1a6a1a);}
+.rc-legend{display:flex;flex-wrap:wrap;gap:9px;margin-top:9px;padding-top:7px;border-top:1px solid #1e2d45;}
+.rc-li{display:flex;align-items:center;gap:4px;font-size:9px;color:#4a6a8a;}
+.rc-dot{width:11px;height:11px;border-radius:2px;flex-shrink:0;}
+.cal{background:linear-gradient(160deg,#141c2e 0%,#0f1520 60%,#0c1018 100%);border-radius:6px;border:1px solid #1e2d45;box-shadow:0 4px 16px rgba(0,0,0,0.6);overflow:hidden;}
+.cal-hdr{background:linear-gradient(90deg,#0e1520,#1a2535,#0e1520);color:#c0d0e8;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e2d45;}
+.cal-hdr .cal-nav{display:flex;align-items:center;gap:12px;}
+.cal-hdr button{background:linear-gradient(135deg,#1e2a3e,#2a3a50);color:#8aa8c8;border:1px solid #2a3a50;border-radius:3px;padding:2px 11px;font-size:12px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08);}
+.cal-hdr .cal-title{font-size:14px;font-weight:700;color:#c0d0e8;}
+.cal-legend{display:flex;gap:12px;align-items:center;}
+.cal-li{display:flex;align-items:center;gap:4px;font-size:9px;color:#5a7a9a;}
+.cal-dot{width:10px;height:10px;border-radius:2px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-left:1px solid #1e2d45;border-top:1px solid #1e2d45;}
+.cal-dow{background:rgba(26,42,62,0.6);text-align:center;padding:5px 0;font-size:10px;font-weight:700;color:#5a7a9a;border-right:1px solid #1e2d45;border-bottom:1px solid #1e2d45;letter-spacing:0.3px;}
+.cal-cell{min-height:80px;border-right:1px solid #1e2d45;border-bottom:1px solid #1e2d45;padding:5px;vertical-align:top;position:relative;background:transparent;}
+.cal-cell.other{background:rgba(0,0,0,0.15);}
+.cal-cell.today{background:rgba(255,220,50,0.05);box-shadow:inset 0 0 0 1px rgba(255,220,50,0.2);}
+.cal-num{font-size:10px;font-weight:700;color:#5a7a9a;margin-bottom:3px;}
+.cal-cell.today .cal-num{color:#ffdd44;}
+.cal-cell.other .cal-num{color:#2a3a4a;}
+.cal-event{border-radius:3px;padding:2px 5px;font-size:9px;color:#fff;margin-bottom:2px;line-height:1.3;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.4);}
+.ev-insp{background:linear-gradient(135deg,#0a3a3a,#1a6a6a);}
+.ev-maint{background:linear-gradient(135deg,#4a0808,#8a1a1a);}
+.ev-appt{background:linear-gradient(135deg,#0e2a58,#1a3a70);}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo-wrap">
+    <div class="logo-icon">PM</div>
+    <div class="logo-text">PropertyMax.ai<small>AI-Powered. Live Real Estate.</small></div>
+  </div>
+  <div class="top-center">
+    <strong>Ketorah Parks (Marrero)</strong>
+    Last Synced: Just Now
+  </div>
+  <div class="top-right">
+    <button class="btn-user">Ketorah Parks (Marrero)</button>
+    <button class="btn-sign">Property Sign</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="navbar">
+  <a href="#" class="act">DASHBOARD</a>
+  <a href="#">MY PROFILE</a>
+  <a href="#">REQUESTS</a>
+  <a href="#">TIME OFF</a>
+  <a href="#">NARRATIVES</a>
+  <a href="#">MANUALS</a>
+  <a href="#">REPORTS</a>
+  <a href="#">MARKETING</a>
+</div>
+<div class="subnav">
+  <a href="#">Pipeline</a><a href="#">AgriForm</a><a href="#">Commission</a><a href="#">Name</a>
+  <a href="#">Phone Panel</a><a href="#">Tool</a><a href="#">Inspection</a><a href="#">Vendor</a>
+  <a href="#">Data</a><a href="#">Purchasing</a><a href="#">Training</a><a href="#">All Sites</a>
+</div>
+<div class="info-bar">
+  <span>Viewing: <strong>Marrero</strong></span>
+  <span class="greeting">✦ Ketorah, have a great day! ✦</span>
+  <span style="color:#999;font-size:9px;">Apr 23, 2026</span>
+</div>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- ══ ROW 1: 3-COLUMN GRID ══ -->
+  <div class="row-top">
+
+    <!-- ── LEFT COLUMN ── -->
+    <div class="col">
+
+      <!-- Collections -->
+      <div class="w">
+        <div class="wh red">Collections Overview <button class="nb r">+ New</button></div>
+        <div class="wb">
+          <select class="sel-red"><option>Select Building...</option></select>
+          <div class="c-row"><span class="c-lbl">Balance</span><span class="c-neg">-$500.00</span></div>
+          <div class="c-row"><span class="c-lbl">Collected</span><span class="c-pos">$0.00</span></div>
+          <div class="c-row"><span class="c-lbl">Difference</span><span>$0.00</span></div>
+          <div class="c-nav">
+            <span>Total To Date</span>
+            <div style="display:flex;gap:3px;">
+              <button class="arr">◀</button><button class="arr">▶</button><button class="edt">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tasks -->
+      <div class="w">
+        <div class="wh blue">Tasks <button class="nb g">+ New</button></div>
+        <div class="wb">
+          <div class="ttabs">
+            <button class="tt b">MY</button>
+            <button class="tt g">SUBMIT</button>
+            <button class="tt o">MAINT</button>
+            <button class="tt r">RENT</button>
+          </div>
+          <div class="sec-lbl">MY TASKS ↻</div>
+          <input type="text" class="sbox" placeholder="Search tasks..."/>
+          <div class="empty">No tasks found.</div>
+        </div>
+      </div>
+
+      <!-- Appointments -->
+      <div class="w">
+        <div class="wh green">Appointments ↻ <button class="nb g">+ New</button></div>
+        <div class="wb">
+          <div style="font-weight:bold;font-size:10px;color:#2d8a2d;margin-bottom:5px;">Marrero</div>
+          <div class="appt">
+            <div class="appt-t">
+              <strong>Mon Apr 27 — 10:00 AM</strong>
+              Inspection walk-through scheduled.
+            </div>
+            <span class="appt-e">✎</span>
+          </div>
+          <div class="appt">
+            <div class="appt-t">
+              <strong>Wed Apr 29 — 4:00 PM</strong>
+              Quarterly compliance review.
+            </div>
+            <span class="appt-e">✎</span>
+          </div>
+          <div class="appt">
+            <div class="appt-t">
+              <strong>Fri May 2 — 9:00 AM</strong>
+              New tenant orientation — Unit 22.
+            </div>
+            <span class="appt-e">✎</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Messages -->
+      <div class="w">
+        <div class="wh orange"><span class="cnt">52</span>Text Messages ↻ <button class="nb r">+ New</button></div>
+        <div class="wb">
+          <input type="text" class="sbox" placeholder="Search by name or message"/>
+          <div class="msg-f">
+            <select><option>-- All --</option></select>
+            <select><option>Non Marketing SMS</option></select>
+          </div>
+          <div class="msg">
+            <div class="msg-meta">Tue Mar 24, 2026 · 7:29 AM</div>
+            <div class="msg-who">➤ Ketorah Parks</div>
+            <div class="msg-body">Hey Goodmorning this Ebony at 2004 Esher pl can you pressure wash my house</div>
+            <button class="vbtn">View Details</button>
+          </div>
+          <div class="msg">
+            <div class="msg-meta">Sun Mar 22, 2026 · 7:05 PM</div>
+            <div class="msg-who">Ketorah Parks ➤ Natasha</div>
+            <button class="vbtn" style="margin-top:3px;">View Details</button>
+          </div>
+          <div class="msg">
+            <div class="msg-meta">Sun Mar 22, 2026 · 8:25 AM</div>
+            <div class="msg-who">Ketorah Parks ➤ Janelle Fulka</div>
+            <button class="vbtn" style="margin-top:3px;">View Details</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /left col -->
+
+    <!-- ── CENTER COLUMN ── -->
+    <div class="col col-center">
+
+      <!-- Call Recordings -->
+      <div class="w">
+        <div class="call-tabs">
+          <div class="ct act">MARKETING</div>
+          <div class="ct">URGENT</div>
+          <div class="ct">RENT</div>
+          <div class="ct">MAINT</div>
+          <div class="ct">VOICEMAILS</div>
+          <div class="ct">ALL</div>
+        </div>
+        <div class="call-bar">
+          <span style="font-weight:bold;font-size:11px;color:#333;">RECENT CALL RECORDINGS</span>
+          <input type="text" placeholder="Search Calls..."/>
+          <button class="fbtn">▼ Filters</button>
+          <button class="mbtn">MARKETING</button>
+        </div>
+
+        <!-- Call 1 -->
+        <div class="ci">
+          <div class="ci-hdr">
+            <span class="badge in">Incoming</span>
+            <span class="ci-time">4/22/26 4:34 PM</span>
+            <span class="ci-av">1</span>
+            <button class="ci-share">⬆ Share</button>
+            <span class="ci-x">✕</span>
+          </div>
+          <div class="ci-prop">Marrero | Sales/Marketing | Neutral</div>
+          <div class="ci-sub">Jade Carter to UNKNOWN</div>
+          <div class="ci-body">
+            <div class="ci-sum">Summary: Belinda Jackson called to inquire about the property at 1753 Gladstone Drive. She wanted to know the requirements and when she could view it. She mentioned submitting an application through...</div>
+            <div class="audio"><button class="pb">▶</button><span>0:00 / 0:30</span><div class="abar"></div><span>🔊</span></div>
+          </div>
+          <div class="ci-acts"><label><input type="checkbox"/> Repromise note for meeting</label></div>
+        </div>
+
+        <!-- Call 2 -->
+        <div class="ci">
+          <div class="ci-hdr">
+            <span class="badge out">Outgoing</span>
+            <span class="ci-time">4/22/26 9:34 AM</span>
+            <span class="ci-av">2</span>
+            <button class="ci-share">⬆ Share</button>
+            <span class="ci-x">✕</span>
+          </div>
+          <div class="ci-prop">Marrero | Sales/Marketing | Neutral</div>
+          <div class="ci-sub">GE5A4-3X3X3X to Jacquie Carter</div>
+          <div class="ci-body">
+            <div class="ci-sum">Summary: Shantavia Burris called to let Jacquie know about the application for a three-bedroom unit. A $85 money order is needed for the application. She plans to visit...</div>
+            <div class="audio"><button class="pb">▶</button><span>0:00 / 1:05</span><div class="abar"></div><span>🔊</span></div>
+          </div>
+          <div class="ci-acts">
+            <label><input type="checkbox"/> Bring $85 money order</label>
+            <label><input type="checkbox"/> Repromise note for lease submission</label>
+          </div>
+        </div>
+
+        <!-- Call 3 -->
+        <div class="ci">
+          <div class="ci-hdr">
+            <span class="badge in">Incoming</span>
+            <span class="ci-time">4/22/26 5:51 PM</span>
+            <span class="ci-av">1</span>
+            <button class="ci-share">⬆ Share</button>
+            <span class="ci-x">✕</span>
+          </div>
+          <div class="ci-prop">Marrero | Sales/Marketing | Neutral</div>
+          <div class="ci-sub">Aaron Lagarde to GE5A4-3X7-3300</div>
+          <div class="ci-body">
+            <div class="ci-sum">Summary: Aaron Lagarde called regarding a property. Office hours mentioned as 8–6. Aaron was told to call back for additional information for...</div>
+            <div class="audio"><button class="pb">▶</button><span>0:00 / 0:34</span><div class="abar"></div><span>🔊</span></div>
+          </div>
+          <div class="ci-acts">
+            <label><input type="checkbox"/> Call back Aaron Lagarde</label>
+          </div>
+        </div>
+      </div><!-- /call recordings -->
+
+      <!-- Tickets Received -->
+      <div class="w">
+        <div class="tkt-hdr"><span class="cnt" style="background:rgba(0,0,0,0.2);border-radius:10px;padding:1px 7px;font-size:10px;margin-right:6px;">12</span>Tickets Received</div>
+        <div>
+          <div class="tkt-row">
+            <span class="tkt-d">1/22/2026</span>
+            <div class="tkt-f">From: <a href="#">Ginger Positerry</a><br>To: <a href="#">Ketorah Parks</a><br>Re: <a href="#">Ketorah Parks</a></div>
+            <span class="tkt-ty">Pay Change</span>
+            <span class="tkt-ds">please see change in pay</span>
+            <button class="tvbtn">View</button><button class="tdel">✕</button>
+          </div>
+          <div class="tkt-row">
+            <span class="tkt-d">3/5/2025</span>
+            <div class="tkt-f">From: <a href="#">Ginger Positerry</a><br>To: <a href="#">Ketorah Parks</a><br>Re: <a href="#">Ketorah Parks</a></div>
+            <span class="tkt-ty">Pay Change</span>
+            <span class="tkt-ds">please retro pay increase from 2/17</span>
+            <button class="tvbtn">View</button><button class="tdel">✕</button>
+          </div>
+          <div class="tkt-row">
+            <span class="tkt-d">2/21/2025</span>
+            <div class="tkt-f">From: <a href="#">Ginger Positerry</a><br>To: <a href="#">Ketorah Parks</a><br>Re: <a href="#">Ketorah Parks</a></div>
+            <span class="tkt-ty">Vacation Request</span>
+            <span class="tkt-ds">off</span>
+            <button class="tvbtn">View</button><button class="tdel">✕</button>
+          </div>
+        </div>
+
+        <!-- Completed Tickets -->
+        <div class="comp-hdr" onclick="toggleComp()" style="cursor:pointer;">
+          <span><span class="cnt" style="background:rgba(0,0,0,0.2);border-radius:10px;padding:1px 7px;font-size:10px;margin-right:6px;">3</span>Completed Tickets</span>
+          <span id="comp-arrow">▼</span>
+        </div>
+        <div class="comp-body open" id="comp-body" style="flex:1;display:flex;flex-direction:column;">
+          <div class="comp-row" style="flex:1;align-items:flex-start;">
+            <span class="comp-d">9/9/2024</span>
+            <div class="comp-f">From: <a href="#">Heather Vidal</a><br>To: <a href="#">Ketorah Parks</a><br>Re: <a href="#">Ketorah Parks</a></div>
+            <span class="comp-ty">Sick Leave</span>
+            <span class="comp-ds">sick leave request — approved</span>
+            <button class="cvbtn">View</button>
+          </div>
+          <div class="comp-row" style="flex:1;align-items:flex-start;">
+            <span class="comp-d">8/14/2024</span>
+            <div class="comp-f">From: <a href="#">Marcus Webb</a><br>To: <a href="#">Ketorah Parks</a><br>Re: <a href="#">Ketorah Parks</a></div>
+            <span class="comp-ty">Maintenance</span>
+            <span class="comp-ds">unit 44 — HVAC not cooling — resolved</span>
+            <button class="cvbtn">View</button>
+          </div>
+          <div class="comp-row" style="flex:1;align-items:flex-start;">
+            <span class="comp-d">7/30/2024</span>
+            <div class="comp-f">From: <a href="#">Tanya Broussard</a><br>To: <a href="#">Ketorah Parks</a><br>Re: <a href="#">Ketorah Parks</a></div>
+            <span class="comp-ty">Lease Renewal</span>
+            <span class="comp-ds">renewal paperwork for unit 80 — completed</span>
+            <button class="cvbtn">View</button>
+          </div>
+        </div>
+      </div><!-- /tickets -->
+
+    </div><!-- /center col -->
+
+    <!-- ── RIGHT COLUMN ── -->
+    <div class="col col-right">
+
+      <!-- Section 8 Inspections -->
+      <div class="w">
+        <div class="wh teal">Section 8 Inspections ↻ <button class="nb g">+ New</button></div>
+        <div class="wb">
+          <div class="s8-sel">
+            <select><option>-- All Status --</option></select>
+            <select><option>-- All Dates --</option></select>
+          </div>
+          <div class="empty">No Section 8 Inspections Found.</div>
+        </div>
+      </div>
+
+      <!-- Guest Cards + Directory -->
+      <div class="w">
+        <div class="wh purple">Guest Cards</div>
+        <div class="wb">
+          <div class="gtabs">
+            <button class="gt b">APPS</button>
+            <button class="gt g">TOURS</button>
+            <button class="gt o">INQUIR</button>
+            <button class="gt r">DENIED</button>
+            <button class="gt t">ETH</button>
+            <button class="gt p">PTHER</button>
+            <button class="gt gr">MONTH</button>
+          </div>
+          <div class="sec-lbl" style="margin-bottom:4px;">Company Directory ↻</div>
+          <input type="text" class="sbox" placeholder="Search team member"/>
+          <div class="dir-item">
+            <div class="av" style="background:#2a6ab0;">JR</div>
+            <div><div class="dn">Jaxon Ruse</div><div class="ds">Anaheim Gardens (CA)</div><div class="dp">📞 (555) 234-5678</div></div>
+          </div>
+          <div class="dir-item">
+            <div class="av" style="background:#2d8a2d;">AB</div>
+            <div><div class="dn">Aaron Bering</div><div class="ds">Breckenridge TX</div><div class="dp">📞 Ext 200</div></div>
+          </div>
+          <div class="dir-item">
+            <div class="av" style="background:#cc2222;">AW</div>
+            <div><div class="dn">Andreas Whitell</div><div class="ds">Pirates Bend LA</div><div class="dp">📞 Ext 300</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maintenance Requests -->
+      <div class="w">
+        <div class="wh red"><span class="cnt">38</span>Maintenance Requests ↻ <button class="nb r">+ New</button></div>
+        <div class="wb">
+          <input type="text" class="sbox" placeholder="Search by unit or category"/>
+          <div class="mf">
+            <select><option>-- All Status --</option></select>
+            <select><option>This week</option></select>
+          </div>
+          <div class="mph">Marrero ▾ &nbsp; Assigned-8 &nbsp; Overdue-3</div>
+
+          <div class="mi">
+            <div class="mi-top">
+              <span class="mi-unit">Unit: 80 - 3128</span>
+              <div style="display:flex;gap:3px;align-items:center;"><span class="ba">assigned</span><button class="mdel">✕</button></div>
+            </div>
+            <div class="mi-tech">Technician: Angel Gustavo Cartagena</div>
+            <div class="mi-meta">04/22/2026 · #20073 · Plumbing</div>
+            <div class="mi-issue">kitchen sink is leaking</div>
+          </div>
+
+          <div class="mi">
+            <div class="mi-top">
+              <span class="mi-unit">Unit: 44 - 6255</span>
+              <div style="display:flex;gap:3px;align-items:center;"><span class="ba">assigned</span><button class="mdel">✕</button></div>
+            </div>
+            <div class="mi-tech">Technician: German Lanza</div>
+            <div class="mi-meta">04/22/2026 · #30072 · HVAC</div>
+            <div class="mi-issue">A/C not blowing cool air</div>
+          </div>
+
+          <div class="mi">
+            <div class="mi-top">
+              <span class="mi-unit">Unit: 171 - 6025SA</span>
+              <div style="display:flex;gap:3px;align-items:center;"><span class="bo">overdue</span><button class="mdel">✕</button></div>
+            </div>
+            <div class="mi-tech">Unassigned</div>
+            <div class="mi-meta">04/18/2026 · #30068 · Electrical</div>
+            <div class="mi-issue">outlet sparking in bedroom</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /right col -->
+
+  </div><!-- /row-top -->
+
+  <!-- ══ ROW 2: FULL-WIDTH RENT COMPARABLES ══ -->
+  <div class="row-full">
+    <div class="rc">
+      <div class="rc-hdr" onclick="toggleRC()" style="cursor:pointer;user-select:none;">
+        📊 Rent Comparables <span id="rc-arrow" style="font-size:10px;margin-left:6px;">▼</span>
+        <span class="rc-badge">Last Updated: Apr 23, 2026</span>
+      </div>
+      <div class="rc-body" id="rc-body">
+        <div class="rc-top">
+          <div class="rc-bldg">
+            <label>Building:</label>
+            <select>
+              <option>40 - Marrero 3 (Harvey, LA)</option>
+              <option>17 - Gates on Manhattan (Harvey, LA)</option>
+            </select>
+          </div>
+          <div class="rc-link">
+            🔗 <span style="font-size:9px;color:#888;">Published Sheet:</span>
+            <a href="#" onclick="return false;">View Full Rent Comp Sheet — 40 - Marrero 3 →</a>
+          </div>
+        </div>
+
+        <!-- unified 4-BR table -->
+        <div class="rc-scroll">
+          <table class="rc-tbl" style="min-width:1380px;">
+            <thead>
+              <tr>
+                <th class="h-prop" rowspan="2" style="width:145px;vertical-align:bottom;">Property</th>
+                <th class="h-loc"  rowspan="2" style="width:105px;vertical-align:bottom;">Location</th>
+                <th class="h-prox" rowspan="2" style="width:62px;vertical-align:bottom;">Proximity</th>
+                <th class="h-br" colspan="4" onclick="toggleBR('br1',this)" style="cursor:pointer;">1 BR <span id="arr-br1">&#9660;</span></th>
+                <th class="h-br" colspan="4" onclick="toggleBR('br2',this)" style="cursor:pointer;border-left:3px solid rgba(255,255,255,0.5);">2 BR <span id="arr-br2">&#9660;</span></th>
+                <th class="h-br" colspan="4" onclick="toggleBR('br3',this)" style="cursor:pointer;border-left:3px solid rgba(255,255,255,0.5);">3 BR <span id="arr-br3">&#9660;</span></th>
+                <th class="h-br" colspan="4" onclick="toggleBR('br4',this)" style="cursor:pointer;border-left:3px solid rgba(255,255,255,0.5);">4 BR <span id="arr-br4">&#9660;</span></th>
+              </tr>
+              <tr id="subrow-br">
+                <th class="h-low  h-br-sub br1-col">Low</th><th class="h-mid  h-br-sub br1-col">Mid</th><th class="h-high h-br-sub br1-col">High</th><th class="h-mkt  h-br-sub br1-col">Mkt Avg</th>
+                <th class="h-low  h-br-sub br-sep br2-col">Low</th><th class="h-mid  h-br-sub br2-col">Mid</th><th class="h-high h-br-sub br2-col">High</th><th class="h-mkt  h-br-sub br2-col">Mkt Avg</th>
+                <th class="h-low  h-br-sub br-sep br3-col">Low</th><th class="h-mid  h-br-sub br3-col">Mid</th><th class="h-high h-br-sub br3-col">High</th><th class="h-mkt  h-br-sub br3-col">Mkt Avg</th>
+                <th class="h-low  h-br-sub br-sep br4-col">Low</th><th class="h-mid  h-br-sub br4-col">Mid</th><th class="h-high h-br-sub br4-col">High</th><th class="h-mkt  h-br-sub br4-col">Mkt Avg</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="subj">
+                <td>&#11088; Marrero 3</td><td>Harvey, LA</td><td class="t-prox">&mdash;</td>
+                <td class="t-low">$575.00</td><td class="t-mid">$690.00</td><td class="t-high">$863.00</td><td class="t-mkt">$950.00</td>
+                <td class="t-low br-sep">$682.00</td><td class="t-mid">$818.00</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,125.00</td>
+                <td class="t-low br-sep">$773.00</td><td class="t-mid">$928.00</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,428.00</td>
+                <td class="t-low br-sep">$865.00</td><td class="t-mid">$1,038.00</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,595.00</td>
+              </tr>
+              <tr class="slg"><td colspan="19">&#9660; AFFORDABLE COMPS (LIHTC &middot; Sec.8 &middot; HUD)</td></tr>
+              <tr class="aff">
+                <td>Westbank Gardens</td><td>Marrero, LA</td><td class="t-prox"><span class="prox-pill prox-h">1.2 mi</span></td>
+                <td class="t-low">$575.00</td><td class="t-mid">$690.00</td><td class="t-high">$863.00</td><td class="t-mkt">$950.00</td>
+                <td class="t-low br-sep">$682.00</td><td class="t-mid">$818.00</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,125.00</td>
+                <td class="t-low br-sep">$773.00</td><td class="t-mid">$928.00</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,428.00</td>
+                <td class="t-low br-sep">$865.00</td><td class="t-mid">$1,038.00</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,595.00</td>
+              </tr>
+              <tr class="aff">
+                <td>Terrytown Apts</td><td>Terrytown, LA</td><td class="t-prox"><span class="prox-pill prox-h">2.8 mi</span></td>
+                <td class="t-low">$575.00</td><td class="t-mid">$690.00</td><td class="t-high">$863.00</td><td class="t-mkt">$950.00</td>
+                <td class="t-low br-sep">$682.00</td><td class="t-mid">$818.00</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,125.00</td>
+                <td class="t-low br-sep">$773.00</td><td class="t-mid">$928.00</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,428.00</td>
+                <td class="t-low br-sep">$865.00</td><td class="t-mid">$1,038.00</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,595.00</td>
+              </tr>
+              <tr class="aff">
+                <td>Gretna Manor</td><td>Gretna, LA</td><td class="t-prox"><span class="prox-pill prox-m">3.5 mi</span></td>
+                <td class="t-low">$575.00</td><td class="t-mid">$690.00</td><td class="t-high">$863.00</td><td class="t-mkt">$950.00</td>
+                <td class="t-low br-sep">$682.00</td><td class="t-mid">$818.00</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,125.00</td>
+                <td class="t-low br-sep">$773.00</td><td class="t-mid">$928.00</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,428.00</td>
+                <td class="t-low br-sep">$865.00</td><td class="t-mid">$1,038.00</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,595.00</td>
+              </tr>
+              <tr class="aff">
+                <td>Algiers Point</td><td>New Orleans, LA</td><td class="t-prox"><span class="prox-pill prox-m">7.1 mi</span></td>
+                <td class="t-low">$575.00</td><td class="t-mid">$690.00</td><td class="t-high">$863.00</td><td class="t-mkt">$950.00</td>
+                <td class="t-low br-sep">$682.00</td><td class="t-mid">$818.00</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,125.00</td>
+                <td class="t-low br-sep">$773.00</td><td class="t-mid">$928.00</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,428.00</td>
+                <td class="t-low br-sep">$865.00</td><td class="t-mid">$1,038.00</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,595.00</td>
+              </tr>
+              <tr class="slb"><td colspan="19">&#9660; MARKET RATE COMPS (No Income Restrictions)</td></tr>
+              <tr class="mkt-r">
+                <td>Bayou Oaks Apts</td><td>Harvey, LA</td><td class="t-prox"><span class="prox-pill prox-h">0.9 mi</span></td>
+                <td class="t-na">N/A</td><td class="t-na">N/A</td><td class="t-high">$863.00</td><td class="t-mkt">$975.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,050.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,325.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,550.00</td>
+              </tr>
+              <tr class="mkt-r">
+                <td>Westside Crossing</td><td>Marrero, LA</td><td class="t-prox"><span class="prox-pill prox-h">1.8 mi</span></td>
+                <td class="t-na">N/A</td><td class="t-na">N/A</td><td class="t-high">$863.00</td><td class="t-mkt">$995.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,095.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,375.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,595.00</td>
+              </tr>
+              <tr class="mkt-r">
+                <td>Lapalco Commons</td><td>Harvey, LA</td><td class="t-prox"><span class="prox-pill prox-h">2.2 mi</span></td>
+                <td class="t-na">N/A</td><td class="t-na">N/A</td><td class="t-high">$863.00</td><td class="t-mkt">$1,025.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,140.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,450.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,650.00</td>
+              </tr>
+              <tr class="mkt-r">
+                <td>Belle Chasse Vill.</td><td>Belle Chasse, LA</td><td class="t-prox"><span class="prox-pill prox-m">6.4 mi</span></td>
+                <td class="t-na">N/A</td><td class="t-na">N/A</td><td class="t-high">$863.00</td><td class="t-mkt">$1,050.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,023.00</td><td class="t-mkt">$1,175.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,298.00</td><td class="t-mkt">$1,495.00</td>
+                <td class="t-na br-sep">N/A</td><td class="t-na">N/A</td><td class="t-high">$1,450.00</td><td class="t-mkt">$1,695.00</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rc-legend" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:10px;margin-top:7px;padding-top:6px;border-top:1px solid #eee;align-items:center;">
+          <div class="rc-li"><div class="rc-dot" style="background:#e8f5e8;border:1px solid #1a6a1a;"></div>Low 50% AMI</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#e0ecff;border:1px solid #1a3a7a;"></div>Mid 60% AMI</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#fde8e8;border:1px solid #7a1a1a;"></div>High 80% AMI / FMR</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#fff8e0;border:1px solid #6a4a00;"></div>Average</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#f0e8ff;border:1px solid #4a1a7a;"></div>Market Avg</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#f5fff5;border:1px solid #2d8a2d;"></div>Affordable Comp</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#f5f5ff;border:1px solid #2a6ab0;"></div>Market Rate Comp</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#cc2222;border-radius:8px;"></div>Near (&lt;3mi)</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#d06010;border-radius:8px;"></div>Mid (3–7mi)</div>
+          <div class="rc-li"><div class="rc-dot" style="background:#2d8a2d;border-radius:8px;"></div>Far (&gt;7mi)</div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /rent comp row -->
+
+  <!-- ══ ROW 3: FULL-WIDTH CALENDAR ══ -->
+  <div class="row-full">
+    <div class="cal">
+      <div class="cal-hdr">
+        <div class="cal-nav">
+          <button>◀</button>
+          <span class="cal-title">April 2026</span>
+          <button>▶</button>
+        </div>
+        <div class="cal-legend">
+          <div class="cal-li"><div class="cal-dot" style="background:#1a7a7a;"></div>Inspections</div>
+          <div class="cal-li"><div class="cal-dot" style="background:#cc2222;"></div>Maintenance</div>
+          <div class="cal-li"><div class="cal-dot" style="background:#2a6ab0;"></div>Appointments</div>
+        </div>
+      </div>
+      <div class="cal-grid">
+        <!-- Day headers -->
+        <div class="cal-dow">Sun</div>
+        <div class="cal-dow">Mon</div>
+        <div class="cal-dow">Tue</div>
+        <div class="cal-dow">Wed</div>
+        <div class="cal-dow">Thu</div>
+        <div class="cal-dow">Fri</div>
+        <div class="cal-dow">Sat</div>
+
+        <!-- Week 1: Mar 29 – Apr 4 -->
+        <div class="cal-cell other"><div class="cal-num">29</div></div>
+        <div class="cal-cell other"><div class="cal-num">30</div></div>
+        <div class="cal-cell other"><div class="cal-num">31</div></div>
+        <div class="cal-cell"><div class="cal-num">1</div></div>
+        <div class="cal-cell"><div class="cal-num">2</div></div>
+        <div class="cal-cell"><div class="cal-num">3</div></div>
+        <div class="cal-cell"><div class="cal-num">4</div></div>
+
+        <!-- Week 2: Apr 5–11 -->
+        <div class="cal-cell"><div class="cal-num">5</div></div>
+        <div class="cal-cell"><div class="cal-num">6</div></div>
+        <div class="cal-cell"><div class="cal-num">7</div></div>
+        <div class="cal-cell"><div class="cal-num">8</div></div>
+        <div class="cal-cell"><div class="cal-num">9</div></div>
+        <div class="cal-cell"><div class="cal-num">10</div>
+          <div class="cal-event ev-maint">Unit 33 — Pest</div>
+        </div>
+        <div class="cal-cell"><div class="cal-num">11</div></div>
+
+        <!-- Week 3: Apr 12–18 -->
+        <div class="cal-cell"><div class="cal-num">12</div></div>
+        <div class="cal-cell"><div class="cal-num">13</div></div>
+        <div class="cal-cell"><div class="cal-num">14</div></div>
+        <div class="cal-cell"><div class="cal-num">15</div>
+          <div class="cal-event ev-maint">Unit 55 — Plumbing</div>
+        </div>
+        <div class="cal-cell"><div class="cal-num">16</div></div>
+        <div class="cal-cell"><div class="cal-num">17</div></div>
+        <div class="cal-cell"><div class="cal-num">18</div>
+          <div class="cal-event ev-maint">Unit 22 — Electrical</div>
+        </div>
+
+        <!-- Week 4: Apr 19–25 -->
+        <div class="cal-cell"><div class="cal-num">19</div></div>
+        <div class="cal-cell"><div class="cal-num">20</div></div>
+        <div class="cal-cell"><div class="cal-num">21</div></div>
+        <div class="cal-cell"><div class="cal-num">22</div>
+          <div class="cal-event ev-maint">Unit 80 — Plumbing</div>
+          <div class="cal-event ev-maint">Unit 44 — HVAC</div>
+        </div>
+        <div class="cal-cell today"><div class="cal-num" style="color:#cc2222;">23</div></div>
+        <div class="cal-cell"><div class="cal-num">24</div></div>
+        <div class="cal-cell"><div class="cal-num">25</div></div>
+
+        <!-- Week 5: Apr 26 – May 2 -->
+        <div class="cal-cell"><div class="cal-num">26</div></div>
+        <div class="cal-cell"><div class="cal-num">27</div>
+          <div class="cal-event ev-appt">10:00 AM — Inspection Walk-Through</div>
+        </div>
+        <div class="cal-cell"><div class="cal-num">28</div></div>
+        <div class="cal-cell"><div class="cal-num">29</div>
+          <div class="cal-event ev-appt">4:00 PM — Compliance Review</div>
+        </div>
+        <div class="cal-cell"><div class="cal-num">30</div></div>
+        <div class="cal-cell other"><div class="cal-num">1</div>
+          <div class="cal-event ev-appt">9:00 AM — Tenant Orientation</div>
+        </div>
+        <div class="cal-cell other"><div class="cal-num">2</div></div>
+      </div>
+    </div>
+  </div><!-- /calendar row -->
+
+</div><!-- /page -->
+
+<script>
+function toggleComp() {
+  const body = document.getElementById('comp-body');
+  const arrow = document.getElementById('comp-arrow');
+  const open = body.classList.toggle('open');
+  arrow.textContent = open ? '\u25b2' : '\u25bc';
+}
+
+const brState = {br1:true, br2:true, br3:true, br4:true};
+
+function toggleBR(id, th) {
+  brState[id] = !brState[id];
+  const show = brState[id];
+  document.getElementById('arr-'+id).innerHTML = show ? '&#9660;' : '&#9658;';
+  th.colSpan = show ? 4 : 1;
+  // hide/show all cells (th and td) tagged with this BR group
+  document.querySelectorAll('.'+id+'-col').forEach(el => {
+    el.style.display = show ? '' : 'none';
+  });
+}
+
+// Tag all sub-header and data cells with BR group classes on load
+document.addEventListener('DOMContentLoaded', function() {
+  const tbl = document.querySelector('.rc-tbl');
+  if (!tbl) return;
+  // data rows: 19 cells each (prop, loc, prox, then 4x4)
+  tbl.querySelectorAll('tbody tr').forEach(row => {
+    const cells = row.querySelectorAll('td');
+    if (cells.length === 19) {
+      [3,4,5,6].forEach(i => cells[i].classList.add('br1-col'));
+      [7,8,9,10].forEach(i => cells[i].classList.add('br2-col'));
+      [11,12,13,14].forEach(i => cells[i].classList.add('br3-col'));
+      [15,16,17,18].forEach(i => cells[i].classList.add('br4-col'));
+    }
+  });
+  // also make the sub-header th cells hide/show (already have classes from HTML)
+});
+
+function toggleRC() {
+  const body = document.getElementById('rc-body');
+  const arrow = document.getElementById('rc-arrow');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : '';
+  arrow.textContent = isOpen ? '▶' : '▼';
+}
+</script>
+</body>
+</html>
