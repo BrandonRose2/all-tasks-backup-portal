@@ -24,13 +24,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare lightweight Pages artifact
+        run: |
+          rm -rf _site
+          mkdir -p _site/client/public/archives/manus
+
+          cp index.html _site/index.html
+          cp client/public/tasks_data.json _site/client/public/tasks_data.json
+          cp client/public/archives/manus/manifest.json _site/client/public/archives/manus/manifest.json
+          cp -R client/public/archives/manus/tasks _site/client/public/archives/manus/tasks
+
+          for file in \
+            case-notes-and-strategy.md \
+            Report_Nicole_Ginger_Sandra_Demotion.pdf \
+            ApartmentCorp_Indeed_Job_Listing.md \
+            ApartmentCorp_Indeed_Job_Listing.pdf \
+            Robert_Sagarang_Case_Monitor_Dashboard.html; do
+            if [[ -f "$file" ]]; then
+              cp "$file" _site/
+            fi
+          done
+
+          touch _site/.nojekyll
+          echo "Pages artifact contents:"
+          find _site -type f -printf '%p %s bytes\n' | sort
+          echo "Pages artifact total:"
+          du -sh _site
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: "_site"
 
       - name: Deploy to GitHub Pages
         id: deployment
