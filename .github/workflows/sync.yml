@@ -33,6 +33,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   sync:
@@ -98,6 +100,46 @@ jobs:
           git add client/public/tasks_data.json client/public/archives/manus
           git commit -m "chore: archive Manus tasks — ${{ steps.summary.outputs.tasks }} indexed / ${{ steps.summary.outputs.archived }} complete [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
           git push
+
+      - name: Prepare lightweight Pages artifact
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          rm -rf _site
+          mkdir -p _site/client/public/archives/manus
+
+          cp index.html _site/index.html
+          cp client/public/tasks_data.json _site/client/public/tasks_data.json
+          cp client/public/archives/manus/manifest.json _site/client/public/archives/manus/manifest.json
+          cp -R client/public/archives/manus/tasks _site/client/public/archives/manus/tasks
+
+          for file in \
+            case-notes-and-strategy.md \
+            Report_Nicole_Ginger_Sandra_Demotion.pdf \
+            ApartmentCorp_Indeed_Job_Listing.md \
+            ApartmentCorp_Indeed_Job_Listing.pdf \
+            Robert_Sagarang_Case_Monitor_Dashboard.html; do
+            if [[ -f "$file" ]]; then
+              cp "$file" _site/
+            fi
+          done
+
+          touch _site/.nojekyll
+          du -sh _site
+
+      - name: Configure Pages
+        if: steps.changes.outputs.changed == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: steps.changes.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_site"
+
+      - name: Deploy updated Pages portal
+        if: steps.changes.outputs.changed == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: No changes detected
         if: steps.changes.outputs.changed != 'true'
