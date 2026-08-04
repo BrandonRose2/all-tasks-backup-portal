@@ -1,0 +1,100 @@
+Received: from MAIL13.aradomain.grg (10.0.0.26) by MAIL13.aradomain.grg
+ (10.0.0.26) with Microsoft SMTP Server (TLS) id 15.0.1497.48 via Mailbox
+ Transport; Mon, 27 Apr 2026 10:10:26 -0700
+Received: from MAIL13.aradomain.grg (10.0.0.26) by mail13.aradomain.grg
+ (10.0.0.26) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Mon, 27 Apr
+ 2026 10:10:26 -0700
+Received: from spam.aptrents.com (10.0.55.6) by mail.aptrents.com (10.0.0.26)
+ with Microsoft SMTP Server (TLS) id 15.0.1497.48 via Frontend Transport; Mon,
+ 27 Apr 2026 10:10:26 -0700
+X-Virus-Scanned: by SpamTitan at aptrents.com
+X-Spam-Flag: NO
+X-Spam-Score: 0
+X-Spam-Level:
+X-Spam-Status: No, score=x tagged_above=-999 required=20 WHITELISTED tests=[]
+ autolearn=unavailable
+Authentication-Results: spam.aptrents.com;
+        dkim=pass (2048-bit rsa key sha256) header.d=gmail.com
+          header.i=@gmail.com header.b=pUbKw3a2 header.a=rsa-sha256
+          header.s=20251104 x-bits=2048;
+        dmarc=pass policy.published-domain-policy=none
+          policy.published-subdomain-policy=quarantine
+          policy.applied-disposition=none policy.evaluated-disposition=none
+          policy.policy-from=p header.from=gmail.com;
+        spf=pass smtp.mailfrom=brandonrose2@gmail.com
+          smtp.helo=mail-vk1-f178.google.com;
+        x-google-dkim=pass (2048-bit rsa key) header.d=1e100.net
+          header.i=@1e100.net header.b=T1VXmU3O
+Received-SPF: SoftFail (mail13.aradomain.grg: domain of transitioning
+ brandonrose2@gmail.com discourages use of 10.0.55.6 as permitted sender)
+Received-SPF: pass
+        (gmail.com ... _spf.google.com: 209.85.221.178 is authorized to use 'brandonrose2@gmail.com' in 'mfrom' identity (mechanism 'ip4:209.85.128.0/17' matched))
+        receiver=spam.aptrents.com;
+        identity=mailfrom;
+        envelope-from="brandonrose2@gmail.com";
+        helo=mail-vk1-f178.google.com;
+        client-ip=209.85.221.178
+Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com [209.85.221.178])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by spam.aptrents.com (Postfix) with ESMTPS id 5EEBD40D094
+	for <Brandon@apartmentcorp.com>; Mon, 27 Apr 2026 10:10:09 -0700 (PDT)
+Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-56d95bc93e3so5710577e0c.1
+        for <Brandon@apartmentcorp.com>; Mon, 27 Apr 2026 10:10:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777309808; x=1777914608; darn=apartmentcorp.com;
+        h=mime-version:date:content-transfer-encoding:message-id:subject
+         :reply-to:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4fDAYWQMtymvDuKCtHHImiO44P9v1B4OzRqvwWq2Sf8=;
+        b=pUbKw3a27hrdjnGQH2NhuChUP+WTcF8zQZk48j0LdqqzEvAVAsYM9Kp1VVkP5wZsnA
+         U8unK2JNpyvBnBdfV4fL9iBeVa75rx87ZTpDIF3gNVYxLMijQJmxf7yaUWp7WkybuTZF
+         2/5Xxqz8C6ULOhPMRVxim0h8ScjOnHEuL3hKiQvkvnTOmMECzydi+TcyWOYFaokdwkya
+         EDh0jawWjzIqkO/+1yVhJ1UrT0MdIsYMQrzYcznHeECMKNhAiS8EtT+J59WiSE2BdrPL
+         633xfBHJlpzBW+5Wm24DGUtz0ZX3w4EU1bhBfx8ivzllxPJncKZhxstQkF+mL5CR1P4i
+         nRpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777309808; x=1777914608;
+        h=mime-version:date:content-transfer-encoding:message-id:subject
+         :reply-to:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4fDAYWQMtymvDuKCtHHImiO44P9v1B4OzRqvwWq2Sf8=;
+        b=T1VXmU3OQxtgEaMvcInvUGTIyIa6AKsOWVh80Yl9fthD6Bu660yMu/iv1WZ/LUorzD
+         LGx0xT2as8cQgPc5BYe91Vle64h5HGP1ryvSxWdmmBaFnyaglgVU/IPYtZziRV3oe347
+         RUmQ5XZ2I1y5IOsZvYuZf2BtiD4iZ2HoKqLRovLtbRZa9xv+4+wkew+5DLYSmSn9Uorc
+         sn4syhQvjTKDlPQJT1vgRhccuQ+DcN5sczqRgrVMdXLag4E1bU07y+KzVNw+bkJqWoA/
+         XxnoZ0T1AOku5eID94X1tKDt6hZ4PirJGiEifNYsmB4AZUg3WLSlZFqUu4ExTBOEaP9R
+         icnQ==
+X-Gm-Message-State: AOJu0YzzBAlP+292FsuqzPwr+3+DuYst3/X6IEZC3NSTFEB5xhG12kEB
+	HLytSYAElhd7r98nP2fh2wGyXg/xk/OHG0N1l2H82twftG0wg066pkdlRF3XryMi
+X-Gm-Gg: AeBDieu3hs9256VXN0HY1K7wnJFP1SDivT9FFuu0eDsR3S8tu3VoEg9x+f7Ck9pJyLl
+	GqnEbYmW3DGpFd7cF3U68WnIW5VQPf9GgZXA4rJFN0aBjMhCkKLWoQBW2UnZISckLiiVgKYeVID
+	2NvS1OGAHH8ptdPMdxVfoFwasIRbKdVUmU1rebss13O6yobuXbtEZPdYQCaDN6oTKzw+Y+H3y7n
+	Ok3bOYOg/vl0IBjd7ZkmPIKYpkWD3HkD+iDOYf4yPhd08BrwZctx7fGoUzjWqQNDdgzLohHyqfq
+	3Pt6FzJGa/NjVBDe2ltpMmXf/3DrEUzBHgTtRNXFq8IbInGDyew/kDPkeUpHKLZL+FzLSflQMym
+	tss7ioG7jvC1o3EBeIUUvgzGmqSelDYrchzKNQi4LhAV5Aefe7B2sgwn1lk4snMUrFrcHesgg0R
+	dKXNPtbsi6lxjkgT6vNRhzimXurCgE1sQBg3zM0oHpbNrXM5P4qhvY3Ka+NA6TbDWfcXGCPUcuc
+	FSoG64vpNTLybRIBvCrr05TP1+CR5FP/83UD4y3jxpx/Os707klwaUn0mKhEb80h5yf/bCOpEfS
+	bqhdt0V1Paq6qGDUWY7BIA==
+X-Received: by 2002:a05:6122:8f0d:b0:570:2ace:c14a with SMTP id 71dfb90a1353d-573a2939d35mr267768e0c.0.1777309807859;
+        Mon, 27 Apr 2026 10:10:07 -0700 (PDT)
+From: Brandon Rose - Apartment Corp <brandonrose2@gmail.com>
+X-Google-Original-From: "Brandon Rose - Apartment Corp" <Brandon@apartmentcorp.com>
+To: Brandon@apartmentcorp.com, mam@22.bz, robert@apartmentcorp.com,
+ Ethan@apartmentcorp.com
+Reply-To: Brandon@apartmentcorp.com
+Subject: =?UTF-8?Q?=E2=9A=A1_Daily_Vacancy_Report_=E2=80=94?=
+ =?UTF-8?Q?_Apr_27=2C_2026_=7C_111_Vacant_Units?=
+Message-ID: <292f7c8c-1691-dd08-8fba-c7b59e65e399@apartmentcorp.com>
+Content-Transfer-Encoding: quoted-printable
+Date: Mon, 27 Apr 2026 17:10:07 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Return-Path: brandonrose2@gmail.com
+X-MS-Exchange-Organization-PRD: gmail.com
+X-MS-Exchange-Organization-SenderIdResult: SoftFail
+X-MS-Exchange-Organization-Network-Message-Id: ddb082d6-c0bc-4211-5d10-08dea47fe041
+X-MS-Exchange-Organization-Antispam-Report: SenderOnRecipientSafeSendersList
+X-MS-Exchange-Organization-SCL: -1
+X-MS-Exchange-Organization-AuthSource: mail13.aradomain.grg
+X-MS-Exchange-Organization-AuthAs: Anonymous

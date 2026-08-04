@@ -1,0 +1,479 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:02.881996Z",
+  "task": {
+    "id": "wr2VtTdGVAavsKz6qxARfm",
+    "title": "How Can I Diagnose My Dog's Illness?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 1299,
+    "created_at": "1784170619",
+    "updated_at": "1784172550",
+    "task_url": "https://manus.im/app/wr2VtTdGVAavsKz6qxARfm",
+    "message_count": 0
+  },
+  "event_count": 20,
+  "events": [
+    {
+      "id": "3Iv5vneCMFdILyQlZ8Uwlc",
+      "timestamp": "1784170619496",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311083107757.41.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-8SGvnWjTvQQAwyXRK4ma0S_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMDgzMTA3NzU3LjQx.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC04U0d2bldqVHZRUUF3eVhSSzRtYTBTX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TURnek1UQTNOelUzTGpReC5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCokNTtarf1XSmETZmCvwk2mcpdJKJ4YF6WNAPmfisEvwIgIbUldrLq18TdiJv2VLBpFdByXvqdbR8nwlWwBqn86-w_"
+          },
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311110594764.46.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-SD79dV09CAfB3Yqz1lcY0c_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMTEwNTk0NzY0LjQ2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1TRDc5ZFYwOUNBZkIzWXF6MWxjWTBjX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TVRFd05UazBOelkwTGpRMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDJ-4ttiTEFdD0JDi~JtxU7vAYyPxcUapmD~wTlAYY4MAIge7NhJDSvjiF~GMg~q0dKOv6LhIS-ahX4mGZCnRca3tI_"
+          },
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311130972069.56.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-HHcaXhaOoOLhZaytzd7XRm_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMTMwOTcyMDY5LjU2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1ISGNhWGhhT29PTGhaYXl0emQ3WFJtX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TVRNd09UY3lNRFk1TGpVMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDtkGy5RAvBODf-rm3t6L52~NguNwR5o1ho1SC4dXhDcQIgPPfJRt621VmW~iVlsZ-52F~OUPPq9j9V4TPui-~dC9A_"
+          },
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311213354699.66.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-uLSifkRlmq924vcIEs3fog_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMjEzMzU0Njk5LjY2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC11TFNpZmtSbG1xOTI0dmNJRXMzZm9nX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TWpFek16VTBOams1TGpZMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCMwgaCrQ3jpAENZg~jjHHvb958t-SxFlcxQuHhgUW8XwIhAPj9Fy36BjOSQCC0ygCdRBnfJ3TSjC-VN53w8DyzJlrE"
+          },
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311223907450.71.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-YPkgv95vE91LXUfC6Bt7oN_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMjIzOTA3NDUwLjcx.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1ZUGtndjk1dkU5MUxYVWZDNkJ0N29OX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TWpJek9UQTNORFV3TGpjeC5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIB-JXF2Zvznp3AC203sympoUSkbb6lFdfArEORCgNPk~AiEAr3GXJrjitUgTISJiSJLi2kLQ9SGFtCuCjpueM~fFA5o_"
+          },
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311375620753.76.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-jxCUGkFdGmdIJvz9K7kdvt_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMzc1NjIwNzUzLjc2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1qeENVR2tGZEdtZElKdno5SzdrZHZ0X25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TXpjMU5qSXdOelV6TGpjMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIGt8pJjGTSlBOZ0AlQKCmq95xEtUzn2SDq4yivnhmJe8AiBOCSuyJK9xaBq6VoQs53h3X~696yiJCzhGX6U-~TywPg__"
+          },
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311381467961.81.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-Bnx9wmsoJy4M1RQGef1Nkz_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMzgxNDY3OTYxLjgx.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1Cbng5d21zb0p5NE0xUlFHZWYxTmt6X25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TXpneE5EWTNPVFl4TGpneC5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDsiQ9~9kwMO68SXT1879aSUwiUrvPFFi-QKbPhPzEHIQIhAOAm1p-1NgIZIny6hAuNvBh6FOBUlob-RiptIYLBWnkn"
+          },
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311420602538.86.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-uD3XJKwLQIokV9rMmTGOdc_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExNDIwNjAyNTM4Ljg2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC11RDNYSkt3TFFJb2tWOXJNbVRHT2RjX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TkRJd05qQXlOVE00TGpnMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQD37I-Y8C7AVEBl4GCTBOAFat2aQBZmjJKJkcpnCsNk3QIhAMTpR2Ev7obrhIX0TiWeLtEqDrifgls3IDAOUxTsVMjK"
+          },
+          {
+            "content_type": "application/dicom",
+            "filename": "1.2.840.1136982026071311422446681.91.dcm",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-Wf8uJmKJtGnjG8QLukCHca_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExNDIyNDQ2NjgxLjkx.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1XZjh1Sm1LSnRHbmpHOFFMdWtDSGNhX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TkRJeU5EUTJOamd4TGpreC5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIA2piIiyy81WJ8ksbdnht~vS0UksKu9pnNq4E~0vNLWdAiBoPgMwV4yPoFOrIktXFm84eymDyHb~dtYPBUQpt5f8GA__"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "hanon_rose_1784169759_6a58451f514b5.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-Frz2Q9ppz5WWmcFL4CQvss_na1fn_aGFub25fcm9zZV8xNzg0MTY5NzU5XzZhNTg0NTFmNTE0YjU.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1GcnoyUTlwcHo1V1dtY0ZMNENRdnNzX25hMWZuX2FHRnViMjVmY205elpWOHhOemcwTVRZNU56VTVYelpoTlRnME5URm1OVEUwWWpVLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQChyhiiQupV9PwsZSVic3fpaXvFlD1g9SSlDgOPniPtngIhAIcZNEEkxaXq-18sbJWwoOSU2suMm3QVSpaE3ZK4yAFP"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "hanon_rose_lab_2026_07_15_6a584499e8d46.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-MgjM0CgIR89AC1Rnhfdb7x_na1fn_aGFub25fcm9zZV9sYWJfMjAyNl8wN18xNV82YTU4NDQ5OWU4ZDQ2.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1NZ2pNMENnSVI4OUFDMVJuaGZkYjd4X25hMWZuX2FHRnViMjVmY205elpWOXNZV0pmTWpBeU5sOHdOMTh4TlY4MllUVTRORFE1T1dVNFpEUTIucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQC9WYCmAEdt9xmQ40IOfQwXtyY1~wRW0rQ7zFXpwkNgjgIhAKv7L8xFMvjXWXFsYCPxDz1xpY5z4GMd3cWCNXB6fupK"
+          }
+        ],
+        "content": "My dog, Hanon, is not well.  I have taken him to the vet and they can't seem to find an answer yet.  I need to you to act as a master in veterinarian with decades of experience and success.  I need you to evaluate the screen recording of his x rays , cross reference this lab work and his medical history and help me get to the bottom of this! ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "L8EukJJZWjvHd6UWpint6N-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784170620378",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I’m sorry Hanon is going through this. I’ll carefully review the DICOM X-rays, lab results, and medical records together, identify the most plausible explanations and urgent warning signs, and prepare focused questions and next-step testing to discuss with his veterinarian; the screen recording did not upload, but the original DICOM files are the more useful images."
+      },
+      "id": "mZQPeeml6OLKGFbzVBvNg8",
+      "timestamp": "1784170625369",
+      "type": "assistant_message"
+    },
+    {
+      "id": "24FFeJ9OBpWWp6EPz4Jz5S",
+      "timestamp": "1784170814112",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "audio/x-m4a",
+            "filename": "4829LemonaAve2.m4a",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-pmJZEdZy0YZJeVdB5gJgBH_na1fn_NDgyOUxlbW9uYUF2ZTI.m4a?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1wbUpaRWRaeTBZWkplVmRCNWdKZ0JIX25hMWZuX05EZ3lPVXhsYlc5dVlVRjJaVEkubTRhIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQC1hBHdJn~iFcSU-V7K8Vua5sA77XCHC9Z3i5-FB1C~WwIhAORZ1VB7lO7qwq6kE3485t4wb~CqW1KtIho51hMStSgh"
+          }
+        ],
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "I received the audio recording and will transcribe it, extract any additional symptom timeline or clinical details, and integrate them into Hanon’s imaging and laboratory assessment."
+      },
+      "id": "O9fEcNfXyjwTS4qDnyezX7",
+      "timestamp": "1784170818261",
+      "type": "assistant_message"
+    },
+    {
+      "id": "Qa4qizxh7PrwtT4QJhOBOv",
+      "timestamp": "1784170956141",
+      "type": "user_message",
+      "user_message": {
+        "content": "give me a summary of that recording ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "D2VNtxKlQlRmbsJqO0olkv",
+      "timestamp": "1784170959266",
+      "type": "user_message",
+      "user_message": {
+        "content": "in pdf",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "I’ll finish processing the recording, summarize the key points accurately, and provide the summary as a PDF."
+      },
+      "id": "bHMGiP9C7VZ3Do6b7XqbA6",
+      "timestamp": "1784170962646",
+      "type": "assistant_message"
+    },
+    {
+      "id": "5NM6K6v25tpV2ktJVUBj8P",
+      "timestamp": "1784171107169",
+      "type": "user_message",
+      "user_message": {
+        "content": "ok ",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "The summary is drafted. I’m now generating and checking the PDF for readability before I send it to you."
+      },
+      "id": "dZoPZqFthUpemIcoJ7n7f4",
+      "timestamp": "1784171112371",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "hanon_recording_summary.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/LLKLbOgL9P3u7IfpxPDCXF_1784171186505_na1fn_L2hvbWUvdWJ1bnR1L2hhbm9uX3Jldmlldy9oYW5vbl9yZWNvcmRpbmdfc3VtbWFyeQ.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L0xMS0xiT2dMOVAzdTdJZnB4UERDWEZfMTc4NDE3MTE4NjUwNV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoaGJtOXVYM0psZG1sbGR5OW9ZVzV2Ymw5eVpXTnZjbVJwYm1kZmMzVnRiV0Z5ZVEucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCGGT8yuceTVYqmVIrxLfdc6EFMxZyuSRY5KXSMkNlDwwIgIzrqYznTeJZSqJufjy9Gs-AkBwJ~qjIls9tFI~mEjKo_"
+          }
+        ],
+        "content": "**Test3 — Hanon’s one-page recording summary is complete.** It captures the abdominal mass findings, reported symptoms, diagnostic discussion, urgency, and agreed next steps."
+      },
+      "id": "KyZ17DreYogexUKTFsSUGX",
+      "timestamp": "1784171186755",
+      "type": "assistant_message"
+    },
+    {
+      "id": "AGDXomozzpdeVdgwyXduIw",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784171186975",
+      "type": "status_update"
+    },
+    {
+      "id": "PlUOSs6CFADo9MTjrNE99a",
+      "timestamp": "1784171361473",
+      "type": "user_message",
+      "user_message": {
+        "content": "Generate a list of potential diagnoses based on all available information.\nSummarize the key findings from the X-rays and lab work in a single document.\nCreate a presentation about Hanon's case for a specialist.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "Yh0tBKBCKQdW3MV04yMB46",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784171361570",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I’ll integrate Hanon’s complete history, laboratory results, all nine radiographs, and the recorded veterinarian discussion into three coordinated deliverables: a prioritized differential-diagnosis list, a single clinical findings document, and a specialist-ready case presentation. I’ll clearly separate documented facts from imaging impressions and diagnostic possibilities, and flag urgent concerns without presenting this as a definitive diagnosis."
+      },
+      "id": "bM7fQXId8IS60JbybRr0sa",
+      "timestamp": "1784171368415",
+      "type": "assistant_message"
+    },
+    {
+      "id": "RZxCIAuaQNe2PBC7eNj95u",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Creating slides",
+        "description": "Batch generating slides 4, 5, 6, 7, 8"
+      },
+      "timestamp": "1784172353708",
+      "type": "status_update"
+    },
+    {
+      "id": "dzsqxULLwcEnjHFkU5hJJA",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Creating slides",
+        "description": "Batch generating slides 9, 10, 11 and optimizing slides 4, 7"
+      },
+      "timestamp": "1784172391565",
+      "type": "status_update"
+    },
+    {
+      "id": "xAF2h953oLBxDnfO4xagKg",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Creating slides",
+        "description": "Batch optimizing slides 10, 11"
+      },
+      "timestamp": "1784172440773",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "filename": "Hanon: Large Right Cranial Abdominal Mass",
+            "type": "slides",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/iw4pzutrb1dezhssfwnii-c2f46580-e2b-prod-us1_1784172535322_na1fn_c2xpZGVz.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L2l3NHB6dXRyYjFkZXpoc3Nmd25paS1jMmY0NjU4MC1lMmItcHJvZC11czFfMTc4NDE3MjUzNTMyMl9uYTFmbl9jMnhwWkdWei5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIEDcqK3XYYuhuAVVwAczq~5LCephSZBHbvVELC32BXqqAiEA8wxc1XyMCGj8vWOqy4gcg4lb~H7EMQn2Gxa0q1gpdFc_"
+          },
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "Hanon_Specialist_Case_Summary.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/processed/djj3UAwOBtA8lImUHe5pIP_1784172546846_na1fn_L2hvbWUvdWJ1bnR1L2hhbm9uX3Jldmlldy9IYW5vbl9TcGVjaWFsaXN0X0Nhc2VfU3VtbWFyeQ.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L3Byb2Nlc3NlZC9kamozVUF3T0J0QThsSW1VSGU1cElQXzE3ODQxNzI1NDY4NDZfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwyaGhibTl1WDNKbGRtbGxkeTlJWVc1dmJsOVRjR1ZqYVdGc2FYTjBYME5oYzJWZlUzVnRiV0Z5ZVEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCtd8MB4f451Mu2Am~2YU5LGnJ1SypBmGtl63ClVk0KugIgC~TVpKms~qH8qs7SXiCtYty91mqVoUGENgCvW1saD5g_"
+          },
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "prioritized_differentials.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/djj3UAwOBtA8lImUHe5pIP_1784172546846_na1fn_L2hvbWUvdWJ1bnR1L2hhbm9uX3Jldmlldy9wcmlvcml0aXplZF9kaWZmZXJlbnRpYWxz.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L2RqajNVQXdPQnRBOGxJbVVIZTVwSVBfMTc4NDE3MjU0Njg0Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoaGJtOXVYM0psZG1sbGR5OXdjbWx2Y21sMGFYcGxaRjlrYVdabVpYSmxiblJwWVd4ei5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQD7UhOd5RlVvEr4iypaamOaReuI6zF4kw~uFXzcmzxjdgIhAJZZ9ebCFCyR1lUG8q0G7o~9jM9N9oENkyC53dr1GH3-"
+          },
+          {
+            "content_type": "image/png",
+            "filename": "contact_sheet.png",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/djj3UAwOBtA8lImUHe5pIP_1784172546846_na1fn_L2hvbWUvdWJ1bnR1L2hhbm9uX3Jldmlldy9yYWRpb2dyYXBocy9jb250YWN0X3NoZWV0.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L2RqajNVQXdPQnRBOGxJbVVIZTVwSVBfMTc4NDE3MjU0Njg0Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoaGJtOXVYM0psZG1sbGR5OXlZV1JwYjJkeVlYQm9jeTlqYjI1MFlXTjBYM05vWldWMC5wbmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIFOwZai4T4a7qZ8GGcGRwTZMj2J~OEy4RFMWJSjQydIxAiBznWMVWhlCd0Q3uss9WWbFgGHy4XMUnHJlxdTLxcy1ZA__"
+          }
+        ],
+        "content": "**Test3 — Hanon’s specialist case package is complete.** The attached files include the specialist presentation, the integrated X-ray/lab findings document, and a separate prioritized differential-diagnosis analysis. The leading working category is a **localized hepatic mass**, but tissue of origin and benign versus malignant behavior remain unconfirmed; the materials emphasize multiphase contrast CT and a specialist-directed sampling or surgical plan."
+      },
+      "id": "KAzRRiHJJgj594Umm8RPXs",
+      "timestamp": "1784172549235",
+      "type": "assistant_message"
+    },
+    {
+      "id": "b3u7UUS30iXW0KTzHa0ZRP",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784172550466",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311083107757.41.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-8SGvnWjTvQQAwyXRK4ma0S_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMDgzMTA3NzU3LjQx.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC04U0d2bldqVHZRUUF3eVhSSzRtYTBTX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TURnek1UQTNOelUzTGpReC5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCokNTtarf1XSmETZmCvwk2mcpdJKJ4YF6WNAPmfisEvwIgIbUldrLq18TdiJv2VLBpFdByXvqdbR8nwlWwBqn86-w_",
+      "status": "archived",
+      "bytes": 11384724,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-0_433131b8d8f00cad_1.2.840.1136982026071311083107757.41.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311110594764.46.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-SD79dV09CAfB3Yqz1lcY0c_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMTEwNTk0NzY0LjQ2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1TRDc5ZFYwOUNBZkIzWXF6MWxjWTBjX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TVRFd05UazBOelkwTGpRMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDJ-4ttiTEFdD0JDi~JtxU7vAYyPxcUapmD~wTlAYY4MAIge7NhJDSvjiF~GMg~q0dKOv6LhIS-ahX4mGZCnRca3tI_",
+      "status": "archived",
+      "bytes": 11316288,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-1_4d40e4d3d09a34a1_1.2.840.1136982026071311110594764.46.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311130972069.56.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-HHcaXhaOoOLhZaytzd7XRm_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMTMwOTcyMDY5LjU2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1ISGNhWGhhT29PTGhaYXl0emQ3WFJtX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TVRNd09UY3lNRFk1TGpVMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDtkGy5RAvBODf-rm3t6L52~NguNwR5o1ho1SC4dXhDcQIgPPfJRt621VmW~iVlsZ-52F~OUPPq9j9V4TPui-~dC9A_",
+      "status": "archived",
+      "bytes": 11745386,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-2_e0a5fc0e76a035e0_1.2.840.1136982026071311130972069.56.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311213354699.66.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-uLSifkRlmq924vcIEs3fog_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMjEzMzU0Njk5LjY2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC11TFNpZmtSbG1xOTI0dmNJRXMzZm9nX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TWpFek16VTBOams1TGpZMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCMwgaCrQ3jpAENZg~jjHHvb958t-SxFlcxQuHhgUW8XwIhAPj9Fy36BjOSQCC0ygCdRBnfJ3TSjC-VN53w8DyzJlrE",
+      "status": "archived",
+      "bytes": 11441942,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-3_9cab4982ad2c1d0e_1.2.840.1136982026071311213354699.66.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311223907450.71.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-YPkgv95vE91LXUfC6Bt7oN_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMjIzOTA3NDUwLjcx.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1ZUGtndjk1dkU5MUxYVWZDNkJ0N29OX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TWpJek9UQTNORFV3TGpjeC5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIB-JXF2Zvznp3AC203sympoUSkbb6lFdfArEORCgNPk~AiEAr3GXJrjitUgTISJiSJLi2kLQ9SGFtCuCjpueM~fFA5o_",
+      "status": "archived",
+      "bytes": 12963376,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-4_f01c2fe8b4e92496_1.2.840.1136982026071311223907450.71.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311375620753.76.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-jxCUGkFdGmdIJvz9K7kdvt_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMzc1NjIwNzUzLjc2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1qeENVR2tGZEdtZElKdno5SzdrZHZ0X25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TXpjMU5qSXdOelV6TGpjMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIGt8pJjGTSlBOZ0AlQKCmq95xEtUzn2SDq4yivnhmJe8AiBOCSuyJK9xaBq6VoQs53h3X~696yiJCzhGX6U-~TywPg__",
+      "status": "archived",
+      "bytes": 11751856,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-5_339b74e41e6520c5_1.2.840.1136982026071311375620753.76.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311381467961.81.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-Bnx9wmsoJy4M1RQGef1Nkz_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExMzgxNDY3OTYxLjgx.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1Cbng5d21zb0p5NE0xUlFHZWYxTmt6X25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TXpneE5EWTNPVFl4TGpneC5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDsiQ9~9kwMO68SXT1879aSUwiUrvPFFi-QKbPhPzEHIQIhAOAm1p-1NgIZIny6hAuNvBh6FOBUlob-RiptIYLBWnkn",
+      "status": "archived",
+      "bytes": 11598458,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-6_f942c45c67f5a464_1.2.840.1136982026071311381467961.81.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311420602538.86.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-uD3XJKwLQIokV9rMmTGOdc_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExNDIwNjAyNTM4Ljg2.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC11RDNYSkt3TFFJb2tWOXJNbVRHT2RjX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TkRJd05qQXlOVE00TGpnMi5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQD37I-Y8C7AVEBl4GCTBOAFat2aQBZmjJKJkcpnCsNk3QIhAMTpR2Ev7obrhIX0TiWeLtEqDrifgls3IDAOUxTsVMjK",
+      "status": "archived",
+      "bytes": 12073326,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-7_1917f73bb4cc151f_1.2.840.1136982026071311420602538.86.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "1.2.840.1136982026071311422446681.91.dcm",
+      "content_type": "application/dicom",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-Wf8uJmKJtGnjG8QLukCHca_na1fn_MS4yLjg0MC4xMTM2OTgyMDI2MDcxMzExNDIyNDQ2NjgxLjkx.dcm?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1XZjh1Sm1LSnRHbmpHOFFMdWtDSGNhX25hMWZuX01TNHlMamcwTUM0eE1UTTJPVGd5TURJMk1EY3hNekV4TkRJeU5EUTJOamd4TGpreC5kY20iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIA2piIiyy81WJ8ksbdnht~vS0UksKu9pnNq4E~0vNLWdAiBoPgMwV4yPoFOrIktXFm84eymDyHb~dtYPBUQpt5f8GA__",
+      "status": "archived",
+      "bytes": 12913380,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-8_4a918d8f9a3bcb85_1.2.840.1136982026071311422446681.91.dcm"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "hanon_rose_1784169759_6a58451f514b5.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-Frz2Q9ppz5WWmcFL4CQvss_na1fn_aGFub25fcm9zZV8xNzg0MTY5NzU5XzZhNTg0NTFmNTE0YjU.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1GcnoyUTlwcHo1V1dtY0ZMNENRdnNzX25hMWZuX2FHRnViMjVmY205elpWOHhOemcwTVRZNU56VTVYelpoTlRnME5URm1OVEUwWWpVLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQChyhiiQupV9PwsZSVic3fpaXvFlD1g9SSlDgOPniPtngIhAIcZNEEkxaXq-18sbJWwoOSU2suMm3QVSpaE3ZK4yAFP",
+      "status": "archived",
+      "bytes": 2224382,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-9_8c04d9b78404d0d6_hanon_rose_1784169759_6a58451f514b5.pdf"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "hanon_rose_lab_2026_07_15_6a584499e8d46.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-MgjM0CgIR89AC1Rnhfdb7x_na1fn_aGFub25fcm9zZV9sYWJfMjAyNl8wN18xNV82YTU4NDQ5OWU4ZDQ2.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1NZ2pNMENnSVI4OUFDMVJuaGZkYjd4X25hMWZuX2FHRnViMjVmY205elpWOXNZV0pmTWpBeU5sOHdOMTh4TlY4MllUVTRORFE1T1dVNFpEUTIucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQC9WYCmAEdt9xmQ40IOfQwXtyY1~wRW0rQ7zFXpwkNgjgIhAKv7L8xFMvjXWXFsYCPxDz1xpY5z4GMd3cWCNXB6fupK",
+      "status": "archived",
+      "bytes": 66905,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/0-user_message-10_84fcdcedc715e6c7_hanon_rose_lab_2026_07_15_6a584499e8d46.pdf"
+    },
+    {
+      "event_index": 3,
+      "type": "file",
+      "filename": "4829LemonaAve2.m4a",
+      "content_type": "audio/x-m4a",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-pmJZEdZy0YZJeVdB5gJgBH_na1fn_NDgyOUxlbW9uYUF2ZTI.m4a?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1wbUpaRWRaeTBZWkplVmRCNWdKZ0JIX25hMWZuX05EZ3lPVXhsYlc5dVlVRjJaVEkubTRhIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQC1hBHdJn~iFcSU-V7K8Vua5sA77XCHC9Z3i5-FB1C~WwIhAORZ1VB7lO7qwq6kE3485t4wb~CqW1KtIho51hMStSgh",
+      "status": "archived",
+      "bytes": 12272854,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/3-user_message-0_7e8d38ff55e6836e_4829LemonaAve2.m4a"
+    },
+    {
+      "event_index": 10,
+      "type": "file",
+      "filename": "hanon_recording_summary.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/LLKLbOgL9P3u7IfpxPDCXF_1784171186505_na1fn_L2hvbWUvdWJ1bnR1L2hhbm9uX3Jldmlldy9oYW5vbl9yZWNvcmRpbmdfc3VtbWFyeQ.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L0xMS0xiT2dMOVAzdTdJZnB4UERDWEZfMTc4NDE3MTE4NjUwNV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoaGJtOXVYM0psZG1sbGR5OW9ZVzV2Ymw5eVpXTnZjbVJwYm1kZmMzVnRiV0Z5ZVEucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCGGT8yuceTVYqmVIrxLfdc6EFMxZyuSRY5KXSMkNlDwwIgIzrqYznTeJZSqJufjy9Gs-AkBwJ~qjIls9tFI~mEjKo_",
+      "status": "archived",
+      "bytes": 35114,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/10-assistant_message-0_faa90722d474dc82_hanon_recording_summary.pdf"
+    },
+    {
+      "event_index": 18,
+      "type": "slides",
+      "filename": "Hanon: Large Right Cranial Abdominal Mass",
+      "content_type": "",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/iw4pzutrb1dezhssfwnii-c2f46580-e2b-prod-us1_1784172535322_na1fn_c2xpZGVz.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L2l3NHB6dXRyYjFkZXpoc3Nmd25paS1jMmY0NjU4MC1lMmItcHJvZC11czFfMTc4NDE3MjUzNTMyMl9uYTFmbl9jMnhwWkdWei5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIEDcqK3XYYuhuAVVwAczq~5LCephSZBHbvVELC32BXqqAiEA8wxc1XyMCGj8vWOqy4gcg4lb~H7EMQn2Gxa0q1gpdFc_",
+      "status": "archived",
+      "bytes": 54382,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/18-assistant_message-0_8486cdf2f3b65b49_Hanon_Large_Right_Cranial_Abdominal_Mass"
+    },
+    {
+      "event_index": 18,
+      "type": "file",
+      "filename": "Hanon_Specialist_Case_Summary.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/processed/djj3UAwOBtA8lImUHe5pIP_1784172546846_na1fn_L2hvbWUvdWJ1bnR1L2hhbm9uX3Jldmlldy9IYW5vbl9TcGVjaWFsaXN0X0Nhc2VfU3VtbWFyeQ.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L3Byb2Nlc3NlZC9kamozVUF3T0J0QThsSW1VSGU1cElQXzE3ODQxNzI1NDY4NDZfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwyaGhibTl1WDNKbGRtbGxkeTlJWVc1dmJsOVRjR1ZqYVdGc2FYTjBYME5oYzJWZlUzVnRiV0Z5ZVEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCtd8MB4f451Mu2Am~2YU5LGnJ1SypBmGtl63ClVk0KugIgC~TVpKms~qH8qs7SXiCtYty91mqVoUGENgCvW1saD5g_",
+      "status": "archived",
+      "bytes": 18554,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/18-assistant_message-1_4ede3c1a64bde155_Hanon_Specialist_Case_Summary.md"
+    },
+    {
+      "event_index": 18,
+      "type": "file",
+      "filename": "prioritized_differentials.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/djj3UAwOBtA8lImUHe5pIP_1784172546846_na1fn_L2hvbWUvdWJ1bnR1L2hhbm9uX3Jldmlldy9wcmlvcml0aXplZF9kaWZmZXJlbnRpYWxz.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L2RqajNVQXdPQnRBOGxJbVVIZTVwSVBfMTc4NDE3MjU0Njg0Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoaGJtOXVYM0psZG1sbGR5OXdjbWx2Y21sMGFYcGxaRjlrYVdabVpYSmxiblJwWVd4ei5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQD7UhOd5RlVvEr4iypaamOaReuI6zF4kw~uFXzcmzxjdgIhAJZZ9ebCFCyR1lUG8q0G7o~9jM9N9oENkyC53dr1GH3-",
+      "status": "archived",
+      "bytes": 13670,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/18-assistant_message-2_a9f40d7e9886c88e_prioritized_differentials.md"
+    },
+    {
+      "event_index": 18,
+      "type": "image",
+      "filename": "contact_sheet.png",
+      "content_type": "image/png",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/wr2VtTdGVAavsKz6qxARfm/sandbox/djj3UAwOBtA8lImUHe5pIP_1784172546846_na1fn_L2hvbWUvdWJ1bnR1L2hhbm9uX3Jldmlldy9yYWRpb2dyYXBocy9jb250YWN0X3NoZWV0.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd3IyVnRUZEdWQWF2c0t6NnF4QVJmbS9zYW5kYm94L2RqajNVQXdPQnRBOGxJbVVIZTVwSVBfMTc4NDE3MjU0Njg0Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoaGJtOXVYM0psZG1sbGR5OXlZV1JwYjJkeVlYQm9jeTlqYjI1MFlXTjBYM05vWldWMC5wbmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIFOwZai4T4a7qZ8GGcGRwTZMj2J~OEy4RFMWJSjQydIxAiBznWMVWhlCd0Q3uss9WWbFgGHy4XMUnHJlxdTLxcy1ZA__",
+      "status": "archived",
+      "bytes": 3289865,
+      "archive_path": "attachments/wr2VtTdGVAavsKz6qxARfm/18-assistant_message-3_e42f0411c8d03c69_contact_sheet.png"
+    }
+  ]
+}

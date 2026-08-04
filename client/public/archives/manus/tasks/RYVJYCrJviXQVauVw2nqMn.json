@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:08.769824Z",
+  "task": {
+    "id": "RYVJYCrJviXQVauVw2nqMn",
+    "title": "Am I Connected to Comet Browser?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 32,
+    "created_at": "1785602634",
+    "updated_at": "1785602863",
+    "task_url": "https://manus.im/app/RYVJYCrJviXQVauVw2nqMn",
+    "message_count": 0
+  },
+  "event_count": 10,
+  "events": [
+    {
+      "id": "hUjQekcJFTHuii62NZcGw1",
+      "timestamp": "1785602634217",
+      "type": "user_message",
+      "user_message": {
+        "content": "Check and see if you are connected to my comet browser now",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "46Rw421EmUDOakXNP7K3Ro-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785602634671",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I’ll check whether your Comet browser connection is active now."
+      },
+      "id": "MzI1AalsGIXzRGYmb4K2fn",
+      "timestamp": "1785602636190",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "No. Your personal-browser connection is currently **disabled**, so I am not connected to your Comet browser at this time. If you would like, I can help you enable the connection."
+      },
+      "id": "JizAwIcVadNDQeB3hJTeg2",
+      "timestamp": "1785602654904",
+      "type": "assistant_message"
+    },
+    {
+      "id": "deiz4z105KbV5raliutfuy",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785602655134",
+      "type": "status_update"
+    },
+    {
+      "id": "4fPeOI0op9BunDG99uGpD8",
+      "timestamp": "1785602845174",
+      "type": "user_message",
+      "user_message": {
+        "content": "i think its fixed",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "Be2C6YIIUEiVuew1I40LPT",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785602845280",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Great—I’ll verify the connection status again now."
+      },
+      "id": "wkaFbjb5rjBUeSSp0rImlL",
+      "timestamp": "1785602848617",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "**Yes—it's fixed.** Your personal-browser connection is enabled, and I successfully reached a test page through your connected Comet browser. I can now use it when you ask me to work in your browser."
+      },
+      "id": "uz2hE2zfciWogMB5fhX9JI",
+      "timestamp": "1785602863308",
+      "type": "assistant_message"
+    },
+    {
+      "id": "Bl4uqU2n1ngWTNOGeZDNas",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785602863534",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

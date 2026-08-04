@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:26:54.745500Z",
+  "task": {
+    "id": "JJ5XbM5wrGH1lrlLkt8Byz",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 28,
+    "created_at": "1785866777",
+    "updated_at": "1785866902",
+    "task_url": "https://manus.im/app/JJ5XbM5wrGH1lrlLkt8Byz",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "bzHFWgjAF11C5pSdLiMhnE",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785866778014",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Here are the vetted opportunities for skill-based remote work, presented in a structured Markdown table, along with quality notes."
+      },
+      "id": "D6EhZ4xtY3QZjCMZKvrUVn",
+      "timestamp": "1785866902131",
+      "type": "assistant_message"
+    },
+    {
+      "id": "7xlwsneNUY4BH8P65qt0NZ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785866902251",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

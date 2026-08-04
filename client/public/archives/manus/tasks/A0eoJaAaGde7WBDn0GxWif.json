@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:41.500984Z",
+  "task": {
+    "id": "A0eoJaAaGde7WBDn0GxWif",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 31,
+    "created_at": "1784589920",
+    "updated_at": "1784590057",
+    "task_url": "https://manus.im/app/A0eoJaAaGde7WBDn0GxWif",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "ZEzQPOMnawwU22THTiDr5Q",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784589921186",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched the publicly listed leasing-office phone number for Grove Park Terrace. An official website was not found."
+      },
+      "id": "2J686xplkmV9I62ZnQkWQy",
+      "timestamp": "1784590057714",
+      "type": "assistant_message"
+    },
+    {
+      "id": "OJpKN23hX2C5GRchfPDTjM",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784590057841",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

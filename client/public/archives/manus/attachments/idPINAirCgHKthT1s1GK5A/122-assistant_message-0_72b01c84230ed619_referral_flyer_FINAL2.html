@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Referral Flyer Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#1e293b;font-family:'Open Sans',sans-serif;}
+
+/* ─── CONTROLS ─── */
+.ctrl{background:#0f172a;padding:10px 18px;display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;border-bottom:2px solid #1e3a5f;}
+.cg{display:flex;flex-direction:column;gap:3px;}
+.cg label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#64748b;font-family:Arial;}
+.cg select,.cg input{background:#1e293b;color:#f1f5f9;border:1px solid #334155;border-radius:5px;padding:6px 10px;font-size:12px;min-width:260px;outline:none;font-family:Arial;}
+.pbtn{background:#1d4ed8;color:#fff;border:none;border-radius:5px;padding:7px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:Arial;display:inline-block;}
+#pfn{font-size:10px;color:#64748b;font-family:Arial;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.prbtn{background:#15803d;color:#fff;border:none;border-radius:5px;padding:8px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:Arial;align-self:flex-end;}
+
+/* ─── PREVIEW ─── */
+.preview{display:flex;justify-content:center;padding:20px;background:#1e293b;}
+
+/* ═══════════════════════════════════════
+   FLYER  816 × 1056 px  (8.5 × 11 in)
+   ═══════════════════════════════════════ */
+#flyer{
+  width:816px;height:1056px;
+  display:flex;flex-direction:column;
+  overflow:hidden;background:#fff;
+  box-shadow:0 16px 64px rgba(0,0,0,.9);
+  position:relative;
+}
+
+/* ══ 1. HERO ══ */
+.hero{
+  position:relative;width:100%;height:370px;
+  flex-shrink:0;overflow:hidden;
+  background:#0f2744;
+}
+.hero-photo{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 40%;
+  display:block;
+}
+/* dark overlay gradient at bottom so headline pops */
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0.55) 65%,
+    rgba(0,0,0,0.75) 100%);
+  z-index:1;
+}
+
+/* ── navy blob top-left (shield/teardrop shape) ── */
+.blob{
+  position:absolute;top:0;left:0;z-index:3;
+  width:188px;height:188px;
+}
+.blob-bg{
+  position:absolute;top:0;left:0;
+  width:188px;height:188px;
+  background:#0f2744;
+  border-radius:0 0 60% 0;
+}
+/* logo inside blob */
+.logo{
+  position:absolute;top:10px;left:10px;z-index:4;
+  width:170px;
+  display:flex;flex-direction:column;align-items:center;gap:1px;
+}
+/* Tree SVG — detailed branchy tree matching sample */
+.logo-tree svg{width:54px;height:54px;}
+.logo-name{
+  font-family:'Montserrat',sans-serif;
+  font-size:21px;font-weight:900;color:#fff;
+  text-transform:uppercase;letter-spacing:1.5px;
+  text-align:center;line-height:1;margin-top:2px;
+}
+.logo-apt{
+  font-family:'Montserrat',sans-serif;
+  font-size:7.5px;font-weight:700;color:#a7f3d0;
+  text-transform:uppercase;letter-spacing:4px;text-align:center;
+}
+.logo-rule{width:72px;height:2px;background:#4ade80;margin-top:3px;}
+
+/* ── headline ── */
+.hero-hl{
+  position:absolute;bottom:10px;left:16px;right:60px;z-index:2;
+}
+.hl-line1{
+  font-family:'Bebas Neue',Impact,sans-serif;
+  font-size:86px;font-weight:400;
+  color:#ffffff;
+  line-height:.9;letter-spacing:1px;
+  text-shadow:3px 4px 20px rgba(0,0,0,1);
+}
+.hl-line2{
+  font-family:'Bebas Neue',Impact,sans-serif;
+  font-size:86px;font-weight:400;
+  color:#4ade80;
+  line-height:.9;letter-spacing:1px;
+  text-shadow:3px 4px 20px rgba(0,0,0,1);
+}
+/* speed lines top-right of headline */
+.speed-lines{
+  position:absolute;right:10px;bottom:30px;z-index:2;
+  display:flex;flex-direction:column;gap:6px;align-items:flex-end;
+}
+.sl{background:rgba(255,255,255,0.7);height:3px;border-radius:2px;transform:rotate(-12deg);}
+
+/* ══ 2. GREEN BANNER ══ */
+.green-banner{
+  background:#16a34a;
+  padding:10px 0;text-align:center;
+  flex-shrink:0;
+}
+.green-banner span{
+  font-family:'Montserrat',sans-serif;
+  font-size:16px;font-weight:800;color:#fff;
+  text-transform:uppercase;letter-spacing:3.5px;
+}
+
+/* ══ 3. BODY ══ */
+.body{
+  flex:1;background:#fff;
+  padding:14px 20px 10px 20px;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+}
+
+/* love row */
+.love-row{
+  display:flex;align-items:center;gap:10px;
+}
+.people-col{flex-shrink:0;width:106px;}
+.love-col{flex:1;}
+.love-col h2{
+  font-family:'Montserrat',sans-serif;
+  font-size:18.5px;font-weight:800;color:#0f2744;
+  line-height:1.25;
+}
+.love-rule{width:44px;height:3px;background:#4ade80;border-radius:2px;margin:5px 0 7px;}
+.love-col p{font-size:13.5px;color:#374151;line-height:1.5;}
+.love-col p em{font-style:italic;font-weight:700;color:#0f2744;}
+
+/* $200 badge — brushstroke circle */
+.badge-col{flex-shrink:0;}
+.money-badge{
+  width:128px;height:128px;
+  position:relative;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+}
+.money-badge svg.badge-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+}
+.badge-inner{position:relative;z-index:1;padding:4px;}
+.b-dollar{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1;}
+.b-amount{font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;color:#fff;line-height:.82;}
+.b-sub{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;color:#bae6fd;text-transform:uppercase;letter-spacing:.5px;line-height:1.6;}
+
+/* boxes row */
+.boxes-row{
+  display:flex;gap:12px;
+  flex:1;align-items:stretch;
+  margin-top:12px;
+}
+
+/* IT'S EASY box */
+.easy-box{
+  flex:1.05;background:#0f2744;
+  border-radius:10px;padding:14px 16px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.easy-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.chk-wrap{
+  width:38px;height:38px;background:#4ade80;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.easy-title{
+  font-family:'Bebas Neue',Impact,sans-serif;
+  font-size:32px;color:#fff;letter-spacing:1px;
+  text-shadow:1px 1px 4px rgba(0,0,0,.3);
+}
+.steps{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.steps li{display:flex;align-items:flex-start;gap:9px;color:#cbd5e1;font-size:13px;line-height:1.45;}
+.sn{
+  background:#4ade80;color:#0f2744;font-weight:900;font-size:11px;
+  width:21px;height:21px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.steps li b{color:#fff;font-weight:800;}
+
+/* Fine print box */
+.fine-box{
+  flex:1;border:2.5px solid #0f2744;border-radius:10px;
+  padding:14px 14px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:8px;text-align:center;
+}
+.fine-icon{
+  width:46px;height:46px;
+}
+.fine-box h3{
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;font-weight:900;color:#0f2744;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.fine-box p{font-size:13px;color:#374151;line-height:1.6;}
+.fine-box p b{color:#0f2744;font-weight:800;}
+
+/* ══ 4. TAGLINE ══ */
+.tagline{
+  background:#16a34a;
+  padding:11px 20px;
+  flex-shrink:0;text-align:center;
+  position:relative;overflow:hidden;
+}
+.tagline-text{
+  font-family:'Caveat',cursive;
+  font-size:33px;font-weight:700;color:#fff;
+  position:relative;z-index:1;
+  text-shadow:1px 1px 3px rgba(0,0,0,.15);
+}
+
+/* ══ 5. FOOTER ══ */
+.footer{
+  background:#fff;
+  padding:9px 18px;
+  display:flex;align-items:center;
+  justify-content:space-between;
+  flex-shrink:0;
+  border-top:1px solid #e2e8f0;
+  gap:10px;
+}
+.spread-badge{
+  background:#0f2744;
+  border-radius:8px;padding:8px 10px;
+  display:flex;align-items:center;gap:8px;
+  min-width:108px;
+}
+.spread-text{
+  font-family:'Montserrat',sans-serif;
+  font-size:9px;font-weight:800;color:#fff;
+  text-transform:uppercase;line-height:1.7;letter-spacing:.4px;
+}
+.footer-mid{text-align:center;flex:1;}
+.footer-mid p{font-size:13px;color:#374151;line-height:1.6;}
+.footer-mid p b{color:#0f2744;font-weight:800;}
+.footer-phone{
+  font-family:'Montserrat',sans-serif;
+  font-size:12.5px;font-weight:700;color:#0f2744;
+  margin-top:2px;
+}
+.eho{flex-shrink:0;text-align:center;}
+
+/* ══ 6. BOTTOM BAR ══ */
+.btm{
+  background:#f8fafc;padding:5px 20px;
+  text-align:center;flex-shrink:0;
+  border-top:1px solid #e2e8f0;
+}
+.btm p{font-size:11px;color:#64748b;font-style:italic;}
+
+/* ── PRINT ── */
+@media print{
+  body,html{background:#fff!important;margin:0;padding:0;}
+  .ctrl{display:none!important;}
+  .preview{padding:0;background:#fff;display:block;}
+  #flyer{width:8.5in!important;height:11in!important;box-shadow:none!important;margin:0!important;}
+  @page{size:8.5in 11in;margin:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- CONTROLS -->
+<div class="ctrl">
+  <div class="cg">
+    <label>Select Property</label>
+    <select id="propSel" onchange="updateFlyer()">
+      <optgroup label="── Region 1 · FL · MS ──">
+        <option value="Boca Ciega">Boca Ciega Apartments – St. Petersburg, FL</option>
+        <option value="Jefferson Arms">Jefferson Arms – Monticello, FL</option>
+        <option value="Opa Locka">Opa Locka (135th Street) – Opa Locka, FL</option>
+        <option value="Macedonia Garden">Macedonia Garden – Panama City, FL</option>
+        <option value="Coral Village">Coral Village – Cape Coral, FL</option>
+        <option value="Holiday Apartments">Holiday Apartments – Natchez, MS</option>
+        <option value="Cumberland Apartments">Cumberland Apartments – Crystal Springs, MS</option>
+        <option value="Walnut Hill">Walnut Hill – Natchez, MS</option>
+      </optgroup>
+      <optgroup label="── Region 2 · OH · TX · CA · MO ──">
+        <option value="River Pointe">River Pointe – Columbus, OH</option>
+        <option value="Breckenridge Village">Breckenridge Village – Ennis, TX</option>
+        <option value="Lexington Arms">Lexington Arms – Waxahachie, TX</option>
+        <option value="Grace Townhomes">Grace Townhomes – Ennis, TX</option>
+        <option value="Grove Park Terrace">Grove Park Terrace – Waxahachie, TX</option>
+        <option value="La Promesa">La Promesa – Odessa, TX</option>
+        <option value="New Wilmington Arms">New Wilmington Arms – Compton, CA</option>
+        <option value="Crossroads of Lee Summit">Crossroads of Lee Summit – Lee's Summit, MO</option>
+      </optgroup>
+      <optgroup label="── Region 3 · LA · FL ──">
+        <option value="Gates on Manhattan">Gates on Manhattan – Harvey, LA</option>
+        <option value="Ruby Diamond">Ruby Diamond – Marrero, LA</option>
+        <option value="Star Homes">Star Homes – Marrero, LA</option>
+        <option value="Thibodaux">Thibodaux (Colonial Estates) – Thibodaux, LA</option>
+        <option value="Marrero 3">Marrero 3 – Harvey, LA</option>
+        <option value="Arbor Crest">Arbor Crest – Quincy, FL</option>
+        <option value="Windsor Yorkshire">Windsor / Yorkshire Village – Shreveport, LA</option>
+        <option value="North Pointe">North Pointe – Bossier City, LA</option>
+        <option value="Granite Bayou">Granite Bayou – Baton Rouge, LA</option>
+        <option value="St Charles Place">St. Charles Place – Lake Charles, LA</option>
+        <option value="Pelican Bay">Pelican Bay – Baton Rouge, LA</option>
+        <option value="Howell Place">Howell Place – Baton Rouge, LA</option>
+        <option value="Pirates Bend">Pirates Bend – Baton Rouge, LA</option>
+      </optgroup>
+      <optgroup label="── Region 4 · AR · CA · GA ──">
+        <option value="NWA">NWA – Bentonville, AR</option>
+        <option value="Anaheim">Anaheim – Anaheim, CA</option>
+        <option value="Fairfax">Fairfax – Los Angeles, CA</option>
+        <option value="Urban 1 and 2">Urban 1 &amp; 2 – Los Angeles, CA</option>
+        <option value="Midtown Manor">Midtown Manor – Los Angeles, CA</option>
+        <option value="Pacific Pointe">Pacific Pointe – Stockton, CA</option>
+        <option value="Granite Ridge">Granite Ridge – Stockton, CA</option>
+        <option value="Columbia Village">Columbia Village – Sonora, CA</option>
+        <option value="Forest View Senior">Forest View (Senior) – Sonora, CA</option>
+        <option value="Oak Hills">Oak Hills – Jamestown, CA</option>
+        <option value="River Garden">River Garden – Sonora, CA</option>
+        <option value="Rivercrest">Rivercrest – Augusta, GA</option>
+      </optgroup>
+      <optgroup label="── Region 5 · NC ──">
+        <option value="Silver Springs Terrace">Silver Springs Terrace – Hickory, NC</option>
+        <option value="Thomasville Church Homes">Thomasville Church Homes – Thomasville, NC</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="cg">
+    <label>Office Phone</label>
+    <input type="text" id="phoneIn" oninput="document.getElementById('footerPhone').textContent=this.value"/>
+  </div>
+  <div class="cg">
+    <label>Property Photo</label>
+    <div style="display:flex;gap:7px;align-items:center;">
+      <label class="pbtn" for="photoFile">📂 Choose Photo</label>
+      <input type="file" id="photoFile" accept="image/*" style="display:none" onchange="loadPhoto(event)"/>
+      <span id="pfn">No photo chosen</span>
+    </div>
+    <div style="font-size:9px;color:#475569;margin-top:3px;font-family:Arial;">Navigate to <b style="color:#60a5fa;">Property Photos \ [Building Name]</b></div>
+  </div>
+  <button class="prbtn" onclick="window.print()">🖨 Print / Save as PDF</button>
+</div>
+
+<!-- PREVIEW -->
+<div class="preview">
+<div id="flyer">
+
+  <!-- 1. HERO -->
+  <div class="hero">
+    <img id="flyerImg" class="hero-photo" src="photos/walnut_hill.jpg" alt=""/>
+    <div class="hero-overlay"></div>
+
+    <!-- Navy blob + logo -->
+    <div class="blob">
+      <div class="blob-bg"></div>
+    </div>
+    <div class="logo">
+      <div class="logo-tree">
+        <!-- Detailed branchy tree matching Walnut Hill sample -->
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- trunk -->
+          <rect x="36" y="58" width="8" height="16" rx="3" fill="white"/>
+          <!-- main canopy layers -->
+          <ellipse cx="40" cy="42" rx="22" ry="18" fill="white"/>
+          <ellipse cx="40" cy="30" rx="18" ry="16" fill="white"/>
+          <ellipse cx="40" cy="18" rx="13" ry="13" fill="white"/>
+          <!-- branch details -->
+          <ellipse cx="24" cy="38" rx="10" ry="8" fill="white"/>
+          <ellipse cx="56" cy="38" rx="10" ry="8" fill="white"/>
+          <ellipse cx="28" cy="26" rx="8" ry="7" fill="white"/>
+          <ellipse cx="52" cy="26" rx="8" ry="7" fill="white"/>
+          <!-- inner shadow to give depth -->
+          <ellipse cx="40" cy="36" rx="16" ry="13" fill="#0f2744" opacity=".18"/>
+        </svg>
+      </div>
+      <div class="logo-name" id="logoName">WALNUT HILL</div>
+      <div class="logo-apt">APARTMENTS</div>
+      <div class="logo-rule"></div>
+    </div>
+
+    <!-- Speed lines -->
+    <div class="speed-lines">
+      <div class="sl" style="width:55px;"></div>
+      <div class="sl" style="width:40px;"></div>
+      <div class="sl" style="width:65px;"></div>
+      <div class="sl" style="width:30px;"></div>
+    </div>
+
+    <!-- Headline -->
+    <div class="hero-hl">
+      <div class="hl-line1">REFER A FRIEND,</div>
+      <div class="hl-line2">GET REWARDED!</div>
+    </div>
+  </div>
+
+  <!-- 2. GREEN BANNER -->
+  <div class="green-banner">
+    <span>OUR RESIDENT REFERRAL PROGRAM</span>
+  </div>
+
+  <!-- 3. BODY -->
+  <div class="body">
+
+    <div class="love-row">
+      <!-- People silhouettes -->
+      <div class="people-col">
+        <svg viewBox="0 0 120 115" xmlns="http://www.w3.org/2000/svg">
+          <!-- left person — teal -->
+          <circle cx="38" cy="30" r="20" fill="#0d9488"/>
+          <path d="M14,100 Q14,62 38,62 Q62,62 62,100 Z" fill="#0d9488"/>
+          <!-- right person — green -->
+          <circle cx="78" cy="34" r="18" fill="#22c55e"/>
+          <path d="M56,105 Q56,70 78,70 Q100,70 100,105 Z" fill="#22c55e"/>
+          <!-- heart bubble — dark navy circle -->
+          <circle cx="62" cy="10" r="17" fill="#0f2744"/>
+          <!-- white heart inside -->
+          <path d="M62,6 C62,6 55,-1 49,5 C46,8 46,14 49,17 L62,30 L75,17 C78,14 78,8 75,5 C69,-1 62,6 62,6 Z" fill="white" transform="scale(0.58) translate(44,0)"/>
+          <path d="M62,4 C62,4 56,-2 51,3 C48,6 48,11 51,14 L62,25 L73,14 C76,11 76,6 73,3 C68,-2 62,4 62,4 Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="love-col">
+        <h2>Love living at <span id="loveName">Walnut Hill Apartments</span>?<br>Share the experience!</h2>
+        <div class="love-rule"></div>
+        <p>For every person you refer that moves in, we will give <em>you</em></p>
+      </div>
+
+      <!-- $200 badge with brushstroke circle -->
+      <div class="badge-col">
+        <div class="money-badge">
+          <!-- brushstroke-style circle SVG -->
+          <svg class="badge-bg" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="64" cy="64" r="58" fill="#0ea5e9"/>
+            <!-- rough outer ring to simulate brushstroke -->
+            <circle cx="64" cy="64" r="58" fill="none" stroke="#0369a1" stroke-width="6" stroke-dasharray="8 4" stroke-linecap="round"/>
+            <circle cx="64" cy="64" r="62" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="12 6" stroke-linecap="round"/>
+          </svg>
+          <div class="badge-inner">
+            <div class="b-dollar">$</div>
+            <div class="b-amount">200</div>
+            <div class="b-sub">ON YOUR<br>TENANT<br>LEDGER!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IT'S EASY + Fine Print -->
+    <div class="boxes-row">
+
+      <div class="easy-box">
+        <div class="easy-hdr">
+          <div class="chk-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12.5l5 5L20 6" stroke="#0f2744" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="easy-title">IT'S EASY!</div>
+        </div>
+        <ul class="steps">
+          <li><div class="sn">1</div><span><b>REFER</b> your friends, family, or co-workers.</span></li>
+          <li><div class="sn">2</div><span><b>THEY</b> apply and move in.</span></li>
+          <li><div class="sn">3</div><span><b>YOU</b> get $200 on your tenant ledger!</span></li>
+        </ul>
+      </div>
+
+      <div class="fine-box">
+        <!-- clipboard/document icon -->
+        <svg class="fine-icon" viewBox="0 0 46 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="6" width="40" height="48" rx="4" fill="#dcfce7" stroke="#0f2744" stroke-width="2.5"/>
+          <rect x="16" y="1" width="14" height="10" rx="3" fill="#0f2744"/>
+          <rect x="10" y="20" width="26" height="3" rx="1.5" fill="#0f2744"/>
+          <rect x="10" y="28" width="26" height="3" rx="1.5" fill="#0f2744"/>
+          <rect x="10" y="36" width="26" height="3" rx="1.5" fill="#0f2744"/>
+          <rect x="10" y="44" width="16" height="3" rx="1.5" fill="#0f2744"/>
+        </svg>
+        <h3>THE FINE PRINT:</h3>
+        <p>The person you refer must pay full rent on time at least <b>twice</b> before we add the credit to your account.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. TAGLINE -->
+  <div class="tagline">
+    <div class="tagline-text">Good neighbors make the best community!</div>
+  </div>
+
+  <!-- 5. FOOTER -->
+  <div class="footer">
+    <div class="spread-badge">
+      <!-- megaphone icon -->
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M26 4 L26 28 L14 22 L14 10 Z" fill="white"/>
+        <rect x="6" y="12" width="8" height="8" rx="2" fill="white"/>
+        <path d="M8 20 L8 27 Q8 29 10 29 L12 29 Q14 29 14 27 L14 22" fill="white"/>
+        <path d="M26 10 Q30 16 26 22" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div class="spread-text">SPREAD<br>THE WORD.<br>ENJOY THE<br>REWARDS!</div>
+    </div>
+
+    <div class="footer-mid">
+      <p>Thank you for being a part of<br><b id="footerName">Walnut Hill Apartments</b>!</p>
+      <div class="footer-phone" id="footerPhone">(601) 445-5765 Ext. 267</div>
+    </div>
+
+    <!-- EHO logo -->
+    <div class="eho">
+      <svg width="66" height="72" viewBox="0 0 66 72" xmlns="http://www.w3.org/2000/svg">
+        <!-- house shape -->
+        <polygon points="33,2 2,30 10,30 10,60 56,60 56,30 64,30" fill="#0f2744"/>
+        <!-- door -->
+        <rect x="25" y="40" width="16" height="20" rx="2" fill="white"/>
+        <!-- windows -->
+        <rect x="12" y="34" width="44" height="5" fill="white" rx="1.5"/>
+        <rect x="12" y="43" width="44" height="5" fill="white" rx="1.5"/>
+        <!-- person inside house -->
+        <circle cx="33" cy="22" r="5" fill="white"/>
+        <path d="M26,36 Q26,28 33,28 Q40,28 40,36 Z" fill="white"/>
+        <text x="33" y="67" text-anchor="middle" font-size="5.5" font-weight="bold" fill="#0f2744" font-family="Arial,sans-serif">EQUAL HOUSING</text>
+        <text x="33" y="72" text-anchor="middle" font-size="5.5" font-weight="bold" fill="#0f2744" font-family="Arial,sans-serif">OPPORTUNITY</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 6. BOTTOM BAR -->
+  <div class="btm">
+    <p>Questions? Contact the Leasing Office for details.</p>
+  </div>
+
+</div><!-- /flyer -->
+</div><!-- /preview -->
+
+<script>
+const P = {
+  "Boca Ciega":              {d:"Boca Ciega Apartments",        p:"(727) 865-1649 Ext. 216", img:"photos/boca_ciega.jpg"},
+  "Jefferson Arms":          {d:"Jefferson Arms",                p:"(850) 997-2743 Ext. 236", img:"photos/jefferson_arms.jpg"},
+  "Opa Locka":               {d:"Opa Locka (135th Street)",      p:"(305) 681-0711 Ext. 221", img:"photos/opa_locka_135th.jpg"},
+  "Macedonia Garden":        {d:"Macedonia Garden",              p:"(850) 785-9912 Ext. 222", img:"photos/macedonia_garden.jpg"},
+  "Coral Village":           {d:"Coral Village",                 p:"(239) 573-9001 Ext. 251", img:"photos/coral_village.jpg"},
+  "Holiday Apartments":      {d:"Holiday Apartments",            p:"(601) 653-4061 Ext. 235", img:"photos/holiday_apartments.jpg"},
+  "Cumberland Apartments":   {d:"Cumberland Apartments",         p:"(601) 281-8700 Ext. 219", img:"photos/cumberland_apartments.jpg"},
+  "Walnut Hill":             {d:"Walnut Hill Apartments",        p:"(601) 445-5765 Ext. 267", img:"photos/walnut_hill.jpg"},
+  "River Pointe":            {d:"River Pointe Apartments",       p:"(614) 274-4670 Ext. 224", img:"photos/river_pointe.jpg"},
+  "Breckenridge Village":    {d:"Breckenridge Village",          p:"(972) 878-2270 Ext. 238", img:"photos/breckenridge_village.jpg"},
+  "Lexington Arms":          {d:"Lexington Arms",                p:"(972) 935-0250 Ext. 239", img:"photos/lexington_arms.jpg"},
+  "Grace Townhomes":         {d:"Grace Townhomes",               p:"(972) 878-2040 Ext. 227", img:"photos/grace_townhomes.jpg"},
+  "Grove Park Terrace":      {d:"Grove Park Terrace",            p:"(972) 937-5414 Ext. 265", img:"photos/grove_park_terrace.jpg"},
+  "La Promesa":              {d:"La Promesa",                    p:"(432) 319-8106 Ext. 269", img:"photos/la_promesa.jpg"},
+  "New Wilmington Arms":     {d:"New Wilmington Arms",           p:"(323) 456-7800 Ext. 211", img:"photos/new_wilmington_arms.jpg"},
+  "Crossroads of Lee Summit":{d:"Crossroads of Lee Summit",      p:"(816) 554-6240 Ext. 273", img:"photos/crossroads_lee_summit.jpg"},
+  "Gates on Manhattan":      {d:"Gates on Manhattan",            p:"(504) 362-9794 Ext. 284", img:"photos/gates_on_manhattan.jpg"},
+  "Ruby Diamond":            {d:"Ruby Diamond",                  p:"(504) 507-1365 Ext. 286", img:"photos/ruby_diamond.jpg"},
+  "Star Homes":              {d:"Star Homes",                    p:"(504) 507-1365 Ext. 286", img:"photos/star_homes.jpg"},
+  "Thibodaux":               {d:"Thibodaux (Colonial Estates)",  p:"(985) 999-1009 Ext. 228", img:"photos/thibodaux_colonial_estates.jpg"},
+  "Marrero 3":               {d:"Marrero 3",                     p:"(504) 507-8200 Ext. 283", img:"photos/marrero_3.jpg"},
+  "Arbor Crest":             {d:"Arbor Crest",                   p:"(850) 629-0605 Ext. 261", img:"photos/arbor_crest.jpg"},
+  "Windsor Yorkshire":       {d:"Windsor / Yorkshire Village",   p:"(318) 424-4775 Ext. 291", img:"photos/windsor_yorkshire.jpg"},
+  "North Pointe":            {d:"North Pointe",                  p:"(318) 222-1441 Ext. 297", img:"photos/north_pointe.jpg"},
+  "Granite Bayou":           {d:"Granite Bayou",                 p:"(318) 687-3886 Ext. 298", img:"photos/granite_bayou.jpg"},
+  "St Charles Place":        {d:"St. Charles Place",             p:"(337) 478-5543 Ext. 255", img:"photos/st_charles_place.jpg"},
+  "Pelican Bay":             {d:"Pelican Bay",                   p:"(225) 216-3131 Ext. 257", img:"photos/pelican_bay.jpg"},
+  "Howell Place":            {d:"Howell Place",                  p:"(225) 357-0224 Ext. 259", img:"photos/howell_place.jpg"},
+  "Pirates Bend":            {d:"Pirates Bend",                  p:"(225) 356-8949 Ext. 260", img:"photos/pirates_bend.jpg"},
+  "NWA":                     {d:"NWA Apartments",                p:"(323) 917-4300 Ext. 205", img:"photos/nwa.jpg"},
+  "Anaheim":                 {d:"Anaheim Apartments",            p:"(310) 438-6502 Ext. 212", img:"photos/anaheim.jpg"},
+  "Fairfax":                 {d:"Fairfax Apartments",            p:"(323) 456-7800",           img:"photos/fairfax.jpg"},
+  "Urban 1 and 2":           {d:"Urban 1 & 2 Apartments",        p:"(323) 456-7800",           img:"photos/urban_1_2.jpg"},
+  "Midtown Manor":           {d:"Midtown Manor",                 p:"(323) 456-7800",           img:"photos/midtown_manor.jpg"},
+  "Pacific Pointe":          {d:"Pacific Pointe",                p:"(209) 478-0198 Ext. 243", img:"photos/pacific_pointe.jpg"},
+  "Granite Ridge":           {d:"Granite Ridge",                 p:"(209) 474-1863 Ext. 242", img:"photos/granite_ridge.jpg"},
+  "Columbia Village":        {d:"Columbia Village",              p:"(209) 588-8000 Ext. 275", img:"photos/columbia_village.jpg"},
+  "Forest View Senior":      {d:"Forest View (Senior)",          p:"(209) 533-8500 Ext. 277", img:"photos/forest_view_senior.jpg"},
+  "Oak Hills":               {d:"Oak Hills",                     p:"(209) 984-5080 Ext. 279", img:"photos/oak_hills.jpg"},
+  "River Garden":            {d:"River Garden",                  p:"(916) 922-7058 Ext. 252", img:"photos/river_garden.jpg"},
+  "Rivercrest":              {d:"Rivercrest Apartments",         p:"(323) 917-4300",           img:"photos/rivercrest.jpg"},
+  "Silver Springs Terrace":  {d:"Silver Springs Terrace",        p:"(828) 322-1129 Ext. 245", img:"photos/silver_springs_terrace.jpg"},
+  "Thomasville Church Homes":{d:"Thomasville Church Homes",      p:"(336) 475-2817 Ext. 295", img:"photos/thomasville_church_homes.jpg"},
+};
+const custom={};
+
+function updateFlyer(){
+  const k=document.getElementById('propSel').value;
+  const d=P[k]; if(!d)return;
+  document.getElementById('logoName').textContent=k.toUpperCase();
+  document.getElementById('loveName').textContent=d.d;
+  document.getElementById('footerName').textContent=d.d;
+  document.getElementById('phoneIn').value=d.p;
+  document.getElementById('footerPhone').textContent=d.p;
+  document.getElementById('flyerImg').src=custom[k]||d.img;
+  const pfn=document.getElementById('pfn');
+  if(custom[k]){pfn.textContent='✓ Custom photo';pfn.style.color='#4ade80';}
+  else{pfn.textContent='No photo chosen';pfn.style.color='#64748b';}
+  document.getElementById('photoFile').value='';
+}
+
+function loadPhoto(e){
+  const f=e.target.files[0]; if(!f)return;
+  document.getElementById('pfn').textContent=f.name;
+  document.getElementById('pfn').style.color='#4ade80';
+  const r=new FileReader();
+  r.onload=ev=>{
+    const k=document.getElementById('propSel').value;
+    custom[k]=ev.target.result;
+    document.getElementById('flyerImg').src=ev.target.result;
+  };
+  r.readAsDataURL(f);
+}
+
+updateFlyer();
+</script>
+</body>
+</html>

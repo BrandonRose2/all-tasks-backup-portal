@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:35.211966Z",
+  "task": {
+    "id": "dug52PZTu7b4Fcfn3r1cL9",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 16,
+    "created_at": "1784746076",
+    "updated_at": "1784746265",
+    "task_url": "https://manus.im/app/dug52PZTu7b4Fcfn3r1cL9",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "HuJ0ec0oGcSz6a1tZ7pTUf",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746078714",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched St. Charles Place and gathered available information."
+      },
+      "id": "dBIH0LyR538mR5tRmkQYw8",
+      "timestamp": "1784746265709",
+      "type": "assistant_message"
+    },
+    {
+      "id": "WCcPLK6zuFCeVwLPVpKPzF",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746265863",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ApartmentCorp — New Hire Onboarding Schematic</title>
+<style>
+  :root {
+    --navy:      #1a2744;
+    --navy-light:#e8ecf5;
+    --teal:      #0d6e6e;
+    --teal-light:#e0f4f4;
+    --purple:    #5b2d8e;
+    --purple-light:#ede6f8;
+    --amber:     #b45309;
+    --amber-light:#fef3c7;
+    --rose:      #9f1239;
+    --rose-light:#fce7f0;
+    --green:     #166534;
+    --green-light:#dcfce7;
+    --blue:      #1e40af;
+    --blue-light:#dbeafe;
+    --violet:    #5b21b6;
+    --violet-light:#ede9fe;
+    --orange:    #c2410c;
+    --orange-light:#ffedd5;
+    --slate:     #334155;
+    --slate-light:#f1f5f9;
+    --font: 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    background: #f0f2f7;
+    color: #1e293b;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 28px 40px 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .site-header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -.3px; }
+  .site-header p  { font-size: .85rem; opacity: .75; margin-top: 4px; }
+  .header-meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .header-meta span {
+    background: rgba(255,255,255,.12);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: .78rem;
+    white-space: nowrap;
+  }
+
+  /* ── TOOLBAR ── */
+  .toolbar {
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 10px 40px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .toolbar button {
+    padding: 6px 16px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    font-size: .8rem;
+    cursor: pointer;
+    font-family: var(--font);
+    transition: all .15s;
+  }
+  .toolbar button:hover { background: #e2e8f0; }
+  .toolbar button.primary {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+  .toolbar button.primary:hover { background: #243560; }
+  .progress-wrap { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: .8rem; color: #64748b; }
+  .progress-bar-outer { width: 160px; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
+  .progress-bar-inner { height: 100%; background: var(--green); border-radius: 4px; transition: width .4s; }
+
+  /* ── MAIN LAYOUT ── */
+  .main { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* ── LEGEND ── */
+  .legend {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 24px;
+    margin-bottom: 28px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  }
+  .legend h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; margin-bottom: 12px; }
+  .legend-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: .78rem; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── APPROVAL CHAIN BANNER ── */
+  .approval-banner {
+    background: var(--purple-light);
+    border: 1.5px solid var(--purple);
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin-bottom: 28px;
+  }
+  .approval-banner h3 { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--purple); margin-bottom: 12px; font-weight: 700; }
+  .approval-chain { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .approver {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px solid var(--purple);
+    border-radius: 20px;
+    padding: 5px 14px;
+    cursor: pointer;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--purple);
+    transition: all .15s;
+    user-select: none;
+  }
+  .approver:hover { background: var(--purple-light); }
+  .approver.done { background: var(--purple); color: #fff; text-decoration: line-through; opacity: .7; }
+  .approver input[type=checkbox] { width: 14px; height: 14px; accent-color: var(--purple); cursor: pointer; }
+  .chain-arrow { color: var(--purple); font-size: 1.1rem; font-weight: 700; }
+  .approver-role { font-size: .68rem; font-weight: 400; opacity: .75; display: block; }
+
+  /* ── PHASE SECTION ── */
+  .phase {
+    background: #fff;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.07);
+    overflow: hidden;
+  }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity .15s;
+  }
+  .phase-header:hover { opacity: .9; }
+  .phase-header-left { display: flex; align-items: center; gap: 12px; }
+  .phase-icon { font-size: 1.3rem; }
+  .phase-title { font-size: 1rem; font-weight: 700; color: #fff; }
+  .phase-subtitle { font-size: .75rem; color: rgba(255,255,255,.75); margin-top: 2px; }
+  .phase-toggle { color: rgba(255,255,255,.8); font-size: .85rem; transition: transform .2s; }
+  .phase-toggle.open { transform: rotate(180deg); }
+  .phase-body { padding: 16px 22px 20px; display: none; }
+  .phase-body.open { display: block; }
+
+  /* ── STEP ── */
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid transparent;
+    transition: background .15s;
+  }
+  .step:hover { background: #f8fafc; }
+  .step.done { opacity: .5; }
+  .step.done .step-label { text-decoration: line-through; }
+  .step input[type=checkbox] { margin-top: 3px; width: 15px; height: 15px; flex-shrink: 0; cursor: pointer; }
+  .step-content { flex: 1; min-width: 0; }
+  .step-label {
+    font-size: .88rem;
+    font-weight: 600;
+    color: #1e293b;
+    outline: none;
+    border-bottom: 1px dashed transparent;
+    transition: border-color .15s;
+  }
+  .step-label:focus { border-bottom-color: #94a3b8; }
+  .step-sub {
+    font-size: .78rem;
+    color: #64748b;
+    margin-top: 3px;
+    outline: none;
+    border-bottom: 1px dashed transparent;
+    transition: border-color .15s;
+    line-height: 1.5;
+  }
+  .step-sub:focus { border-bottom-color: #94a3b8; }
+  .step-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+  .tag {
+    font-size: .68rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: .02em;
+  }
+  .tag-person  { background: #dbeafe; color: #1e40af; }
+  .tag-system  { background: #dcfce7; color: #166534; }
+  .tag-email   { background: #fce7f3; color: #9d174d; }
+  .tag-doc     { background: #fef3c7; color: #92400e; }
+  .tag-auto    { background: #ede9fe; color: #5b21b6; }
+  .tag-alert   { background: #fee2e2; color: #991b1b; }
+  .tag-server  { background: #e0f2fe; color: #0369a1; }
+
+  /* ── STEP CONNECTOR ── */
+  .step-connector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 14px 4px 40px;
+    font-size: .72rem;
+    color: #94a3b8;
+    font-style: italic;
+  }
+  .step-connector::before { content: '↓'; font-style: normal; font-size: .9rem; }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 1px dashed #e2e8f0;
+    margin: 12px 0;
+  }
+
+  /* ── ADD BUTTONS ── */
+  .add-step-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1.5px dashed #cbd5e1;
+    border-radius: 8px;
+    background: transparent;
+    color: #94a3b8;
+    font-size: .78rem;
+    cursor: pointer;
+    font-family: var(--font);
+    margin-top: 8px;
+    transition: all .15s;
+    width: 100%;
+    justify-content: center;
+  }
+  .add-step-btn:hover { border-color: #64748b; color: #475569; background: #f8fafc; }
+
+  .add-phase-wrap { text-align: center; margin-top: 24px; }
+  .add-phase-btn {
+    padding: 10px 28px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 10px;
+    background: transparent;
+    color: #64748b;
+    font-size: .85rem;
+    cursor: pointer;
+    font-family: var(--font);
+    transition: all .15s;
+  }
+  .add-phase-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  /* ── PHASE COLORS ── */
+  .phase-navy     { background: var(--navy); }
+  .phase-teal     { background: var(--teal); }
+  .phase-purple   { background: var(--purple); }
+  .phase-amber    { background: var(--amber); }
+  .phase-rose     { background: var(--rose); }
+  .phase-green    { background: var(--green); }
+  .phase-blue     { background: var(--blue); }
+  .phase-violet   { background: var(--violet); }
+  .phase-orange   { background: var(--orange); }
+  .phase-slate    { background: var(--slate); }
+
+  .step-navy   { border-left-color: var(--navy);   background: var(--navy-light); }
+  .step-teal   { border-left-color: var(--teal);   background: var(--teal-light); }
+  .step-purple { border-left-color: var(--purple); background: var(--purple-light); }
+  .step-amber  { border-left-color: var(--amber);  background: var(--amber-light); }
+  .step-rose   { border-left-color: var(--rose);   background: var(--rose-light); }
+  .step-green  { border-left-color: var(--green);  background: var(--green-light); }
+  .step-blue   { border-left-color: var(--blue);   background: var(--blue-light); }
+  .step-violet { border-left-color: var(--violet); background: var(--violet-light); }
+  .step-orange { border-left-color: var(--orange); background: var(--orange-light); }
+  .step-slate  { border-left-color: var(--slate);  background: var(--slate-light); }
+
+  /* ── DECISION BOX ── */
+  .decision-box {
+    background: #fffbeb;
+    border: 2px solid #f59e0b;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-size: .82rem;
+  }
+  .decision-box strong { color: #92400e; }
+  .decision-paths { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+  .decision-path {
+    flex: 1;
+    min-width: 180px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: .78rem;
+  }
+  .path-yes { background: #dcfce7; border-left: 3px solid #16a34a; }
+  .path-no  { background: #fee2e2; border-left: 3px solid #dc2626; }
+
+  /* ── FILE ARCHIVE BOX ── */
+  .archive-box {
+    background: var(--blue-light);
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 10px;
+  }
+  .archive-box h4 { color: var(--blue); font-size: .85rem; font-weight: 700; margin-bottom: 10px; }
+  .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+  .archive-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: .78rem;
+    border-left: 3px solid var(--blue);
+  }
+  .archive-item strong { display: block; font-size: .72rem; color: var(--blue); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .toolbar { padding: 10px 16px; }
+    .main { padding: 20px 12px 60px; }
+    .site-header { padding: 20px 16px; }
+    .approval-chain { gap: 4px; }
+    .approver { font-size: .75rem; padding: 4px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div>
+    <h1>🏢 ApartmentCorp — New Hire Onboarding Schematic</h1>
+    <p>Complete end-to-end process flow · All phases, people, systems, and automations</p>
+  </div>
+  <div class="header-meta">
+    <span>📋 10 Phases</span>
+    <span>👥 Brandon · Regional Mgr · Robert · Ethan · Nicole (COO) · Marc · Accounting</span>
+    <span>🖥️ HR Portal · Employee Portal · Paychex · Yardi · PropertyMAX.ai</span>
+  </div>
+</header>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <button onclick="expandAll()">▼ Expand All</button>
+  <button onclick="collapseAll()">▶ Collapse All</button>
+  <button onclick="checkAll()">☑ Check All</button>
+  <button onclick="uncheckAll()">☐ Uncheck All</button>
+  <button class="primary" onclick="saveExport()">💾 Save / Export</button>
+  <div class="progress-wrap">
+    <span id="progress-label">0 / 0 complete</span>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progress-bar" style="width:0%"></div></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <h3>Tag Legend</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><div class="legend-dot" style="background:#1e40af"></div><span class="tag tag-person">Person / Role</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#166534"></div><span class="tag tag-system">System / Platform</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#9d174d"></div><span class="tag tag-email">Email Notification</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#92400e"></div><span class="tag tag-doc">Document / Form</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5b21b6"></div><span class="tag tag-auto">Automated Action</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#991b1b"></div><span class="tag tag-alert">Alert / Escalation</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0369a1"></div><span class="tag tag-server">Server / File Archive</span></div>
+    </div>
+  </div>
+
+  <!-- APPROVAL CHAIN BANNER -->
+  <div class="approval-banner">
+    <h3>📋 Full Approval Chain — New Hire Sign-Off Order</h3>
+    <div class="approval-chain">
+      <div class="approver" onclick="toggleApprover(this)">
+        <input type="checkbox" onclick="event.stopPropagation();toggleApprover(this.parentElement)" />
+        <div><span>Applicant</span><span class="approver-role">Submits Forms</span></div>
+      </div>
+      <span class="chain-arrow">→</span>
+      <div class="approver" onclick="toggleApprover(this)">
+        <input type="checkbox" onclick="event.stopPropagation();toggleApprover(this.parentElement)" />
+        <div><span>Brandon</span><span class="approver-role">HR Director</span></div>
+      </div>
+      <span class="chain-arrow">→</span>
+      <div class="approver" onclick="toggleApprover(this)">
+        <input type="checkbox" onclick="event.stopPropagation();toggleApprover(this.parentElement)" />
+        <div><span>Regional Manager</span><span class="approver-role">Regional Review</span></div>
+      </div>
+      <span class="chain-arrow">→</span>
+      <div class="approver" onclick="toggleApprover(this)">
+        <input type="checkbox" onclick="event.stopPropagation();toggleApprover(this.parentElement)" />
+        <div><span>Robert</span><span class="approver-role">Operations Director</span></div>
+      </div>
+      <span class="chain-arrow">→</span>
+      <div class="approver" onclick="toggleApprover(this)">
+        <input type="checkbox" onclick="event.stopPropagation();toggleApprover(this.parentElement)" />
+        <div><span>Ethan</span><span class="approver-role">IT Director</span></div>
+      </div>
+      <span class="chain-arrow">→</span>
+      <div class="approver" onclick="toggleApprover(this)">
+        <input type="checkbox" onclick="event.stopPropagation();toggleApprover(this.parentElement)" />
+        <div><span>Nicole</span><span class="approver-role">COO</span></div>
+      </div>
+      <span class="chain-arrow">→</span>
+      <div class="approver" onclick="toggleApprover(this)">
+        <input type="checkbox" onclick="event.stopPropagation();toggleApprover(this.parentElement)" />
+        <div><span>Marc</span><span class="approver-role">CEO / Final Approval</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 1 — CANDIDATE INTAKE & REGISTRATION -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-1">
+    <div class="phase-header phase-navy" onclick="togglePhase('phase-1')">
+      <div class="phase-header-left">
+        <span class="phase-icon">📥</span>
+        <div>
+          <div class="phase-title">Phase 1 — Candidate Intake &amp; Registration</div>
+          <div class="phase-subtitle">Brandon creates the new hire record · System sends welcome email · New hire registers with PIN</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-1">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-1">
+
+      <div class="step step-navy">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Position approved — Brandon selects Position &amp; Property/Location from drop-down menus</div>
+          <div class="step-sub" contenteditable="true">HR Director confirms the open role, assigns the correct property location, and selects the job title from the HR Portal drop-down options.</div>
+          <div class="step-tags"><span class="tag tag-person">Brandon (HR Director)</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-navy">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">New hire record created in HR Portal — email &amp; 4-digit PIN assigned</div>
+          <div class="step-sub" contenteditable="true">Brandon enters the new hire's email address. The system auto-generates a secure 4-digit PIN that will be used as the new hire's portal password throughout onboarding.</div>
+          <div class="step-tags"><span class="tag tag-person">Brandon</span><span class="tag tag-system">HR Portal</span><span class="tag tag-auto">Auto-generates PIN</span></div>
+        </div>
+      </div>
+
+      <div class="step-connector">System automatically sends Welcome Email to new hire</div>
+
+      <div class="step step-navy">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Automated Welcome Email sent to new hire</div>
+          <div class="step-sub" contenteditable="true">Email includes: portal login link, 4-digit PIN, list of required forms to complete, and next steps. Sent immediately upon record creation.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-email">Email → New Hire</span><span class="tag tag-system">Employee Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-navy">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">New hire logs into Employee Portal using email + PIN</div>
+          <div class="step-sub" contenteditable="true">New hire navigates to the ApartmentCorp Employee Portal, enters their email and 4-digit PIN to access their onboarding dashboard. First login triggers a notification to Ethan (CC: Brandon).</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">Employee Portal</span><span class="tag tag-email">Notification → Ethan, Brandon</span></div>
+        </div>
+      </div>
+
+      <div class="decision-box">
+        <strong>⏱ 3-Hour Onboarding Timer Starts</strong> — If the new hire has not completed all forms within 3 hours of first login, an automated alert is sent to Brandon.
+        <div class="decision-paths">
+          <div class="decision-path path-yes">✅ Completed within 3 hours → Process continues normally</div>
+          <div class="decision-path path-no">🚨 Exceeds 3 hours → Alert email sent to Brandon with hire name, email, and time elapsed</div>
+        </div>
+      </div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-1')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 2 — APPLICATION FORMS -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-2">
+    <div class="phase-header phase-teal" onclick="togglePhase('phase-2')">
+      <div class="phase-header-left">
+        <span class="phase-icon">📝</span>
+        <div>
+          <div class="phase-title">Phase 2 — Application Forms (New Hire Completes)</div>
+          <div class="phase-subtitle">All forms completed in the Employee Portal · Required fields outlined in neon orange · Turn green on completion</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-2">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-2">
+
+      <div class="step step-teal">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">✅ Complete Employment Application</div>
+          <div class="step-sub" contenteditable="true">Full employment application including personal info, work history, emergency contacts, and position details. Required fields outlined in neon orange; turn neon green with checkbox on completion.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-doc">Employment Application</span><span class="tag tag-system">Employee Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-teal">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">✅ Review &amp; Sign Company Docs — Sign Company Docs &amp; Login to Website</div>
+          <div class="step-sub" contenteditable="true">New hire reviews and e-signs all company policy documents. Also prompted to log in to the Company Websites &amp; Logins section to familiarize themselves with platforms they will use.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-doc">E-Signature</span><span class="tag tag-system">Employee Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-teal">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">✅ Submit Payroll &amp; Tax Forms — W-4 &amp; Direct Deposit</div>
+          <div class="step-sub" contenteditable="true">New hire completes Federal W-4 (tax withholding), NY IT-2104 (state withholding), and Direct Deposit Authorization form. All submitted via web form fields in the portal.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-doc">W-4 · IT-2104 · Direct Deposit</span><span class="tag tag-system">Employee Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-teal">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">✅ I-9 Employment Eligibility Verification</div>
+          <div class="step-sub" contenteditable="true">New hire completes Section 1 of the I-9 form and uploads identity/work authorization documents. HR (Brandon) completes Section 2 verification in person or remotely.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire · Brandon</span><span class="tag tag-doc">I-9 Form</span><span class="tag tag-system">Employee Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-teal">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">✅ GPS / Location Tracking Agreement</div>
+          <div class="step-sub" contenteditable="true">Consent for location tracking via Connecteam during work hours. Required for all field and maintenance staff.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-doc">E-Signature · Tracking Agreement</span><span class="tag tag-system">Employee Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-teal">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">✅ Confidentiality &amp; Non-Disclosure Agreement</div>
+          <div class="step-sub" contenteditable="true">New hire reviews and e-signs the company confidentiality agreement covering resident data, financial information, and proprietary systems.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-doc">Confidentiality Agreement · E-Signature</span></div>
+        </div>
+      </div>
+
+      <div class="step step-teal">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">✅ Employee Handbook &amp; Policies Acknowledgment</div>
+          <div class="step-sub" contenteditable="true">New hire reads and acknowledges the ApartmentCorp Employee Handbook, including code of conduct, dress code, attendance policy, and safety procedures.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-doc">Policies Acknowledgment · E-Signature</span></div>
+        </div>
+      </div>
+
+      <div class="step-connector">All submitted forms automatically appear in Document Hub under their respective categories</div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-2')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 3 — APPROVAL FLOW -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-3">
+    <div class="phase-header phase-purple" onclick="togglePhase('phase-3')">
+      <div class="phase-header-left">
+        <span class="phase-icon">✅</span>
+        <div>
+          <div class="phase-title">Phase 3 — Approval Flow</div>
+          <div class="phase-subtitle">Applicant → Brandon → Regional Manager → Robert → Ethan → Nicole (COO) → Marc</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-3">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-3">
+
+      <div class="step step-purple">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">HR Portal notifies Brandon — new hire forms submitted for review</div>
+          <div class="step-sub" contenteditable="true">Once all required forms are submitted, the HR Portal sends an HTML summary email to each approver in the chain, indicating exactly which forms require their review and what action is needed in their dashboard.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-email">HTML Summary Email → Approval Chain</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-purple">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Brandon (HR Director) — Initial HR Review &amp; Verification</div>
+          <div class="step-sub" contenteditable="true">Brandon reviews all submitted forms for completeness and accuracy. Verifies I-9 documents, confirms W-4 and direct deposit information, and approves or requests corrections. Uses bulk approve/reject in Document Hub.</div>
+          <div class="step-tags"><span class="tag tag-person">Brandon (HR Director)</span><span class="tag tag-system">HR Portal · Document Hub</span></div>
+        </div>
+      </div>
+
+      <div class="step step-purple">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Regional Manager — Regional Compliance Review</div>
+          <div class="step-sub" contenteditable="true">Regional Manager reviews the hire for alignment with regional staffing needs, confirms the property assignment, and verifies the position title and compensation are within regional guidelines.</div>
+          <div class="step-tags"><span class="tag tag-person">Regional Manager</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-purple">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Robert (Operations Director) — Operations Sign-Off</div>
+          <div class="step-sub" contenteditable="true">Robert reviews the hire from an operational standpoint — confirms the new hire's role fits current property staffing levels and operational requirements.</div>
+          <div class="step-tags"><span class="tag tag-person">Robert (Operations Director)</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-purple">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Ethan (IT Director) — IT Access &amp; Systems Review</div>
+          <div class="step-sub" contenteditable="true">Ethan reviews the hire to confirm which systems and platforms the new hire will need access to. Approves the hire from an IT security and access management perspective before provisioning credentials.</div>
+          <div class="step-tags"><span class="tag tag-person">Ethan (IT Director)</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-purple">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Nicole (COO) — Executive Operations Review</div>
+          <div class="step-sub" contenteditable="true">COO sign-off confirming alignment with company operations, staffing strategy, and compliance requirements.</div>
+          <div class="step-tags"><span class="tag tag-person">Nicole (COO)</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <div class="step step-purple">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Marc (CEO) — Final Executive Approval</div>
+          <div class="step-sub" contenteditable="true">CEO provides final approval on the hire. Once Marc approves, the onboarding process advances to IT provisioning and payroll setup.</div>
+          <div class="step-tags"><span class="tag tag-person">Marc (CEO)</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <div class="decision-box">
+        <strong>⚠️ Rejection at any stage</strong> — If any approver rejects a form or the hire:
+        <div class="decision-paths">
+          <div class="decision-path path-yes">✅ Approved → Advances to next approver in chain</div>
+          <div class="decision-path path-no">❌ Rejected → New hire is notified with specific reason · Form returned for correction · Process restarts from that stage</div>
+        </div>
+      </div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-3')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 4 — IT CREDENTIAL PROVISIONING (ETHAN) -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-4">
+    <div class="phase-header phase-amber" onclick="togglePhase('phase-4')">
+      <div class="phase-header-left">
+        <span class="phase-icon">🔐</span>
+        <div>
+          <div class="phase-title">Phase 4 — IT Credential Provisioning (Ethan Cowles)</div>
+          <div class="phase-subtitle">Ethan enters credentials for all required platforms · Progress bar tracks completion · PDF emailed to new hire on completion</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-4">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-4">
+
+      <div class="step step-amber">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Ethan receives first-login notification for the new hire</div>
+          <div class="step-sub" contenteditable="true">Automated email sent to Ethan (CC: Brandon) when the new hire logs into the Employee Portal for the first time. Includes new hire name, email, position, and property assignment.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-email">Email → Ethan (CC: Brandon)</span></div>
+        </div>
+      </div>
+
+      <div class="step step-amber">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Ethan opens IT Provisioning tab — new hire card appears with progress bar</div>
+          <div class="step-sub" contenteditable="true">The HR Portal's Technology Onboarding tab shows a card for each approved new hire. Each card displays name, email, position, building, form approval status, and a credential provisioning progress bar (amber = in progress, green = 100% complete).</div>
+          <div class="step-tags"><span class="tag tag-person">Ethan</span><span class="tag tag-system">HR Portal · IT Provisioning Tab</span></div>
+        </div>
+      </div>
+
+      <div class="step step-amber">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Ethan provisions credentials for all required platforms</div>
+          <div class="step-sub" contenteditable="true">Platforms provisioned per role: PropertyMAX.ai · AppWorks · Connecteam · OneSite · Phone Portal · Yardi · MyLoneWorkers.com · ConnectUC · SamePage · VMware Horizon · Additional Systems as needed. Each platform row includes username, password (masked), notes, and "Required for this hire" checkbox.</div>
+          <div class="step-tags"><span class="tag tag-person">Ethan</span><span class="tag tag-system">PropertyMAX.ai · AppWorks · Yardi · ConnectUC · SamePage · VMware · OneSite · Connecteam · MyLoneWorkers</span></div>
+        </div>
+      </div>
+
+      <div class="step step-amber">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Credentials saved — automatically appear in new hire's Company Websites &amp; Logins tab</div>
+          <div class="step-sub" contenteditable="true">Once Ethan saves credentials for a platform, the new hire's Employee Portal immediately shows a green "✓ Ready" badge on that platform card with the username and masked password pre-filled.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-system">Employee Portal · Company Websites Tab</span></div>
+        </div>
+      </div>
+
+      <div class="step step-amber">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">All credentials provisioned — password-protected PDF generated &amp; emailed</div>
+          <div class="step-sub" contenteditable="true">When Ethan marks provisioning complete, the system generates a password-protected PDF of all login credentials. PDF password = new hire's 4-digit PIN. Email sent to new hire with PDF attached; CC to Brandon.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-email">Credential PDF → New Hire (CC: Brandon)</span><span class="tag tag-doc">Password-Protected PDF</span></div>
+        </div>
+      </div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-4')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 5 — PAYROLL & ACCOUNTING SETUP -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-5">
+    <div class="phase-header phase-green" onclick="togglePhase('phase-5')">
+      <div class="phase-header-left">
+        <span class="phase-icon">💵</span>
+        <div>
+          <div class="phase-title">Phase 5 — Payroll &amp; Accounting Setup (Accounting Team)</div>
+          <div class="phase-subtitle">Accounting handles all Paychex / payroll setup after IT provisioning is complete</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-5">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-5">
+
+      <div class="step step-green">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Accounting receives notification — new hire approved &amp; IT provisioning complete</div>
+          <div class="step-sub" contenteditable="true">Once Ethan completes IT provisioning, the Accounting team is notified to begin payroll setup. Notification includes new hire name, start date, position, salary/rate, and W-4 / direct deposit form data.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-email">Notification → Accounting</span></div>
+        </div>
+      </div>
+
+      <div class="step step-green">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Accounting creates new hire profile in Paychex</div>
+          <div class="step-sub" contenteditable="true">Accounting sets up the new hire's payroll profile in Paychex using the submitted W-4 and direct deposit information. Assigns pay schedule, department code, and benefits enrollment options.</div>
+          <div class="step-tags"><span class="tag tag-person">Accounting</span><span class="tag tag-system">Paychex</span><span class="tag tag-doc">W-4 · Direct Deposit</span></div>
+        </div>
+      </div>
+
+      <div class="step step-green">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">New hire receives Paychex welcome email — sets up self-service account</div>
+          <div class="step-sub" contenteditable="true">Paychex sends the new hire a welcome email with a link to set their password and access the employee self-service portal for pay stubs, PTO requests, and benefits enrollment.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">Paychex</span><span class="tag tag-email">Paychex Welcome Email → New Hire</span></div>
+        </div>
+      </div>
+
+      <div class="step step-green">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Benefits enrollment window opened — new hire selects benefits</div>
+          <div class="step-sub" contenteditable="true">Accounting opens the benefits enrollment window in Paychex. New hire has a defined window to select health insurance, dental, vision, and other available benefits.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire · Accounting</span><span class="tag tag-system">Paychex</span></div>
+        </div>
+      </div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-5')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 6 — TRAINING VIDEOS -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-6">
+    <div class="phase-header phase-rose" onclick="togglePhase('phase-6')">
+      <div class="phase-header-left">
+        <span class="phase-icon">🎬</span>
+        <div>
+          <div class="phase-title">Phase 6 — Training Videos (New Hire Completes)</div>
+          <div class="phase-subtitle">All training completed in the Employee Portal · Prompt Marcus to evaluate PropertyMAX.ai website</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-6">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-6">
+
+      <div class="step step-rose">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">PropertyMAX.ai Training — AI property management platform walkthrough</div>
+          <div class="step-sub" contenteditable="true">New hire watches the PropertyMAX.ai onboarding video series covering leasing workflows, resident management, maintenance requests, and AI features. Prompt Marcus to evaluate the PropertyMAX.ai website upon completion.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">PropertyMAX.ai</span><span class="tag tag-doc">Training Video</span></div>
+        </div>
+      </div>
+
+      <div class="step step-rose">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Yardi Voyager Training — property management system</div>
+          <div class="step-sub" contenteditable="true">New hire completes Yardi Level 1 training covering resident ledgers, work orders, rent collection, and reporting.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">Yardi Voyager</span><span class="tag tag-doc">Training Video</span></div>
+        </div>
+      </div>
+
+      <div class="step step-rose">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">OneSite Training — leasing and resident management</div>
+          <div class="step-sub" contenteditable="true">New hire completes OneSite training covering the leasing pipeline, prospect management, and lease execution workflows.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">OneSite</span><span class="tag tag-doc">Training Video</span></div>
+        </div>
+      </div>
+
+      <div class="step step-rose">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Connecteam Training — team communication &amp; scheduling</div>
+          <div class="step-sub" contenteditable="true">New hire learns how to use Connecteam for shift scheduling, team messaging, task management, and GPS check-ins during work hours.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">Connecteam</span><span class="tag tag-doc">Training Video</span></div>
+        </div>
+      </div>
+
+      <div class="step step-rose">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">MyLoneWorkers Training — property inspections management</div>
+          <div class="step-sub" contenteditable="true">Required for maintenance and field staff — creating, scheduling, and completing property inspection reports using the MyLoneWorkers platform.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">MyLoneWorkers.com</span><span class="tag tag-doc">Training Video</span></div>
+        </div>
+      </div>
+
+      <div class="step step-rose">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">ConnectUC &amp; SamePage Training — unified communications &amp; collaboration</div>
+          <div class="step-sub" contenteditable="true">New hire learns ConnectUC for internal calling and messaging, and SamePage for project tracking, document sharing, and cross-team coordination.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">ConnectUC · SamePage</span><span class="tag tag-doc">Training Video</span></div>
+        </div>
+      </div>
+
+      <div class="step step-rose">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">VMware Horizon Training — virtual desktop setup</div>
+          <div class="step-sub" contenteditable="true">New hire learns how to connect to the VMware Horizon virtual desktop on property workstations, record the workstation serial number, and access all company applications through the virtual environment.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire</span><span class="tag tag-system">VMware Horizon</span><span class="tag tag-doc">Training Video</span></div>
+        </div>
+      </div>
+
+      <div class="step-connector">Training completion recorded in Employee Portal · Sent to Document Hub</div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-6')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 7 — DOCUMENT HUB & RECORDS -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-7">
+    <div class="phase-header phase-blue" onclick="togglePhase('phase-7')">
+      <div class="phase-header-left">
+        <span class="phase-icon">📁</span>
+        <div>
+          <div class="phase-title">Phase 7 — Document Hub &amp; Records (Brandon / HR)</div>
+          <div class="phase-subtitle">All submitted forms appear in Document Hub under their respective categories · Bulk approve/reject available</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-7">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-7">
+
+      <div class="step step-blue">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Document Hub auto-populates with all submitted forms</div>
+          <div class="step-sub" contenteditable="true">As the new hire submits each form, it automatically appears in the Document Hub under its correct category: Employment Application, W-4, IT-2104, I-9, Direct Deposit, Confidentiality Agreement, Tracking Agreement, Policies Acknowledgment. Status badges show Submitted / Approved / Rejected.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-system">HR Portal · Document Hub</span></div>
+        </div>
+      </div>
+
+      <div class="step step-blue">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Brandon selects new hire from Document Hub dropdown — reviews all documents</div>
+          <div class="step-sub" contenteditable="true">Document Hub dropdown shows each new hire's name (pulled from their Employment Application) with a color-coded status badge: green = all approved, amber = pending review, red = rejected items. Brandon can bulk approve or reject all submitted forms at once.</div>
+          <div class="step-tags"><span class="tag tag-person">Brandon</span><span class="tag tag-system">HR Portal · Document Hub</span></div>
+        </div>
+      </div>
+
+      <div class="step step-blue">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">All documents approved — Document Hub marked complete for this hire</div>
+          <div class="step-sub" contenteditable="true">Once all documents are approved, the new hire's Document Hub card shows a full green status. The onboarding record is finalized and ready for archiving.</div>
+          <div class="step-tags"><span class="tag tag-person">Brandon</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-7')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 8 — DAY 1 ORIENTATION -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-8">
+    <div class="phase-header phase-violet" onclick="togglePhase('phase-8')">
+      <div class="phase-header-left">
+        <span class="phase-icon">🏢</span>
+        <div>
+          <div class="phase-title">Phase 8 — Day 1 Onsite Orientation</div>
+          <div class="phase-subtitle">Regional Manager conducts in-person orientation · New Hire accesses all provisioned systems</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-8">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-8">
+
+      <div class="step step-violet">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Regional Manager conducts property tour &amp; introductions with New Hire</div>
+          <div class="step-sub" contenteditable="true">New hire is introduced to the team, given a property tour, shown their workstation, and briefed on daily routines, emergency procedures, and property-specific policies.</div>
+          <div class="step-tags"><span class="tag tag-person">Regional Manager · New Hire</span></div>
+        </div>
+      </div>
+
+      <div class="step step-violet">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">New hire logs into VMware Horizon virtual desktop on property workstation</div>
+          <div class="step-sub" contenteditable="true">IT (Ethan) confirms VMware Horizon credentials work on the property workstation. New hire records the workstation serial number and reports it to IT.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire · Ethan</span><span class="tag tag-system">VMware Horizon</span></div>
+        </div>
+      </div>
+
+      <div class="step step-violet">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">New hire verifies access to all provisioned platforms</div>
+          <div class="step-sub" contenteditable="true">New hire confirms successful login to: PropertyMAX.ai · AppWorks · OneSite · Yardi · SamePage · ConnectUC · MyLoneWorkers · Connecteam · Phone Portal · all other assigned platforms. Any access issues escalated to Ethan immediately.</div>
+          <div class="step-tags"><span class="tag tag-person">New Hire · Ethan</span><span class="tag tag-system">All Provisioned Platforms</span></div>
+        </div>
+      </div>
+
+      <div class="step step-violet">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Regional Manager completes Day 1 orientation checklist in HR Portal</div>
+          <div class="step-sub" contenteditable="true">Regional Manager marks the orientation as complete in the HR Portal, confirming the new hire has been introduced to the team, shown the property, and has working access to all required systems.</div>
+          <div class="step-tags"><span class="tag tag-person">Regional Manager</span><span class="tag tag-system">HR Portal</span></div>
+        </div>
+      </div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-8')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 9 — ONBOARDING COMPLETE -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-9">
+    <div class="phase-header phase-orange" onclick="togglePhase('phase-9')">
+      <div class="phase-header-left">
+        <span class="phase-icon">🎉</span>
+        <div>
+          <div class="phase-title">Phase 9 — Onboarding Complete &amp; Final Notifications</div>
+          <div class="phase-subtitle">Full process summary sent to management · New hire granted full system access</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-9">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-9">
+
+      <div class="step step-orange">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Full onboarding summary HTML report sent to management chain</div>
+          <div class="step-sub" contenteditable="true">Automated HTML summary email sent to: Brandon, Regional Manager, Robert, Nicole (COO), and Marc. Report includes: new hire name, position, property, start date, all form statuses, IT provisioning status, training completion, and orientation sign-off.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-email">HTML Report → Brandon · Regional Mgr · Robert · Nicole (COO) · Marc</span></div>
+        </div>
+      </div>
+
+      <div class="step step-orange">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">New hire status updated to "Active Employee" in HR Portal</div>
+          <div class="step-sub" contenteditable="true">HR Portal marks the onboarding record as complete. New hire's status changes from "Onboarding" to "Active Employee." Full system access confirmed across all provisioned platforms.</div>
+          <div class="step-tags"><span class="tag tag-person">Brandon</span><span class="tag tag-system">HR Portal</span><span class="tag tag-auto">Status Update</span></div>
+        </div>
+      </div>
+
+      <div class="step step-orange">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">New hire confirmation email sent — welcome to the team</div>
+          <div class="step-sub" contenteditable="true">New hire receives a final confirmation email welcoming them to ApartmentCorp, confirming all access is active, and providing key contacts for HR, IT, and their property manager.</div>
+          <div class="step-tags"><span class="tag tag-auto">Automated</span><span class="tag tag-email">Welcome Confirmation → New Hire</span></div>
+        </div>
+      </div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-9')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PHASE 10 — FILE ARCHIVING (SERVER) -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="phase" id="phase-10">
+    <div class="phase-header phase-slate" onclick="togglePhase('phase-10')">
+      <div class="phase-header-left">
+        <span class="phase-icon">🗄️</span>
+        <div>
+          <div class="phase-title">Phase 10 — File Archiving on Service Server</div>
+          <div class="phase-subtitle">All files filed in their respective folders on the ApartmentCorp service server</div>
+        </div>
+      </div>
+      <span class="phase-toggle" id="toggle-phase-10">▼</span>
+    </div>
+    <div class="phase-body open" id="body-phase-10">
+
+      <div class="step step-slate">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">All onboarding files archived to service server — New Hire Onboarding Folders</div>
+          <div class="step-sub" contenteditable="true">Path: Server → Core Data → New Hire Onboarding Folders → [Employee Name] → [Start Year]. All files are filed in their respective folders upon onboarding completion.</div>
+          <div class="step-tags"><span class="tag tag-server">Service Server</span><span class="tag tag-auto">Automated Archive</span></div>
+        </div>
+      </div>
+
+      <div class="archive-box">
+        <h4>🗂️ Server Folder Structure — New Hire Onboarding Archive</h4>
+        <div class="archive-grid">
+          <div class="archive-item"><strong>📋 Employment Application</strong>Completed employment application form PDF</div>
+          <div class="archive-item"><strong>📄 W-4 Federal Tax Form</strong>Signed W-4 withholding form</div>
+          <div class="archive-item"><strong>📄 NY IT-2104 State Tax</strong>NY state withholding form</div>
+          <div class="archive-item"><strong>🏦 Direct Deposit Authorization</strong>Banking and routing information form</div>
+          <div class="archive-item"><strong>🪪 I-9 Identity Documents</strong>Identity verification and work authorization</div>
+          <div class="archive-item"><strong>🔒 Confidentiality Agreement</strong>Signed NDA / confidentiality agreement</div>
+          <div class="archive-item"><strong>📍 GPS Tracking Agreement</strong>Signed location tracking consent</div>
+          <div class="archive-item"><strong>📖 Policies Acknowledgment</strong>Employee handbook sign-off</div>
+          <div class="archive-item"><strong>🔐 IT Credential Record</strong>Password-protected credential PDF (PIN-locked)</div>
+          <div class="archive-item"><strong>🎬 Training Completion</strong>Training video completion certificates</div>
+          <div class="archive-item"><strong>✅ Approval Chain Record</strong>Timestamped approvals from all 6 approvers</div>
+          <div class="archive-item"><strong>📊 Onboarding Summary Report</strong>Full HTML summary report sent to management</div>
+        </div>
+      </div>
+
+      <div class="step step-slate" style="margin-top:14px">
+        <input type="checkbox" onchange="toggleStep(this)" />
+        <div class="step-content">
+          <div class="step-label" contenteditable="true">Document Hub record finalized — all files linked to employee profile</div>
+          <div class="step-sub" contenteditable="true">All archived documents are linked back to the employee's permanent HR record in the Document Hub for future reference, audits, and compliance reviews.</div>
+          <div class="step-tags"><span class="tag tag-server">Service Server</span><span class="tag tag-system">HR Portal · Document Hub</span><span class="tag tag-person">Brandon</span></div>
+        </div>
+      </div>
+
+      <button class="add-step-btn" onclick="addStep('body-phase-10')">+ Add Step</button>
+    </div>
+  </div>
+
+  <!-- ADD PHASE -->
+  <div class="add-phase-wrap">
+    <button class="add-phase-btn" onclick="addPhase()">+ Add New Phase</button>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+  let phaseCount = 10;
+  let stepCounter = 1000;
+
+  // ── TOGGLE PHASE ──
+  function togglePhase(id) {
+    const body = document.getElementById('body-' + id);
+    const toggle = document.getElementById('toggle-' + id);
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    body.style.display = isOpen ? 'none' : 'block';
+    toggle.classList.toggle('open', !isOpen);
+    toggle.textContent = isOpen ? '▶' : '▼';
+  }
+
+  function expandAll() {
+    document.querySelectorAll('.phase-body').forEach(b => { b.classList.add('open'); b.style.display = 'block'; });
+    document.querySelectorAll('.phase-toggle').forEach(t => { t.classList.add('open'); t.textContent = '▼'; });
+  }
+  function collapseAll() {
+    document.querySelectorAll('.phase-body').forEach(b => { b.classList.remove('open'); b.style.display = 'none'; });
+    document.querySelectorAll('.phase-toggle').forEach(t => { t.classList.remove('open'); t.textContent = '▶'; });
+  }
+
+  // ── TOGGLE STEP ──
+  function toggleStep(cb) {
+    const step = cb.closest('.step');
+    step.classList.toggle('done', cb.checked);
+    updateProgress();
+  }
+
+  function checkAll() {
+    document.querySelectorAll('.step input[type=checkbox]').forEach(cb => { cb.checked = true; cb.closest('.step').classList.add('done'); });
+    updateProgress();
+  }
+  function uncheckAll() {
+    document.querySelectorAll('.step input[type=checkbox]').forEach(cb => { cb.checked = false; cb.closest('.step').classList.remove('done'); });
+    updateProgress();
+  }
+
+  // ── TOGGLE APPROVER ──
+  function toggleApprover(el) {
+    el.classList.toggle('done');
+    const cb = el.querySelector('input[type=checkbox]');
+    if (cb) cb.checked = el.classList.contains('done');
+  }
+
+  // ── PROGRESS ──
+  function updateProgress() {
+    const all = document.querySelectorAll('.step input[type=checkbox]');
+    const done = document.querySelectorAll('.step input[type=checkbox]:checked');
+    const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = done.length + ' / ' + all.length + ' complete';
+  }
+
+  // ── ADD STEP ──
+  function addStep(bodyId) {
+    const body = document.getElementById(bodyId);
+    const addBtn = body.querySelector('.add-step-btn');
+    const id = 's' + (++stepCounter);
+    const div = document.createElement('div');
+    div.className = 'step';
+    div.id = id;
+    div.innerHTML = `
+      <input type="checkbox" onchange="toggleStep(this)" />
+      <div class="step-content">
+        <div class="step-label" contenteditable="true">New step — click to edit</div>
+        <div class="step-sub" contenteditable="true">Add details here</div>
+        <div class="step-tags"></div>
+      </div>`;
+    body.insertBefore(div, addBtn);
+    div.querySelector('.step-label').focus();
+    updateProgress();
+  }
+
+  // ── ADD PHASE ──
+  function addPhase() {
+    phaseCount++;
+    const id = 'phase-' + phaseCount;
+    const colors = ['phase-navy','phase-teal','phase-purple','phase-amber','phase-rose','phase-green','phase-blue','phase-violet','phase-orange','phase-slate'];
+    const color = colors[(phaseCount - 1) % colors.length];
+    const wrap = document.querySelector('.add-phase-wrap');
+    const div = document.createElement('div');
+    div.className = 'phase';
+    div.id = id;
+    div.innerHTML = `
+      <div class="phase-header ${color}" onclick="togglePhase('${id}')">
+        <div class="phase-header-left">
+          <span class="phase-icon">📌</span>
+          <div>
+            <div class="phase-title" contenteditable="true" onclick="event.stopPropagation()">New Phase — click to rename</div>
+            <div class="phase-subtitle" contenteditable="true" onclick="event.stopPropagation()">Add description</div>
+          </div>
+        </div>
+        <span class="phase-toggle open" id="toggle-${id}">▼</span>
+      </div>
+      <div class="phase-body open" id="body-${id}" style="display:block">
+        <button class="add-step-btn" onclick="addStep('body-${id}')">+ Add Step</button>
+      </div>`;
+    wrap.parentNode.insertBefore(div, wrap);
+    addStep('body-' + id);
+  }
+
+  // ── SAVE / EXPORT ──
+  function saveExport() {
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ApartmentCorp-Onboarding-Schematic.html';
+    a.click();
+  }
+
+  // ── INIT ──
+  // Open all phases by default, set display
+  document.querySelectorAll('.phase-body.open').forEach(b => b.style.display = 'block');
+  updateProgress();
+</script>
+</body>
+</html>

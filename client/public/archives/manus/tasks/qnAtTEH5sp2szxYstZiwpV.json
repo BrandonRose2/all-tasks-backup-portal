@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:30:42.526747Z",
+  "task": {
+    "id": "qnAtTEH5sp2szxYstZiwpV",
+    "title": "How Can Someone Spam a Zoom Room?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 28,
+    "created_at": "1781754135",
+    "updated_at": "1781754218",
+    "task_url": "https://manus.im/app/qnAtTEH5sp2szxYstZiwpV",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "wjheQnAFSvwZPKUFRMiRiy",
+      "timestamp": "1781754135533",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "video/quicktime",
+            "filename": "ScreenRecording2026-06-17at8.39.31PM.mov",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-pnXcwbNApHGxxSFJG3XY7K_na1fn_U2NyZWVuUmVjb3JkaW5nMjAyNi0wNi0xN2F0OC4zOS4zMVBN.mov?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1wblhjd2JOQXBIR3h4U0ZKRzNYWTdLX25hMWZuX1UyTnlaV1Z1VW1WamIzSmthVzVuTWpBeU5pMHdOaTB4TjJGME9DNHpPUzR6TVZCTi5tb3YiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCATBBBF4jxQ1grgr5ieqyX2BixKAMus4imZyTTfn0r1AIhAPCsZAYaQ9I6xNNSJwpLbZkS1DoJt2t4a9AdelnMSvzJ"
+          }
+        ],
+        "content": "i was in a zoom room and someone was spamming it .... can you tell me how someone could be doing this? ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "ii4YA1yCDNwC4LIXUQ5nuR-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1781754136090",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me analyze the screen recording to understand what kind of spamming was happening in your Zoom room."
+      },
+      "id": "SDsgQI4D9NN2ZnfXAAvfhP",
+      "timestamp": "1781754138613",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "## What Was Happening in Your Zoom Room\n\nBased on the screen recording analysis, someone was performing a **coordinated account-flooding attack** (a form of Zoombombing). Here is a full breakdown:\n\n---\n\n### What Was Observed\n\nAt least **5 or more accounts** had joined your meeting, all using the **identical display name**: `\"you are complete trash KEVIN !\"` — all sharing the same default profile avatar (an orange square with \"ya\"). The participant count was hovering around **114–115 people**, suggesting the room was a large, semi-public meeting.\n\n---\n\n### How This Is Done\n\nThis type of spam is typically carried out using one or more of the following methods:\n\n**1. Multiple Free Zoom Accounts (Most Common)**\n\nZoom allows anyone to create a free account with just an email address. The attacker creates several accounts in advance (or on the fly using disposable/temporary email services like `temp-mail.org`), sets the **display name to the same harassing phrase** on all of them, and joins the meeting link from each account — either manually across multiple browser tabs/devices, or via automation.\n\n**2. Browser Automation Scripts (e.g., Selenium / Puppeteer)**\n\nUsing tools like Python's `selenium` or Node.js's `puppeteer`, a script can be written to:\n- Open multiple browser instances or tabs\n- Navigate to the Zoom web client (`zoom.us/wc/join/<meeting-id>`)\n- Enter a chosen display name and the meeting password\n- Join the meeting without needing a real Zoom account\n\nThis allows a single person to flood a room with **dozens of identically named \"ghost\" participants** in seconds, all from one machine.\n\n**3. Zoom Web Client Abuse (No App Required)**\n\nZoom's web client (`zoom.us/wc/...`) allows joining a meeting **without installing the app and without being logged in**. This makes it trivially easy to spin up throwaway sessions. Each browser tab or incognito window counts as a separate participant, and the display name can be freely set to anything before joining.\n\n**4. Virtual Machines or Containers**\n\nMore technically sophisticated attackers run multiple isolated environments (VMs, Docker containers, or browser profiles) each joining the same meeting simultaneously, bypassing Zoom's per-device limits.\n\n---\n\n### Why It Is Hard to Stop in Real Time\n\n| Factor | Detail |\n|---|---|\n| **No account required** | Zoom's web client lets anyone join with any name |\n| **Free accounts are unlimited** | Disposable emails = unlimited fake accounts |\n| **Display names are unverified** | Anyone can set any name before joining |\n| **Large rooms are harder to moderate** | With 100+ participants, spotting the fakes takes time |\n\n---\n\n### How to Defend Against It\n\n| Action | How to Enable |\n|---|---|\n| **Enable Waiting Room** | Host manually approves each joiner before entry |\n| **Require authentication** | Settings → Security → \"Only authenticated users can join\" |\n| **Lock the meeting** | Once everyone is in, use Security → Lock Meeting |\n| **Remove & report** | Right-click the spam account → Remove; then report to Zoom Trust & Safety at [zoom.us/trust-form](https://zoom.us/trust-form) |\n| **Disable \"Allow participants to rename themselves\"** | Prevents mid-meeting name changes |\n| **Use a unique meeting link per session** | Avoids link sharing in public spaces |\n\nThe attacker in your recording was specifically targeting someone named **Kevin** with a harassment message, which suggests this was a **targeted personal attack** rather than random Zoombombing — the meeting link was likely shared or leaked to someone with hostile intent.\n"
+      },
+      "id": "TeQbqjf2a02aqbXgpoedvG",
+      "timestamp": "1781754218114",
+      "type": "assistant_message"
+    },
+    {
+      "id": "Vs1PHpc7gdm4ittN5OgxsL",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1781754218378",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "ScreenRecording2026-06-17at8.39.31PM.mov",
+      "content_type": "video/quicktime",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-pnXcwbNApHGxxSFJG3XY7K_na1fn_U2NyZWVuUmVjb3JkaW5nMjAyNi0wNi0xN2F0OC4zOS4zMVBN.mov?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1wblhjd2JOQXBIR3h4U0ZKRzNYWTdLX25hMWZuX1UyTnlaV1Z1VW1WamIzSmthVzVuTWpBeU5pMHdOaTB4TjJGME9DNHpPUzR6TVZCTi5tb3YiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCATBBBF4jxQ1grgr5ieqyX2BixKAMus4imZyTTfn0r1AIhAPCsZAYaQ9I6xNNSJwpLbZkS1DoJt2t4a9AdelnMSvzJ",
+      "status": "archived",
+      "bytes": 14702890,
+      "archive_path": "attachments/qnAtTEH5sp2szxYstZiwpV/0-user_message-0_aedc909c0ebd5202_ScreenRecording2026-06-17at8.39.31PM.mov"
+    }
+  ]
+}

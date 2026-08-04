@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:30.410741Z",
+  "task": {
+    "id": "p1KjmFyiCsVxtUSCsuBv4M",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 10,
+    "created_at": "1784746076",
+    "updated_at": "1784746223",
+    "task_url": "https://manus.im/app/p1KjmFyiCsVxtUSCsuBv4M",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "GK44KyvM4SMaS2qyzNsQvV",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746078720",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched Village Green Apartments and found verified public flyer fields."
+      },
+      "id": "AC6tVrYFPE0LZ0aqAqYKlh",
+      "timestamp": "1784746223053",
+      "type": "assistant_message"
+    },
+    {
+      "id": "zvzBNNNcTwByPNBCmN3JXK",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746223210",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:43:38.122162Z",
+  "task": {
+    "id": "DeCncaP4sVrK2WF5jaJZFT",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 50,
+    "created_at": "1776214795",
+    "updated_at": "1776220760",
+    "task_url": "https://manus.im/app/DeCncaP4sVrK2WF5jaJZFT",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "Mec3o6iSR8os0918JjxM50",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776214796283",
+      "type": "status_update"
+    },
+    {
+      "id": "HKcxZCipos3jH6nq6yAexn",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus has resumed the computer successfully",
+        "description": "Manus has successfully resumed the computer without losing any file. You may now continue with the previous task."
+      },
+      "timestamp": "1776220251585",
+      "type": "status_update"
+    },
+    {
+      "id": "PwomzLtH7RBBshuR8nnI9E",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776220760769",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

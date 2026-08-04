@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.roserec.sync</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>$HOME/Scripts/auto_copy_audio.sh</string>
+    </array>
+    
+    <key>WatchPaths</key>
+    <array>
+        <string>/Volumes</string>
+    </array>
+    
+    <key>RunAtLoad</key>
+    <false/>
+    
+    <key>StartInterval</key>
+    <integer>0</integer>
+    
+    <key>StandardOutPath</key>
+    <string>/tmp/com.user.roserec.sync.stdout</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/tmp/com.user.roserec.sync.stderr</string>
+</dict>
+</plist>

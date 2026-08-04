@@ -1,0 +1,110 @@
+# Credit Optimizer v5 for Manus AI
+
+## Save 30-75% on Manus Credits with ZERO Quality Loss
+
+Thank you for purchasing Credit Optimizer v5! This skill has been rigorously audited across **53 scenarios** (22 functional + 31 adversarial) with **12 vulnerabilities identified and fixed**, ensuring your results maintain full quality while dramatically reducing credit consumption.
+
+---
+
+## Quick Start (2 minutes)
+
+### Step 1: Copy the Skill to Your Manus Environment
+
+Copy the entire `skill/` folder to your Manus skills directory:
+
+```
+/home/ubuntu/skills/credit-optimizer/
+```
+
+Your final structure should look like this:
+
+```
+/home/ubuntu/skills/credit-optimizer/
+├── SKILL.md                          (Main skill file)
+├── scripts/
+│   └── analyze_prompt.py             (Prompt analyzer engine)
+├── references/
+│   ├── efficiency_directives.md      (Efficiency catalog)
+│   ├── strategy_matrix.md            (Strategy decision matrix)
+│   └── prompt_checklist.md           (Specificity checklist)
+└── templates/
+    └── one_shot_template.md          (One-shot prompt template)
+```
+
+### Step 2: Activate Automatic Mode (Recommended)
+
+Add the following line to your **Custom Instructions** in Manus settings:
+
+```
+SEMPRE leia a skill credit-optimizer antes de executar qualquer tarefa para otimizar créditos sem perder qualidade.
+```
+
+That's it! From now on, **every task** will be automatically optimized.
+
+### Step 3 (Optional): Manual Activation
+
+If you prefer to activate manually, start your prompt with:
+
+```
+Usando a skill credit-optimizer, faça: [your task here]
+```
+
+---
+
+## How It Works
+
+The Credit Optimizer analyzes your prompt in real-time and makes intelligent decisions:
+
+1. **Intent Detection**: Identifies what type of task you're requesting (code, research, content, data analysis, etc.)
+2. **Complexity Assessment**: Evaluates how complex the task is (low, medium, high)
+3. **Smart Routing**: Routes to the most cost-effective mode:
+   - **Chat Mode** (FREE): For Q&A, brainstorming, translations
+   - **Manus 1.6 Standard**: For most tasks
+   - **Manus 1.6 Max**: Automatically selected for complex tasks (never blocked)
+4. **Efficiency Directives**: Injects process optimizations that reduce internal token usage without affecting output quality
+
+### Key Principle
+
+> The optimizer only reduces **internal processing costs** (reasoning tokens, unnecessary iterations, context bloat). The **final output** you receive maintains full quality and depth.
+
+---
+
+## What's Included
+
+| File | Description |
+|---|---|
+| `skill/SKILL.md` | Main skill file with all rules and workflow |
+| `skill/scripts/analyze_prompt.py` | Python engine that analyzes prompts (975 lines) |
+| `skill/references/efficiency_directives.md` | Complete catalog of safe efficiency techniques |
+| `skill/references/strategy_matrix.md` | Decision matrix for strategy selection |
+| `skill/references/prompt_checklist.md` | Checklist for prompt specificity |
+| `skill/templates/one_shot_template.md` | Template for one-shot prompts |
+| `proof/final_v5_comparison.png` | Audit results visualization |
+| `proof/evolution_v4_to_v5.png` | Evolution from v4 to v5 |
+| `proof/final_simulation_v5_results.json` | Raw simulation data (22 scenarios) |
+| `proof/adversarial_results.json` | Adversarial audit data (31 scenarios) |
+
+---
+
+## Audit Results
+
+| Metric | Result |
+|---|---|
+| **Scenarios Tested** | 53 (22 functional + 31 adversarial) |
+| **Pass Rate** | 100% (53/53) |
+| **Quality Loss** | ZERO in all scenarios |
+| **Quality Gain** | +2 scenarios (vague prompts refined) |
+| **Average Savings** | 30.2% of credits |
+| **Vulnerabilities Found & Fixed** | 12 |
+
+---
+
+## Support
+
+If you have questions or need help with installation, please reach out via the platform where you purchased this product.
+
+---
+
+**Version**: 5.0 (Adversarial Audited)
+**Last Updated**: March 2026
+**Compatibility**: Manus AI (all plans)

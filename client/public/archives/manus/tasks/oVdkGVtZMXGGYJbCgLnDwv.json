@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:34:05.653252Z",
+  "task": {
+    "id": "oVdkGVtZMXGGYJbCgLnDwv",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 4,
+    "created_at": "1780947974",
+    "updated_at": "1780948371",
+    "task_url": "https://manus.im/app/oVdkGVtZMXGGYJbCgLnDwv",
+    "message_count": 0
+  },
+  "event_count": 6,
+  "events": [
+    {
+      "id": "On5jDgXvHu9osMFYgiZhiU",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780947974828",
+      "type": "status_update"
+    },
+    {
+      "id": "fQ3x1IUbpZNbcAM2jlSXtD",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is working",
+        "description": "Oops! An unexpected issue has occurred."
+      },
+      "timestamp": "1780948209217",
+      "type": "status_update"
+    },
+    {
+      "id": "VKig7ALxPhZPMh8TBNGivY",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is working",
+        "description": "Oops! An unexpected issue has occurred."
+      },
+      "timestamp": "1780948346746",
+      "type": "status_update"
+    },
+    {
+      "id": "Q2c2kqdYNlj2VvsJBdnecQ",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is working",
+        "description": "Oops! An unexpected issue has occurred."
+      },
+      "timestamp": "1780948352279",
+      "type": "status_update"
+    },
+    {
+      "id": "BSDOwRkklCk50YGZyi0qZV",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is working",
+        "description": "Oops! An unexpected issue has occurred."
+      },
+      "timestamp": "1780948354692",
+      "type": "status_update"
+    },
+    {
+      "id": "JlVnalO4GbrwcIJk40A1Qq",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1780948371093",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

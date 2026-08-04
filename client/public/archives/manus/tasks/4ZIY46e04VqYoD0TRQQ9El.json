@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:40:10.730023Z",
+  "task": {
+    "id": "4ZIY46e04VqYoD0TRQQ9El",
+    "title": "Evaluate Investor Documents and Provide Detailed Recommendations",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 456,
+    "created_at": "1776892390",
+    "updated_at": "1776910968",
+    "task_url": "https://manus.im/app/4ZIY46e04VqYoD0TRQQ9El",
+    "message_count": 0
+  },
+  "event_count": 35,
+  "events": [
+    {
+      "id": "s1yMqIHxW4ug1hyOJPLkxM",
+      "timestamp": "1776892389917",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "pasted_file_56An0p_My-Future-Capacity-Skills-Passport(6).pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-owT9yt4B5wzs84bh77dqQU_na1fn_cGFzdGVkX2ZpbGVfNTZBbjBwX015LUZ1dHVyZS1DYXBhY2l0eS1Ta2lsbHMtUGFzc3BvcnQoNik.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1vd1Q5eXQ0QjV3enM4NGJoNzdkcVFVX25hMWZuX2NHRnpkR1ZrWDJacGJHVmZOVFpCYmpCd1gwMTVMVVoxZEhWeVpTMURZWEJoWTJsMGVTMVRhMmxzYkhNdFVHRnpjM0J2Y25Rb05pay5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIHS8yBaYJ8FK4Fph4W0vDuYlfn8HR7t1XKoHI3DuE0CQAiBM7hx1Txt7IKYMo2zc7SZoznI3RcqjTXfSBdDr36B2zg__"
+          },
+          {
+            "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "filename": "pasted_file_Z54l8z_Investor_Bridge_Package.xlsx",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-usj8IboLWVvyNxVyHt7rYE_na1fn_cGFzdGVkX2ZpbGVfWjU0bDh6X0ludmVzdG9yX0JyaWRnZV9QYWNrYWdl.xlsx?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC11c2o4SWJvTFdWdnlOeFZ5SHQ3cllFX25hMWZuX2NHRnpkR1ZrWDJacGJHVmZXalUwYkRoNlgwbHVkbVZ6ZEc5eVgwSnlhV1JuWlY5UVlXTnJZV2RsLnhsc3giLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQChx6iJtrku~LSsB7MNZvPYtsNTON9fMax-foQAN5-TLwIgPnjTtDOvC~tFF0fc9tqrM2vDpQrKAGNDa90L6uJFO4I_"
+          }
+        ],
+        "content": "can you evaluate these documents that my associate has prepared to present to investors and please give a detailed summary report on recommendations on what needs ot be removed, edited or items to add ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "iMD5EkuCowD7HDAXRiflMk-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776892391745",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll carefully review both documents — the Skills Passport PDF and the Investor Bridge Package spreadsheet — and produce a detailed evaluation report with specific recommendations on what to remove, edit, and add. Let me get started."
+      },
+      "id": "xoXGkaHDYIXE5jxkDtX1ys",
+      "timestamp": "1776892398107",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Both documents have been fully reviewed. I've identified several critical issues including cross-document discrepancies, missing financial data, traction gaps, and formatting problems. Now writing the comprehensive evaluation report."
+      },
+      "id": "qkmE4mD22UBY37NHZYF06i",
+      "timestamp": "1776892620751",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "Investor_Documents_Evaluation_Report.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/4ZIY46e04VqYoD0TRQQ9El/sandbox/0au5ojJCQ1TvFYiH1gZLC2_1776892651765_na1fn_L2hvbWUvdWJ1bnR1L0ludmVzdG9yX0RvY3VtZW50c19FdmFsdWF0aW9uX1JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvNFpJWTQ2ZTA0VnFZb0QwVFJRUTlFbC9zYW5kYm94LzBhdTVvakpDUTFUdkZZaUgxZ1pMQzJfMTc3Njg5MjY1MTc2NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBsdWRtVnpkRzl5WDBSdlkzVnRaVzUwYzE5RmRtRnNkV0YwYVc5dVgxSmxjRzl5ZEEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCo5JdO49pcxIQm8SOqU2uv625WaoRfcVffWOJj33imTgIhALsmv2y4X4yr0rIMZHP70BwA6vbaZO8dazUJQYfNhhD~"
+          }
+        ],
+        "content": "I have completed the detailed evaluation of both the Skills Passport PDF and the Investor Bridge Package Excel file. \n\nThe documents present a strong narrative and a well-structured bridge plan, but there are several critical discrepancies between the two files (especially regarding revenue projections and use of funds) that need to be addressed before presenting to investors. I've also identified some internal sheets in the Excel file that should be removed.\n\nYou can find the comprehensive summary report with specific recommendations on what to remove, edit, and add in the attached document. Let me know if you need any further analysis or help updating the files!"
+      },
+      "id": "cjIPlwcYPECD46JjYwgUiv",
+      "timestamp": "1776892652020",
+      "type": "assistant_message"
+    },
+    {
+      "id": "t86AJkJNdUXgeLxl3lOrnj",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776892652315",
+      "type": "status_update"
+    },
+    {
+      "id": "pKoSUoMRrTHaI8dzu0ExQA",
+      "timestamp": "1776892982852",
+      "type": "user_message",
+      "user_message": {
+        "content": "Please build a website based on Investor_Documents_Evaluation_Report.md",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "0AFjs7BNONEwpIsTHllUss",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776892983042",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "On it! I'll build a live investor checklist website based on the evaluation report — with interactive checkboxes, organized sections for Remove / Edit / Add items, and a professional look. Initializing the project now."
+      },
+      "id": "i5QSkXfMAfqPwyZB5V5qeP",
+      "timestamp": "1776892987339",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "I've chosen a **Modern Finance Dashboard** design philosophy for this checklist — think Bloomberg Terminal meets a premium consulting deliverable. The design features a deep navy background, a live \"Readiness Score\" meter that updates as you check off items, color-coded action categories (Remove / Edit / Add), and priority badges per item. Now generating the visual assets and building the full UI."
+      },
+      "id": "XLmSLGZNWStfjhZrljXl1B",
+      "timestamp": "1776893049518",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The investor checklist website is live! Built with a **Modern Finance Dashboard** design — deep navy background, electric blue accents, and a fintech-grade aesthetic. It includes all **24 action items** from the evaluation report, organized across 7 sections with color-coded Remove / Edit / Add badges, P1–P3 priority labels, a live **Readiness Score** meter that fills as you check off items, expandable detail panels for each item, sidebar navigation with per-section progress, and action-type filtering.\n\n**Suggested next steps:**\n1. **Add an \"Export PDF\" button** that generates a printable checklist summary showing which items are complete and which remain — useful for sharing progress with your associate.\n2. **Add notes/comments per item** — a small text field on each card where you can log what was done (e.g., \"Updated Slide 12 on April 23\") to create an audit trail.\n3. **Add a \"Due Date\" field per item** — assign target completion dates to the critical P1 items so the checklist doubles as a lightweight project tracker before the investor meeting."
+      },
+      "id": "M1OZW1NXosJ50zauACeuf2",
+      "timestamp": "1776893384154",
+      "type": "assistant_message"
+    },
+    {
+      "id": "Cb8EVxpWyNSSbFA66jZ5lu",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776893384463",
+      "type": "status_update"
+    },
+    {
+      "id": "IEsGG1UGROP6RIglLvwTM0",
+      "timestamp": "1776893547068",
+      "type": "user_message",
+      "user_message": {
+        "content": "Incorporate a feature that allows adding notes or comments to each checklist item for tracking purposes.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "223fadPdS3mbzZpOcc0C7c",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776893547230",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Adding notes/comments to each checklist item now — with inline editing, timestamps, and persistent storage. Building it out!"
+      },
+      "id": "QQ8K4vr1riZmNAklnqHJsb",
+      "timestamp": "1776893551512",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The notes/comments feature is now live on every checklist item. Here's what was added:\n\n- **\"Add a note…\" prompt** appears beneath each item — click it to open an inline editor\n- **Keyboard shortcuts**: `⌘↵` (or `Ctrl+Enter`) to save, `Esc` to cancel\n- **Timestamps** show relative time (e.g. \"just now\", \"2h ago\", \"3d ago\") and update automatically\n- **Edit/Delete controls** appear on hover over any saved note\n- **\"Note\" badge** appears on item cards that have a note, so you can scan at a glance\n- **Notes Summary panel** in the sidebar lists all logged notes with a preview\n- **Full persistence** — all notes and checkbox states are saved in your browser's localStorage and survive page refreshes\n\n**Suggested next steps:**\n1. **Export to PDF** — add a \"Print / Export\" button that generates a formatted summary of all checked items and their notes, useful for sharing progress with your associate or attaching to a meeting agenda.\n2. **Due date per item** — add an optional target date field alongside the note, so P1 Critical items can be assigned deadlines and sorted by urgency.\n3. **Assignee tagging** — add a simple \"Assigned to\" dropdown (e.g. Founder, Associate, Designer) per item so the checklist doubles as a lightweight task delegation tool."
+      },
+      "id": "FhSL9jIQGOpVJHpVGhIOFS",
+      "timestamp": "1776893721147",
+      "type": "assistant_message"
+    },
+    {
+      "id": "klsMzgQLwa4OcfgWTMxy8Z",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776893721434",
+      "type": "status_update"
+    },
+    {
+      "id": "QTKCLGqNTSGChhXguMMLx8",
+      "timestamp": "1776893739224",
+      "type": "user_message",
+      "user_message": {
+        "content": "please add the export to pdf button as well ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "XiiYz2wHMUDgZpBjbRpoVp",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776893739376",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "On it! Adding an \"Export to PDF\" button that generates a clean, formatted summary of all checklist items, their status, and any notes logged. Building it now."
+      },
+      "id": "i4fMSvBTMlj2R3Mfcws3x2",
+      "timestamp": "1776893742932",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The **Export to PDF** feature is now live. Clicking the button (in the header bar or the sidebar) generates and downloads a fully formatted, multi-page PDF named `MFC-Investor-Readiness-Checklist-[date].pdf`. The PDF includes:\n\n- A **cover page** with overall readiness score, action breakdown (Remove/Edit/Add counts), and a section-by-section progress table with mini progress bars\n- **Detail pages** for every checklist item — showing action badge, priority level, source document, completion status, and any notes you've logged with their timestamps\n- Dark navy design with color-coded accents matching the dashboard aesthetic\n\n**Suggested next steps:**\n1. **Due date per item** — add an optional target date field next to each note so you can assign deadlines to P1 Critical items and have them appear in the PDF export as well.\n2. **Assignee tagging** — add a simple \"Assigned to\" field (e.g. Founder, Associate, Designer) per item so the checklist doubles as a task delegation tool, with assignee names printed in the PDF.\n3. **\"Only show unresolved\" toggle** — add a quick filter that hides all checked items so you can focus exclusively on what still needs to be done."
+      },
+      "id": "lJuQPcHVnzVB8hKt74LOOp",
+      "timestamp": "1776893963751",
+      "type": "assistant_message"
+    },
+    {
+      "id": "2c28yROlAuaxQyRS0Qjt97",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776893964027",
+      "type": "status_update"
+    },
+    {
+      "id": "Bbz0TqlilGFhOoAySPr03m",
+      "timestamp": "1776894071311",
+      "type": "user_message",
+      "user_message": {
+        "content": "any other helpful suggestions to prepare the the investors?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "JaQ22P6jMarOwpjnIpWRzw",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776894071506",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Absolutely — here are the most impactful things your associate should prepare before presenting to investors, organized by category:\n\n---\n\n## Investor Preparation: Additional Recommendations\n\n### 1. Build a Data Room\n\nBefore any serious investor conversation, assemble a secure, organized data room (Google Drive, Notion, or Docsend). It should contain:\n\n- The pitch deck (final, versioned)\n- The financial model (clean, no internal sheets)\n- Any signed LOIs, MOUs, or pilot agreements\n- Founder bio / LinkedIn profiles\n- Cap table (even if it is just the founder at this stage)\n- Any press coverage, awards, or third-party validation\n\nInvestors will ask for a data room link within the first or second meeting. Not having one signals unpreparedness.\n\n---\n\n### 2. Prepare a One-Pager / Executive Summary\n\nA single-page PDF that can be emailed before a meeting or left behind after one. It should cover:\n\n| Element | What to Include |\n|---|---|\n| Problem | 1–2 sentences, specific and quantified |\n| Solution | What the product does, for whom |\n| Traction | Any pilots, LOIs, users, or revenue |\n| Ask | Amount, instrument (SAFE/equity), use of funds |\n| Team | Founder name, key credential, contact |\n\nThis is often the first thing an investor reads — it determines whether a meeting happens at all.\n\n---\n\n### 3. Prepare for the 10 Most Common Investor Questions\n\nYour associate should be able to answer these cold, without hesitation:\n\n1. Why are you the right person to build this?\n2. Who have you already talked to, and what did they say?\n3. What does a signed contract look like — who signs, what is the term, what is the price?\n4. What is your CAC and LTV?\n5. Why hasn't this been built before, or why have others failed?\n6. What does success look like at the end of this bridge round?\n7. What is the next round size and when do you expect to raise it?\n8. Who else is in this round, or who have you already closed?\n9. What keeps you up at night about this business?\n10. What is your personal financial runway — how long can you sustain yourself?\n\n---\n\n### 4. Secure at Least One Signed LOI Before the First Meeting\n\nThe Self-Audit in the Excel model flags this as the single unresolved condition. A signed Letter of Intent from even one institutional partner (a community college, workforce board, or employer) transforms the narrative from \"we are building toward pilots\" to \"we have committed partners.\" This is the highest-leverage action available before any investor meeting.\n\n---\n\n### 5. Prepare a Demo or Prototype Walkthrough\n\nIf the MVP is built, record a 2–3 minute screen-share walkthrough of the actual product. Investors in edtech and workforce tools want to see the product, not just slides about it. A Loom video embedded in the data room or sent ahead of a meeting significantly increases engagement.\n\n---\n\n### 6. Research Each Investor Before Outreach\n\nFor every investor approached, your associate should know:\n\n- Their typical check size and stage focus\n- Their portfolio companies (especially edtech, workforce, or future-of-work)\n- Any public statements, blog posts, or thesis documents they have published\n- A warm introduction path if possible (mutual connection, portfolio founder, accelerator alumni)\n\nCold outreach to misaligned investors wastes time and damages credibility. Quality of targeting matters far more than volume.\n\n---\n\n### 7. Set Up a Simple CRM to Track Outreach\n\nEven a basic spreadsheet tracking investor name, firm, stage, contact date, last touchpoint, and next action prevents leads from going cold. Tools like Notion, Airtable, or even a Google Sheet work well at this stage.\n\n---\n\n### 8. Prepare a \"Why Now\" Narrative\n\nInvestors always ask: **why is this the right moment for this company?** The answer should reference specific macro tailwinds — for example, the growth of skills-based hiring, the decline of degree requirements at major employers, federal workforce development funding, or post-pandemic credential inflation. This narrative should be rehearsed and woven into the pitch naturally.\n\n---\n\nWould you like me to build any of these into the website — for example, an **Investor Q&A Prep** section, a **Data Room Checklist**, or a **Pitch Practice** module?"
+      },
+      "id": "Ebi2OFUj4fbmi5P0ADM9AJ",
+      "timestamp": "1776894098674",
+      "type": "assistant_message"
+    },
+    {
+      "id": "TNK1HX4ulFzA43n6M2B8sX",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776894099077",
+      "type": "status_update"
+    },
+    {
+      "id": "rTjZcSKILMtjsgK2FMeqQf",
+      "timestamp": "1776894114285",
+      "type": "user_message",
+      "user_message": {
+        "content": "please put this information as a button on the website and make it exportable too ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "LA3XaGTEi8d7ehAsrykfC9",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776894114467",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "On it! I'll add an \"Investor Prep Guide\" button to the website that opens a full panel with all 8 recommendations, and includes its own Export to PDF option. Building it now."
+      },
+      "id": "XgvHBXk12mv3HWkkpNbkzp",
+      "timestamp": "1776894118713",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The **Investor Prep Guide** is now live on the website. A prominent amber button in the hero header (and in the sidebar) opens a full modal containing all 8 recommendations as expandable cards — each with priority badges, interactive checklist items, reference tables, and note callouts. Progress is saved automatically in your browser, independently of the main checklist. The modal also has its own **Export PDF** button that downloads a formatted `MFC-Investor-Prep-Guide-[date].pdf` with a cover page, section index, and full item details.\n\n**Suggested next steps:**\n1. **Investor CRM tracker tab** — add a second tab or panel where you can log each investor's name, firm, contact date, and status (Identified → Contacted → Meeting → Committed), turning the site into a lightweight fundraising command center.\n2. **Meeting countdown timer** — add a \"Days until investor meeting\" countdown widget to the hero header so the urgency of completing checklist items is always visible at a glance.\n3. **Combined export** — add a single \"Export Full Package\" button that generates one PDF containing both the document checklist and the prep guide together, useful for sharing a complete readiness snapshot with your associate."
+      },
+      "id": "vUDpCEDLw9mc1FOc5GHdqA",
+      "timestamp": "1776894374282",
+      "type": "assistant_message"
+    },
+    {
+      "id": "CeX342LC4H8qCcEAIpdgp2",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776894374624",
+      "type": "status_update"
+    },
+    {
+      "id": "VQAR8O4Gdhv5bH63oIxbDJ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus is resetting the computer",
+        "description": "Manus is resetting the computer, please wait for a while."
+      },
+      "timestamp": "1776911000179",
+      "type": "status_update"
+    },
+    {
+      "id": "DNFJVH59ld5hpv6HOvtJHl",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus has reset the computer successfully",
+        "description": "Manus has successfully reset the computer. You may now continue with the previous task."
+      },
+      "timestamp": "1776911011001",
+      "type": "status_update"
+    },
+    {
+      "id": "vBizmuvPQI3qiJWmPQuxfJ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus is resetting the computer",
+        "description": "Manus is resetting the computer, please wait for a while."
+      },
+      "timestamp": "1785183666402",
+      "type": "status_update"
+    },
+    {
+      "id": "Imm6vH3W6eM5K4w5zS3t2a",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus has reset the computer successfully",
+        "description": "Manus has successfully reset the computer. You may now continue with the previous task."
+      },
+      "timestamp": "1785183679283",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "pasted_file_56An0p_My-Future-Capacity-Skills-Passport(6).pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-owT9yt4B5wzs84bh77dqQU_na1fn_cGFzdGVkX2ZpbGVfNTZBbjBwX015LUZ1dHVyZS1DYXBhY2l0eS1Ta2lsbHMtUGFzc3BvcnQoNik.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1vd1Q5eXQ0QjV3enM4NGJoNzdkcVFVX25hMWZuX2NHRnpkR1ZrWDJacGJHVmZOVFpCYmpCd1gwMTVMVVoxZEhWeVpTMURZWEJoWTJsMGVTMVRhMmxzYkhNdFVHRnpjM0J2Y25Rb05pay5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIHS8yBaYJ8FK4Fph4W0vDuYlfn8HR7t1XKoHI3DuE0CQAiBM7hx1Txt7IKYMo2zc7SZoznI3RcqjTXfSBdDr36B2zg__",
+      "status": "archived",
+      "bytes": 2472528,
+      "archive_path": "attachments/4ZIY46e04VqYoD0TRQQ9El/0-user_message-0_18966764debb90e9_pasted_file_56An0p_My-Future-Capacity-Skills-Passport_6_.pdf"
+    },
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "pasted_file_Z54l8z_Investor_Bridge_Package.xlsx",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-usj8IboLWVvyNxVyHt7rYE_na1fn_cGFzdGVkX2ZpbGVfWjU0bDh6X0ludmVzdG9yX0JyaWRnZV9QYWNrYWdl.xlsx?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC11c2o4SWJvTFdWdnlOeFZ5SHQ3cllFX25hMWZuX2NHRnpkR1ZrWDJacGJHVmZXalUwYkRoNlgwbHVkbVZ6ZEc5eVgwSnlhV1JuWlY5UVlXTnJZV2RsLnhsc3giLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQChx6iJtrku~LSsB7MNZvPYtsNTON9fMax-foQAN5-TLwIgPnjTtDOvC~tFF0fc9tqrM2vDpQrKAGNDa90L6uJFO4I_",
+      "status": "archived",
+      "bytes": 25725,
+      "archive_path": "attachments/4ZIY46e04VqYoD0TRQQ9El/0-user_message-1_dc0cc76c5115f7b3_pasted_file_Z54l8z_Investor_Bridge_Package.xlsx"
+    },
+    {
+      "event_index": 4,
+      "type": "file",
+      "filename": "Investor_Documents_Evaluation_Report.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/4ZIY46e04VqYoD0TRQQ9El/sandbox/0au5ojJCQ1TvFYiH1gZLC2_1776892651765_na1fn_L2hvbWUvdWJ1bnR1L0ludmVzdG9yX0RvY3VtZW50c19FdmFsdWF0aW9uX1JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvNFpJWTQ2ZTA0VnFZb0QwVFJRUTlFbC9zYW5kYm94LzBhdTVvakpDUTFUdkZZaUgxZ1pMQzJfMTc3Njg5MjY1MTc2NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBsdWRtVnpkRzl5WDBSdlkzVnRaVzUwYzE5RmRtRnNkV0YwYVc5dVgxSmxjRzl5ZEEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCo5JdO49pcxIQm8SOqU2uv625WaoRfcVffWOJj33imTgIhALsmv2y4X4yr0rIMZHP70BwA6vbaZO8dazUJQYfNhhD~",
+      "status": "archived",
+      "bytes": 7830,
+      "archive_path": "attachments/4ZIY46e04VqYoD0TRQQ9El/4-assistant_message-0_0428041297a1d552_Investor_Documents_Evaluation_Report.md"
+    }
+  ]
+}

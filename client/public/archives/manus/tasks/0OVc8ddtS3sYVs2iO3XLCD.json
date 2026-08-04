@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:40.298689Z",
+  "task": {
+    "id": "0OVc8ddtS3sYVs2iO3XLCD",
+    "title": "Can You Help Me Improve This Task?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-max",
+    "credits_used": 1036,
+    "created_at": "1783144056",
+    "updated_at": "1783145165",
+    "task_url": "https://manus.im/app/0OVc8ddtS3sYVs2iO3XLCD",
+    "message_count": 0
+  },
+  "event_count": 20,
+  "events": [
+    {
+      "id": "iNS85oRIkhUnbgl8iGiUwD",
+      "timestamp": "1783144056397",
+      "type": "user_message",
+      "user_message": {
+        "content": "Can you help me with this but do a better job? ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "zIXAXPjNi3ySy7WIWtZzno-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783144056943",
+      "type": "status_update"
+    },
+    {
+      "id": "h8iCmxq4T6FhyoKASCOJK5",
+      "timestamp": "1783144061322",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "text/plain",
+            "filename": "pasted_content.txt",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-TmwvNQ8RdTdOScM1iEqhEa_na1fn_cGFzdGVkX2NvbnRlbnQ.txt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1UbXd2TlE4UmRUZE9TY00xaUVxaEVhX25hMWZuX2NHRnpkR1ZrWDJOdmJuUmxiblEudHh0IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDiPYruNTUFfifAPIvxr4hnDAlQTVVwL4vXZenGg~9XVAIhAJKJ398fi7cQVcvth7qSlU3okEe-vgzvqby0IxFjfaGy"
+          }
+        ],
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "I'll take a look at the file you've shared to understand what you'd like me to help with."
+      },
+      "id": "qua2iUg8izr28117L7lybj",
+      "timestamp": "1783144065401",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "I've reviewed the full transcript. I can see you were working with ChatGPT to evaluate AWS training programs from the CTHires list for WIOA funding, with your PropTech platform and career goals in mind. I'll do a more thorough job: I'll research real market data (salaries, job demand, certification value), verify the actual CTHires program details, and build you a rigorous ranked analysis with a clear WIOA funding roadmap tailored to both employment and your PropTech startup goals.\n\nOne quick note: the transcript mentions the CTHires PDFs (pages 1 and 2) that were shared with ChatGPT, but those files weren't included in your upload. I'll work from the program names and details captured in the transcript, plus my own research. If you can upload those CTHires PDFs (or more pages from the list), I can make the analysis even more complete — but I'll proceed with what I have for now."
+      },
+      "id": "y0gDIZzNMRXvpRBStyMPZ7",
+      "timestamp": "1783144083319",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "AWS_WIOA_PropTech_Roadmap.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/0OVc8ddtS3sYVs2iO3XLCD/sandbox/ukl6pBSPDrKiWutJ3INqKp_1783144406798_na1fn_L2hvbWUvdWJ1bnR1L2F3c193aW9hL0FXU19XSU9BX1Byb3BUZWNoX1JvYWRtYXA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvME9WYzhkZHRTM3NZVnMyaU8zWExDRC9zYW5kYm94L3VrbDZwQlNQRHJLaVd1dEozSU5xS3BfMTc4MzE0NDQwNjc5OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGM2MxOTNhVzloTDBGWFUxOVhTVTlCWDFCeWIzQlVaV05vWDFKdllXUnRZWEEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQD3M8ORD3WJW-~JD5A5eJ2MTex4ssf9Ff6bhWlb2fWR7gIhAPCEysuA0QHoqGxzd8R4ou3uTa8rrAp6gJVQrzYlV69R"
+          }
+        ],
+        "content": "Done! I've completed a much more rigorous version of the analysis. The full report is attached, and here's what makes it better than the previous one:\n\n**Key corrections I found through verified research:**\n\n1. **The expensive courses ChatGPT ranked #2–#6 are actually 2–3 day seminars.** \"Developing on AWS\" ($2,095), \"Developing Generative AI Applications on AWS\" ($1,390), and \"MLOps Engineering on AWS\" ($2,099) are official AWS classroom courses lasting only 2–3 days — and **none includes a certification exam**. Spending your capped WIOA funds there would be the worst allocation on your list.\n\n2. **The SCSU sequence is even stronger than ChatGPT claimed.** I verified on SCSU's own website: it's explicitly marked \"WIOA-approved,\" runs 18–20 weeks of live instructor-led evening classes, and **includes both official AWS exam fees** (Cloud Practitioner + Solutions Architect) in the $1,250 price. It remains the clear #1 — now with proof.\n\n3. **WIOA funding caps matter.** Workforce Alliance documentation has cited a ~$3,500 ITA cap, so \"price doesn't matter\" was wrong — it matters to your counselor's approval decision, and the SCSU sequence fits comfortably.\n\n4. **Real salary data replaces made-up scores.** SAA holders average ~$127K (Payscale); entry cloud roles post at $63K–$90K — your $30/hr target is conservative and realistic.\n\n5. **A phased roadmap tied to your PropTech platform.** The report includes a 4-phase plan (SCSU sequence → self-study Developer cert + job search → AI specialization → Puerto Rico scale-up with Act 60 incentives), plus a 5-question filter to quickly triage the remaining 64 pages of the CTHires list.\n\nIf you upload the CTHires PDFs or more pages from the list, I can score those programs with the same verified methodology."
+      },
+      "id": "Frup4FTVa6AI7oCVRGQ9RF",
+      "timestamp": "1783144407051",
+      "type": "assistant_message"
+    },
+    {
+      "id": "rl6Jb0b5AWsxqzuEOCVqN4",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783144407323",
+      "type": "status_update"
+    },
+    {
+      "id": "NrKJm1RkCGqQa71U9YpaEr",
+      "timestamp": "1783144916357",
+      "type": "user_message",
+      "user_message": {
+        "content": "can you give recommendations?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "zlpmrtS0M7H9O0KzvQsS8w",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783144916541",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Absolutely — here are my direct recommendations, based on the verified research from the report:\n\n## My #1 Recommendation: Request the SCSU AWS Sequence\n\nAsk your Workforce Alliance counselor to fund the **SCSU AWS Cloud Practitioner + Solutions Architect Sequence ($1,250, 18–20 weeks)**. This is the single best move available to you, and here's exactly why:\n\n- It's the only option on your list explicitly marked **\"WIOA-approved\"** by the provider\n- It includes **both official AWS exam fees** — you walk away with two industry-recognized certifications, not just a course completion\n- It's **live, instructor-led** (Tue/Thu evenings), which dramatically increases completion rates vs. self-paced options\n- It fits comfortably under the ~$3,500 WIOA cap, possibly leaving room for a second request\n- The Solutions Architect curriculum (VPC, IAM, databases, Lambda, API Gateway, auto-scaling) is *exactly* what you need to architect your PropTech platform\n\n**What to say to your counselor:** \"This program is WIOA-approved, leads to two industry-recognized credentials with exam fees included, is instructor-led, and maps to in-demand occupations like cloud engineer and solutions architect.\"\n\n## What NOT to spend WIOA money on right now\n\nAvoid **Developing on AWS ($2,095)**, **Generative AI Applications ($1,390)**, and **MLOps ($2,099)**. These are 2–3 day seminars with no certification exam, and they assume AWS/Python experience you don't have yet. They're great courses — later, once you're employed and have fundamentals.\n\n## While you study (do this in parallel)\n\n1. **Build your PropTech MVP on the AWS Free Tier** as you learn each topic — Cognito for logins, S3 for documents, Lambda + API Gateway for maintenance requests. By exam day you'll have both certifications AND a live portfolio, which is what actually gets you hired.\n2. **Use free AWS Skill Builder** to supplement the classes.\n\n## After you pass (months 5–9)\n\n- Self-study for the **AWS Developer – Associate** exam (~$150 exam + ~$20 prep course, no need for the $2,095 seminar)\n- Start applying for remote cloud roles — with SAA + a live platform, $30+/hr is a conservative target (entry cloud roles post $63K–$90K)\n\n## Later (months 9–18)\n\n- Add the **AWS AI Practitioner** or **ML Engineer – Associate** certification for your AI features\n- When setting up your company in Puerto Rico, look into **Act 60** tax incentives for export services — significant savings for a tech startup\n\n**Bottom line: SCSU sequence now, build the platform while you study, Developer cert by self-study, AI certs once employed.** If you send me the remaining CTHires pages, I'll flag anything that would change this plan."
+      },
+      "id": "ULWTe6ZXLYTYZ0dzTjsFCp",
+      "timestamp": "1783144934619",
+      "type": "assistant_message"
+    },
+    {
+      "id": "DWkEMTa7TKHLlX2N3iX46x",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783144934948",
+      "type": "status_update"
+    },
+    {
+      "id": "vu2LIAsZaW5rLJFFdZ4Tgf",
+      "timestamp": "1783144959225",
+      "type": "user_message",
+      "user_message": {
+        "content": "why is it so affordable? seems too easy ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "YDrwVx3KJlTFIzjKXvSKgY",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783144959395",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Great skeptical instinct — but the price actually makes sense once you break it down. Here's why $1,250 isn't \"too good to be true\":\n\n## 1. The underlying costs are genuinely low\n\nThe AWS exams themselves only cost **$100 (Cloud Practitioner) + $150 (Solutions Architect) = $250 total**. That leaves ~$1,000 for the instruction itself. The course runs 1-hour sessions twice a week over 18–20 weeks (roughly 36–40 contact hours). At that rate, SCSU is charging about $25–28 per instructional hour — completely normal for a public university's continuing education program.\n\n## 2. SCSU is a state university, not a for-profit bootcamp\n\nThis is run by SCSU's Office of Workforce and Lifelong Learning (OWLL) — a **public institution with a workforce development mission**, not a profit-maximizing training company. Public universities price noncredit workforce programs near cost, often subsidized by state workforce funds. Compare that to Skillsoft/Global Knowledge charging $2,095 for a 3-day seminar — those are corporate training companies whose clients are companies with training budgets, not individuals. That's the price that should look suspicious, not SCSU's.\n\n## 3. AWS training materials are largely free to providers\n\nAWS *wants* more certified people (they become AWS customers and advocates). AWS gives educational institutions free curriculum through **AWS Academy**, free labs, and exam discounts. SCSU isn't building content from scratch — they're delivering AWS's own materials with a live instructor. Low content cost = low price.\n\n## 4. \"Affordable\" doesn't mean \"easy\" — and here's the honest catch\n\nThe price is low; the work is not. Be realistic about what this demands:\n\n- The SAA exam has a meaningful failure rate for people who only watch lectures — you must do the **hands-on labs** and practice exams seriously\n- 2 hours/week of class is the *minimum* — plan on **5–8 hours/week total** including labs and study\n- The certification is the door-opener, not the job. Without a portfolio (your PropTech build), the cert alone won't get you hired — that's the \"hard part\" the price doesn't cover\n\n## 5. Sanity-check comparison\n\n| Option | Price | What you get |\n|---|---|---|\n| SCSU sequence | $1,250 | 18–20 wks instructor-led + **2 exams included** |\n| Ed2Go/community college equivalents | $1,000–$1,800 | Similar CCP+SAA bundles (this is the market rate) |\n| Self-study route | ~$300 | Udemy courses + 2 exam fees, no instructor |\n| Skillsoft \"Developing on AWS\" | $2,095 | 3 days, no exam |\n| For-profit bootcamps | $10,000–$20,000 | Longer, but often teach the same AWS content |\n\nSo $1,250 sits exactly where it should: above pure self-study (because you get live instruction and exam fees), and far below for-profit training (because a state university doesn't need margins). It's not a red flag — it's what workforce-mission pricing looks like. The real test of value will be your effort in the labs and building your platform alongside it."
+      },
+      "id": "XQKRi5dMlgGGkg4qsheRGp",
+      "timestamp": "1783144982750",
+      "type": "assistant_message"
+    },
+    {
+      "id": "CmhVNLd835SNVAgXl8eEll",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783144983051",
+      "type": "status_update"
+    },
+    {
+      "id": "JQeS53NkrdqIBrMxdBVwpa",
+      "timestamp": "1783145058604",
+      "type": "user_message",
+      "user_message": {
+        "content": "can you summarize this entire task as a pdf and push it to my github as a repository called aws-info",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "Cn4yMvNC63w77Ws0zZtLaU",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783145058797",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Sure! I'll create a PDF summarizing the entire task — the analysis, rankings, recommendations, and the affordability discussion — and push it to a new GitHub repository called \"aws-info\". Working on it now."
+      },
+      "id": "LKayx0AOoofCFMEmWA98uM",
+      "timestamp": "1783145064291",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "AWS_WIOA_Task_Summary.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/0OVc8ddtS3sYVs2iO3XLCD/sandbox/GK9m8yDP9o9Tp8k5KCVCyG_1783145165130_na1fn_L2hvbWUvdWJ1bnR1L2F3c193aW9hL3JlcG8vQVdTX1dJT0FfVGFza19TdW1tYXJ5.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvME9WYzhkZHRTM3NZVnMyaU8zWExDRC9zYW5kYm94L0dLOW04eURQOW85VHA4azVLQ1ZDeUdfMTc4MzE0NTE2NTEzMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGM2MxOTNhVzloTDNKbGNHOHZRVmRUWDFkSlQwRmZWR0Z6YTE5VGRXMXRZWEo1LnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHhcA1U1HuClxYM9TDu4ULdowr8fxB8fpKmyz591ZE2DAiEAhVDiOSwC8~f-rjWq3zpqTcrkdzuoee7GZ92PvcTgPxY_"
+          },
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "AWS_WIOA_Task_Summary.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/0OVc8ddtS3sYVs2iO3XLCD/sandbox/GK9m8yDP9o9Tp8k5KCVCyG_1783145165130_na1fn_L2hvbWUvdWJ1bnR1L2F3c193aW9hL3JlcG8vQVdTX1dJT0FfVGFza19TdW1tYXJ5.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvME9WYzhkZHRTM3NZVnMyaU8zWExDRC9zYW5kYm94L0dLOW04eURQOW85VHA4azVLQ1ZDeUdfMTc4MzE0NTE2NTEzMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGM2MxOTNhVzloTDNKbGNHOHZRVmRUWDFkSlQwRmZWR0Z6YTE5VGRXMXRZWEo1Lm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDBkqy0wVdeffUpmrcH8etQnFz3CzV37Xv~bggpRMOmBQIgNqW9OiR6uxTKgw8JmgceA61EW0S~KRMCxsqMi5NSnUQ_"
+          }
+        ],
+        "content": "All done! I've summarized the entire task as a PDF and pushed it to your GitHub.\n\n**Repository:** https://github.com/BrandonRose2/aws-info (created as private to protect your info — you can make it public in repo settings if you'd like)\n\n**What's in the repo:**\n- `AWS_WIOA_Task_Summary.pdf` — the complete task summary covering the original ChatGPT analysis review, the corrected rankings with verified data, why the SCSU price is legitimate, and the 4-phase roadmap\n- `AWS_WIOA_Task_Summary.md` — markdown source of the summary\n- `AWS_WIOA_PropTech_Roadmap.md` — the full detailed report with scoring methodology and all references\n- `README.md` — quick overview with the key takeaway\n\nThe PDF is also attached here for direct viewing. Let me know if you'd like the repo made public, any content changes, or additional pages of the CTHires list analyzed."
+      },
+      "id": "vS5Z5Cvg0U7hh3nvZ3xN8G",
+      "timestamp": "1783145165427",
+      "type": "assistant_message"
+    },
+    {
+      "id": "SjgR6VivYjQ29stZmuipyQ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783145165821",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 2,
+      "type": "file",
+      "filename": "pasted_content.txt",
+      "content_type": "text/plain",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-TmwvNQ8RdTdOScM1iEqhEa_na1fn_cGFzdGVkX2NvbnRlbnQ.txt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1UbXd2TlE4UmRUZE9TY00xaUVxaEVhX25hMWZuX2NHRnpkR1ZrWDJOdmJuUmxiblEudHh0IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDiPYruNTUFfifAPIvxr4hnDAlQTVVwL4vXZenGg~9XVAIhAJKJ398fi7cQVcvth7qSlU3okEe-vgzvqby0IxFjfaGy",
+      "status": "archived",
+      "bytes": 23122,
+      "archive_path": "attachments/0OVc8ddtS3sYVs2iO3XLCD/2-user_message-0_fbd940a5eb914562_pasted_content.txt"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "AWS_WIOA_PropTech_Roadmap.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/0OVc8ddtS3sYVs2iO3XLCD/sandbox/ukl6pBSPDrKiWutJ3INqKp_1783144406798_na1fn_L2hvbWUvdWJ1bnR1L2F3c193aW9hL0FXU19XSU9BX1Byb3BUZWNoX1JvYWRtYXA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvME9WYzhkZHRTM3NZVnMyaU8zWExDRC9zYW5kYm94L3VrbDZwQlNQRHJLaVd1dEozSU5xS3BfMTc4MzE0NDQwNjc5OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGM2MxOTNhVzloTDBGWFUxOVhTVTlCWDFCeWIzQlVaV05vWDFKdllXUnRZWEEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQD3M8ORD3WJW-~JD5A5eJ2MTex4ssf9Ff6bhWlb2fWR7gIhAPCEysuA0QHoqGxzd8R4ou3uTa8rrAp6gJVQrzYlV69R",
+      "status": "archived",
+      "bytes": 16600,
+      "archive_path": "attachments/0OVc8ddtS3sYVs2iO3XLCD/5-assistant_message-0_72b287465b70f078_AWS_WIOA_PropTech_Roadmap.md"
+    },
+    {
+      "event_index": 18,
+      "type": "file",
+      "filename": "AWS_WIOA_Task_Summary.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/0OVc8ddtS3sYVs2iO3XLCD/sandbox/GK9m8yDP9o9Tp8k5KCVCyG_1783145165130_na1fn_L2hvbWUvdWJ1bnR1L2F3c193aW9hL3JlcG8vQVdTX1dJT0FfVGFza19TdW1tYXJ5.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvME9WYzhkZHRTM3NZVnMyaU8zWExDRC9zYW5kYm94L0dLOW04eURQOW85VHA4azVLQ1ZDeUdfMTc4MzE0NTE2NTEzMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGM2MxOTNhVzloTDNKbGNHOHZRVmRUWDFkSlQwRmZWR0Z6YTE5VGRXMXRZWEo1LnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHhcA1U1HuClxYM9TDu4ULdowr8fxB8fpKmyz591ZE2DAiEAhVDiOSwC8~f-rjWq3zpqTcrkdzuoee7GZ92PvcTgPxY_",
+      "status": "archived",
+      "bytes": 113002,
+      "archive_path": "attachments/0OVc8ddtS3sYVs2iO3XLCD/18-assistant_message-0_283bb035f42c1bb4_AWS_WIOA_Task_Summary.pdf"
+    },
+    {
+      "event_index": 18,
+      "type": "file",
+      "filename": "AWS_WIOA_Task_Summary.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/0OVc8ddtS3sYVs2iO3XLCD/sandbox/GK9m8yDP9o9Tp8k5KCVCyG_1783145165130_na1fn_L2hvbWUvdWJ1bnR1L2F3c193aW9hL3JlcG8vQVdTX1dJT0FfVGFza19TdW1tYXJ5.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvME9WYzhkZHRTM3NZVnMyaU8zWExDRC9zYW5kYm94L0dLOW04eURQOW85VHA4azVLQ1ZDeUdfMTc4MzE0NTE2NTEzMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGM2MxOTNhVzloTDNKbGNHOHZRVmRUWDFkSlQwRmZWR0Z6YTE5VGRXMXRZWEo1Lm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDBkqy0wVdeffUpmrcH8etQnFz3CzV37Xv~bggpRMOmBQIgNqW9OiR6uxTKgw8JmgceA61EW0S~KRMCxsqMi5NSnUQ_",
+      "status": "archived",
+      "bytes": 12791,
+      "archive_path": "attachments/0OVc8ddtS3sYVs2iO3XLCD/18-assistant_message-1_57f2fa60d913ea28_AWS_WIOA_Task_Summary.md"
+    }
+  ]
+}

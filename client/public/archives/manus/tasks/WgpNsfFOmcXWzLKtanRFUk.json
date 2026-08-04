@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:41:26.004387Z",
+  "task": {
+    "id": "WgpNsfFOmcXWzLKtanRFUk",
+    "title": "Testing ClickUp Connector and Exploring Its Features",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 84,
+    "created_at": "1776625193",
+    "updated_at": "1776625325",
+    "task_url": "https://manus.im/app/WgpNsfFOmcXWzLKtanRFUk",
+    "message_count": 0
+  },
+  "event_count": 6,
+  "events": [
+    {
+      "id": "XlWM1R0E4Bnkx2HK22kgG7",
+      "timestamp": "1776625192805",
+      "type": "user_message",
+      "user_message": {
+        "content": "Help me test the ClickUp connector and show me how to use its feature (e.g. show any data you fetched with it). Give me a brief about its capabilities.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "fZi7HkM1xeALHf0ogZocYS-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776625193710",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll explore the ClickUp connector, test its features by fetching real data from your workspace, and put together a brief overview of its capabilities."
+      },
+      "id": "XPdCHcU7aCp9JSCneqnlsn",
+      "timestamp": "1776625196924",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Found 51 tools in the ClickUp connector. Now fetching live data from your workspace — starting with the workspace hierarchy, members, tasks, and more."
+      },
+      "id": "hevU7TJV7ePU8n4fkJPuK2",
+      "timestamp": "1776625221032",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "ClickUp_MCP_Connector_Brief.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/WgpNsfFOmcXWzLKtanRFUk/sandbox/VLPsXJ0CNFznLC7twYejyt_1776625323382_na1fn_L2hvbWUvdWJ1bnR1L0NsaWNrVXBfTUNQX0Nvbm5lY3Rvcl9CcmllZg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvV2dwTnNmRk9tY1hXekxLdGFuUkZVay9zYW5kYm94L1ZMUHNYSjBDTkZ6bkxDN3R3WWVqeXRfMTc3NjYyNTMyMzM4Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBOc2FXTnJWWEJmVFVOUVgwTnZibTVsWTNSdmNsOUNjbWxsWmcubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDOSMjfbkGCi9Q0-tERoxRX75NWqbzKZcHPx104KFtdCgIgYNmM~T11CYwwUbitqThnXGcZa~F3LwiESB24NcyRqZ4_"
+          }
+        ],
+        "content": "I've tested the ClickUp connector and compiled a brief detailing its capabilities, complete with live data fetched directly from your workspace. \n\nThe connector is quite powerful, offering 51 tools that cover everything from workspace navigation and task management to universal search, time tracking, and chat channels. I was able to successfully retrieve your workspace hierarchy (like the \"Apartment Corp Workspace\" and \"Notion Tasks\" folder), list tasks from specific lists (such as \"Projects\" and \"🤖 Ai & Apps\"), and even pull detailed custom fields for individual tasks.\n\nYou can review the full capability brief and the live data samples in the attached document. Let me know if you'd like to test any specific actions, like creating a task or updating a status!"
+      },
+      "id": "ZMjEN7ZOFYQBDHqtChqsLg",
+      "timestamp": "1776625324131",
+      "type": "assistant_message"
+    },
+    {
+      "id": "WmJxxHNL0QhfqqPQMlsMIL",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776625325229",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 4,
+      "type": "file",
+      "filename": "ClickUp_MCP_Connector_Brief.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/WgpNsfFOmcXWzLKtanRFUk/sandbox/VLPsXJ0CNFznLC7twYejyt_1776625323382_na1fn_L2hvbWUvdWJ1bnR1L0NsaWNrVXBfTUNQX0Nvbm5lY3Rvcl9CcmllZg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvV2dwTnNmRk9tY1hXekxLdGFuUkZVay9zYW5kYm94L1ZMUHNYSjBDTkZ6bkxDN3R3WWVqeXRfMTc3NjYyNTMyMzM4Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBOc2FXTnJWWEJmVFVOUVgwTnZibTVsWTNSdmNsOUNjbWxsWmcubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDOSMjfbkGCi9Q0-tERoxRX75NWqbzKZcHPx104KFtdCgIgYNmM~T11CYwwUbitqThnXGcZa~F3LwiESB24NcyRqZ4_",
+      "status": "archived",
+      "bytes": 3955,
+      "archive_path": "attachments/WgpNsfFOmcXWzLKtanRFUk/4-assistant_message-0_f011919c66ea5e7f_ClickUp_MCP_Connector_Brief.md"
+    }
+  ]
+}

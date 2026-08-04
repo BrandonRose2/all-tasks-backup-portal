@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:40:07.959676Z",
+  "task": {
+    "id": "hxHhTcI9eUXm22O7ZHtS5j",
+    "title": "Separate Mortgage Statements into Individual Files",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 342,
+    "created_at": "1776984440",
+    "updated_at": "1777067749",
+    "task_url": "https://manus.im/app/hxHhTcI9eUXm22O7ZHtS5j",
+    "message_count": 0
+  },
+  "event_count": 7,
+  "events": [
+    {
+      "id": "7bugKDTtaYntCQrRMgYsaH",
+      "timestamp": "1776984440581",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "4259_001.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-T7PSaeNWqNSQRoaSnYmT9W_na1fn_NDI1OV8wMDE.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1UN1BTYWVOV3FOU1FSb2FTblltVDlXX25hMWZuX05ESTFPVjh3TURFLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIBXK0cCjy3mBkrcETUJQS7qrXV3aZhlKxKPr0zE5MOP0AiAKUdqJ7I9kyOd5yJ1fmaUJiX4WP-jYnBdJz4KuW4rx7Q__"
+          }
+        ],
+        "content": "this file is comprised of multiple mortgage statements but I need them separated into their respective individual files - can you do this for me? ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "7SgTxdJwIgFHuE8VIwnFqh-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776984441264",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll analyze the PDF to identify the individual mortgage statements and split them into separate files for you."
+      },
+      "id": "BVgm1ZUmPirFwzxvKjE0n6",
+      "timestamp": "1776984444247",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The PDF appears to be a scanned document (no extractable text). I'll visually inspect the pages to identify where each statement begins and ends."
+      },
+      "id": "dkAjl7zLPCMAbZfU3ZpRo3",
+      "timestamp": "1776984469696",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "I've identified all 21 individual statements across the 52 pages. Now splitting them into separate PDF files."
+      },
+      "id": "X1UBEcb9YzPQa96aACLITw",
+      "timestamp": "1776984930669",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/zip",
+            "filename": "split_statements.zip",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRz.zip?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnouemlwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCICzo8CSHavy~HiF2yJgH0Ad1hkyNyzmh5wBBA-8ISzARAiEAkS3vU~QI7ZhFGtDmwXPI5mpiGg1mNQPJq6qWql2PA8A_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "01_Cumberland_Apartments_LP_Loan876604899.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzAxX0N1bWJlcmxhbmRfQXBhcnRtZW50c19MUF9Mb2FuODc2NjA0ODk5.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekF4WDBOMWJXSmxjbXhoYm1SZlFYQmhjblJ0Wlc1MGMxOU1VRjlNYjJGdU9EYzJOakEwT0RrNS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIEs0mysA9po8RIRWrvaCsLD~QqmMSgXKnIdxNL0PJISsAiEAwmGOVgdZaqcB8zMFs6HRLyqe6J-GAUPfrSKkp0Nowk4_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "02_Thibodaux_Housing_LP_Loan876604349.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzAyX1RoaWJvZGF1eF9Ib3VzaW5nX0xQX0xvYW44NzY2MDQzNDk.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekF5WDFSb2FXSnZaR0YxZUY5SWIzVnphVzVuWDB4UVgweHZZVzQ0TnpZMk1EUXpORGsucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCYKq4H0yYlm4tbc-MQApKgLJnMHVbTXMGjQkqU5L-DogIgOMTlFDE0QoDKRyjY12bAomE2-5CjjXu6NwuOb2L9KhA_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "03_Thomasville_Church_Housing_LLC_Loan876604879.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzAzX1Rob21hc3ZpbGxlX0NodXJjaF9Ib3VzaW5nX0xMQ19Mb2FuODc2NjA0ODc5.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekF6WDFSb2IyMWhjM1pwYkd4bFgwTm9kWEpqYUY5SWIzVnphVzVuWDB4TVExOU1iMkZ1T0RjMk5qQTBPRGM1LnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCkGn~E7Gw-OMQy4a9ZBShp0S9bPEWtLEfcv6OoLmUZBwIgUqb7YIlDy5AG7cuHCLobvdFj7CCIYyWKgmtqLdSDjgU_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "04_Granite_Bayou_Pointe_LLC_Loan876605128.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA0X0dyYW5pdGVfQmF5b3VfUG9pbnRlX0xMQ19Mb2FuODc2NjA1MTI4.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekEwWDBkeVlXNXBkR1ZmUW1GNWIzVmZVRzlwYm5SbFgweE1RMTlNYjJGdU9EYzJOakExTVRJNC5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDeGm35WXBnhoZZiB4GvkocrWBZ7JpFcAD7t8MujNARHgIhAIQOfrNqt5IGlpO2KHCQ96Aw0F3h5mZfjrFHHa5qIZJM"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "05_Granite_Pelican_Bay_LLC_Loan876605269.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA1X0dyYW5pdGVfUGVsaWNhbl9CYXlfTExDX0xvYW44NzY2MDUyNjk.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekExWDBkeVlXNXBkR1ZmVUdWc2FXTmhibDlDWVhsZlRFeERYMHh2WVc0NE56WTJNRFV5TmprLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQC01BrfNsAiA1UI5xIF6GL-uQv6JtsE4QaxXeURM0VhaAIgSo~3abq48IMgi65yJ4p0pNGVsMLoQ9ukOR9s62CI-lI_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "06_Star_Homes_I_LP_Loan846601684.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA2X1N0YXJfSG9tZXNfSV9MUF9Mb2FuODQ2NjAxNjg0.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekEyWDFOMFlYSmZTRzl0WlhOZlNWOU1VRjlNYjJGdU9EUTJOakF4TmpnMC5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCID0nR6dQ5~M8IDW6GwJ8H5zg1H3qXKE-teK-gXL38gbTAiEAv3bkiIEtlnqDHPLOaDf8qpUWSU0v2NS6JMPpPj187ts_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "07_North_Pointe_Housing_LP_Loan876604877.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA3X05vcnRoX1BvaW50ZV9Ib3VzaW5nX0xQX0xvYW44NzY2MDQ4Nzc.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekEzWDA1dmNuUm9YMUJ2YVc1MFpWOUliM1Z6YVc1blgweFFYMHh2WVc0NE56WTJNRFE0TnpjLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIH1R8~~RPZm9KhVwjYZXqNZ31eDq7pTHP6TMHE1Vtic7AiEAgoBAmbVGbs0PPkdlmAGS45CT-ifbgbsT2DQHR9sM-~M_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "08_Opa_Locka_Housing_LP_Loan106091.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA4X09wYV9Mb2NrYV9Ib3VzaW5nX0xQX0xvYW4xMDYwOTE.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekE0WDA5d1lWOU1iMk5yWVY5SWIzVnphVzVuWDB4UVgweHZZVzR4TURZd09URS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIEZHUtdMq1eCdEBuvIJ6yt7XuEaPv4CwE~kUSQRjOAC0AiBmc0so0nhM1ltyRmG-nI597jx-xV3xr0v2OMdQs~P4Sw__"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "09_Holiday_Apartments_Housing_LP_Loan295198.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA5X0hvbGlkYXlfQXBhcnRtZW50c19Ib3VzaW5nX0xQX0xvYW4yOTUxOTg.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekE1WDBodmJHbGtZWGxmUVhCaGNuUnRaVzUwYzE5SWIzVnphVzVuWDB4UVgweHZZVzR5T1RVeE9UZy5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDW~n-MA2LJ0sOs42tvav2lKx8HijWzHbI3Mll0dAoylQIhAL3KWdeagpuBfg6r4Sn3g57OobCxO3-18oPVk8k~~Eii"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "10_Jefferson_Arms_Apartments_LLC_Loan01-0292009.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzEwX0plZmZlcnNvbl9Bcm1zX0FwYXJ0bWVudHNfTExDX0xvYW4wMS0wMjkyMDA5.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekV3WDBwbFptWmxjbk52Ymw5QmNtMXpYMEZ3WVhKMGJXVnVkSE5mVEV4RFgweHZZVzR3TVMwd01qa3lNREE1LnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDCD2w4dWtiC7sleoqJFXNuOrdjJ8SfSBneSxZWJ5uBEgIhAKib4DBtnUh8mCMNwDb7fhgv4~BYivqxTpQNRmd2ZyS8"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "11_Village_Green_Housing_LP_Loan276624.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzExX1ZpbGxhZ2VfR3JlZW5fSG91c2luZ19MUF9Mb2FuMjc2NjI0.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekV4WDFacGJHeGhaMlZmUjNKbFpXNWZTRzkxYzJsdVoxOU1VRjlNYjJGdU1qYzJOakkwLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCICm0tljfCGr3PYrUCCKZu1R9lLUvHo-BGOeerUai5qpRAiEAgo5GcinbQYVvF8JDhL9shLHKoOykmuxIhzgf8Uy30jw_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "12_Boca_Ciega_Partners_TC_LP_Loan01-0432655.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzEyX0JvY2FfQ2llZ2FfUGFydG5lcnNfVENfTFBfTG9hbjAxLTA0MzI2NTU.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekV5WDBKdlkyRmZRMmxsWjJGZlVHRnlkRzVsY25OZlZFTmZURkJmVEc5aGJqQXhMVEEwTXpJMk5UVS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQD7CrkOjT8UcmOnwLyimELZRmr6a0EbRkMZQNmtRl8cZgIhALV7pt8~nktIo1uz~ZZ~aGVa1ucjubLEsUl1tuhJP6SN"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "13_Granite_Walnut_Hill_LLC_Loan01-0727041.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzEzX0dyYW5pdGVfV2FsbnV0X0hpbGxfTExDX0xvYW4wMS0wNzI3MDQx.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekV6WDBkeVlXNXBkR1ZmVjJGc2JuVjBYMGhwYkd4ZlRFeERYMHh2WVc0d01TMHdOekkzTURReC5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIExAnkJgvjnglteqGL-jQhLbKAkR79RY-W4ZSlhhVuAPAiAMxgaG9H745i2Vrla6o0AH4W6xKuCQ79cPalYvbEuR4A__"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "14_St_Charles_Housing_LP_Loan01-0758663.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE0X1N0X0NoYXJsZXNfSG91c2luZ19MUF9Mb2FuMDEtMDc1ODY2Mw.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekUwWDFOMFgwTm9ZWEpzWlhOZlNHOTFjMmx1WjE5TVVGOU1iMkZ1TURFdE1EYzFPRFkyTXcucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDuZ1FhRzEtj4IoIMy1~Or3Wo~pOATdARm6sSeFmRHl~gIhALFucpPOMO9IWWNPmns7o~xOGYtOWiVv9eYQO6Amwgrw"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "15_Lexington_Housing_LLC_Loan01-0758341.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE1X0xleGluZ3Rvbl9Ib3VzaW5nX0xMQ19Mb2FuMDEtMDc1ODM0MQ.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekUxWDB4bGVHbHVaM1J2Ymw5SWIzVnphVzVuWDB4TVExOU1iMkZ1TURFdE1EYzFPRE0wTVEucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIFB0hd0V4TRmRufclReXCR7mtavU2llb2-eAbHUQm~hYAiAZBjdeB-7TCIcRNcRBxNjEHNan0ecWMNvGv7H666d0cg__"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "16_Breckenridge_Housing_LLC_Loan01-0758340.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE2X0JyZWNrZW5yaWRnZV9Ib3VzaW5nX0xMQ19Mb2FuMDEtMDc1ODM0MA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekUyWDBKeVpXTnJaVzV5YVdSblpWOUliM1Z6YVc1blgweE1RMTlNYjJGdU1ERXRNRGMxT0RNME1BLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCYcBzTw3S~t7eBgF5XluAIb46dbGTooqEqbd-DoG-JKwIgRtZg6ujsJussNmkaUwJykyx-5wEzoahbO5CtoZl7uRE_"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "17_Grove_Park_Housing_LP_Loan612901.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE3X0dyb3ZlX1BhcmtfSG91c2luZ19MUF9Mb2FuNjEyOTAx.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekUzWDBkeWIzWmxYMUJoY210ZlNHOTFjMmx1WjE5TVVGOU1iMkZ1TmpFeU9UQXgucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCSxxXwHZqZR1yhCDKUSD6hALcPbbWZvU4ajjkdIr46OAIhAKnzWQ~WnjVUAInMqP94Tn5V7FE6ZT~0BWNs5d4Q0Wab"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "18_Marrero_3_LP_Loan1233501.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE4X01hcnJlcm9fM19MUF9Mb2FuMTIzMzUwMQ.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekU0WDAxaGNuSmxjbTlmTTE5TVVGOU1iMkZ1TVRJek16VXdNUS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIEfIyp7BhOW7VYmIkeG7jk~nEfuZdm3lrNCpAbb0VaNlAiAfgW6g9IcEzWMbZ9I3IcAZ7Ehy7nUtzBiwWz7XZ6rgHg__"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "19_Granite_La_Promesa_LLC_Loan530701.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE5X0dyYW5pdGVfTGFfUHJvbWVzYV9MTENfTG9hbjUzMDcwMQ.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekU1WDBkeVlXNXBkR1ZmVEdGZlVISnZiV1Z6WVY5TVRFTmZURzloYmpVek1EY3dNUS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICXfeAbdxWa9lUyVBScipVAD-3cVm6EGJYwuJ5q4xRHNAiA15HDFRfocITNPlF~weRLRMaYLELsdClLalvCsbcXmCA__"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "20_Grace_Townhomes_Loan2017184.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzIwX0dyYWNlX1Rvd25ob21lc19Mb2FuMjAxNzE4NA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekl3WDBkeVlXTmxYMVJ2ZDI1b2IyMWxjMTlNYjJGdU1qQXhOekU0TkEucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIHhN2wdJX4~ItFbh1IxAWmewqH9TdxQWTbA9H1kJArmhAiBbMhw-jqXaHO2U~I85tI5LaGmHL4Na~p5kWzFVxoV5qg__"
+          },
+          {
+            "content_type": "application/pdf",
+            "filename": "21_Grace_Townhomes_Supplemental_Loan2019095.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzIxX0dyYWNlX1Rvd25ob21lc19TdXBwbGVtZW50YWxfTG9hbjIwMTkwOTU.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekl4WDBkeVlXTmxYMVJ2ZDI1b2IyMWxjMTlUZFhCd2JHVnRaVzUwWVd4ZlRHOWhiakl3TVRrd09UVS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCS9IlmZKp5AZMxlDGQhKRHqn-~0BVzcPduvyRknAhOBgIgVEHv0OQrx88ZgQFfmHDSoSTWKX~FfyVQfZ5Y4m35h7M_"
+          }
+        ],
+        "content": "All done! I identified and separated **21 individual statements** from the 52-page PDF. Here is a summary of what was found and how the pages were grouped:\n\n| # | File | Servicer | Pages |\n|---|------|----------|-------|\n| 01 | `01_Cumberland_Apartments_LP_Loan876604899.pdf` | Webster Bank Monthly Statement | 1–4 |\n| 02 | `02_Thibodaux_Housing_LP_Loan876604349.pdf` | Webster Bank Monthly Statement | 5–6 |\n| 03 | `03_Thomasville_Church_Housing_LLC_Loan876604879.pdf` | Webster Bank Monthly Statement | 7–10 |\n| 04 | `04_Granite_Bayou_Pointe_LLC_Loan876605128.pdf` | Webster Bank Monthly Statement | 11–12 |\n| 05 | `05_Granite_Pelican_Bay_LLC_Loan876605269.pdf` | Webster Bank Monthly Statement | 13–16 |\n| 06 | `06_Star_Homes_I_LP_Loan846601684.pdf` | Webster Bank Monthly Statement | 17–18 |\n| 07 | `07_North_Pointe_Housing_LP_Loan876604877.pdf` | Webster Bank Monthly Statement | 19–20 |\n| 08 | `08_Opa_Locka_Housing_LP_Loan106091.pdf` | Arbor Multifamily Lending | 21–22, 29–30 |\n| 09 | `09_Holiday_Apartments_Housing_LP_Loan295198.pdf` | Arbor Multifamily Lending | 23–24 |\n| 10 | `10_Jefferson_Arms_Apartments_LLC_Loan01-0292009.pdf` | CBRE Billing Statement | 25–26, 31–32 |\n| 11 | `11_Village_Green_Housing_LP_Loan276624.pdf` | Arbor Multifamily Lending | 27–28 |\n| 12 | `12_Boca_Ciega_Partners_TC_LP_Loan01-0432655.pdf` | CBRE Billing Statement | 33–34 |\n| 13 | `13_Granite_Walnut_Hill_LLC_Loan01-0727041.pdf` | CBRE Billing Statement | 35–36 |\n| 14 | `14_St_Charles_Housing_LP_Loan01-0758663.pdf` | CBRE Billing Statement | 37–38 |\n| 15 | `15_Lexington_Housing_LLC_Loan01-0758341.pdf` | CBRE Billing Statement | 39–40 |\n| 16 | `16_Breckenridge_Housing_LLC_Loan01-0758340.pdf` | CBRE Billing Statement | 41–42 |\n| 17 | `17_Grove_Park_Housing_LP_Loan612901.pdf` | CPC Monthly Statement | 43–44 |\n| 18 | `18_Marrero_3_LP_Loan1233501.pdf` | CPC Monthly Statement | 45–46 |\n| 19 | `19_Granite_La_Promesa_LLC_Loan530701.pdf` | CPC Monthly Statement | 47–48 |\n| 20 | `20_Grace_Townhomes_Loan2017184.pdf` | Merchants Capital | 49–50 |\n| 21 | `21_Grace_Townhomes_Supplemental_Loan2019095.pdf` | Merchants Capital | 51–52 |\n\n**A few notes on grouping decisions:**\n- **Statement 08** (Opa Locka Housing LP): Pages 29–30 are a Tax Escrow Analysis for the same loan (106091), so they were included in the same file.\n- **Statement 10** (Jefferson Arms): Pages 31–32 are an internet reprint/duplicate of the same statement, included together in one file.\n\nAll 21 files are packaged in the zip archive attached below."
+      },
+      "id": "M4ABcqrCX8HoH5vzrSVTGB",
+      "timestamp": "1776984997258",
+      "type": "assistant_message"
+    },
+    {
+      "id": "DPk372kaBFESI2WlwqsEJh",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776984997544",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "4259_001.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-T7PSaeNWqNSQRoaSnYmT9W_na1fn_NDI1OV8wMDE.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1UN1BTYWVOV3FOU1FSb2FTblltVDlXX25hMWZuX05ESTFPVjh3TURFLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIBXK0cCjy3mBkrcETUJQS7qrXV3aZhlKxKPr0zE5MOP0AiAKUdqJ7I9kyOd5yJ1fmaUJiX4WP-jYnBdJz4KuW4rx7Q__",
+      "status": "archived",
+      "bytes": 3617814,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/0-user_message-0_ac44262a1fd6b4b7_4259_001.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "split_statements.zip",
+      "content_type": "application/zip",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRz.zip?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnouemlwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCICzo8CSHavy~HiF2yJgH0Ad1hkyNyzmh5wBBA-8ISzARAiEAkS3vU~QI7ZhFGtDmwXPI5mpiGg1mNQPJq6qWql2PA8A_",
+      "status": "archived",
+      "bytes": 3266354,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-0_a49d1246a7303cea_split_statements.zip"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "01_Cumberland_Apartments_LP_Loan876604899.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzAxX0N1bWJlcmxhbmRfQXBhcnRtZW50c19MUF9Mb2FuODc2NjA0ODk5.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekF4WDBOMWJXSmxjbXhoYm1SZlFYQmhjblJ0Wlc1MGMxOU1VRjlNYjJGdU9EYzJOakEwT0RrNS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIEs0mysA9po8RIRWrvaCsLD~QqmMSgXKnIdxNL0PJISsAiEAwmGOVgdZaqcB8zMFs6HRLyqe6J-GAUPfrSKkp0Nowk4_",
+      "status": "archived",
+      "bytes": 330356,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-1_ef376608e7319fdd_01_Cumberland_Apartments_LP_Loan876604899.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "02_Thibodaux_Housing_LP_Loan876604349.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzAyX1RoaWJvZGF1eF9Ib3VzaW5nX0xQX0xvYW44NzY2MDQzNDk.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekF5WDFSb2FXSnZaR0YxZUY5SWIzVnphVzVuWDB4UVgweHZZVzQ0TnpZMk1EUXpORGsucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCYKq4H0yYlm4tbc-MQApKgLJnMHVbTXMGjQkqU5L-DogIgOMTlFDE0QoDKRyjY12bAomE2-5CjjXu6NwuOb2L9KhA_",
+      "status": "archived",
+      "bytes": 293305,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-2_b0e606b72e4f0f44_02_Thibodaux_Housing_LP_Loan876604349.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "03_Thomasville_Church_Housing_LLC_Loan876604879.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzAzX1Rob21hc3ZpbGxlX0NodXJjaF9Ib3VzaW5nX0xMQ19Mb2FuODc2NjA0ODc5.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekF6WDFSb2IyMWhjM1pwYkd4bFgwTm9kWEpqYUY5SWIzVnphVzVuWDB4TVExOU1iMkZ1T0RjMk5qQTBPRGM1LnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCkGn~E7Gw-OMQy4a9ZBShp0S9bPEWtLEfcv6OoLmUZBwIgUqb7YIlDy5AG7cuHCLobvdFj7CCIYyWKgmtqLdSDjgU_",
+      "status": "archived",
+      "bytes": 330416,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-3_61873f9f6cf69caa_03_Thomasville_Church_Housing_LLC_Loan876604879.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "04_Granite_Bayou_Pointe_LLC_Loan876605128.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA0X0dyYW5pdGVfQmF5b3VfUG9pbnRlX0xMQ19Mb2FuODc2NjA1MTI4.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekEwWDBkeVlXNXBkR1ZmUW1GNWIzVmZVRzlwYm5SbFgweE1RMTlNYjJGdU9EYzJOakExTVRJNC5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDeGm35WXBnhoZZiB4GvkocrWBZ7JpFcAD7t8MujNARHgIhAIQOfrNqt5IGlpO2KHCQ96Aw0F3h5mZfjrFHHa5qIZJM",
+      "status": "archived",
+      "bytes": 291593,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-4_d3fca500944b326c_04_Granite_Bayou_Pointe_LLC_Loan876605128.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "05_Granite_Pelican_Bay_LLC_Loan876605269.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA1X0dyYW5pdGVfUGVsaWNhbl9CYXlfTExDX0xvYW44NzY2MDUyNjk.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekExWDBkeVlXNXBkR1ZmVUdWc2FXTmhibDlDWVhsZlRFeERYMHh2WVc0NE56WTJNRFV5TmprLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQC01BrfNsAiA1UI5xIF6GL-uQv6JtsE4QaxXeURM0VhaAIgSo~3abq48IMgi65yJ4p0pNGVsMLoQ9ukOR9s62CI-lI_",
+      "status": "archived",
+      "bytes": 330320,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-5_b0007acf5c151004_05_Granite_Pelican_Bay_LLC_Loan876605269.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "06_Star_Homes_I_LP_Loan846601684.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA2X1N0YXJfSG9tZXNfSV9MUF9Mb2FuODQ2NjAxNjg0.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekEyWDFOMFlYSmZTRzl0WlhOZlNWOU1VRjlNYjJGdU9EUTJOakF4TmpnMC5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCID0nR6dQ5~M8IDW6GwJ8H5zg1H3qXKE-teK-gXL38gbTAiEAv3bkiIEtlnqDHPLOaDf8qpUWSU0v2NS6JMPpPj187ts_",
+      "status": "archived",
+      "bytes": 304193,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-6_74f98696d8e8ea8a_06_Star_Homes_I_LP_Loan846601684.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "07_North_Pointe_Housing_LP_Loan876604877.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA3X05vcnRoX1BvaW50ZV9Ib3VzaW5nX0xQX0xvYW44NzY2MDQ4Nzc.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekEzWDA1dmNuUm9YMUJ2YVc1MFpWOUliM1Z6YVc1blgweFFYMHh2WVc0NE56WTJNRFE0TnpjLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIH1R8~~RPZm9KhVwjYZXqNZ31eDq7pTHP6TMHE1Vtic7AiEAgoBAmbVGbs0PPkdlmAGS45CT-ifbgbsT2DQHR9sM-~M_",
+      "status": "archived",
+      "bytes": 295473,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-7_00dff2a8ee9e5ae4_07_North_Pointe_Housing_LP_Loan876604877.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "08_Opa_Locka_Housing_LP_Loan106091.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA4X09wYV9Mb2NrYV9Ib3VzaW5nX0xQX0xvYW4xMDYwOTE.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekE0WDA5d1lWOU1iMk5yWVY5SWIzVnphVzVuWDB4UVgweHZZVzR4TURZd09URS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIEZHUtdMq1eCdEBuvIJ6yt7XuEaPv4CwE~kUSQRjOAC0AiBmc0so0nhM1ltyRmG-nI597jx-xV3xr0v2OMdQs~P4Sw__",
+      "status": "archived",
+      "bytes": 187271,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-8_e4e86e5279651bf7_08_Opa_Locka_Housing_LP_Loan106091.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "09_Holiday_Apartments_Housing_LP_Loan295198.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzA5X0hvbGlkYXlfQXBhcnRtZW50c19Ib3VzaW5nX0xQX0xvYW4yOTUxOTg.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekE1WDBodmJHbGtZWGxmUVhCaGNuUnRaVzUwYzE5SWIzVnphVzVuWDB4UVgweHZZVzR5T1RVeE9UZy5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDW~n-MA2LJ0sOs42tvav2lKx8HijWzHbI3Mll0dAoylQIhAL3KWdeagpuBfg6r4Sn3g57OobCxO3-18oPVk8k~~Eii",
+      "status": "archived",
+      "bytes": 61450,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-9_e0a4f05794c58b0f_09_Holiday_Apartments_Housing_LP_Loan295198.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "10_Jefferson_Arms_Apartments_LLC_Loan01-0292009.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzEwX0plZmZlcnNvbl9Bcm1zX0FwYXJ0bWVudHNfTExDX0xvYW4wMS0wMjkyMDA5.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekV3WDBwbFptWmxjbk52Ymw5QmNtMXpYMEZ3WVhKMGJXVnVkSE5mVEV4RFgweHZZVzR3TVMwd01qa3lNREE1LnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDCD2w4dWtiC7sleoqJFXNuOrdjJ8SfSBneSxZWJ5uBEgIhAKib4DBtnUh8mCMNwDb7fhgv4~BYivqxTpQNRmd2ZyS8",
+      "status": "archived",
+      "bytes": 170299,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-10_f7f20befd77f5406_10_Jefferson_Arms_Apartments_LLC_Loan01-0292009.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "11_Village_Green_Housing_LP_Loan276624.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzExX1ZpbGxhZ2VfR3JlZW5fSG91c2luZ19MUF9Mb2FuMjc2NjI0.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekV4WDFacGJHeGhaMlZmUjNKbFpXNWZTRzkxYzJsdVoxOU1VRjlNYjJGdU1qYzJOakkwLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCICm0tljfCGr3PYrUCCKZu1R9lLUvHo-BGOeerUai5qpRAiEAgo5GcinbQYVvF8JDhL9shLHKoOykmuxIhzgf8Uy30jw_",
+      "status": "archived",
+      "bytes": 59702,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-11_edb71dc6c1064d71_11_Village_Green_Housing_LP_Loan276624.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "12_Boca_Ciega_Partners_TC_LP_Loan01-0432655.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzEyX0JvY2FfQ2llZ2FfUGFydG5lcnNfVENfTFBfTG9hbjAxLTA0MzI2NTU.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekV5WDBKdlkyRmZRMmxsWjJGZlVHRnlkRzVsY25OZlZFTmZURkJmVEc5aGJqQXhMVEEwTXpJMk5UVS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQD7CrkOjT8UcmOnwLyimELZRmr6a0EbRkMZQNmtRl8cZgIhALV7pt8~nktIo1uz~ZZ~aGVa1ucjubLEsUl1tuhJP6SN",
+      "status": "archived",
+      "bytes": 101808,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-12_86a5dee1a0feb731_12_Boca_Ciega_Partners_TC_LP_Loan01-0432655.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "13_Granite_Walnut_Hill_LLC_Loan01-0727041.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzEzX0dyYW5pdGVfV2FsbnV0X0hpbGxfTExDX0xvYW4wMS0wNzI3MDQx.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekV6WDBkeVlXNXBkR1ZmVjJGc2JuVjBYMGhwYkd4ZlRFeERYMHh2WVc0d01TMHdOekkzTURReC5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIExAnkJgvjnglteqGL-jQhLbKAkR79RY-W4ZSlhhVuAPAiAMxgaG9H745i2Vrla6o0AH4W6xKuCQ79cPalYvbEuR4A__",
+      "status": "archived",
+      "bytes": 97235,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-13_a61ad254f795cf69_13_Granite_Walnut_Hill_LLC_Loan01-0727041.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "14_St_Charles_Housing_LP_Loan01-0758663.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE0X1N0X0NoYXJsZXNfSG91c2luZ19MUF9Mb2FuMDEtMDc1ODY2Mw.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekUwWDFOMFgwTm9ZWEpzWlhOZlNHOTFjMmx1WjE5TVVGOU1iMkZ1TURFdE1EYzFPRFkyTXcucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDuZ1FhRzEtj4IoIMy1~Or3Wo~pOATdARm6sSeFmRHl~gIhALFucpPOMO9IWWNPmns7o~xOGYtOWiVv9eYQO6Amwgrw",
+      "status": "archived",
+      "bytes": 105620,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-14_72984f2f24f63e08_14_St_Charles_Housing_LP_Loan01-0758663.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "15_Lexington_Housing_LLC_Loan01-0758341.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE1X0xleGluZ3Rvbl9Ib3VzaW5nX0xMQ19Mb2FuMDEtMDc1ODM0MQ.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekUxWDB4bGVHbHVaM1J2Ymw5SWIzVnphVzVuWDB4TVExOU1iMkZ1TURFdE1EYzFPRE0wTVEucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIFB0hd0V4TRmRufclReXCR7mtavU2llb2-eAbHUQm~hYAiAZBjdeB-7TCIcRNcRBxNjEHNan0ecWMNvGv7H666d0cg__",
+      "status": "archived",
+      "bytes": 96319,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-15_ea7ecbd712ae12b0_15_Lexington_Housing_LLC_Loan01-0758341.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "16_Breckenridge_Housing_LLC_Loan01-0758340.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE2X0JyZWNrZW5yaWRnZV9Ib3VzaW5nX0xMQ19Mb2FuMDEtMDc1ODM0MA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekUyWDBKeVpXTnJaVzV5YVdSblpWOUliM1Z6YVc1blgweE1RMTlNYjJGdU1ERXRNRGMxT0RNME1BLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCYcBzTw3S~t7eBgF5XluAIb46dbGTooqEqbd-DoG-JKwIgRtZg6ujsJussNmkaUwJykyx-5wEzoahbO5CtoZl7uRE_",
+      "status": "archived",
+      "bytes": 104944,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-16_70ca45309ec25727_16_Breckenridge_Housing_LLC_Loan01-0758340.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "17_Grove_Park_Housing_LP_Loan612901.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE3X0dyb3ZlX1BhcmtfSG91c2luZ19MUF9Mb2FuNjEyOTAx.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekUzWDBkeWIzWmxYMUJoY210ZlNHOTFjMmx1WjE5TVVGOU1iMkZ1TmpFeU9UQXgucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCSxxXwHZqZR1yhCDKUSD6hALcPbbWZvU4ajjkdIr46OAIhAKnzWQ~WnjVUAInMqP94Tn5V7FE6ZT~0BWNs5d4Q0Wab",
+      "status": "archived",
+      "bytes": 119104,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-17_a50ec363d87e4058_17_Grove_Park_Housing_LP_Loan612901.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "18_Marrero_3_LP_Loan1233501.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE4X01hcnJlcm9fM19MUF9Mb2FuMTIzMzUwMQ.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekU0WDAxaGNuSmxjbTlmTTE5TVVGOU1iMkZ1TVRJek16VXdNUS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIEfIyp7BhOW7VYmIkeG7jk~nEfuZdm3lrNCpAbb0VaNlAiAfgW6g9IcEzWMbZ9I3IcAZ7Ehy7nUtzBiwWz7XZ6rgHg__",
+      "status": "archived",
+      "bytes": 118396,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-18_13ad564a5af4a2aa_18_Marrero_3_LP_Loan1233501.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "19_Granite_La_Promesa_LLC_Loan530701.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzE5X0dyYW5pdGVfTGFfUHJvbWVzYV9MTENfTG9hbjUzMDcwMQ.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekU1WDBkeVlXNXBkR1ZmVEdGZlVISnZiV1Z6WVY5TVRFTmZURzloYmpVek1EY3dNUS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICXfeAbdxWa9lUyVBScipVAD-3cVm6EGJYwuJ5q4xRHNAiA15HDFRfocITNPlF~weRLRMaYLELsdClLalvCsbcXmCA__",
+      "status": "archived",
+      "bytes": 124708,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-19_cb6fdec7074f0607_19_Granite_La_Promesa_LLC_Loan530701.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "20_Grace_Townhomes_Loan2017184.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzIwX0dyYWNlX1Rvd25ob21lc19Mb2FuMjAxNzE4NA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekl3WDBkeVlXTmxYMVJ2ZDI1b2IyMWxjMTlNYjJGdU1qQXhOekU0TkEucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIHhN2wdJX4~ItFbh1IxAWmewqH9TdxQWTbA9H1kJArmhAiBbMhw-jqXaHO2U~I85tI5LaGmHL4Na~p5kWzFVxoV5qg__",
+      "status": "archived",
+      "bytes": 43678,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-20_6ccfcc873a9bcbb3_20_Grace_Townhomes_Loan2017184.pdf"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "21_Grace_Townhomes_Supplemental_Loan2019095.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/hxHhTcI9eUXm22O7ZHtS5j/sandbox/Fb1HH5i5LBYRHuB7doQ4EG_1776984995955_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zcGxpdF9zdGF0ZW1lbnRzLzIxX0dyYWNlX1Rvd25ob21lc19TdXBwbGVtZW50YWxfTG9hbjIwMTkwOTU.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaHhIaFRjSTllVVhtMjJPN1pIdFM1ai9zYW5kYm94L0ZiMUhINWk1TEJZUkh1Qjdkb1E0RUdfMTc3Njk4NDk5NTk1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNWd2JHOWhaQzl6Y0d4cGRGOXpkR0YwWlcxbGJuUnpMekl4WDBkeVlXTmxYMVJ2ZDI1b2IyMWxjMTlUZFhCd2JHVnRaVzUwWVd4ZlRHOWhiakl3TVRrd09UVS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCS9IlmZKp5AZMxlDGQhKRHqn-~0BVzcPduvyRknAhOBgIgVEHv0OQrx88ZgQFfmHDSoSTWKX~FfyVQfZ5Y4m35h7M_",
+      "status": "archived",
+      "bytes": 42826,
+      "archive_path": "attachments/hxHhTcI9eUXm22O7ZHtS5j/5-assistant_message-21_7497c7eda05d03f3_21_Grace_Townhomes_Supplemental_Loan2019095.pdf"
+    }
+  ]
+}

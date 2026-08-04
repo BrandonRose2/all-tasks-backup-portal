@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:40.851007Z",
+  "task": {
+    "id": "38D52DXLHRuFKS6DIYOrEE",
+    "title": "How to Install @higgsfield/cli Package",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-max",
+    "credits_used": 63,
+    "created_at": "1783042509",
+    "updated_at": "1783042542",
+    "task_url": "https://manus.im/app/38D52DXLHRuFKS6DIYOrEE",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "HLSllRf4fpBwyaJKVRZgWB",
+      "timestamp": "1783042509040",
+      "type": "user_message",
+      "user_message": {
+        "content": "walk me through how to install this https://www.npmjs.com/package/@higgsfield/cli",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "657TE60I3KUtcCA5LjVdNr-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783042509441",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me look at that npm package page to get the installation details for you."
+      },
+      "id": "dcs8fdzfnXT8ih4k47TI2F",
+      "timestamp": "1783042512781",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Here's a step-by-step walkthrough for installing **@higgsfield/cli** — the Higgsfield AI command-line tool for generating images and videos from your terminal.\n\n---\n\n## Prerequisites\n\n- **Node.js** (v16 or later recommended) and **npm** must be installed on your machine.\n- **Supported platforms:** macOS, Linux, or Windows (x64 or arm64).\n\n---\n\n## Step 1 — Install globally via npm\n\nRun the following command in your terminal:\n\n```bash\nnpm install -g @higgsfield/cli\n```\n\nThe `-g` flag installs it globally so you can use it from anywhere on your system.\n\nDuring installation, a **postinstall script** automatically fetches the prebuilt `hf` binary for your specific platform from the GitHub release page. No manual binary download is needed.\n\n---\n\n## Step 2 — Verify the installation\n\nAfter installation completes, confirm it's working by running:\n\n```bash\nhiggsfield --help\n```\n\nThis should print the available commands and options. You can also use the shorter alias:\n\n```bash\nhiggs --help\n```\n\n---\n\n## Step 3 — Log in to your Higgsfield account\n\nBefore generating anything, authenticate with your Higgsfield AI account:\n\n```bash\nhiggsfield auth login\n```\n\nThis will walk you through the login/authentication flow.\n\n---\n\n## Step 4 — Start generating\n\nOnce authenticated, you can generate images or videos. For example:\n\n```bash\nhiggsfield generate create text2image_soul_v2 --prompt \"a cat in a spaceship\"\n```\n\n---\n\n## Quick Reference\n\n| Command | Purpose |\n|---------|---------|\n| `higgsfield auth login` | Authenticate with Higgsfield AI |\n| `higgsfield generate create <model> --prompt \"...\"` | Generate an image or video |\n| `higgsfield --help` | Show all available commands |\n\n---\n\n## Useful Links\n\n- **Source code:** https://github.com/higgsfield-ai/cli-src\n- **Releases (binaries):** https://github.com/higgsfield-ai/cli/releases\n- **Higgsfield AI website:** https://higgsfield.ai\n\n---\n\nThat's it! The installation is straightforward — just one `npm install -g` command and the postinstall script handles the rest. Let me know if you run into any issues or have questions about using it."
+      },
+      "id": "oAOOIiWPPzweM7tkrO3vAa",
+      "timestamp": "1783042541759",
+      "type": "assistant_message"
+    },
+    {
+      "id": "3p2M4fStvHS22wfgNVmRbQ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783042542081",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

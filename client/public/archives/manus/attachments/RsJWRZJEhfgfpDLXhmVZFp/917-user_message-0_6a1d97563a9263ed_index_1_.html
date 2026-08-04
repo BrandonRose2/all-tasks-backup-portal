@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Washington County Identity Fraud Ring — Case Monitor</title>
+  <meta name="description" content="Case-monitoring dashboard for the Washington County, Utah identity fraud ring investigation involving Robert Sagarang, Diva Arias, and Sarah Paloyo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============ DESIGN TOKENS ============ */
+    :root,
+    [data-theme="light"] {
+      --color-bg: #f5f6f8;
+      --color-surface: #ffffff;
+      --color-surface-2: #f0f1f4;
+      --color-surface-offset: #e8eaee;
+      --color-border: #d4d7de;
+      --color-divider: #e0e3e8;
+      --color-text: #1a1d24;
+      --color-text-muted: #5c6370;
+      --color-text-faint: #9aa1ac;
+      --color-accent: #1e5f8e;
+      --color-accent-hover: #174a6e;
+      --color-accent-highlight: #d9e8f2;
+      --color-amber: #94600a;
+      --color-amber-highlight: #fcefd4;
+      --color-red: #a32638;
+      --color-red-highlight: #f5d8dd;
+      --color-green: #1e6b33;
+      --color-green-highlight: #d4ecd9;
+      --color-purple: #6b3399;
+      --color-purple-highlight: #e6d8f5;
+      --shadow-sm: 0 1px 2px rgba(20, 25, 35, 0.06);
+      --shadow-md: 0 4px 12px rgba(20, 25, 35, 0.08);
+      --shadow-lg: 0 12px 32px rgba(20, 25, 35, 0.12);
+    }
+    [data-theme="dark"] {
+      --color-bg: #0d1117;
+      --color-surface: #161b22;
+      --color-surface-2: #1c2230;
+      --color-surface-offset: #212838;
+      --color-border: #2d3548;
+      --color-divider: #252b3a;
+      --color-text: #d4d9e0;
+      --color-text-muted: #8b94a5;
+      --color-text-faint: #5e6878;
+      --color-accent: #4f9bd9;
+      --color-accent-hover: #6db0e6;
+      --color-accent-highlight: #1a2838;
+      --color-amber: #e0a838;
+      --color-amber-highlight: #2e2614;
+      --color-red: #e56b7a;
+      --color-red-highlight: #2e1a1e;
+      --color-green: #5fb76a;
+      --color-green-highlight: #1a2e1f;
+      --color-purple: #b884e0;
+      --color-purple-highlight: #2a1e3a;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+    /* ============ BASE ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
+    body { min-height: 100dvh; line-height: 1.55; font-family: 'General Sans', -apple-system, sans-serif; font-size: 15px; color: var(--color-text); background: var(--color-bg); font-variant-numeric: tabular-nums lining-nums; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: var(--color-accent); text-decoration: none; transition: color 180ms cubic-bezier(0.16,1,0.3,1); }
+    a:hover { color: var(--color-accent-hover); }
+    button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+    ::selection { background: color-mix(in oklab, var(--color-accent) 25%, transparent); }
+    :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 4px; }
+    .mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+
+    /* ============ LAYOUT ============ */
+    .dashboard { display: grid; grid-template-columns: 260px 1fr; grid-template-rows: auto 1fr; height: 100dvh; overflow: hidden; }
+    .sidebar { grid-row: 1 / -1; background: var(--color-surface); border-right: 1px solid var(--color-border); display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; z-index: 20; }
+    .header { grid-column: 2; position: sticky; top: 0; z-index: 10; background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
+    .main { grid-column: 2; overflow-y: auto; overscroll-behavior: contain; padding: 32px 40px 80px; }
+
+    /* ============ SIDEBAR ============ */
+    .sidebar-brand { display: flex; align-items: center; gap: 12px; padding: 20px 22px; border-bottom: 1px solid var(--color-divider); }
+    .sidebar-brand svg { flex-shrink: 0; }
+    .sidebar-brand-text { font-size: 13px; font-weight: 600; line-height: 1.3; }
+    .sidebar-brand-sub { font-size: 11px; color: var(--color-text-muted); font-weight: 400; }
+    .nav-section { padding: 16px 12px; }
+    .nav-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-faint); padding: 0 10px 8px; }
+    .nav-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; font-size: 14px; font-weight: 500; color: var(--color-text); opacity: 0.7; cursor: pointer; transition: all 180ms cubic-bezier(0.16,1,0.3,1); width: 100%; text-align: left; }
+    .nav-item:hover { background: var(--color-surface-2); opacity: 1; }
+    .nav-item.active { background: var(--color-accent-highlight); color: var(--color-accent); font-weight: 600; opacity: 1; }
+    .nav-item svg { flex-shrink: 0; opacity: 0.8; }
+    .nav-item.active svg { opacity: 1; }
+    .sidebar-footer { margin-top: auto; padding: 16px 22px; border-top: 1px solid var(--color-divider); font-size: 11px; color: var(--color-text-muted); line-height: 1.5; opacity: 0.85; }
+
+    /* ============ HEADER ============ */
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; }
+    .header-title { display: flex; align-items: center; gap: 12px; }
+    .header-title h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+    .header-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 600; background: var(--color-amber-highlight); color: var(--color-amber); }
+    .header-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-amber); }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .header-meta { font-size: 12px; color: var(--color-text-muted); }
+    .theme-toggle { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--color-border); transition: all 180ms cubic-bezier(0.16,1,0.3,1); }
+    .theme-toggle:hover { background: var(--color-surface-2); }
+
+    /* ============ SECTIONS ============ */
+    .section { display: none; }
+    .section.active { display: block; animation: fadeIn 240ms cubic-bezier(0.16,1,0.3,1); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .section-header { margin-bottom: 24px; }
+    .section-header h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
+    .section-header p { font-size: 14px; color: var(--color-text-muted); max-width: 72ch; }
+
+    /* ============ KPI CARDS ============ */
+    .kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 28px; }
+    @media (max-width: 1100px) { .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    .kpi-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px; box-shadow: var(--shadow-sm); }
+    .kpi-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); margin-bottom: 8px; }
+    .kpi-value { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+    .kpi-sub { font-size: 12px; color: var(--color-text-muted); margin-top: 6px; }
+    .kpi-card.accent { border-left: 3px solid var(--color-accent); }
+    .kpi-card.amber { border-left: 3px solid var(--color-amber); }
+    .kpi-card.red { border-left: 3px solid var(--color-red); }
+    .kpi-card.green { border-left: 3px solid var(--color-green); }
+
+    /* ============ CONTENT GRID ============ */
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
+
+    /* ============ CARDS ============ */
+    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .card-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--color-divider); }
+    .card-header h3 { font-size: 14px; font-weight: 600; }
+    .card-body { padding: 20px; }
+
+    /* ============ DEFENDANT CARDS ============ */
+    .defendant-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 32px; }
+    .defendant-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 180ms cubic-bezier(0.16,1,0.3,1); }
+    .defendant-card:hover { box-shadow: var(--shadow-md); }
+    .defendant-header { display: flex; align-items: center; gap: 14px; padding: 18px 20px; border-bottom: 1px solid var(--color-divider); }
+    .defendant-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; background: var(--color-accent-highlight); color: var(--color-accent); flex-shrink: 0; }
+    .defendant-name { font-size: 15px; font-weight: 700; }
+    .defendant-meta { font-size: 12px; color: var(--color-text-muted); }
+    .defendant-body { padding: 16px 20px; }
+    .defendant-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--color-divider); font-size: 13px; }
+    .defendant-row:last-child { border-bottom: none; }
+    .defendant-row-label { color: var(--color-text-muted); font-weight: 500; white-space: nowrap; }
+    .defendant-row-value { font-weight: 500; text-align: right; }
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+    .status-badge .dot { width: 6px; height: 6px; border-radius: 50%; }
+    .status-released { background: var(--color-green-highlight); color: var(--color-green); }
+    .status-released .dot { background: var(--color-green); }
+    .status-not-in-custody { background: var(--color-surface-offset); color: var(--color-text-muted); }
+    .status-not-in-custody .dot { background: var(--color-text-faint); }
+
+    /* ============ EVIDENCE ============ */
+    .evidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .evidence-item { display: flex; gap: 14px; padding: 16px; border-radius: 8px; background: var(--color-surface-2); border: 1px solid var(--color-divider); }
+    .evidence-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--color-accent-highlight); color: var(--color-accent); }
+    .evidence-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .evidence-desc { font-size: 12px; color: var(--color-text-muted); line-height: 1.5; }
+
+    /* ============ TIMELINE ============ */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 7px; top: 4px; bottom: 4px; width: 2px; background: var(--color-border); }
+    .timeline-item { position: relative; padding-bottom: 28px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot { position: absolute; left: -28px; top: 2px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid var(--color-surface); background: var(--color-accent); box-shadow: 0 0 0 2px var(--color-border); }
+    .timeline-item.arrest .timeline-dot { background: var(--color-red); }
+    .timeline-item.search .timeline-dot { background: var(--color-amber); }
+    .timeline-item.news .timeline-dot { background: var(--color-accent); }
+    .timeline-item.custody .timeline-dot { background: var(--color-green); }
+    .timeline-date { font-size: 12px; font-weight: 600; color: var(--color-accent); margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
+    .timeline-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .timeline-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.5; max-width: 68ch; }
+    .timeline-source { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+    .source-tag-news { background: var(--color-accent-highlight); color: var(--color-accent); }
+    .source-tag-police { background: var(--color-amber-highlight); color: var(--color-amber); }
+    .source-tag-jail { background: var(--color-green-highlight); color: var(--color-green); }
+    .source-tag-court { background: var(--color-purple-highlight); color: var(--color-purple); }
+
+    /* ============ SOURCE TABLE ============ */
+    .source-table { width: 100%; border-collapse: collapse; }
+    .source-table th { text-align: left; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); border-bottom: 1px solid var(--color-border); position: sticky; top: 0; background: var(--color-surface); z-index: 1; }
+    .source-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid var(--color-divider); }
+    .source-table tr:hover td { background: var(--color-surface-2); }
+    .source-table a { font-weight: 500; }
+
+    /* ============ ALERT BOX ============ */
+    .alert-box { display: flex; gap: 14px; padding: 16px 20px; border-radius: 10px; background: var(--color-amber-highlight); border: 1px solid color-mix(in oklab, var(--color-amber) 30%, transparent); margin-bottom: 24px; }
+    .alert-box svg { flex-shrink: 0; color: var(--color-amber); }
+    .alert-box-content { font-size: 13px; line-height: 1.55; }
+    .alert-box-content strong { color: var(--color-amber); }
+
+    /* ============ DISCLAIMER ============ */
+    .disclaimer { padding: 16px 20px; border-radius: 10px; background: var(--color-surface-2); border: 1px solid var(--color-divider); font-size: 12px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 24px; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 768px) {
+      .dashboard { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .header-inner { padding: 12px 20px; }
+      .main { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Case Monitor Logo">
+          <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2" opacity="0.15"/>
+          <path d="M10 22V10h5.5a3.5 3.5 0 0 1 0 7H10" stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="22" cy="11" r="2" fill="var(--color-amber)"/>
+        </svg>
+        <div>
+          <div class="sidebar-brand-text">Case Monitor</div>
+          <div class="sidebar-brand-sub">Washington County, UT</div>
+        </div>
+      </div>
+      <nav class="nav-section">
+        <div class="nav-label">Investigation</div>
+        <button class="nav-item active" data-section="overview">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Overview
+        </button>
+        <button class="nav-item" data-section="defendants">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Defendants
+        </button>
+        <button class="nav-item" data-section="evidence">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+          Evidence Seized
+        </button>
+        <button class="nav-item" data-section="timeline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Timeline
+        </button>
+        <button class="nav-item" data-section="sources">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Source Log
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        Data aggregated from public records.<br/>
+        All defendants are presumed innocent unless proven guilty in a court of law.
+      </div>
+    </aside>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-title">
+          <h1>Identity Fraud Ring Investigation</h1>
+          <span class="header-badge"><span class="dot"></span> Status: 2018 investigation reported ongoing; current court status unverified</span>
+        </div>
+        <div class="header-actions">
+          <span class="header-meta">Last checked: Aug 1, 2026</span>
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- OVERVIEW -->
+      <div class="section active" id="overview">
+        <div class="section-header">
+          <h2>Case Overview</h2>
+          <p>Washington City Police arrested three California residents in January 2018 as part of an identity fraud and theft investigation. The suspects allegedly used fraudulent credit cards to rent vacation properties, and search warrants revealed a large-scale document manufacturing operation.</p>
+        </div>
+
+        <div class="alert-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="alert-box-content">
+            <strong>Victim Count Note:</strong> The user-requested figure of "300+ victims" could not be verified from available public sources for this specific case. The KUTV news report and Washington City Police press release describe "a large quantity" of fraudulent documents but do not specify a victim count. The "300 victims" figure appears in a separate Spokane, WA identity theft case (Michael Clarke Jr., 2012). If additional court records or police reports exist with this detail, they may be accessible through Utah's XChange court records system (paid subscription required) or via GRAMA request to Washington City Police.
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card accent">
+            <div class="kpi-label">Defendants</div>
+            <div class="kpi-value">3</div>
+            <div class="kpi-sub">All from California</div>
+          </div>
+          <div class="kpi-card red">
+            <div class="kpi-label">Arrest Date</div>
+            <div class="kpi-value">Jan 17</div>
+            <div class="kpi-sub">2018 (Wednesday)</div>
+          </div>
+          <div class="kpi-card amber">
+            <div class="kpi-label">Search Warrants</div>
+            <div class="kpi-value">3</div>
+            <div class="kpi-sub">2 properties + 1 vehicle</div>
+          </div>
+          <div class="kpi-card green">
+            <div class="kpi-label">Listed at WC Jail</div>
+            <div class="kpi-value">0 / 3</div>
+            <div class="kpi-sub">Not on current roster as of Aug 2026</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Investigating Agency</div>
+            <div class="kpi-value" style="font-size: 15px;">Washington City PD</div>
+            <div class="kpi-sub">Utah, with multi-agency coordination</div>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <div class="card">
+            <div class="card-header"><h3>Case Summary</h3></div>
+            <div class="card-body" style="font-size: 14px; line-height: 1.65;">
+              <p style="margin-bottom: 12px;">Washington City Police (Utah) arrested three California residents on January 17, 2018, in connection with an identity fraud and theft operation. The suspects allegedly rented vacation property in Washington City using a fraudulently obtained credit card through a local property management company.</p>
+              <p style="margin-bottom: 12px;">Search warrants were executed at a Washington City home, a rental property in Santa Clara, and a fraudulently rented vehicle. Officers seized a large quantity of fraudulent driver's licenses, financial transaction cards, other financial documents, stolen property, and equipment used to manufacture fraudulent documents.</p>
+              <p>Washington City Police stated the investigation is ongoing with local, state, and federal agency coordination, and may involve incidents throughout Utah and other states. Police encouraged residents to secure mail, credit cards, checkbooks, and identification.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Jurisdiction &amp; Agencies</h3></div>
+            <div class="card-body" style="font-size: 14px;">
+              <div class="defendant-row">
+                <span class="defendant-row-label">Primary Agency</span>
+                <span class="defendant-row-value">Washington City Police Dept.</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">County</span>
+                <span class="defendant-row-value">Washington County, Utah</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Jail Facility</span>
+                <span class="defendant-row-value">Purgatory Correctional Facility</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Jail Address</span>
+                <span class="defendant-row-value mono" style="font-size: 12px;">750 S 5300 W, Hurricane, UT</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Jail Phone</span>
+                <span class="defendant-row-value mono" style="font-size: 12px;">(435) 656-6600</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Coordination</span>
+                <span class="defendant-row-value">Local, State &amp; Federal</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Court Records</span>
+                <span class="defendant-row-value">Utah XChange (paid)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Legal Disclaimer:</strong> All individuals named in this dashboard are alleged to have committed the described offenses based on police press releases and news reports. They are presumed innocent unless and until proven guilty in a court of law. This dashboard aggregates publicly available information for monitoring purposes only.
+        </div>
+      </div>
+
+      <!-- DEFENDANTS -->
+      <div class="section" id="defendants">
+        <div class="section-header">
+          <h2>Defendant Tracker</h2>
+          <p>Custody status verified against the Washington County Sheriff's Office current inmate roster and recent bookings page on August 1, 2026. None of the three defendants appear in current custody.</p>
+        </div>
+
+        <div class="defendant-grid">
+          <!-- Sagarang -->
+          <div class="defendant-card">
+            <div class="defendant-header">
+              <div class="defendant-avatar">RS</div>
+              <div>
+                <div class="defendant-name">Robert Sagarang</div>
+                <div class="defendant-meta">Age 39 at arrest &middot; Sylmar, California</div>
+              </div>
+            </div>
+            <div class="defendant-body">
+              <div class="defendant-row">
+                <span class="defendant-row-label">Custody Status</span>
+                <span class="defendant-row-value">
+                  <span class="status-badge status-not-in-custody"><span class="dot"></span> Not listed on WC jail roster</span>
+                </span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Arrest Date</span>
+                <span class="defendant-row-value mono">Jan 17, 2018</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Booking Facility</span>
+                <span class="defendant-row-value">Washington County Jail</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Charges</span>
+                <span class="defendant-row-value">Various drug &amp; fraud charges</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Hometown</span>
+                <span class="defendant-row-value">Sylmar, CA</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Last Verified</span>
+                <span class="defendant-row-value mono">Aug 1, 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arias -->
+          <div class="defendant-card">
+            <div class="defendant-header">
+              <div class="defendant-avatar">DA</div>
+              <div>
+                <div class="defendant-name">Diva Arias</div>
+                <div class="defendant-meta">Age 41 at arrest &middot; Sherman Oaks, California</div>
+              </div>
+            </div>
+            <div class="defendant-body">
+              <div class="defendant-row">
+                <span class="defendant-row-label">Custody Status</span>
+                <span class="defendant-row-value">
+                  <span class="status-badge status-not-in-custody"><span class="dot"></span> Not listed on WC jail roster</span>
+                </span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Arrest Date</span>
+                <span class="defendant-row-value mono">Jan 17, 2018</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Booking Facility</span>
+                <span class="defendant-row-value">Washington County Jail</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Charges</span>
+                <span class="defendant-row-value">Various drug &amp; fraud charges</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Hometown</span>
+                <span class="defendant-row-value">Sherman Oaks, CA</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Last Verified</span>
+                <span class="defendant-row-value mono">Aug 1, 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paloyo -->
+          <div class="defendant-card">
+            <div class="defendant-header">
+              <div class="defendant-avatar">SP</div>
+              <div>
+                <div class="defendant-name">Sarah Paloyo</div>
+                <div class="defendant-meta">Age 38 at arrest &middot; Yorba Linda, California</div>
+              </div>
+            </div>
+            <div class="defendant-body">
+              <div class="defendant-row">
+                <span class="defendant-row-label">Custody Status</span>
+                <span class="defendant-row-value">
+                  <span class="status-badge status-not-in-custody"><span class="dot"></span> Not listed on WC jail roster</span>
+                </span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Arrest Date</span>
+                <span class="defendant-row-value mono">Jan 17, 2018</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Booking Facility</span>
+                <span class="defendant-row-value">Washington County Jail</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Charges</span>
+                <span class="defendant-row-value">Various drug &amp; fraud charges</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Hometown</span>
+                <span class="defendant-row-value">Yorba Linda, CA</span>
+              </div>
+              <div class="defendant-row">
+                <span class="defendant-row-label">Last Verified</span>
+                <span class="defendant-row-value mono">Aug 1, 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Custody Verification Method:</strong> The Washington County Sheriff's Office maintains a current inmate roster at <a href="https://news.washeriff.net/public-services/inmate-information/current-inmate-roster/">washeriff.net</a> and a bookings page at <a href="https://news.washeriff.net/divisions/bookings/">news.washeriff.net/divisions/bookings</a>. Neither page lists Sagarang, Arias, or Paloyo as of August 1, 2026. This indicates they have been released, transferred, or completed their sentences. For historical booking records, contact the Washington County Sheriff at 750 S 5300 W, Hurricane, UT 84737 or call (435) 656-6500. Court case details may be available through Utah's <a href="https://www.utcourts.gov/en/court-records-publications/records/xchange.html">XChange system</a> (paid subscription) or the <a href="https://www.utcourts.gov/en/self-help/services/mycase.html">MyCourtCase</a> portal.
+        </div>
+      </div>
+
+      <!-- EVIDENCE -->
+      <div class="section" id="evidence">
+        <div class="section-header">
+          <h2>Evidence Seized</h2>
+          <p>The following items were confiscated during the execution of search warrants at three locations, as described in the Washington City Police press release reported by KUTV on January 19, 2018.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card amber">
+            <div class="kpi-label">Search Warrant Locations</div>
+            <div class="kpi-value">3</div>
+            <div class="kpi-sub">Washington City home, Santa Clara rental, vehicle</div>
+          </div>
+          <div class="kpi-card red">
+            <div class="kpi-label">Evidence Categories</div>
+            <div class="kpi-value">5</div>
+            <div class="kpi-sub">Fraudulent documents, cards, equipment, stolen property</div>
+          </div>
+        </div>
+
+        <div class="evidence-grid" style="margin-bottom: 32px;">
+          <div class="evidence-item">
+            <div class="evidence-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="12" cy="10" r="2"/><path d="M6 18h12"/></svg>
+            </div>
+            <div>
+              <div class="evidence-title">Fraudulent Driver's Licenses</div>
+              <div class="evidence-desc">A large quantity of counterfeit driver's licenses were seized during search warrant execution. These were manufactured as part of the identity fraud operation.</div>
+            </div>
+          </div>
+
+          <div class="evidence-item">
+            <div class="evidence-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="evidence-title">Financial Transaction Cards</div>
+              <div class="evidence-desc">Multiple fraudulent financial transaction cards (credit/debit cards) were recovered. These were allegedly used to rent vacation properties and conduct fraudulent transactions.</div>
+            </div>
+          </div>
+
+          <div class="evidence-item">
+            <div class="evidence-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+            </div>
+            <div>
+              <div class="evidence-title">Other Financial Documents</div>
+              <div class="evidence-desc">Additional fraudulent financial documents were confiscated. The press release did not specify the exact types, but these likely included forged checks, bank statements, and loan documents used in the fraud scheme.</div>
+            </div>
+          </div>
+
+          <div class="evidence-item">
+            <div class="evidence-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+            </div>
+            <div>
+              <div class="evidence-title">Document Manufacturing Equipment</div>
+              <div class="evidence-desc">Equipment used to produce fraudulent documents was confiscated. This indicates the operation included an in-house manufacturing capability for creating fake IDs and financial documents.</div>
+            </div>
+          </div>
+
+          <div class="evidence-item">
+            <div class="evidence-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-7L11 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
+            </div>
+            <div>
+              <div class="evidence-title">Stolen Property</div>
+              <div class="evidence-desc">Stolen property was also recovered during the searches. The nature of the stolen property was not detailed in the press release.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="alert-box-content">
+            <strong>Scale of ID Theft:</strong> The user-requested detail of "300+ victims" could not be confirmed from available public sources. The Washington City Police press release describes "a large quantity" of fraudulent documents but does not enumerate a specific victim count. If law enforcement later identified 300+ victims in follow-up investigations (the case was described as ongoing with multi-state scope), this information may be contained in court filings accessible via Utah's <a href="https://www.utcourts.gov/en/court-records-publications/records/xchange.html">XChange court records system</a> or obtainable through a GRAMA records request to Washington City Police.
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="section" id="timeline">
+        <div class="section-header">
+          <h2>Case Timeline</h2>
+          <p>Chronological events compiled from news coverage, police press releases, and jail roster verification.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item news">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Pre-January 2018</div>
+            <div class="timeline-title">Vacation Property Rental Fraud</div>
+            <div class="timeline-desc">The three suspects from California allegedly rented a vacation property in Washington City, Utah, by fraudulently using a credit card to rent a home through a local property management company. An additional rental property in Santa Clara was also used. A vehicle was fraudulently rented by the trio.</div>
+            <span class="timeline-source source-tag-police">Police Press Release</span>
+          </div>
+
+          <div class="timeline-item search">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">January 17, 2018 (Wednesday)</div>
+            <div class="timeline-title">Search Warrants Executed</div>
+            <div class="timeline-desc">Washington City Police obtained and executed search warrants at three locations: (1) a Washington City home, (2) an additional rental property in Santa Clara, Utah, and (3) a vehicle fraudulently rented by the trio. During the searches, police seized a large quantity of fraudulent driver's licenses, financial transaction cards, other financial documents, stolen property, and equipment used to produce fraudulent documents.</div>
+            <span class="timeline-source source-tag-police">Police Press Release</span>
+          </div>
+
+          <div class="timeline-item arrest">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">January 17, 2018 (Wednesday)</div>
+            <div class="timeline-title">Three Suspects Arrested &amp; Booked</div>
+            <div class="timeline-desc">Robert Sagarang (39, Sylmar, CA), Diva Arias (41, Sherman Oaks, CA), and Sarah Paloyo (38, Yorba Linda, CA) were located and taken into custody. All three were booked into the Washington County Jail (Purgatory Correctional Facility, Hurricane, UT) on various drug and fraud charges related to the investigation.</div>
+            <span class="timeline-source source-tag-police">Police Press Release</span>
+          </div>
+
+          <div class="timeline-item news">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">January 19, 2018</div>
+            <div class="timeline-title">KUTV News Report Published</div>
+            <div class="timeline-desc">KUTV published a news article reporting the arrests, the evidence seized, and the ongoing multi-agency investigation. The report noted Washington City Police was working with local, state, and federal agencies, and the investigation could involve incidents throughout Utah and other states. Police advised residents to secure mail, credit cards, checkbooks, and identification.</div>
+            <span class="timeline-source source-tag-news">KUTV News</span>
+          </div>
+
+          <div class="timeline-item custody">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">August 1, 2026</div>
+            <div class="timeline-title">Custody Status Verification</div>
+            <div class="timeline-desc">The Washington County Sheriff's Office current inmate roster and recent bookings page were checked. None of the three defendants (Sagarang, Arias, Paloyo) appear in current custody at the Purgatory Correctional Facility. This indicates they have been released, transferred, or completed their sentences since the January 2018 arrest.</div>
+            <span class="timeline-source source-tag-jail">Jail Roster Check</span>
+          </div>
+        </div>
+
+        <div class="disclaimer" style="margin-top: 24px;">
+          <strong>Court Records Not Retrieved:</strong> Utah state court records are accessible through the <a href="https://www.utcourts.gov/en/court-records-publications/records/xchange.html">XChange system</a>, which requires a paid subscription or per-search fee. Court docket events (arraignments, hearings, plea deals, sentencing) were NOT incorporated into this timeline. To obtain court records, search by defendant name at a public access terminal at the Washington County Justice Court or 5th District Court in St. George, Utah, or use the <a href="https://www.utcourts.gov/en/self-help/services/mycase.html">MyCourtCase</a> portal (case participant login required).
+        </div>
+
+        <div class="disclaimer" style="margin-top: 16px;">
+          <strong>Terminology Note:</strong> The term "defendants" is used as requested. Court case filings were not independently retrieved; these individuals are more precisely described as "named arrestees" or "suspects" based on available public reporting. All are presumed innocent unless proven guilty.
+        </div>
+      </div>
+
+      <!-- SOURCES -->
+      <div class="section" id="sources">
+        <div class="section-header">
+          <h2>Source Log</h2>
+          <p>All sources consulted in compiling this dashboard, with fetch dates and source types.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3>Primary Sources</h3></div>
+          <div style="overflow-x: auto;">
+            <table class="source-table">
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Type</th>
+                  <th>URL</th>
+                  <th>Date Fetched</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://kutv.com/news/local/3-suspects-booked-into-washington-county-jail-on-various-fraud-charges">KUTV — 3 suspects booked into Washington County jail</a></td>
+                  <td>News Article</td>
+                  <td><a href="https://kutv.com/news/local/3-suspects-booked-into-washington-county-jail-on-various-fraud-charges">kutv.com</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><a href="https://news.washeriff.net/public-services/inmate-information/current-inmate-roster/">Washington County Sheriff — Current Inmate Roster</a></td>
+                  <td>Jail Roster</td>
+                  <td><a href="https://news.washeriff.net/public-services/inmate-information/current-inmate-roster/">washeriff.net</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><a href="https://news.washeriff.net/divisions/bookings/">Washington County Sheriff — Bookings</a></td>
+                  <td>Jail Records</td>
+                  <td><a href="https://news.washeriff.net/divisions/bookings/">washeriff.net</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><a href="https://www.utcourts.gov/en/court-records-publications/records/xchange.html">Utah Courts — XChange Public Case Search</a></td>
+                  <td>Court Records Portal</td>
+                  <td><a href="https://www.utcourts.gov/en/court-records-publications/records/xchange.html">utcourts.gov</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><a href="https://www.utcourts.gov/en/self-help/services/mycase.html">Utah Courts — MyCourtCase</a></td>
+                  <td>Court Records Portal</td>
+                  <td><a href="https://www.utcourts.gov/en/self-help/services/mycase.html">utcourts.gov</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><a href="https://www.jailexchange.com/city-and-county-jails/utah/washington-county/purgatory-correctional-facility/inmate-search-and-mugshots">JailExchange — Purgatory Correctional Facility</a></td>
+                  <td>Jail Info</td>
+                  <td><a href="https://www.jailexchange.com/city-and-county-jails/utah/washington-county/purgatory-correctional-facility/inmate-search-and-mugshots">jailexchange.com</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><a href="https://le.utah.gov/xcode/Title76/Chapter6/C76-6-P11_1800010118000101.pdf">Utah Code — Identity Fraud Act (Part 11)</a></td>
+                  <td>Statute</td>
+                  <td><a href="https://le.utah.gov/xcode/Title76/Chapter6/C76-6-P11_1800010118000101.pdf">le.utah.gov</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><a href="https://utahprisonroster.org/utah/county-jail/washington-county-purgatory-correctional-facility/">Utah Prison Roster — Washington County</a></td>
+                  <td>Jail Info</td>
+                  <td><a href="https://utahprisonroster.org/utah/county-jail/washington-county-purgatory-correctional-facility/">utahprisonroster.org</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><a href="https://releasedinmates.utahofficialrecords.com/county/washington">Utah Official Records — Washington County Released Inmates</a></td>
+                  <td>Jail Records</td>
+                  <td><a href="https://releasedinmates.utahofficialrecords.com/county/washington">utahofficialrecords.com</a></td>
+                  <td class="mono">Aug 1, 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px;">
+          <h3 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Search Methodology</h3>
+          <div class="disclaimer">
+            <p style="margin-bottom: 8px;"><strong>News Coverage:</strong> Searched for "Robert Sagarang Diva Arias Sarah Paloyo identity fraud Washington County" across web search engines. The KUTV article from January 19, 2018 is the primary news source. No additional news articles from St. George News, Salt Lake Tribune, KSL, or Deseret News were found for this specific case.</p>
+            <p style="margin-bottom: 8px;"><strong>Police Press Releases:</strong> The KUTV article references a Washington City Police press release. The original press release was not found on the Washington City Police website. A GRAMA request to Washington City Police (435-627-4301) may yield the original press release and additional case details.</p>
+            <p style="margin-bottom: 8px;"><strong>Court Records:</strong> Utah's XChange system requires a paid subscription. The free MyCourtCase portal requires case participant login. Court docket events could not be retrieved. To search: visit the 5th District Court in St. George, UT, or use XChange at <a href="https://www.utcourts.gov/en/court-records-publications/records/xchange.html">utcourts.gov</a>.</p>
+            <p><strong>Jail Status:</strong> Checked the Washington County Sheriff's current inmate roster (100+ inmates listed) and recent bookings page (84 bookings). None of the three defendants appear. Historical booking records require a written request to the Washington County Sheriff at 750 S 5300 W, Hurricane, UT 84737.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Theme toggle
+    (function() {
+      var toggle = document.querySelector('[data-theme-toggle]');
+      var root = document.documentElement;
+      var isDark = root.getAttribute('data-theme') !== 'light';
+      updateIcon(isDark);
+      toggle.addEventListener('click', function() {
+        isDark = !isDark;
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        updateIcon(isDark);
+      });
+      function updateIcon(dark) {
+        toggle.innerHTML = dark
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        toggle.setAttribute('aria-label', 'Switch to ' + (dark ? 'light' : 'dark') + ' mode');
+      }
+    })();
+
+    // Navigation
+    (function() {
+      var navItems = document.querySelectorAll('.nav-item');
+      var sections = document.querySelectorAll('.section');
+      navItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+          var target = item.getAttribute('data-section');
+          navItems.forEach(function(n) { n.classList.remove('active'); });
+          item.classList.add('active');
+          sections.forEach(function(s) { s.classList.remove('active'); });
+          var el = document.getElementById(target);
+          if (el) el.classList.add('active');
+        });
+      });
+    })();
+  </script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

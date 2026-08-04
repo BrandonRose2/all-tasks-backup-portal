@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:47.471897Z",
+  "task": {
+    "id": "bTLVF6jPwgtviF9ieDtQZ6",
+    "title": "How to Find This Item Online",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 31,
+    "created_at": "1782838050",
+    "updated_at": "1782838137",
+    "task_url": "https://manus.im/app/bTLVF6jPwgtviF9ieDtQZ6",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "qj5K87DbwJfhrANpFtFNCZ",
+      "timestamp": "1782838050353",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "video/quicktime",
+            "filename": "IMG_1529.MOV",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/WepPedWEUaGzNjjPjG5wVR_na1fn_SU1HXzE1Mjk.MOV?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvV2VwUGVkV0VVYUd6TmpqUGpHNXdWUl9uYTFmbl9TVTFIWHpFMU1qay5NT1YiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIDCLtrYhRy~Ccyil7SUocwCSgWO6XCEXfeEH8sIjoWlAAiAxWphkA0X1tIry4qk4jN-bZfc4vOqXJjSb0QVAC0E-0g__"
+          }
+        ],
+        "content": "Find this item online",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "wJA0Hhulf5g8ygyLaR61p9-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1782838051769",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me analyze the video to identify the item, then search for it online."
+      },
+      "id": "Hcbwx7SrEnJafnslAL402u",
+      "timestamp": "1782838055865",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The item in your video is the **Aless™ AI Smart Tri-Mode Voice Typing Mouse** (model M191) — an ergonomic wireless mouse with a built-in smart LCD display and AI-powered voice-to-text capabilities.\n\n---\n\n## Product Overview\n\n| Feature | Details |\n|---|---|\n| **Product Name** | Aless™ AI Smart Tri-Mode Voice Typing Mouse (M191) |\n| **Voice Typing Speed** | Up to 400 words per minute, 98% accuracy |\n| **Languages Supported** | 200+ languages for translation |\n| **Connectivity** | Tri-mode: Bluetooth 5.0, 2.4G wireless, wired |\n| **DPI Range** | 800–5000 (7 adjustable levels) |\n| **Display** | Built-in smart LCD (battery & connection status) |\n| **Dimensions** | 112 × 60 × 26 mm |\n| **Weight** | 150g |\n\n---\n\n## Where to Buy\n\n**1. Official Brand Store (Aless™) — 50% Off Sale**\n- **Price:** $159.99 ~~$319.99~~ (50% off)\n- **Link:** [alessntials.com](https://m.alessntials.com/collections/smart-home/products/ai-smart-tri-mode-voice-typing-mouse)\n- This is the exact product shown in the video, sold directly by the brand.\n\n**2. Amazon — LTC OM021 (Very Similar / Same Hardware)**\n- **Price:** $29.99\n- **Link:** [Amazon — LTC OM021 Wireless AI Mouse](https://www.amazon.com/LTC-OM021-Rechargeable-Adjustable-Multi-Device/dp/B0G1M8VS12)\n- Same underlying M191 hardware, sold under a different brand at a significantly lower price. Rated 3.8/5 stars.\n\n**3. AliExpress — M191-Pro**\n- **Price:** Budget-friendly (varies)\n- **Link:** [AliExpress — M191-Pro AI Mouse](https://www.aliexpress.com/item/1005012308777131.html)\n- The base M191 model direct from suppliers.\n\n**4. TVCMall — M191 AI Smart Voice Mouse**\n- **Link:** [TVCMall — M191](https://www.tvcmall.com/details/m191-ai-smart-voice-mouse-wireless-2-4g-bluetooth-compatible-triple-mode-office-translation-silent-computer-mice-black-sku6101000715b.html)\n\n**5. eBay — New AI Voice Smart Mouse**\n- **Link:** [eBay listing](https://www.ebay.com/itm/336413013199)\n\n---\n\n> **Note:** The Aless™ brand site is running a \"50% off\" promotion, but the same hardware (M191) is widely available on Amazon and AliExpress for $30 or less. The brand site's \"original price\" of $319.99 appears inflated — the Amazon listing at **$29.99** is likely the best value for the same product."
+      },
+      "id": "9j8qQN9jlJZW92HtChqIQZ",
+      "timestamp": "1782838137315",
+      "type": "assistant_message"
+    },
+    {
+      "id": "9zlKkIOVLAhjZMkHvO9leY",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1782838137672",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "IMG_1529.MOV",
+      "content_type": "video/quicktime",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/WepPedWEUaGzNjjPjG5wVR_na1fn_SU1HXzE1Mjk.MOV?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvV2VwUGVkV0VVYUd6TmpqUGpHNXdWUl9uYTFmbl9TVTFIWHpFMU1qay5NT1YiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIDCLtrYhRy~Ccyil7SUocwCSgWO6XCEXfeEH8sIjoWlAAiAxWphkA0X1tIry4qk4jN-bZfc4vOqXJjSb0QVAC0E-0g__",
+      "status": "archived",
+      "bytes": 16702834,
+      "archive_path": "attachments/bTLVF6jPwgtviF9ieDtQZ6/0-user_message-0_28ba87a5bcb001a5_IMG_1529.MOV"
+    }
+  ]
+}

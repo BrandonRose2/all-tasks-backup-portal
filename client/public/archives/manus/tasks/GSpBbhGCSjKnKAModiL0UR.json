@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:26:56.783262Z",
+  "task": {
+    "id": "GSpBbhGCSjKnKAModiL0UR",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 106,
+    "created_at": "1785865940",
+    "updated_at": "1785866299",
+    "task_url": "https://manus.im/app/GSpBbhGCSjKnKAModiL0UR",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "qOeFqTct4X704Ut03B1Ohm",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785865940874",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Here is the research memo on affiliate marketing and creator-linked income opportunities, including official start links and key caveats, as requested."
+      },
+      "id": "96LE0qtMW182DXEC9fDgFF",
+      "timestamp": "1785866299192",
+      "type": "assistant_message"
+    },
+    {
+      "id": "C0GEvo5bJoVK5RzJyHlS9o",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785866299313",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:40:14.379719Z",
+  "task": {
+    "id": "MNiQWvH5FhpgabhSmJJ26P",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 2,
+    "created_at": "1776815144",
+    "updated_at": "1776902740",
+    "task_url": "https://manus.im/app/MNiQWvH5FhpgabhSmJJ26P",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "jSMLuDU4hwDGmizEyndAIH",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776815146567",
+      "type": "status_update"
+    },
+    {
+      "id": "dtRxdac0pQjFAw9LetGtJI",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "confirm_input_schema": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "select",
+                  "skip"
+                ],
+                "type": "string"
+              },
+              "client_id": {
+                "type": "string"
+              },
+              "reason": {
+                "enum": [
+                  "no_clients_available",
+                  "same_browser_rejected",
+                  "client_offline",
+                  "api_error"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          },
+          "waiting_for_event_id": "bTziRmcpgyCpEeADLgKvTR",
+          "waiting_for_event_type": "needConnectMyBrowser"
+        }
+      },
+      "timestamp": "1776815156635",
+      "type": "status_update"
+    },
+    {
+      "id": "xVXM0AjIKTwwDlRMpGwHbV",
+      "timestamp": "1776902739426",
+      "type": "user_stop"
+    },
+    {
+      "id": "P9LHOVeF6cUaJANGleeEV8",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus has stopped",
+        "description": "The user stopped Manus's work"
+      },
+      "timestamp": "1776902741028",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

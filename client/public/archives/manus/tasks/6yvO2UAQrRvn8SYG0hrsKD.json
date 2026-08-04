@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:35.491678Z",
+  "task": {
+    "id": "6yvO2UAQrRvn8SYG0hrsKD",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 19,
+    "created_at": "1784746076",
+    "updated_at": "1784746198",
+    "task_url": "https://manus.im/app/6yvO2UAQrRvn8SYG0hrsKD",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "flwTlQ6auDBr94MMZSmMzC",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746078750",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully retrieved information for River Pointe Apartments."
+      },
+      "id": "TDD6nJotXwqTk83gFvzZjB",
+      "timestamp": "1784746198827",
+      "type": "assistant_message"
+    },
+    {
+      "id": "Ju7UxTm1zNxFCrInM8bGru",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746198921",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

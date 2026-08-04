@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:33.926567Z",
+  "task": {
+    "id": "12m85OCLqOJLjqxHm14Nxh",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 4,
+    "created_at": "1784746076",
+    "updated_at": "1784746156",
+    "task_url": "https://manus.im/app/12m85OCLqOJLjqxHm14Nxh",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "tkglnpNf4IKDN0yIFScHk5",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746078516",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched Pacific Pointe Apartments and gathered the requested information."
+      },
+      "id": "Ox81Sj5dNSJAUL3xrkSkfS",
+      "timestamp": "1784746156013",
+      "type": "assistant_message"
+    },
+    {
+      "id": "0h5k9KgjdAPrYhWhdIV9ke",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746156133",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

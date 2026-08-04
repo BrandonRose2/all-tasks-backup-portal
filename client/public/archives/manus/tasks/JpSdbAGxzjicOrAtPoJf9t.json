@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:26:54.303602Z",
+  "task": {
+    "id": "JpSdbAGxzjicOrAtPoJf9t",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 52,
+    "created_at": "1785866777",
+    "updated_at": "1785866885",
+    "task_url": "https://manus.im/app/JpSdbAGxzjicOrAtPoJf9t",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "gHTzJUfF0nrsjqUeHu90Hz",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785866778082",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Here are the researched freelance opportunities across Upwork, Fiverr, Toptal, and LinkedIn, presented in a Markdown table with accompanying quality notes."
+      },
+      "id": "JWSQp6hM2PEWOh4S5CPXr7",
+      "timestamp": "1785866885208",
+      "type": "assistant_message"
+    },
+    {
+      "id": "wCMIWnNb8JZqJ34lkxAC3i",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785866885322",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:41:57.454362Z",
+  "task": {
+    "id": "LShHpnRTDbHwaCuTy25Ip0",
+    "title": "Manus Connectors List with Integration Examples",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 59,
+    "created_at": "1776359122",
+    "updated_at": "1784573050",
+    "task_url": "https://manus.im/app/LShHpnRTDbHwaCuTy25Ip0",
+    "message_count": 0
+  },
+  "event_count": 15,
+  "events": [
+    {
+      "id": "sUc9g0Li9F4AXz6X6ov5gq",
+      "timestamp": "1776359122526",
+      "type": "user_message",
+      "user_message": {
+        "content": "create me a table of all of the connectors that I have available at my disposal in Manus.  First, make a list with checkboxes that I can check to let you know which ones that I have. Then make a full list encompassing all of the available connectors with the ones I have at the top.  In the next column, please give me examples of how I can integrate these connectors ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "FE03url6YIz5fBW51oOyiQ-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776359123168",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! Let me check which connectors are currently active in your environment, then research the full list of available Manus connectors to build you a comprehensive table."
+      },
+      "id": "se90sPZ4s0xsXg9kbP99lI",
+      "timestamp": "1776359128090",
+      "type": "assistant_message"
+    },
+    {
+      "id": "7CXOTdAFKP8Jma1XzT1fcP",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "confirm_input_schema": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "select",
+                  "skip"
+                ],
+                "type": "string"
+              },
+              "client_id": {
+                "type": "string"
+              },
+              "reason": {
+                "enum": [
+                  "no_clients_available",
+                  "same_browser_rejected",
+                  "client_offline",
+                  "api_error"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          },
+          "waiting_for_event_id": "AkGOAKlPaB1qyFAl3ypsdv",
+          "waiting_for_event_type": "needConnectMyBrowser"
+        }
+      },
+      "timestamp": "1776359161924",
+      "type": "status_update"
+    },
+    {
+      "id": "Cv2ESSbpQ1Ps5hV8O6YrOo",
+      "timestamp": "1776359228781",
+      "type": "user_message",
+      "user_message": {
+        "content": "ok i did that",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "cXZx8dXLUluoI0TMb7wTUR",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776359229484",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! Let me now look up the full list of available Manus connectors and build out your table. I already detected that you have **Notion**, **ClickUp**, and **Gmail** active. Let me research the complete connector catalog now."
+      },
+      "id": "TNpVoXCbIFLPicJoo5H9td",
+      "timestamp": "1776359236665",
+      "type": "assistant_message"
+    },
+    {
+      "id": "5D1X2ZdxF42idKASScxOXi",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "confirm_input_schema": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "select",
+                  "skip"
+                ],
+                "type": "string"
+              },
+              "client_id": {
+                "type": "string"
+              },
+              "reason": {
+                "enum": [
+                  "no_clients_available",
+                  "same_browser_rejected",
+                  "client_offline",
+                  "api_error"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          },
+          "waiting_for_event_id": "kFFl3FwXFqATuJrE2HPQBh",
+          "waiting_for_event_type": "needConnectMyBrowser"
+        }
+      },
+      "timestamp": "1776359243366",
+      "type": "status_update"
+    },
+    {
+      "id": "eCWOg4Wf0Qp0hxrj4KSCMZ",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776359266905",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "manus_connectors.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/LShHpnRTDbHwaCuTy25Ip0/sandbox/UmZt2LsssOnEpLMj6ybtAv_1776359383133_na1fn_L2hvbWUvdWJ1bnR1L21hbnVzX2Nvbm5lY3RvcnM.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTFNoSHBuUlREYkh3YUN1VHkyNUlwMC9zYW5kYm94L1VtWnQyTHNzc09uRXBMTWo2eWJ0QXZfMTc3NjM1OTM4MzEzM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDIxaGJuVnpYMk52Ym01bFkzUnZjbk0ubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIBv6-xM4ZW70h45Awnr~IUgmSXSZ6x29xhTsiCW~hJEmAiEArRZoN8KcGQ-CilQV1bpHDUw1jOSJiIeWE34AEpPJMII_"
+          }
+        ],
+        "content": "I have created a comprehensive Markdown document that includes a checkbox list of all available Manus connectors, with your active ones (Notion, ClickUp, and Gmail) checked at the top. \n\nFollowing the checklist is a full table detailing all the connectors, their status, and examples of how you can integrate them into your workflows. You can easily copy this content into Notion or any other tool you prefer. Let me know if you need anything else!"
+      },
+      "id": "zfo2FWZeLHAwuhweGXSHNC",
+      "timestamp": "1776359383388",
+      "type": "assistant_message"
+    },
+    {
+      "id": "XjbSSWwhM5dTJTf1N2GYD3",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776359383710",
+      "type": "status_update"
+    },
+    {
+      "id": "i4Nlt9N298mP8hwDQFuUlo",
+      "timestamp": "1776362237115",
+      "type": "user_message",
+      "user_message": {
+        "content": "explain to me exactly what a Markdown file is ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "peVfaW0MiYa8B1IZwZC4g3",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776362237322",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "A **Markdown file** (`.md`) is a plain text file written using a lightweight formatting language called **Markdown**, created by John Gruber in 2004. The core idea is simple: you write text using easy-to-read symbols that represent formatting, and those symbols get converted into visually formatted output — like bold text, headers, tables, and bullet points — when rendered by a compatible viewer.\n\n---\n\n## How It Works\n\nThink of it like this: instead of clicking a \"Bold\" button in Microsoft Word, you wrap your text in double asterisks — `**like this**` — and any Markdown renderer will display it as **bold**. The raw file itself is just plain text, readable by any text editor. The formatting only \"activates\" when it is rendered.\n\n| What You Type (Raw) | What You See (Rendered) |\n| :--- | :--- |\n| `# My Heading` | A large heading |\n| `**bold text**` | **bold text** |\n| `- Item one` | A bullet point |\n| `[Link](https://example.com)` | A clickable hyperlink |\n\n---\n\n## Why It Matters for You\n\nWhen I delivered your connector list as a `.md` file, it was designed to be **rendered** — meaning the checkboxes, bold text, and tables you see in the preview are all produced by Markdown syntax underneath. In its raw form, a checkbox like `- [x] Notion` is just plain text, but when rendered (as you see it in the Manus interface), it becomes a ticked checkbox.\n\nMarkdown files are widely used because they are:\n\n- **Universal** — readable in any text editor, even without rendering\n- **Portable** — paste the content directly into Notion, GitHub, ClickUp, or any modern tool and it renders instantly\n- **Lightweight** — no proprietary format, no special software required\n\n---\n\n## Where You'll See Markdown\n\nMarkdown is the default format for platforms like **Notion**, **GitHub**, **ClickUp**, **Slack** (partial), and most documentation tools. When I create reports, tables, or documents for you, they are almost always in Markdown so you can drop them directly into your existing tools without reformatting.\n\nIn short: a `.md` file is a text file with simple formatting codes that transform into a polished, readable document when opened in any Markdown-compatible viewer — which includes virtually every modern platform you use."
+      },
+      "id": "Wcsp1OUEXP6wEDZuSWQNDc",
+      "timestamp": "1776362274038",
+      "type": "assistant_message"
+    },
+    {
+      "id": "rcn2nM1Z7yPyjbLpHHEIRD",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776362274305",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 9,
+      "type": "file",
+      "filename": "manus_connectors.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/LShHpnRTDbHwaCuTy25Ip0/sandbox/UmZt2LsssOnEpLMj6ybtAv_1776359383133_na1fn_L2hvbWUvdWJ1bnR1L21hbnVzX2Nvbm5lY3RvcnM.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTFNoSHBuUlREYkh3YUN1VHkyNUlwMC9zYW5kYm94L1VtWnQyTHNzc09uRXBMTWo2eWJ0QXZfMTc3NjM1OTM4MzEzM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDIxaGJuVnpYMk52Ym01bFkzUnZjbk0ubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIBv6-xM4ZW70h45Awnr~IUgmSXSZ6x29xhTsiCW~hJEmAiEArRZoN8KcGQ-CilQV1bpHDUw1jOSJiIeWE34AEpPJMII_",
+      "status": "archived",
+      "bytes": 14840,
+      "archive_path": "attachments/LShHpnRTDbHwaCuTy25Ip0/9-assistant_message-0_0331ad6f7d0a35b0_manus_connectors.md"
+    }
+  ]
+}

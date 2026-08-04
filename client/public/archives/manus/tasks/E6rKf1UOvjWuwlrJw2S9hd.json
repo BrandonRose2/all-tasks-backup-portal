@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:39.995657Z",
+  "task": {
+    "id": "E6rKf1UOvjWuwlrJw2S9hd",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 3,
+    "created_at": "1784589920",
+    "updated_at": "1784589934",
+    "task_url": "https://manus.im/app/E6rKf1UOvjWuwlrJw2S9hd",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "lHV7GHOP8zg0uk9hrDNzvl",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784589921168",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully found the official website and leasing phone number for Arbor Crest on Fourth."
+      },
+      "id": "25XSQLJWORMXl1LOi6rrpv",
+      "timestamp": "1784589934526",
+      "type": "assistant_message"
+    },
+    {
+      "id": "otOw6U74gfBwYhk1Lh2gRS",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784589934628",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

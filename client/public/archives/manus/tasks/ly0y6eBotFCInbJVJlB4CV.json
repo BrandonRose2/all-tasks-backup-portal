@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:15.220985Z",
+  "task": {
+    "id": "ly0y6eBotFCInbJVJlB4CV",
+    "title": "Top 100 GitHub Repositories for Use with Manus",
+    "status": "stopped",
+    "type": "agent_subtask",
+    "agent_profile": "manus-1.6",
+    "credits_used": 583,
+    "created_at": "1783468737",
+    "updated_at": "1783469530",
+    "task_url": "https://manus.im/app/ly0y6eBotFCInbJVJlB4CV",
+    "message_count": 0
+  },
+  "event_count": 9,
+  "events": [
+    {
+      "id": "D36mQjw2EbCX3OvDx4ysSX",
+      "timestamp": "1783468737807",
+      "type": "user_message",
+      "user_message": {
+        "content": "Give me a list of the top most amazing github repositories that I could clone and use with Manus. Give me 100. Organize them into categories and for each repo include the name, link, description, approximate stars, and why it's useful with an AI agent like Manus. Deliver the final list as a Markdown file at /home/ubuntu/top_100_github_repos.md. Make sure these are real, popular, well-maintained repositories that are actionable — things you can actually build with, deploy, or integrate into workflows.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "35PqfETRwgzEWZL2niRG6w-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783468738358",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Hey Brandon! Great idea — I'll put together a curated list of 100 amazing GitHub repos you can actually clone and use with me. I'll organize them into practical categories (AI agent frameworks, automation, data tools, web dev, self-hosted apps, etc.), verify they're real and well-maintained with current star counts, and deliver it as a Markdown file. Starting the research now."
+      },
+      "id": "58YS9HG3qNX9qTzmEShky3",
+      "timestamp": "1783468755309",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Progress update: I've verified 150 candidate repos directly against the GitHub API with live star counts, last-commit dates, and license info. A handful turned out to be stale or archived (e.g., gpt-engineer, maybe-finance, coqui TTS, bark), so I'm swapping those for actively maintained alternatives, then trimming to the best 100 and writing the final Markdown file."
+      },
+      "id": "b5n0kYXnouU4MWa7V62SYg",
+      "timestamp": "1783469051687",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Verification complete — all 100 repos are confirmed live against the GitHub API with today's star counts, and every category is balanced (5–7 repos each across 16 categories). Now writing the final polished Markdown file with tailored \"why it's useful with Manus\" notes for each repo."
+      },
+      "id": "xs6BbMAbBSXGlLQZjsYxKp",
+      "timestamp": "1783469198280",
+      "type": "assistant_message"
+    },
+    {
+      "id": "p1jk8ob6LOq9XS5PeAWfRH",
+      "timestamp": "1783469252391",
+      "type": "user_message",
+      "user_message": {
+        "content": "Please finish writing the final Markdown file now and deliver it. The user is waiting.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "4k0wKFcmIdp1bqabd63jVe",
+      "timestamp": "1783469379031",
+      "type": "user_message",
+      "user_message": {
+        "content": "Please deliver the final Markdown file now at /home/ubuntu/top_100_github_repos.md. The user is waiting. If the polished version isn't done yet, deliver what you have — we can refine later.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "TArLiP6Kv5XD3zOwXd3WMt",
+      "timestamp": "1783469530587",
+      "type": "user_stop"
+    },
+    {
+      "id": "DzKcbQFFGx4Q3doGMDJjP3",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus has stopped",
+        "description": "The user stopped Manus's work"
+      },
+      "timestamp": "1783469530664",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

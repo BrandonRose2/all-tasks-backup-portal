@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:34:58.300045Z",
+  "task": {
+    "id": "zvlhio8CzAxehD1X9j4b1y",
+    "title": "Does Enterprise Require a Credit Card to Rent a Car?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 9,
+    "created_at": "1780004092",
+    "updated_at": "1780355137",
+    "task_url": "https://manus.im/app/zvlhio8CzAxehD1X9j4b1y",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "NspBOFktcK2R1c8aPj2634",
+      "timestamp": "1780004092153",
+      "type": "user_message",
+      "user_message": {
+        "content": "does enterprise require you to use a major credit card to rent a car?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "XNK6hLWMDsAHMSCZD9K8Jo-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780004092667",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me look that up for you."
+      },
+      "id": "jscOxcHj9cXpzsmkbo2xx2",
+      "timestamp": "1780004095338",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Based on [Enterprise's official US payment policy](https://www.enterprise.com/en/car-rental-faqs/us-deposits-and-payments/forms-of-payment.html), **a major credit card is not strictly required in all cases**, but it is strongly preferred and comes with the fewest restrictions. Here is a breakdown:\n\n---\n\n## Credit Cards (Preferred Method)\n\nEnterprise accepts the following **major credit cards** at both airport and non-airport US locations:\n\n| Card Network | Accepted |\n|---|---|\n| Visa | Yes |\n| Mastercard | Yes |\n| American Express | Yes |\n| Discover Network | Yes |\n| JCB (Japan Credit Bureau) | Yes |\n\nA major credit card is defined by Enterprise as one backed by a **pre-determined line of credit** — not a bank account or prepaid balance. At the time of rental, the card must be in the renter's name with sufficient available credit to cover the rental cost plus a potential security deposit.\n\n---\n\n## Debit/Check Cards (Accepted with Conditions)\n\nDebit cards bearing a Visa, Mastercard, or Discover logo **are accepted**, but with significantly more restrictions depending on location type:\n\n**At Airport Locations:**\n- A debit card is only accepted if accompanied by a **ticketed return travel itinerary**.\n- The name and address on your driver's license must match your current home address (active-duty military are exempt).\n- No additional drivers are permitted (except a spouse or domestic partner).\n- Renters **without** a return itinerary must use a credit card.\n\n**At Non-Airport (Local Branch) Locations:**\n- Some branches may accept debit cards, but requirements vary by location and may include: two recent utility bills, a recent pay stub, proof of insurance, personal references, and a minimum deposit covering the full rental cost.\n- You must **contact the specific branch directly** to confirm their debit card policy.\n\n---\n\n## What Is NOT Accepted\n\n- **Prepaid cards** without a Visa, Mastercard, or Discover logo\n- **Virtual/single-use credit card numbers**\n- **Cash** (at most locations, though some branches may accept it for final payment only)\n- **Gift cards** (only accepted at the *end* of a rental, not at pickup)\n\n---\n\n**Bottom line:** While a major credit card is not an absolute requirement in every scenario, it is by far the easiest and most universally accepted option. Using a debit card is possible but comes with notable restrictions — especially at airport locations, where a return travel itinerary is mandatory. If you plan to use a debit card at a non-airport branch, it is best to call ahead to confirm that specific location's requirements."
+      },
+      "id": "R6FNFZFLO1yvEO1HyPP82D",
+      "timestamp": "1780004128064",
+      "type": "assistant_message"
+    },
+    {
+      "id": "CpRaRlxLjzy6aXUVuVZjEJ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1780004128346",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

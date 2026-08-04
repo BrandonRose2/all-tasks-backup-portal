@@ -1,0 +1,182 @@
+Last login: Sun Jun 28 16:40:46 on ttys003
+brandonrose@Mac ~ % brew install node
+
+==> Would install 1 formula:
+node
+==> Downloading https://ghcr.io/v2/homebrew/core/node
+############################################## 100.0%
+==> Would install 24 dependencies for node:
+fmt
+ada-url
+brotli
+c-ares
+hdrhistogram_c
+icu4c@78
+libffi
+libnghttp2
+libnghttp3
+ca-certificates
+openssl@3
+libngtcp2
+libuv
+llhttp
+simdutf
+merve
+nbytes
+simdjson
+readline
+sqlite
+uvwasi
+lz4
+xz
+zstd
+==> Do you want to proceed with the installation? [y/
+==> Fetching downloads for: node
+✔︎ Bottle Manifest fmt (12 Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest ada-url Downloaded    8.7KB/  8.7KB
+✔︎ Bottle Manifest hdrhist Downloaded    7.8KB/  7.8KB
+✔︎ Bottle Manifest brotli  Downloaded    8.0KB/  8.0KB
+✔︎ Bottle Manifest c-ares  Downloaded    7.5KB/  7.5KB
+✔︎ Bottle Manifest icu4c@7 Downloaded    9.7KB/  9.7KB
+✔︎ Bottle Manifest libffi  Downloaded    7.2KB/  7.2KB
+✔︎ Bottle Manifest libnght Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest libnght Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest ca-cert Downloaded    1.7KB/  1.7KB
+✔︎ Bottle Manifest openssl Downloaded   12.0KB/ 12.0KB
+✔︎ Bottle Manifest libngtc Downloaded    9.7KB/  9.7KB
+✔︎ Bottle Manifest libuv ( Downloaded    7.5KB/  7.5KB
+✔︎ Bottle Manifest llhttp  Downloaded    7.2KB/  7.2KB
+✔︎ Bottle hdrhistogram_c ( Downloaded   43.6KB/ 43.6KB
+✔︎ Bottle libnghttp3 (1.17 Downloaded  190.6KB/190.6KB
+✔︎ Bottle fmt (12.2.0)     Downloaded  288.4KB/288.4KB
+✔︎ Bottle brotli (1.2.0)   Downloaded  793.5KB/793.5KB
+✔︎ Bottle libffi (3.6.0)   Downloaded  242.2KB/242.2KB
+✔︎ Bottle libnghttp2 (1.69 Downloaded  231.4KB/231.4KB
+✔︎ Bottle ca-certificates  Downloaded  112.1KB/112.1KB
+✔︎ Bottle ada-url (3.4.4)  Downloaded  345.6KB/345.6KB
+✔︎ Bottle c-ares (1.34.6)  Downloaded  304.0KB/304.0KB
+✔︎ Bottle libngtcp2 (1.24. Downloaded  422.6KB/422.6KB
+✔︎ Bottle llhttp (9.4.2)   Downloaded   38.3KB/ 38.3KB
+✔︎ Bottle libuv (1.52.1)   Downloaded  375.7KB/375.7KB
+✔︎ Bottle Manifest simdutf Downloaded    9.0KB/  9.0KB
+✔︎ Bottle Manifest merve ( Downloaded    9.4KB/  9.4KB
+✔︎ Bottle Manifest nbytes  Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest simdjso Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest sqlite  Downloaded   11.8KB/ 11.8KB
+✔︎ Bottle Manifest uvwasi  Downloaded    8.3KB/  8.3KB
+✔︎ Bottle Manifest xz (5.8 Downloaded   11.8KB/ 11.8KB
+✔︎ Bottle nbytes (0.1.4)   Downloaded   13.3KB/ 13.3KB
+✔︎ Bottle icu4c@78 (78.3)  Downloaded   31.8MB/ 31.8MB
+✔︎ Bottle simdutf (9.0.0)  Downloaded  391.1KB/391.1KB
+✔︎ Bottle Manifest lz4 (1. Downloaded   13.8KB/ 13.8KB
+✔︎ Bottle merve (1.2.2_1)  Downloaded   33.0KB/ 33.0KB
+✔︎ Bottle Manifest readlin Downloaded   10.0KB/ 10.0KB
+✔︎ Bottle uvwasi (0.0.23)  Downloaded   70.0KB/ 70.0KB
+✔︎ Bottle Manifest zstd (1 Downloaded   13.2KB/ 13.2KB
+✔︎ Bottle readline (8.3.3) Downloaded  757.9KB/757.9KB
+✔︎ Bottle lz4 (1.10.0)     Downloaded  279.7KB/279.7KB
+✔︎ Bottle xz (5.8.3)       Downloaded  770.8KB/770.8KB
+✔︎ Bottle sqlite (3.53.3)  Downloaded    2.5MB/  2.5MB
+✔︎ Bottle simdjson (4.6.4) Downloaded    1.4MB/  1.4MB
+✔︎ Bottle zstd (1.5.7_1)   Downloaded  793.6KB/793.6KB
+✔︎ Bottle openssl@3 (3.6.2 Downloaded   10.9MB/ 10.9MB
+✔︎ Bottle node (26.4.0)    Downloaded   22.2MB/ 22.2MB
+==> Installing dependencies for node: fmt, ada-url, brotli, c-ares, hdrhistogram_c, icu4c@78, libffi, libnghttp2, libnghttp3, ca-certificates, openssl@3, libngtcp2, libuv, llhttp, simdutf, merve, nbytes, simdjson, readline, sqlite, uvwasi, lz4, xz and zstd
+==> Installing node dependency: fmt
+==> Pouring fmt--12.2.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/fmt/12.2.0: 31 files, 1.1MB
+==> Installing node dependency: ada-url
+==> Pouring ada-url--3.4.4.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/ada-url/3.4.4: 55 files, 1.3MB
+==> Installing node dependency: brotli
+==> Pouring brotli--1.2.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/brotli/1.2.0: 33 files, 1.9MB
+==> Installing node dependency: c-ares
+==> Pouring c-ares--1.34.6.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/c-ares/1.34.6: 176 files, 1MB
+==> Installing node dependency: hdrhistogram_c
+==> Pouring hdrhistogram_c--0.11.9.arm64_tahoe.bottle
+🍺  /opt/homebrew/Cellar/hdrhistogram_c/0.11.9: 22 files, 171.3KB
+==> Installing node dependency: icu4c@78
+==> Pouring icu4c@78--78.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/icu4c@78/78.3: 279 files, 87.7MB
+==> Installing node dependency: libffi
+==> Pouring libffi--3.6.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libffi/3.6.0: 18 files, 883.7KB
+==> Installing node dependency: libnghttp2
+==> Pouring libnghttp2--1.69.0.arm64_tahoe.bottle.tar
+🍺  /opt/homebrew/Cellar/libnghttp2/1.69.0: 14 files, 847.3KB
+==> Installing node dependency: libnghttp3
+==> Pouring libnghttp3--1.17.0.arm64_tahoe.bottle.tar
+🍺  /opt/homebrew/Cellar/libnghttp3/1.17.0: 20 files, 614.9KB
+==> Installing node dependency: ca-certificates
+==> Pouring ca-certificates--2026-05-14.all.bottle.ta
+==> Regenerating CA certificate bundle from keychain,
+🍺  /opt/homebrew/Cellar/ca-certificates/2026-05-14: 4 files, 199.2KB
+==> Installing node dependency: openssl@3
+==> Pouring openssl@3--3.6.2.arm64_tahoe.bottle.tar.g
+🍺  /opt/homebrew/Cellar/openssl@3/3.6.2: 7,627 files, 37.6MB
+==> Installing node dependency: libngtcp2
+==> Pouring libngtcp2--1.24.0.arm64_tahoe.bottle.tar.
+🍺  /opt/homebrew/Cellar/libngtcp2/1.24.0: 21 files, 1.4MB
+==> Installing node dependency: libuv
+==> Pouring libuv--1.52.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libuv/1.52.1: 35 files, 1.3MB
+==> Installing node dependency: llhttp
+==> Pouring llhttp--9.4.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/llhttp/9.4.2: 15 files, 164.0KB
+==> Installing node dependency: simdutf
+==> Pouring simdutf--9.0.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/simdutf/9.0.0: 65 files, 2MB
+==> Installing node dependency: merve
+==> Pouring merve--1.2.2_1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/merve/1.2.2_1: 19 files, 148.6KB
+==> Installing node dependency: nbytes
+==> Pouring nbytes--0.1.4.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/nbytes/0.1.4: 9 files, 89KB
+==> Installing node dependency: simdjson
+==> Pouring simdjson--4.6.4.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/simdjson/4.6.4: 19 files, 8.0MB
+==> Installing node dependency: readline
+==> Pouring readline--8.3.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/readline/8.3.3: 56 files, 2.7MB
+==> Installing node dependency: sqlite
+==> Pouring sqlite--3.53.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/sqlite/3.53.3: 13 files, 5.3MB
+==> Installing node dependency: uvwasi
+==> Pouring uvwasi--0.0.23.arm64_tahoe.bottle.1.tar.g
+🍺  /opt/homebrew/Cellar/uvwasi/0.0.23: 15 files, 286.9KB
+==> Installing node dependency: lz4
+==> Pouring lz4--1.10.0.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/lz4/1.10.0: 24 files, 767.6KB
+==> Installing node dependency: xz
+==> Pouring xz--5.8.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/xz/5.8.3: 96 files, 2.7MB
+==> Installing node dependency: zstd
+==> Pouring zstd--1.5.7_1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/zstd/1.5.7_1: 32 files, 2.3MB
+==> Installing node
+==> Pouring node--26.4.0.arm64_tahoe.bottle.tar.gz
+==> Caveats
+The following node executables are shadowed by other commands earlier in your PATH:
+  node (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/node)
+  npm (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/npm)
+  npx (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/npx)
+Running these by name will not invoke the version provided by Homebrew.
+Disable this behaviour by setting `HOMEBREW_NO_PATH_SHADOW_CHECK=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Summary
+🍺  /opt/homebrew/Cellar/node/26.4.0: 2,071 files, 92MB
+==> Running `brew cleanup node`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Caveats
+==> node
+The following node executables are shadowed by other commands earlier in your PATH:
+  node (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/node)
+  npm (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/npm)
+  npx (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/npx)
+Running these by name will not invoke the version provided by Homebrew.
+Disable this behaviour by setting `HOMEBREW_NO_PATH_SHADOW_CHECK=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+brandonrose@Mac ~ % 

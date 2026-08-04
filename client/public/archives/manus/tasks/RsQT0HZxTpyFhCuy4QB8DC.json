@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:41:17.982846Z",
+  "task": {
+    "id": "RsQT0HZxTpyFhCuy4QB8DC",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 3,
+    "created_at": "1776713229",
+    "updated_at": "1776713305",
+    "task_url": "https://manus.im/app/RsQT0HZxTpyFhCuy4QB8DC",
+    "message_count": 0
+  },
+  "event_count": 2,
+  "events": [
+    {
+      "id": "k3IeERQUhHToyjxXlWq6fE",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776713232599",
+      "type": "status_update"
+    },
+    {
+      "id": "XNV10DfOyhKozOlRPt2sNF",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776713305340",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

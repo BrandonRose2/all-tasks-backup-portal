@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:35:30.085967Z",
+  "task": {
+    "id": "IbeuaxbDJfvsxvfVYAskuj",
+    "title": "Maximum IRA Contribution Limit for 2026",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 9,
+    "created_at": "1779474473",
+    "updated_at": "1779475110",
+    "task_url": "https://manus.im/app/IbeuaxbDJfvsxvfVYAskuj",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "pwe7qAZEFbCY1WofWNyPgo",
+      "timestamp": "1779474473773",
+      "type": "user_message",
+      "user_message": {
+        "content": "what is the maximum contribution ira for 2026",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "T6g2JKh8nOjemVXT2fswes-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1779474475432",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me look that up for you."
+      },
+      "id": "FG97FxgFd3XXvxSRSRyNCD",
+      "timestamp": "1779474477722",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Here are the **2026 IRA Maximum Contribution Limits**, as officially announced by the IRS in November 2025:\n\n## 2026 IRA Contribution Limits\n\n| Age Group | Annual Contribution Limit |\n|---|---|\n| **Under age 50** | **$7,500** |\n| **Age 50–59** | **$8,600** (includes $1,100 catch-up) |\n| **Age 60–63** | **$8,600** (super catch-up — same as 50+) |\n| **Age 64 and older** | **$8,600** (includes $1,100 catch-up) |\n\n> These limits apply to the **combined total** across all your IRAs (Traditional, Roth, or both). You cannot exceed the limit by contributing to multiple accounts.\n\n### Key Changes from 2025\n\nThe base contribution limit **increased from $7,000 to $7,500**, and the catch-up contribution for those age 50 and older **increased from $1,000 to $1,100** (a change introduced by the SECURE 2.0 Act, which now indexes the catch-up amount to inflation).\n\n### Income Limits for Roth IRA Eligibility (2026)\n\nYour ability to contribute to a **Roth IRA** is subject to income (MAGI) thresholds:\n\n| Filing Status | Full Contribution | Phase-Out Range | No Contribution |\n|---|---|---|---|\n| **Single / Head of Household** | Under $153,000 | $153,000 – $168,000 | $168,000+ |\n| **Married Filing Jointly** | Under $242,000 | $242,000 – $252,000 | $252,000+ |\n\n### Important Notes\n\n- **Traditional IRA** contributions are always allowed regardless of income, but the **deductibility** may be limited if you (or your spouse) are covered by a workplace retirement plan.\n- The contribution limit is also capped at your **taxable compensation for the year** if it is less than the dollar limit.\n- The deadline to make 2026 IRA contributions is **April 15, 2027** (Tax Day).\n\n**Sources:** [IRS Official Announcement](https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500) | [IRS Retirement Topics – IRA Contribution Limits](https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits)\n"
+      },
+      "id": "7HXdI20URCLifiDGNm8GNQ",
+      "timestamp": "1779474496949",
+      "type": "assistant_message"
+    },
+    {
+      "id": "V3uHJJ7VvlhCjRL0ft04mY",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1779474497231",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

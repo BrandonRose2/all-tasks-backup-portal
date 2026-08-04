@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:23.295522Z",
+  "task": {
+    "id": "MFUYMPSSPDX3nB2ieOHBit",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 3,
+    "created_at": "1784746220",
+    "updated_at": "1784746293",
+    "task_url": "https://manus.im/app/MFUYMPSSPDX3nB2ieOHBit",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "z3vLFibHIRCI2iaINz3TtD",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746221310",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched River Garden Estates and found verified public flyer fields."
+      },
+      "id": "4V3Ohyha3HgFxIT6ZuwaCT",
+      "timestamp": "1784746293859",
+      "type": "assistant_message"
+    },
+    {
+      "id": "gkI0LPj2ibDikkPdtlaOID",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746293977",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

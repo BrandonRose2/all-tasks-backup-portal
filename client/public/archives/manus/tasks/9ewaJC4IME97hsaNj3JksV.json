@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:36:10.954104Z",
+  "task": {
+    "id": "9ewaJC4IME97hsaNj3JksV",
+    "title": "How to Set Up IMAP Exchange Server as a Connector",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 29,
+    "created_at": "1778716186",
+    "updated_at": "1778860922",
+    "task_url": "https://manus.im/app/9ewaJC4IME97hsaNj3JksV",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "v6fYd0Oneq6DMcgVC1CDQH",
+      "timestamp": "1778716185438",
+      "type": "user_message",
+      "user_message": {
+        "content": "can you give me a step by step guide on how my imap exchange server was set up as a connector ; we use mail.aptrents.com ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "D3qJ3psVVOzvEpBElXk2NI-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778716186408",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Sure! Let me check your current connector configuration for the IMAP Exchange server at mail.aptrents.com and put together a step-by-step guide for you."
+      },
+      "id": "Y2fpY5O5aw1FCD08QqyKYK",
+      "timestamp": "1778716189072",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "I have checked the connector configuration in Manus. Currently, there is no custom IMAP or Exchange connector specifically configured for `mail.aptrents.com`. Instead, Manus is using the built-in **Outlook Mail** connector (which uses the Model Context Protocol, or MCP, to interact with Microsoft Outlook/Exchange services).\n\nIf your email at `mail.aptrents.com` is hosted on Microsoft Exchange or Microsoft 365, it was likely set up by authenticating through the standard Outlook Mail connector rather than a manual IMAP configuration.\n\nHere is a step-by-step guide on how the Outlook Mail connector is set up and enabled in Manus:\n\n### Step-by-Step Guide: Setting Up the Outlook Mail Connector\n\n**1. Access the Connector Configuration**\nManus manages its integrations through a configuration file. To view or modify the available connectors, the `manus-config` tool is used.\n*   The command `manus-config config load` is run to load the current configuration into the workspace.\n\n**2. Locate the Outlook Mail Connector**\nWithin the configuration file (`~/.manus/config/config.json`), there is an entry for the Outlook Mail connector. It looks like this:\n```json\n{\n  \"uid\": \"d485c6dd-4939-40fb-9c4a-c9821971468b\",\n  \"name\": \"Outlook Mail\",\n  \"brief\": \"Write, search, and manage your Outlook emails seamlessly within Manus\",\n  \"enabled\": true\n}\n```\n\n**3. Enable the Connector**\nTo activate the connector, the `\"enabled\"` field is set to `true` in the configuration file.\n*   After editing the file, the command `manus-config config save` is executed to apply the changes.\n\n**4. Authentication (OAuth)**\nOnce the Outlook Mail connector is enabled, Manus uses the Model Context Protocol (MCP) to interact with it.\n*   When Manus attempts to use the `outlook-mail` server tools (such as searching, reading, or sending messages) for the first time, an OAuth authentication flow is automatically triggered.\n*   The user is prompted to log in with their Microsoft Exchange/Outlook credentials (e.g., your `Brandon@ApartmentCorp.com` or `mail.aptrents.com` account) and grant Manus the necessary permissions to access the mailbox.\n\n**5. Using the Connector**\nAfter authentication, Manus can use the following tools provided by the `outlook-mail` MCP server:\n*   `outlook_search_messages`: To search for emails using specific queries, folders, or categories.\n*   `outlook_read_messages`: To read the content of specific email threads.\n*   `outlook_send_messages`: To send new emails or save drafts.\n\n**Summary**\nYour `mail.aptrents.com` server is not set up via a traditional IMAP host/port configuration within Manus. Because it is an Exchange server, it leverages the built-in **Outlook Mail** connector, which securely connects to your mailbox using Microsoft's OAuth authentication and the Model Context Protocol.\n\nLet me know if you need any further details or if you would like to adjust any settings!"
+      },
+      "id": "amS7Iu5q33nfp1IoH409dd",
+      "timestamp": "1778716239281",
+      "type": "assistant_message"
+    },
+    {
+      "id": "QWzOOVQaIZmzwblxfMIekl",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778716239550",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

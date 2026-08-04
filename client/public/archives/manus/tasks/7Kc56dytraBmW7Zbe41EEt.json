@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:40:18.727418Z",
+  "task": {
+    "id": "7Kc56dytraBmW7Zbe41EEt",
+    "title": "What Is the Definition of Blind Trust",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 3,
+    "created_at": "1776750075",
+    "updated_at": "1776750089",
+    "task_url": "https://manus.im/app/7Kc56dytraBmW7Zbe41EEt",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "vdTw4ULmJd49rMiRQyppfW",
+      "timestamp": "1776750075157",
+      "type": "user_message",
+      "user_message": {
+        "content": "Give me the definition of blind trust",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "NHCGxkPBVtth4kASMWpPfq-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776750076202",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "## Blind Trust\n\nA **blind trust** is a legal arrangement in which an individual (the **grantor** or **settlor**) transfers control of their assets — such as investments, securities, or other financial holdings — to an independent **trustee**, who then manages those assets entirely without the grantor's knowledge of, or involvement in, specific investment decisions.\n\n### Key Characteristics\n\n| Feature | Description |\n|---|---|\n| **Grantor** | The person who establishes the trust and transfers assets into it |\n| **Trustee** | An independent third party (often a financial institution or attorney) who manages the assets |\n| **Beneficiary** | Typically the grantor themselves, or their designated heirs |\n| **Transparency** | The grantor receives no information about the specific holdings or transactions within the trust |\n\n### Purpose\n\nBlind trusts are most commonly used to **avoid conflicts of interest**, particularly in the following contexts:\n\n- **Public officials and politicians** who hold significant financial assets use blind trusts to ensure their policy decisions are not influenced by personal financial interests.\n- **Corporate executives** may use them to prevent insider trading concerns.\n- **Lottery winners or heirs** sometimes use them to maintain privacy and distance from their wealth.\n\n### How It Works\n\nOnce the trust is established, the trustee has full discretionary authority to buy, sell, and manage the assets. The grantor is deliberately kept uninformed of the portfolio's composition, so they cannot make decisions — professional or political — that would personally benefit their holdings.\n\n### Legal Note\n\nThe effectiveness of a blind trust depends heavily on the **independence of the trustee** and the **legal structure** of the agreement. In many jurisdictions, regulations govern how blind trusts must be set up, particularly for elected officials, to ensure genuine separation between the individual and their financial interests."
+      },
+      "id": "6VGTniVDHwgRpH7RXPC2sJ",
+      "timestamp": "1776750088918",
+      "type": "assistant_message"
+    },
+    {
+      "id": "FIoK34X8VZ3gnWlNG9vnoR",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776750089312",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

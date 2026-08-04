@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:34:50.709848Z",
+  "task": {
+    "id": "SOC13CFu0X2IytJ6CDPlau",
+    "title": "Fluid Requirements for American Airlines Carry-On?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 9,
+    "created_at": "1780376140",
+    "updated_at": "1780376190",
+    "task_url": "https://manus.im/app/SOC13CFu0X2IytJ6CDPlau",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "e16ozHbgkS3HFbCek4qWMz",
+      "timestamp": "1780376140345",
+      "type": "user_message",
+      "user_message": {
+        "content": "what are the fluid requirements for american airlines for carry on? ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "PUxwF5i8E3D8GmdiCm00ci-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780376141304",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me look that up for you right now."
+      },
+      "id": "fa4iOTHtrkS71OiGFXqGWT",
+      "timestamp": "1780376144109",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "## American Airlines Carry-On Fluid Requirements\n\nAmerican Airlines defers entirely to the **TSA (Transportation Security Administration)** for liquid rules at security checkpoints. The governing standard is the **TSA 3-1-1 Rule**, which applies to all domestic U.S. flights regardless of airline.\n\n---\n\n### The TSA 3-1-1 Rule\n\nThe name \"3-1-1\" is a quick memory aid for the three core requirements:\n\n| Component | Requirement |\n|---|---|\n| **3.4 oz / 100 ml** | Each individual liquid container must be 3.4 ounces (100 milliliters) or less |\n| **1 quart-sized bag** | All liquid containers must fit inside a single, clear, quart-sized, zip-top plastic bag |\n| **1 bag per passenger** | Only one such bag is allowed per traveler |\n\n> **Important:** If a container is *larger* than 3.4 oz, it is **not allowed** through security — even if the actual amount of liquid remaining inside is 3.4 oz or less. The container size itself is what matters.\n\n---\n\n### What Counts as a \"Liquid\"?\n\nThe rule applies broadly to **liquids, aerosols, gels, creams, and pastes**, including common items such as:\n\n- Shampoo, conditioner, and body wash\n- Toothpaste and mouthwash\n- Deodorant (gel or spray)\n- Lotion, sunscreen, and aloe vera\n- Perfume and cologne\n- Hairspray and hair gel\n- Lip gloss\n- Food items in liquid/gel/paste form (e.g., peanut butter, yogurt, jam)\n\n**Powders** (e.g., baby powder, some makeup) are generally not restricted, though quantities over 12 oz (350 ml) must be placed in a separate bin for X-ray screening.\n\n---\n\n### Key Exceptions\n\nCertain items are **exempt** from the 3-1-1 rule and may be brought in larger quantities:\n\n| Item | Exception |\n|---|---|\n| **Prescription & OTC medications** | Medically necessary liquids are allowed in reasonable quantities; remove from bag and notify TSA |\n| **Baby formula & breast milk** | Allowed in quantities exceeding 3.4 oz; remove from bag and notify TSA |\n| **Hand sanitizer** | Up to **12 oz (354 ml)** is currently permitted (screened separately) |\n| **Duty-free liquids (international)** | Allowed if purchased internationally, packed in a **tamper-evident, transparent bag** by the retailer, with receipt showing purchase within the last 48 hours |\n\n---\n\n### Practical Tips\n\n- Pack all your liquids in a **clear, resealable quart-sized bag** and place it at the top of your carry-on for easy removal at the checkpoint.\n- If you have **TSA PreCheck**, you typically do not need to remove your liquids bag, though it is still subject to the 3-1-1 limits.\n- Any liquid that **alarms during screening** will require additional inspection.\n- Anything over 3.4 oz should be packed in your **checked baggage**.\n\nFor any item you are unsure about, the [TSA's \"What Can I Bring?\" tool](https://www.tsa.gov/travel/security-screening/whatcanibring/all) allows you to search specific items before you travel. You can also text \"AskTSA\" on Twitter/X or via SMS."
+      },
+      "id": "CD2zGcLRro3nFT7peP4h45",
+      "timestamp": "1780376189578",
+      "type": "assistant_message"
+    },
+    {
+      "id": "pTXyo9FI8WDQFskTtJnfOD",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1780376189878",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

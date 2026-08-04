@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:13.279200Z",
+  "task": {
+    "id": "iVky2QphHeei3lAJ3ejFtz",
+    "title": "Best LLMs for Building Apps",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 322,
+    "created_at": "1783981964",
+    "updated_at": "1783982881",
+    "task_url": "https://manus.im/app/iVky2QphHeei3lAJ3ejFtz",
+    "message_count": 0
+  },
+  "event_count": 19,
+  "events": [
+    {
+      "id": "zIxHTi3aWIa3v31qHVmcdz",
+      "timestamp": "1783981963587",
+      "type": "user_message",
+      "user_message": {
+        "content": "what are the best LLMs for building apps",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "3eR2rW8ptuhS2X1NPYr3D1-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783981964645",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I’ll compare the leading current LLMs for app development, separating coding assistants from models you can embed in an app."
+      },
+      "id": "0ZRNTRz11hcanbdooGXfpu",
+      "timestamp": "1783981970024",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "## Best LLMs for building apps in 2026\n\nThere is no single winner for every project. **My default recommendation is Claude Sonnet 5 or GPT-5.6 Terra for most production apps**, while using a stronger model only for difficult coding and reasoning tasks.\n\n| Need | Best choice | Why |\n|---|---|---|\n| **Hardest coding and autonomous development** | **GPT-5.6 Sol** | Currently leads Artificial Analysis’s coding-agent index and supports a 1.05M-token context plus tool use. It is powerful but expensive.[1] [2] |\n| **Complex agentic coding and polished interfaces** | **Claude Opus 4.8** | Anthropic specifically positions it for complex agentic coding and enterprise work. Claude models are particularly strong at maintaining coherent implementations across large codebases.[3] |\n| **Best Anthropic model regardless of price** | **Claude Fable 5** | Anthropic’s most capable widely released model, designed for long-running agents. Use it when accuracy matters more than cost.[3] |\n| **Best everyday production model** | **Claude Sonnet 5** or **GPT-5.6 Terra** | Both are positioned as balanced options combining strong intelligence with better speed and economics than their flagship siblings.[1] [3] |\n| **Multimodal, Android, Google Cloud, or voice-first apps** | **Gemini 3.5 Flash** | Google positions it for sustained coding and agentic work. Gemini also has an unusually broad platform covering live audio, Search and Maps grounding, code execution, files, images, video, and managed agents.[4] [5] |\n| **High-volume, inexpensive features** | **GPT-5.6 Luna**, **Gemini 3.1 Flash-Lite**, or **Claude Haiku 4.5** | Better for classification, extraction, routing, autocomplete, simple chat, and background processing where flagship reasoning is unnecessary.[1] [3] [4] |\n| **Self-hosted or open-weight deployment** | **DeepSeek V4 Pro** or **V4 Flash** | V4 Pro is the stronger open-weight agentic-coding option; V4 Flash is faster and more economical. Both offer a 1M-token context and downloadable weights.[6] |\n\n### Practical recommendation\n\nFor a new SaaS or mobile app, I would use a **model router** rather than committing everything to one model:\n\n1. **Claude Sonnet 5 or GPT-5.6 Terra** for the main user-facing assistant.\n2. **GPT-5.6 Sol, Claude Opus 4.8, or Fable 5** only for difficult planning, coding, and multi-step agent tasks.\n3. **Luna, Flash-Lite, or Haiku** for cheap classification, summarization, extraction, and moderation.\n4. **Gemini 3.5 Flash** when the product relies heavily on images, documents, Google services, or real-time interaction.\n5. **DeepSeek V4 Flash** when self-hosting, data control, or avoiding dependence on a closed API is a priority.\n\n> **Short answer:** Use **Claude Sonnet 5** as the safest all-around default, **GPT-5.6 Sol** for maximum coding performance, **Gemini 3.5 Flash** for multimodal applications, and **DeepSeek V4 Flash** for open-weight deployment.\n\nAlso remember that the **coding harness matters almost as much as the underlying model**. Codex, Claude Code, Cursor, Gemini CLI, and OpenCode can produce materially different results with similar models.[2]\n\n### References\n\n[1]: https://developers.openai.com/api/docs/models \"OpenAI API Models\"\n[2]: https://artificialanalysis.ai/agents/coding-agents \"Artificial Analysis Coding Agent Benchmarks\"\n[3]: https://platform.claude.com/docs/en/about-claude/models/overview \"Claude Models Overview\"\n[4]: https://ai.google.dev/gemini-api/docs/models \"Gemini API Models\"\n[5]: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5 \"What’s New in Gemini 3.5 Flash\"\n[6]: https://api-docs.deepseek.com/news/news260424/ \"DeepSeek V4 Preview Release\""
+      },
+      "id": "lWBA6hLmDUWXHDcap2MLCy",
+      "timestamp": "1783982167847",
+      "type": "assistant_message"
+    },
+    {
+      "id": "EFDtj0lnx1Br3vwin368J8",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783982168081",
+      "type": "status_update"
+    },
+    {
+      "id": "2R39gYgm8XXpNdOptrVBtp",
+      "timestamp": "1783982261018",
+      "type": "user_message",
+      "user_message": {
+        "content": "give this to me in a pdf",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "44sjgltbfIBmtFzL9YSwfD",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783982261117",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I’ll format the recommendations as a polished PDF and attach it here."
+      },
+      "id": "nKcExAeMYhYzcmtHGjpkmj",
+      "timestamp": "1783982266745",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "Best_LLMs_for_Building_Apps_2026.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/iVky2QphHeei3lAJ3ejFtz/sandbox/LabWEX4swqclMrn77qFZIn_1783982343474_na1fn_L2hvbWUvdWJ1bnR1L2xsbS1hcHAtZ3VpZGUvQmVzdF9MTE1zX2Zvcl9CdWlsZGluZ19BcHBzXzIwMjY.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaVZreTJRcGhIZWVpM2xBSjNlakZ0ei9zYW5kYm94L0xhYldFWDRzd3FjbE1ybjc3cUZaSW5fMTc4Mzk4MjM0MzQ3NF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJ4c2JTMWhjSEF0WjNWcFpHVXZRbVZ6ZEY5TVRFMXpYMlp2Y2w5Q2RXbHNaR2x1WjE5QmNIQnpYekl3TWpZLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQC2vQZM899-cpxue~gh--Z-iA~gj5l6aTrBwrn9L4MYhQIhAMnPp~a4FRJ4JuJb7KEc2t3Aac14Ow~-r8MzJN~YeNkK"
+          }
+        ],
+        "content": "Your PDF is ready. Please see the attached file."
+      },
+      "id": "0YIojiTDQYLGQkVTJw969d",
+      "timestamp": "1783982343631",
+      "type": "assistant_message"
+    },
+    {
+      "id": "cc1plpWBdPygfLzki7km90",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783982343855",
+      "type": "status_update"
+    },
+    {
+      "id": "U2Ui7R3rXfrofBR2nB0WVa",
+      "timestamp": "1783982701105",
+      "type": "user_message",
+      "user_message": {
+        "content": "what about replit? can you give me other websites similar as well? and put this all into a master list pdf",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "3ugl5bnku56VToZx9OFSUp",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783982701224",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I’ll expand the guide to cover Replit and comparable AI app-building platforms, then combine everything into a single master-list PDF with clear recommendations by use case."
+      },
+      "id": "Pn4bdVQ09j0OLQArxbAmXS",
+      "timestamp": "1783982706157",
+      "type": "assistant_message"
+    },
+    {
+      "id": "QIAUZzR0orh02cHn6UdOvD",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply"
+      },
+      "timestamp": "1783982741751",
+      "type": "status_update"
+    },
+    {
+      "id": "XpCeiM5j2xtfKcWJJMgyS6",
+      "timestamp": "1783982776015",
+      "type": "user_message",
+      "user_message": {
+        "content": "I just want the names of them and their websites",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "wZyDIrm8t0M7Boahyn4iKb",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783982776119",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Understood. I’ll make the master PDF a simple directory containing only each platform’s name and website."
+      },
+      "id": "s68mFR3ArBTSeuzizHOxBP",
+      "timestamp": "1783982781947",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "Replit_Alternatives_Master_List.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/iVky2QphHeei3lAJ3ejFtz/sandbox/8LlsTsdFrv01wOOWKVOxVs_1783982881251_na1fn_L2hvbWUvdWJ1bnR1L3JlcGxpdC1hbHRlcm5hdGl2ZXMtZGlyZWN0b3J5L1JlcGxpdF9BbHRlcm5hdGl2ZXNfTWFzdGVyX0xpc3Q.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaVZreTJRcGhIZWVpM2xBSjNlakZ0ei9zYW5kYm94LzhMbHNUc2RGcnYwMXdPT1dLVk94VnNfMTc4Mzk4Mjg4MTI1MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNKbGNHeHBkQzFoYkhSbGNtNWhkR2wyWlhNdFpHbHlaV04wYjNKNUwxSmxjR3hwZEY5QmJIUmxjbTVoZEdsMlpYTmZUV0Z6ZEdWeVgweHBjM1EucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDaHQnJxh47zSEac~nG4JApcr~8wA6sEbJ1PAkEA2WXSQIhALhkRIePPMbTrGTIddsIfB4PpXZDNHNO4jKQLS9sn6b1"
+          }
+        ],
+        "content": "I made the simplified master-list PDF with just the platform names and their official websites. Please open the attachment."
+      },
+      "id": "8re865JweVdIplx4glOyxO",
+      "timestamp": "1783982881409",
+      "type": "assistant_message"
+    },
+    {
+      "id": "ndPAxCdaVdbOG3Yfo9CkgS",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783982881633",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 8,
+      "type": "file",
+      "filename": "Best_LLMs_for_Building_Apps_2026.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/iVky2QphHeei3lAJ3ejFtz/sandbox/LabWEX4swqclMrn77qFZIn_1783982343474_na1fn_L2hvbWUvdWJ1bnR1L2xsbS1hcHAtZ3VpZGUvQmVzdF9MTE1zX2Zvcl9CdWlsZGluZ19BcHBzXzIwMjY.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaVZreTJRcGhIZWVpM2xBSjNlakZ0ei9zYW5kYm94L0xhYldFWDRzd3FjbE1ybjc3cUZaSW5fMTc4Mzk4MjM0MzQ3NF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJ4c2JTMWhjSEF0WjNWcFpHVXZRbVZ6ZEY5TVRFMXpYMlp2Y2w5Q2RXbHNaR2x1WjE5QmNIQnpYekl3TWpZLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQC2vQZM899-cpxue~gh--Z-iA~gj5l6aTrBwrn9L4MYhQIhAMnPp~a4FRJ4JuJb7KEc2t3Aac14Ow~-r8MzJN~YeNkK",
+      "status": "archived",
+      "bytes": 67411,
+      "archive_path": "attachments/iVky2QphHeei3lAJ3ejFtz/8-assistant_message-0_8b4b769457b065d3_Best_LLMs_for_Building_Apps_2026.pdf"
+    },
+    {
+      "event_index": 17,
+      "type": "file",
+      "filename": "Replit_Alternatives_Master_List.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/iVky2QphHeei3lAJ3ejFtz/sandbox/8LlsTsdFrv01wOOWKVOxVs_1783982881251_na1fn_L2hvbWUvdWJ1bnR1L3JlcGxpdC1hbHRlcm5hdGl2ZXMtZGlyZWN0b3J5L1JlcGxpdF9BbHRlcm5hdGl2ZXNfTWFzdGVyX0xpc3Q.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaVZreTJRcGhIZWVpM2xBSjNlakZ0ei9zYW5kYm94LzhMbHNUc2RGcnYwMXdPT1dLVk94VnNfMTc4Mzk4Mjg4MTI1MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNKbGNHeHBkQzFoYkhSbGNtNWhkR2wyWlhNdFpHbHlaV04wYjNKNUwxSmxjR3hwZEY5QmJIUmxjbTVoZEdsMlpYTmZUV0Z6ZEdWeVgweHBjM1EucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDaHQnJxh47zSEac~nG4JApcr~8wA6sEbJ1PAkEA2WXSQIhALhkRIePPMbTrGTIddsIfB4PpXZDNHNO4jKQLS9sn6b1",
+      "status": "archived",
+      "bytes": 99974,
+      "archive_path": "attachments/iVky2QphHeei3lAJ3ejFtz/17-assistant_message-0_c56028280e5aad37_Replit_Alternatives_Master_List.pdf"
+    }
+  ]
+}

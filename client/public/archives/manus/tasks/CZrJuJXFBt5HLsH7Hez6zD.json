@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:42:54.137397Z",
+  "task": {
+    "id": "CZrJuJXFBt5HLsH7Hez6zD",
+    "title": "How to Test and Use the Notion Connector Features",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 77,
+    "created_at": "1776295827",
+    "updated_at": "1776296033",
+    "task_url": "https://manus.im/app/CZrJuJXFBt5HLsH7Hez6zD",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "LaQB1grP39bRLE8SeeNKwt",
+      "timestamp": "1776295826167",
+      "type": "user_message",
+      "user_message": {
+        "content": "Help me test the Notion connector and show me how to use its feature (e.g. show any data you fetched with it). Give me a brief about its capabilities.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "khPua9YFBs6LHNro1nvBvc-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776295829120",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll explore the Notion MCP connector, test its available tools, fetch some real data from your Notion workspace, and give you a brief overview of its capabilities."
+      },
+      "id": "8EYelDqQFb4OTsKhb6HVaU",
+      "timestamp": "1776295831658",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "Notion_MCP_Capability_Brief.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/CZrJuJXFBt5HLsH7Hez6zD/sandbox/Bqr2KJ2Yg5jcQhyczG97Ob_1776296030321_na1fn_L2hvbWUvdWJ1bnR1L05vdGlvbl9NQ1BfQ2FwYWJpbGl0eV9CcmllZg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvQ1pySnVKWEZCdDVITHNIN0hlejZ6RC9zYW5kYm94L0JxcjJLSjJZZzVqY1FoeWN6Rzk3T2JfMTc3NjI5NjAzMDMyMV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDA1dmRHbHZibDlOUTFCZlEyRndZV0pwYkdsMGVWOUNjbWxsWmcubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCE2Oa1s54zWzC3nVLgPCpSp5ON6XbYZNhfaHUyBau9ggIgLUZccsu4vxyEUNQjc3438-nthRlSQU~HpXY3OO1iNws_"
+          }
+        ],
+        "content": "I've tested the Notion MCP connector and compiled a brief detailing its capabilities, along with live data samples fetched directly from your workspace (like your Expenses and Appointments databases). You can review the attached document for the full breakdown! Let me know if you'd like to test any specific actions, like creating a new page or updating a database entry."
+      },
+      "id": "QUcPMNNQr67vlmCHETKqSL",
+      "timestamp": "1776296030492",
+      "type": "assistant_message"
+    },
+    {
+      "id": "owWXnRJWq0YQdotYGgq1hH",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776296030740",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 3,
+      "type": "file",
+      "filename": "Notion_MCP_Capability_Brief.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/CZrJuJXFBt5HLsH7Hez6zD/sandbox/Bqr2KJ2Yg5jcQhyczG97Ob_1776296030321_na1fn_L2hvbWUvdWJ1bnR1L05vdGlvbl9NQ1BfQ2FwYWJpbGl0eV9CcmllZg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvQ1pySnVKWEZCdDVITHNIN0hlejZ6RC9zYW5kYm94L0JxcjJLSjJZZzVqY1FoeWN6Rzk3T2JfMTc3NjI5NjAzMDMyMV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDA1dmRHbHZibDlOUTFCZlEyRndZV0pwYkdsMGVWOUNjbWxsWmcubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCE2Oa1s54zWzC3nVLgPCpSp5ON6XbYZNhfaHUyBau9ggIgLUZccsu4vxyEUNQjc3438-nthRlSQU~HpXY3OO1iNws_",
+      "status": "archived",
+      "bytes": 5377,
+      "archive_path": "attachments/CZrJuJXFBt5HLsH7Hez6zD/3-assistant_message-0_c1c7fe5a11f66049_Notion_MCP_Capability_Brief.md"
+    }
+  ]
+}

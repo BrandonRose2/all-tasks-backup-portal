@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApartmentCorp — Referral Flyer Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,700;0,800;0,900;1,900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:#1c1c1c;min-height:100vh}
+
+/* ── CONTROL BAR ── */
+#bar{
+  background:#111;border-bottom:3px solid #5a8b1a;
+  padding:12px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  position:sticky;top:0;z-index:200;
+}
+#bar h1{font-size:16px;font-weight:900;color:#8bc34a;white-space:nowrap;letter-spacing:.5px}
+#bar select{
+  background:#222;border:1.5px solid #444;color:#fff;
+  padding:7px 11px;border-radius:6px;font-family:'Nunito',sans-serif;
+  font-size:13px;font-weight:700;cursor:pointer;min-width:270px;
+}
+.phone-wrap{display:flex;align-items:center;gap:7px}
+.phone-wrap label{font-size:12px;color:#999;font-weight:700;white-space:nowrap}
+#phone-input{
+  background:#222;border:1.5px solid #444;color:#fff;
+  padding:7px 10px;border-radius:6px;font-family:'Nunito',sans-serif;
+  font-size:13px;font-weight:700;width:210px;
+  transition:border-color .2s;
+}
+#phone-input:focus{outline:none;border-color:#8bc34a}
+#phone-input::placeholder{color:#555}
+.btn{
+  padding:8px 18px;border-radius:6px;font-family:'Nunito',sans-serif;
+  font-size:13px;font-weight:900;cursor:pointer;border:none;white-space:nowrap;
+}
+.btn-print{background:#8bc34a;color:#111}
+.btn-print:hover{background:#a3e635}
+.phone-auto-badge{
+  font-size:10px;color:#5a8b1a;font-weight:700;
+  background:#1a2a0a;border:1px solid #3a5a10;
+  border-radius:4px;padding:2px 7px;white-space:nowrap;
+  display:none;
+}
+#pcnt{margin-left:auto;font-size:11px;color:#666;font-weight:700;white-space:nowrap}
+
+/* ── PAGE WRAP ── */
+#wrap{display:flex;justify-content:center;padding:24px 16px;background:#1c1c1c}
+
+/* ══════════════════════════════════════
+   FLYER  816×1056px = 8.5×11in @ 96dpi
+   ══════════════════════════════════════ */
+#flyer{
+  width:816px;height:1056px;
+  background:#f2f2f0;
+  font-family:'Nunito',sans-serif;
+  position:relative;overflow:hidden;flex-shrink:0;
+  display:flex;flex-direction:column;
+  box-shadow:0 20px 60px rgba(0,0,0,.8);
+}
+
+/* ── HERO PHOTO SECTION ── */
+.hero{
+  width:100%;height:315px;position:relative;
+  background:#1a2a3a;overflow:hidden;flex-shrink:0;
+}
+.hero img.prop-photo{
+  width:100%;height:100%;object-fit:cover;object-position:center 30%;
+  display:none;
+}
+.hero-placeholder{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  background:#2d3e4e;
+}
+.hero-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(0,15,35,.08) 0%,
+    rgba(0,15,35,.20) 30%,
+    rgba(0,15,35,.60) 65%,
+    rgba(0,15,35,.82) 100%);
+  pointer-events:none;
+}
+/* dark green arc top-left — matches WH */
+.hero-arc{
+  position:absolute;top:-28px;left:-28px;
+  width:210px;height:210px;
+  background:#1b3a08;
+  border-radius:0 0 100% 0;
+  opacity:.93;
+}
+
+/* logo badge */
+.logo-badge{
+  position:absolute;top:12px;left:16px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;
+  max-width:175px;
+}
+.logo-tree{width:58px;height:58px}
+.logo-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;color:#fff;
+  letter-spacing:2.5px;text-align:center;
+  line-height:1;margin-top:4px;
+  text-shadow:1px 1px 5px rgba(0,0,0,.8);
+}
+.logo-line{width:100%;height:1.5px;background:#8bc34a;margin:3px 0}
+.logo-sub{font-size:9px;color:#c8e89a;letter-spacing:3.5px;text-transform:uppercase;text-align:center}
+
+/* BIG HEADLINE */
+.hero-headline{
+  position:absolute;bottom:10px;left:0;right:0;
+  padding:0 22px;line-height:1;
+}
+.hl1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:90px;color:#fff;
+  line-height:.88;display:block;
+  letter-spacing:2px;
+  text-shadow:2px 2px 8px rgba(0,0,0,.6);
+}
+.hl2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:102px;color:#8bc34a;
+  line-height:.88;display:block;
+  letter-spacing:2px;
+  text-shadow:2px 2px 8px rgba(0,0,0,.5);
+}
+.hl-dashes{
+  position:absolute;right:22px;bottom:92px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.dash{width:32px;height:5px;background:#fff;border-radius:2px;opacity:.85}
+.dash:nth-child(2){width:22px}
+.dash:nth-child(3){width:28px}
+
+/* ── GREEN RIBBON ── */
+.ribbon{
+  background:#4a7c10;
+  padding:9px 24px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  flex-shrink:0;
+}
+.ribbon-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:26px;color:#fff;letter-spacing:4.5px;
+}
+.ribbon-bar{display:inline-block;width:32px;height:2.5px;background:#fff;border-radius:1px;opacity:.8}
+
+/* ── BODY ── */
+.body{
+  padding:18px 24px 0 24px;
+  background:#f2f2f0;
+  flex-shrink:0;
+}
+
+/* love living row */
+.love-row{
+  display:flex;align-items:flex-start;gap:14px;
+  margin-bottom:14px;
+}
+.people-svg{flex-shrink:0;width:84px;height:84px}
+.love-text h2{
+  font-size:21px;font-weight:900;
+  color:#1a2e14;line-height:1.2;
+  margin-bottom:5px;
+}
+.love-text p{font-size:13.5px;color:#3d4030;line-height:1.5}
+.love-text em{font-style:italic;font-weight:900}
+
+/* $200 circle */
+.reward-wrap{margin-left:auto;flex-shrink:0;position:relative;margin-top:-6px}
+.reward-circle{
+  width:140px;height:140px;
+  background:#1c4587;border-radius:50%;
+  border:4px solid #2a5faa;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  box-shadow:0 0 0 6px rgba(28,69,135,.22),0 4px 18px rgba(0,0,0,.35);
+}
+.reward-amt{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:58px;color:#fff;line-height:1;
+}
+.reward-sub{
+  font-size:8.5px;color:#a8c8ff;font-weight:900;
+  letter-spacing:1.5px;text-align:center;
+  text-transform:uppercase;line-height:1.4;
+}
+
+/* ── MID ROW ── */
+.mid-row{display:flex;gap:13px;margin-bottom:13px}
+
+/* dark navy easy box */
+.easy-box{
+  background:#1a2e5a;border-radius:10px;
+  padding:15px 18px;flex:1.3;
+}
+.easy-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.green-check{
+  width:36px;height:36px;background:#8bc34a;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.green-check svg{width:20px;height:20px}
+.easy-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px;color:#fff;
+  letter-spacing:1px;font-style:italic;
+}
+.steps{list-style:none}
+.steps li{
+  font-size:13.5px;color:#bdd0e8;
+  margin-bottom:9px;
+  display:flex;align-items:flex-start;gap:8px;
+  line-height:1.4;
+}
+.step-num{
+  background:#8bc34a;color:#1a2e5a;
+  font-weight:900;font-size:11.5px;
+  width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.steps strong{color:#fff;font-weight:900}
+
+/* fine print white box */
+.fine-box{
+  background:#fff;
+  border:2.5px solid #8bc34a;
+  border-radius:10px;
+  padding:14px 15px;flex:1;
+  display:flex;flex-direction:column;
+  align-items:center;gap:7px;
+}
+.fine-icon{font-size:24px;text-align:center}
+.fine-box h4{
+  font-size:12px;font-weight:900;
+  color:#1a2e5a;text-transform:uppercase;
+  letter-spacing:.7px;
+}
+.fine-box p{font-size:12px;color:#3d4030;line-height:1.6;text-align:center}
+
+/* phone row */
+.phone-row{
+  display:flex;align-items:center;gap:10px;
+  background:#e8f0d8;border:2px solid #8bc34a;
+  border-radius:8px;padding:9px 16px;
+  margin-bottom:0;
+}
+.phone-icon{font-size:20px;flex-shrink:0}
+.phone-label{font-size:13px;font-weight:700;color:#1a2e5a}
+.phone-num{font-size:16px;font-weight:900;color:#2d5800;letter-spacing:.3px}
+
+/* ── BOTTOM DARK BANNER ── */
+.bot-banner{
+  background:#1a2e5a;
+  padding:10px 24px 12px;
+  position:relative;overflow:hidden;
+  flex-shrink:0;margin-top:auto;
+}
+.bot-banner::before{
+  content:'';
+  position:absolute;
+  top:-16px;left:-12px;right:-12px;height:34px;
+  background:#5a8b1a;
+  transform:rotate(-1deg);
+}
+.bot-tagline{
+  font-family:'Caveat',cursive;
+  font-size:34px;color:#fff;
+  text-align:center;
+  position:relative;z-index:1;
+  margin-top:4px;
+}
+
+/* ── FOOTER ── */
+.footer{
+  background:#1a2e5a;
+  padding:10px 24px 12px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(139,195,74,.3);
+  flex-shrink:0;
+}
+.spread-badge{
+  background:#162544;
+  border:2px solid #8bc34a;
+  border-radius:50%;
+  width:72px;height:72px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.spread-badge span{
+  font-size:7px;color:#8bc34a;
+  font-weight:900;text-align:center;
+  line-height:1.4;letter-spacing:.3px;
+  text-transform:uppercase;
+}
+.footer-mid{font-size:13.5px;color:#b0c4e0;text-align:center}
+.footer-mid strong{
+  color:#fff;font-weight:900;
+  display:block;font-size:16px;
+  margin-top:2px;
+}
+.eho{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0}
+.eho-icon{
+  width:44px;height:44px;
+  border:3px solid #fff;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+}
+.eho-label{
+  font-size:7.5px;color:#8bc34a;
+  text-align:center;font-weight:800;
+  text-transform:uppercase;letter-spacing:.4px;
+  line-height:1.3;
+}
+
+/* ── QUESTIONS STRIP ── */
+.q-strip{
+  background:#111e33;
+  padding:6px 24px;text-align:center;
+  font-size:12.5px;color:#6b7a6b;
+  font-style:italic;font-weight:600;
+  flex-shrink:0;
+}
+
+/* ══════════════ PRINT ══════════════ */
+@media print{
+  html,body{background:#fff!important;margin:0;padding:0}
+  #bar{display:none!important}
+  #wrap{padding:0!important;background:#fff!important}
+  #flyer{
+    width:8.5in!important;height:11in!important;
+    box-shadow:none!important;
+  }
+  @page{size:8.5in 11in;margin:0}
+}
+</style>
+</head>
+<body>
+
+<div id="bar">
+  <h1>🏠 ApartmentCorp · Referral Flyer Generator</h1>
+  <select id="psel" onchange="onPropertyChange()"></select>
+  <div class="phone-wrap">
+    <label>📞 Office #</label>
+    <input id="phone-input" type="tel" placeholder="Auto-filled from property" oninput="render()">
+    <span class="phone-auto-badge" id="auto-badge">✓ Auto-filled</span>
+  </div>
+  <button class="btn btn-print" onclick="window.print()">🖨 Print / Save PDF</button>
+  <span id="pcnt"></span>
+</div>
+
+<div id="wrap">
+<div id="flyer">
+
+  <!-- HERO -->
+  <div class="hero" id="hero-section">
+    <img class="prop-photo" id="prop-img" src="" alt="">
+    <div class="hero-placeholder" id="hero-placeholder"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-arc"></div>
+    <div class="logo-badge">
+      <svg class="logo-tree" viewBox="0 0 56 56" fill="none">
+        <circle cx="28" cy="28" r="28" fill="rgba(255,255,255,0.08)"/>
+        <rect x="25" y="36" width="6" height="12" fill="#fff" rx="1"/>
+        <polygon points="28,6 42,26 14,26" fill="#fff"/>
+        <polygon points="28,12 44,34 12,34" fill="#fff" opacity=".85"/>
+        <polygon points="28,19 45,40 11,40" fill="#fff" opacity=".7"/>
+      </svg>
+      <div class="logo-name" id="logo-name">PROPERTY NAME</div>
+      <div class="logo-line"></div>
+      <div class="logo-sub">Apartments</div>
+    </div>
+    <div class="hl-dashes">
+      <div class="dash"></div><div class="dash"></div><div class="dash"></div>
+    </div>
+    <div class="hero-headline">
+      <span class="hl1">REFER A FRIEND,</span>
+      <span class="hl2">GET REWARDED!</span>
+    </div>
+  </div>
+
+  <!-- GREEN RIBBON -->
+  <div class="ribbon">
+    <span class="ribbon-bar"></span>
+    <span class="ribbon-text">OUR RESIDENT REFERRAL PROGRAM</span>
+    <span class="ribbon-bar"></span>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LOVE LIVING ROW -->
+    <div class="love-row">
+      <svg class="people-svg" viewBox="0 0 82 82" fill="none">
+        <circle cx="24" cy="20" r="12" fill="#1c6699"/>
+        <path d="M4 58c0-11.1 8.9-20 20-20s20 8.9 20 20" fill="#1c6699"/>
+        <circle cx="52" cy="23" r="10" fill="#8bc34a"/>
+        <path d="M32 58c0-10.5 8.5-19 19-19s19 8.5 19 19" fill="#8bc34a"/>
+        <path d="M38 14 Q41 9 44 14 Q47 19 41 24 Q35 19 38 14Z" fill="#c0392b"/>
+        <circle cx="41" cy="16" r="14" stroke="#fff" stroke-width="2.5" fill="none" opacity=".4"/>
+      </svg>
+      <div class="love-text">
+        <h2 id="love-h">Love living here?<br>Share the experience!</h2>
+        <p>For every person you refer that moves in,<br>we will give <em>you</em></p>
+      </div>
+      <div class="reward-wrap">
+        <div class="reward-circle">
+          <div class="reward-amt">$200</div>
+          <div class="reward-sub">ON YOUR<br>TENANT LEDGER!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MID ROW -->
+    <div class="mid-row">
+      <div class="easy-box">
+        <div class="easy-hdr">
+          <div class="green-check">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M4 10.5l4 4 8-7" stroke="#1a2e5a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="easy-title">IT'S EASY!</div>
+        </div>
+        <ul class="steps">
+          <li><span class="step-num">1</span><span><strong>REFER</strong> your friends, family, or co-workers.</span></li>
+          <li><span class="step-num">2</span><span><strong>THEY</strong> apply and move in.</span></li>
+          <li><span class="step-num">3</span><span><strong>YOU</strong> get $200 on your tenant ledger!</span></li>
+        </ul>
+      </div>
+      <div class="fine-box">
+        <div class="fine-icon">📋</div>
+        <h4>The Fine Print:</h4>
+        <p>The person you refer must pay full rent on time at least <strong>twice</strong> before we add the credit to your account.</p>
+      </div>
+    </div>
+
+    <!-- PHONE ROW -->
+    <div class="phone-row">
+      <span class="phone-icon">📞</span>
+      <span class="phone-label">Leasing Office:</span>
+      <span class="phone-num" id="phone-display">Contact the Leasing Office for details.</span>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- BOTTOM BANNER -->
+  <div class="bot-banner">
+    <div class="bot-tagline">Good neighbors make the best community!</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="spread-badge">
+      <span>SPREAD<br>THE<br>WORD.<br>ENJOY<br>THE<br>REWARDS!</span>
+    </div>
+    <div class="footer-mid">
+      Thank you for being a part of
+      <strong id="footer-name">our community</strong>
+    </div>
+    <div class="eho">
+      <div class="eho-icon">
+        <svg viewBox="0 0 32 32" width="32" height="32" fill="none">
+          <rect width="32" height="32" fill="#1a2e5a"/>
+          <path d="M8 8 L24 24" stroke="white" stroke-width="1" opacity=".5"/>
+          <path d="M24 8 L8 24" stroke="white" stroke-width="1" opacity=".5"/>
+          <path d="M10 20 L10 26 L22 26 L22 20 L16 14 Z" fill="white" opacity=".9"/>
+        </svg>
+      </div>
+      <div class="eho-label">EQUAL HOUSING<br>OPPORTUNITY</div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS STRIP -->
+  <div class="q-strip" id="q-strip">
+    Questions? Contact the Leasing Office for details.
+  </div>
+
+</div><!-- /flyer -->
+</div><!-- /wrap -->
+
+<script>
+// ─────────────────────────────────────────────────────────
+// PLACEHOLDER SVGs
+// ─────────────────────────────────────────────────────────
+function placeholderSVG(label, color1, color2) {
+  return `<svg width="816" height="315" viewBox="0 0 816 315" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b8c8d8"/>
+      <stop offset="100%" stop-color="#d4dfe8"/>
+    </linearGradient>
+  </defs>
+  <rect width="816" height="315" fill="url(#sky)"/>
+  <rect y="265" width="816" height="50" fill="#7a8a6a"/>
+  <rect y="260" width="816" height="10" fill="#5a6e4a" opacity=".6"/>
+  <rect x="30" y="195" width="10" height="70" fill="#4a3a2a"/>
+  <ellipse cx="35" cy="190" rx="22" ry="28" fill="#3d6e2a"/>
+  <rect x="70" y="210" width="8" height="55" fill="#4a3a2a"/>
+  <ellipse cx="74" cy="205" rx="16" ry="22" fill="#4a8030"/>
+  <rect x="730" y="200" width="10" height="65" fill="#4a3a2a"/>
+  <ellipse cx="735" cy="195" rx="22" ry="28" fill="#3d6e2a"/>
+  <rect x="770" y="213" width="8" height="52" fill="#4a3a2a"/>
+  <ellipse cx="774" cy="208" rx="16" ry="22" fill="#4a8030"/>
+  <rect x="110" y="125" width="596" height="145" fill="${color1}" rx="3"/>
+  ${[0,1,2,3,4,5,6,7,8,9,10,11,12].map(i=>`<rect x="${110+i*46}" y="125" width="44" height="3" fill="rgba(0,0,0,.07)"/>`).join('')}
+  ${[0,1,2,3,4,5,6].map(i=>`<rect x="110" y="${145+i*20}" width="596" height="2" fill="rgba(0,0,0,.06)"/>`).join('')}
+  <rect x="104" y="115" width="608" height="16" fill="${color2}" rx="2"/>
+  <rect x="110" y="197" width="596" height="6" fill="${color2}" opacity=".6"/>
+  ${[0,1,2,3,4,5].map(i=>`
+    <rect x="${148+i*90}" y="135" width="52" height="38" fill="#c8dce8" rx="2"/>
+    <rect x="${148+i*90}" y="135" width="52" height="2" fill="${color2}" opacity=".7"/>
+    <line x1="${174+i*90}" y1="137" x2="${174+i*90}" y2="173" stroke="#a0b4c0" stroke-width="1.5"/>
+    <line x1="${148+i*90}" y1="154" x2="${200+i*90}" y2="154" stroke="#a0b4c0" stroke-width="1.5"/>
+  `).join('')}
+  ${[0,1,2,3,4,5].map(i=>`
+    <rect x="${148+i*90}" y="207" width="52" height="38" fill="#c8dce8" rx="2"/>
+    <rect x="${148+i*90}" y="207" width="52" height="2" fill="${color2}" opacity=".7"/>
+    <line x1="${174+i*90}" y1="209" x2="${174+i*90}" y2="245" stroke="#a0b4c0" stroke-width="1.5"/>
+    <line x1="${148+i*90}" y1="226" x2="${200+i*90}" y2="226" stroke="#a0b4c0" stroke-width="1.5"/>
+  `).join('')}
+  <rect x="372" y="223" width="72" height="47" fill="${color2}" rx="2"/>
+  <rect x="376" y="227" width="30" height="43" fill="#b8a888" rx="1"/>
+  <rect x="410" y="227" width="30" height="43" fill="#b8a888" rx="1"/>
+  <circle cx="407" cy="249" r="3" fill="#7a6848"/>
+  <rect x="385" y="265" width="46" height="5" fill="#c0b090" opacity=".8"/>
+  <rect x="290" y="105" width="236" height="24" fill="${color2}" rx="3"/>
+  <text x="408" y="122" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#fff" letter-spacing="1">${label.toUpperCase()}</text>
+</svg>`;
+}
+
+const regionColors = {
+  "Region 1 — FL / MS":              ["#b8a888","#5a7040"],
+  "Region 2 — OH / TX / CA / MO":    ["#c4b090","#4a6858"],
+  "Region 3 — LA / FL":              ["#b0b8a0","#485e38"],
+  "Region 4 — AR / CA / GA":         ["#c0a878","#506040"],
+  "Region 5 — NC":                   ["#b8b0a0","#4a5e30"],
+};
+
+// ─────────────────────────────────────────────────────────
+// APARTMENTS.COM PHOTO URLs
+// ─────────────────────────────────────────────────────────
+const PHOTOS = {
+  "River Pointe":             "https://images1.apartments.com/i2/FYxl2znP0fcDP2jJd3od_G41DmqxnBopPN05esNHXW8/116/river-pointe-apartments-columbus-oh-primary-photo.jpg",
+  "Jefferson Arms":           "https://images1.apartments.com/i2/S9eXUgtTrQfp9RRgQwGXqNpbfVXapAhMC7zCBjJuhA0/116/jefferson-arms-apartments-monticello-fl-primary-photo.jpg",
+  "Macedonia Garden":         "https://images1.apartments.com/i2/rY1744xS-e4qv20TQu1U9TloH51_70sEgZ8YYdjyDsg/116/macedonia-garden-apartments-panama-city-fl-primary-photo.jpg",
+  "Pelican Bay":              "https://images1.apartments.com/i2/4XZH2owHHxFrKknFS9xLtK9vK4Z2zLkiNfCa4iV1gYs/116/pelican-bay-baton-rouge-la-primary-photo.jpg",
+  "Breckenridge Village":     "https://images1.apartments.com/i2/6PuM5-EgPcqDUg7aBKBmLomYvVuSYGYXz4Fal8Mu7E0/116/breckenridge-village-ennis-tx-primary-photo.jpg",
+  "Lexington Arms":           "https://images1.apartments.com/i2/4xWC9SIhlKAMEQv5rjUlz35nB6p6iUMJL3m5d6IflHY/116/lexington-arms-waxahachie-tx-primary-photo.jpg",
+  "Grace Townhomes":          "https://images1.apartments.com/i2/XTRg-8xw5e7bLNSPfkUCBlJiNqCGYkPx3MrDZmBMCfM/116/grace-townhomes-ennis-tx-primary-photo.jpg",
+  "Grove Park Terrace":       "https://images1.apartments.com/i2/jgcz8xPWKiY0MRp5dHJOlHWfJU8PzA6JnrFME2TfE1o/116/grove-park-terrace-waxahachie-tx-primary-photo.jpg",
+  "Colonial Estates":         "https://images1.apartments.com/i2/yAp2vwvfqQ9O7C-sGH2rKUhwHlERFCpAFV2WFdVjnl8/116/colonial-estates-thibodaux-la-primary-photo.jpg",
+  "Arbor Crest":              "https://images1.apartments.com/i2/S_RoM_nSqh5vIBm7tJjnJV0mKYOE9T7BkZvKflZvSvg/116/arbor-crest-quincy-fl-primary-photo.jpg",
+  "Windsor/Yorkshire Village":"https://images1.apartments.com/i2/CfzB2f6d1MtGiqQ7JMqPe6I7R5g5S1FUFf7o6W_Lf4Y/116/windsor-yorkshire-village-shreveport-la-primary-photo.jpg",
+  "St. Charles Place":        "https://images1.apartments.com/i2/oGQpF7CjZnVkBCfBFWS3cEqkXJOzLR8QBLSQrQ3Ue7c/116/st-charles-place-lake-charles-la-primary-photo.jpg",
+  "Howell Place":             "https://images1.apartments.com/i2/V7v8e2kcVPelQx3bDAF7O-gTdXE2OqAB8G-8VNf2-WQ/116/howell-place-baton-rouge-la-primary-photo.jpg",
+  "Pirates Bend":             "https://images1.apartments.com/i2/I_TL9N6W-RNSHfK1zT-dkCe-dSFpLMzWyAh0Bqix7jQ/116/pirates-bend-baton-rouge-la-primary-photo.jpg",
+  "Pacific Pointe":           "https://images1.apartments.com/i2/aHgKJB-4r82Gt6Zq2jqNx9VWkVHEpEj7Y3JWOqKy68Y/116/pacific-pointe-stockton-ca-primary-photo.jpg",
+  "Granite Ridge":            "https://images1.apartments.com/i2/vkr8A8Mz0BhYeT5k4-AqREUEd7dZHCW3HA0UzuaRiR4/116/granite-ridge-stockton-ca-primary-photo.jpg",
+  "Columbia Village":         "https://images1.apartments.com/i2/MRb-X-4pcHEFY7INi6KVeYaUJaFiFxhZ6G1SRKtAL1E/116/columbia-village-sonora-ca-primary-photo.jpg",
+  "Forest View Senior":       "https://images1.apartments.com/i2/LKPF8C9xt9Y8GCXF5hzP-YhSDFlX2BrpHxjGm_HuDfE/116/forest-view-sonora-ca-primary-photo.jpg",
+  "Oak Hills":                "https://images1.apartments.com/i2/iS5VuD6DyF8cNEPK3bPlFpKYxHwvERJ_XqPB4W47dj4/116/oak-hills-jamestown-ca-primary-photo.jpg",
+  "Riverchase":               "https://images1.apartments.com/i2/9w7WfOwbQz5WFz3wYgUzQHHmq2sMBT6C7jDy1DJjjFU/116/riverchase-augusta-ga-primary-photo.jpg",
+  "Silver Springs Terrace":   "https://images1.apartments.com/i2/oa7aDR3Fm-fvgLKyvJuFGDtJ4MRsPLTRWb-YyaVtO0I/116/silver-springs-terrace-hickory-nc-primary-photo.jpg",
+  "Thomasville Church Homes": "https://images1.apartments.com/i2/pMDGt5J18m-E9qoGzLwJMZB_R7gxRFVIrBLmYZpkI8o/116/thomasville-church-homes-thomasville-nc-primary-photo.jpg",
+  "North Pointe":             "https://images1.apartments.com/i2/2vyGYZYpsZ9P/116/north-pointe-bossier-city-la-primary-photo.jpg",
+  "Crossroads of Lee's Summit":"https://images1.apartments.com/i2/dZdkSpSmfyHP/116/crossroads-lees-summit-mo-primary-photo.jpg",
+  "Walnut Hill":              "https://images1.apartments.com/i2/sxBzfJpBvIY3/116/walnut-hill-petersburg-va-primary-photo.jpg",
+};
+
+// ─────────────────────────────────────────────────────────
+// ALL 43 PROPERTIES — with auto-fill phone numbers
+// ─────────────────────────────────────────────────────────
+const props = [
+  // Region 1 — FL / MS
+  {r:"Region 1 — FL / MS", n:"Boca Ciega",            city:"St. Petersburg, FL",  phone:"(727) 865-1649 Ext. 216"},
+  {r:"Region 1 — FL / MS", n:"Jefferson Arms",         city:"Monticello, FL",      phone:"(850) 997-2743 Ext. 236"},
+  {r:"Region 1 — FL / MS", n:"135th Street Apts",      city:"Opa Locka, FL",       phone:"(305) 681-0711 Ext. 221"},
+  {r:"Region 1 — FL / MS", n:"Macedonia Garden",       city:"Panama City, FL",     phone:"(850) 785-9912 Ext. 222"},
+  {r:"Region 1 — FL / MS", n:"Coral Village",          city:"Cape Coral, FL",      phone:"(239) 573-9001 Ext. 251"},
+  {r:"Region 1 — FL / MS", n:"Holiday Apartments",     city:"Natchez, MS",         phone:"(601) 653-4061 Ext. 235"},
+  {r:"Region 1 — FL / MS", n:"Cumberland Apartments",  city:"Crystal Springs, MS", phone:"(601) 281-8700 Ext. 219"},
+  {r:"Region 1 — FL / MS", n:"Walnut Hill",            city:"Petersburg, VA",      phone:"(804) 722-8271 Ext. 267"},
+
+  // Region 2 — OH / TX / CA / MO
+  {r:"Region 2 — OH / TX / CA / MO", n:"River Pointe",             city:"Columbus, OH",        phone:"(614) 274-4670 Ext. 224"},
+  {r:"Region 2 — OH / TX / CA / MO", n:"Breckenridge Village",     city:"Ennis, TX",           phone:"(972) 878-2270 Ext. 238"},
+  {r:"Region 2 — OH / TX / CA / MO", n:"Lexington Arms",           city:"Waxahachie, TX",      phone:"(972) 935-0250 Ext. 239"},
+  {r:"Region 2 — OH / TX / CA / MO", n:"Grace Townhomes",          city:"Ennis, TX",           phone:"(972) 878-2040 Ext. 227"},
+  {r:"Region 2 — OH / TX / CA / MO", n:"Grove Park Terrace",       city:"Waxahachie, TX",      phone:"(972) 937-5414 Ext. 265"},
+  {r:"Region 2 — OH / TX / CA / MO", n:"La Promesa",               city:"Odessa, TX",          phone:"(432) 319-8106 Ext. 269"},
+  {r:"Region 2 — OH / TX / CA / MO", n:"New Wilmington Arms",      city:"Compton, CA",         phone:"(323) 456-7800 Ext. 211"},
+  {r:"Region 2 — OH / TX / CA / MO", n:"Crossroads of Lee's Summit",city:"Lee's Summit, MO",  phone:"(816) 554-6240 Ext. 273"},
+
+  // Region 3 — LA / FL
+  {r:"Region 3 — LA / FL", n:"Gates on Manhattan",        city:"Harvey, LA",       phone:"(504) 362-9794 Ext. 284"},
+  {r:"Region 3 — LA / FL", n:"Ruby Diamond",              city:"Marrero, LA",      phone:"(504) 507-1365 Ext. 286"},
+  {r:"Region 3 — LA / FL", n:"Star Homes",                city:"Marrero, LA",      phone:"(504) 507-1365 Ext. 286"},
+  {r:"Region 3 — LA / FL", n:"Colonial Estates",          city:"Thibodaux, LA",    phone:"(985) 999-1009 Ext. 228"},
+  {r:"Region 3 — LA / FL", n:"Marrero 3",                 city:"Harvey, LA",       phone:"(504) 507-8200 Ext. 283"},
+  {r:"Region 3 — LA / FL", n:"Arbor Crest",               city:"Quincy, FL",       phone:"(850) 629-0605 Ext. 261"},
+  {r:"Region 3 — LA / FL", n:"Windsor/Yorkshire Village", city:"Shreveport, LA",   phone:"(318) 424-4775 Ext. 291"},
+  {r:"Region 3 — LA / FL", n:"North Pointe",              city:"Bossier City, LA", phone:"(318) 222-1441 Ext. 297"},
+  {r:"Region 3 — LA / FL", n:"Granite Bayou",             city:"Baton Rouge, LA",  phone:"(318) 687-3886 Ext. 298"},
+  {r:"Region 3 — LA / FL", n:"St. Charles Place",         city:"Lake Charles, LA", phone:"(337) 478-5543 Ext. 255"},
+  {r:"Region 3 — LA / FL", n:"Pelican Bay",               city:"Baton Rouge, LA",  phone:"(225) 216-3131 Ext. 257"},
+  {r:"Region 3 — LA / FL", n:"Howell Place",              city:"Baton Rouge, LA",  phone:"(225) 357-0224 Ext. 259"},
+  {r:"Region 3 — LA / FL", n:"Pirates Bend",              city:"Baton Rouge, LA",  phone:"(225) 356-8949 Ext. 260"},
+
+  // Region 4 — AR / CA / GA
+  {r:"Region 4 — AR / CA / GA", n:"NWA (NW Arkansas)",  city:"Bentonville, AR",  phone:"(323) 917-4300 Ext. 205"},
+  {r:"Region 4 — AR / CA / GA", n:"Anaheim",            city:"Anaheim, CA",      phone:"(310) 438-6502 Ext. 212"},
+  {r:"Region 4 — AR / CA / GA", n:"Fairfax",            city:"Los Angeles, CA",  phone:"(323) 456-7800"},
+  {r:"Region 4 — AR / CA / GA", n:"Urban 1 & 2",        city:"Los Angeles, CA",  phone:"(323) 456-7800"},
+  {r:"Region 4 — AR / CA / GA", n:"Midtown Manor",      city:"Los Angeles, CA",  phone:"(323) 456-7800"},
+  {r:"Region 4 — AR / CA / GA", n:"Pacific Pointe",     city:"Stockton, CA",     phone:"(209) 478-0198 Ext. 243"},
+  {r:"Region 4 — AR / CA / GA", n:"Granite Ridge",      city:"Stockton, CA",     phone:"(209) 474-1863 Ext. 242"},
+  {r:"Region 4 — AR / CA / GA", n:"Columbia Village",   city:"Sonora, CA",       phone:"(209) 588-8000 Ext. 275"},
+  {r:"Region 4 — AR / CA / GA", n:"Forest View Senior", city:"Sonora, CA",       phone:"(209) 533-8500 Ext. 277"},
+  {r:"Region 4 — AR / CA / GA", n:"Oak Hills",          city:"Jamestown, CA",    phone:"(209) 984-5080 Ext. 279"},
+  {r:"Region 4 — AR / CA / GA", n:"River Garden",       city:"Sacramento, CA",   phone:"(916) 922-7058 Ext. 252"},
+  {r:"Region 4 — AR / CA / GA", n:"Riverchase",         city:"Augusta, GA",      phone:"(323) 917-4300"},
+
+  // Region 5 — NC
+  {r:"Region 5 — NC", n:"Silver Springs Terrace",   city:"Hickory, NC",     phone:"(828) 322-1129 Ext. 245"},
+  {r:"Region 5 — NC", n:"Thomasville Church Homes", city:"Thomasville, NC", phone:"(336) 475-2817 Ext. 295"},
+];
+
+// ── BUILD SELECT ──
+const sel = document.getElementById('psel');
+let lastR = '';
+props.forEach((p,i)=>{
+  if(p.r !== lastR){
+    const og = document.createElement('optgroup');
+    og.label = p.r; sel.appendChild(og); lastR = p.r;
+  }
+  const o = document.createElement('option');
+  o.value = i;
+  o.textContent = p.n + ' — ' + p.city;
+  sel.lastChild.appendChild(o);
+});
+document.getElementById('pcnt').textContent = props.length + ' properties · 5 regions';
+
+// ── ON PROPERTY CHANGE — auto-fill phone ──
+function onPropertyChange(){
+  const i = parseInt(sel.value);
+  if(isNaN(i)) return;
+  const p = props[i];
+  const phoneInput = document.getElementById('phone-input');
+  const badge = document.getElementById('auto-badge');
+
+  // Auto-fill the phone number from the property data
+  if(p.phone){
+    phoneInput.value = p.phone;
+    badge.style.display = 'inline-block';
+  } else {
+    phoneInput.value = '';
+    badge.style.display = 'none';
+  }
+  render();
+}
+
+// ── RENDER ──
+function render(){
+  const i = parseInt(sel.value); if(isNaN(i)) return;
+  const p = props[i];
+  const phone = document.getElementById('phone-input').value.trim();
+  const [c1,c2] = regionColors[p.r] || ["#b0b0a0","#4a5e40"];
+
+  // text updates
+  document.getElementById('logo-name').textContent = p.n.toUpperCase();
+  document.getElementById('love-h').innerHTML = 'Love living at '+p.n+'?<br>Share the experience!';
+  document.getElementById('footer-name').textContent = p.n;
+
+  // phone display
+  const phEl = document.getElementById('phone-display');
+  const qEl  = document.getElementById('q-strip');
+  if(phone){
+    phEl.textContent = phone;
+    qEl.textContent  = 'Questions? Call our Leasing Office: ' + phone;
+  } else {
+    phEl.textContent = 'Contact the Leasing Office for details.';
+    qEl.textContent  = 'Questions? Contact the Leasing Office for details.';
+  }
+
+  // photo vs placeholder
+  const imgEl   = document.getElementById('prop-img');
+  const phDiv   = document.getElementById('hero-placeholder');
+  const photoURL = PHOTOS[p.n];
+
+  if(photoURL){
+    imgEl.style.display = 'block';
+    phDiv.style.display = 'none';
+    imgEl.onerror = () => {
+      imgEl.style.display = 'none';
+      phDiv.style.display = 'flex';
+      phDiv.innerHTML = placeholderSVG(p.n, c1, c2);
+    };
+    imgEl.src = photoURL;
+  } else {
+    imgEl.style.display = 'none';
+    phDiv.style.display = 'flex';
+    phDiv.innerHTML = placeholderSVG(p.n, c1, c2);
+  }
+}
+
+// Initialize on load
+sel.value = '0';
+onPropertyChange();
+</script>
+</body>
+</html>

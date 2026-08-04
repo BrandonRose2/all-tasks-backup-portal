@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referral Flyer Generator – Apartment Corp</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;0,900;1,800;1,900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Open Sans', Arial, sans-serif; background: #2b2b2b; }
+
+/* ===== APP CONTROLS (hidden on print) ===== */
+.controls {
+  background: #1a1a2e;
+  padding: 14px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+  border-bottom: 3px solid #0f3460;
+}
+.ctrl-group { display: flex; flex-direction: column; gap: 5px; }
+.ctrl-group label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.7px; color: #8892b0; font-family: Arial;
+}
+.ctrl-group select, .ctrl-group input[type="text"] {
+  background: #0f3460; color: #fff; border: 1px solid #2d4a7a;
+  border-radius: 6px; padding: 8px 12px; font-size: 13px;
+  min-width: 280px; outline: none; font-family: Arial;
+}
+.ctrl-group select:focus, .ctrl-group input:focus { border-color: #4fc3f7; }
+
+/* Photo upload */
+.drop-zone {
+  border: 2px dashed #4fc3f7; border-radius: 8px;
+  padding: 10px 16px; text-align: center; cursor: pointer;
+  background: rgba(79,195,247,0.07); position: relative;
+  transition: background 0.2s;
+  min-width: 200px;
+}
+.drop-zone:hover, .drop-zone.drag-over { background: rgba(79,195,247,0.18); }
+.drop-zone input[type="file"] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+}
+.drop-zone .dz-title { font-size: 12px; font-weight: 700; color: #4fc3f7; font-family: Arial; }
+.drop-zone .dz-sub { font-size: 10px; color: #8892b0; font-family: Arial; }
+
+.btn-print {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: #fff; border: none; border-radius: 8px;
+  padding: 10px 28px; font-size: 14px; font-weight: 700;
+  cursor: pointer; align-self: flex-end; font-family: Arial;
+  letter-spacing: 0.5px;
+}
+.btn-print:hover { opacity: 0.88; }
+
+.preview-wrap {
+  display: flex; justify-content: center;
+  padding: 28px; background: #2b2b2b;
+}
+
+/* ===================================================
+   THE FLYER — 8.5 x 11 inches @ 96dpi = 816 x 1056px
+   =================================================== */
+#flyer {
+  width: 816px;
+  height: 1056px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.7);
+  position: relative;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* ── SECTION 1: PHOTO HERO ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 370px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #1a3a5c;
+}
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/* Dark gradient overlay bottom half */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 65%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.72) 100%);
+  pointer-events: none;
+}
+/* Dark navy arc/curve top-left behind logo */
+.hero-arc {
+  position: absolute;
+  top: 0; left: 0;
+  width: 230px; height: 140px;
+  background: #1a3a5c;
+  border-radius: 0 0 100% 0;
+  z-index: 2;
+}
+
+/* Property logo block */
+.hero-logo {
+  position: absolute;
+  top: 14px; left: 18px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 160px;
+}
+.hero-logo .tree-icon {
+  width: 54px; height: 54px;
+}
+.hero-logo .prop-name {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.05;
+}
+.hero-logo .prop-sub {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: #a8d5b5;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+  text-align: center;
+}
+/* Decorative green line under logo */
+.hero-logo .logo-rule {
+  width: 90px; height: 2px;
+  background: #5cb85c;
+  margin-top: 2px;
+}
+
+/* Headline text */
+.hero-headline {
+  position: absolute;
+  bottom: 14px; left: 22px; right: 22px;
+  z-index: 3;
+}
+.hero-headline .h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 68px;
+  font-weight: 900;
+  font-style: italic;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -1px;
+  text-shadow: 2px 4px 12px rgba(0,0,0,0.85);
+}
+.hero-headline .h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 68px;
+  font-weight: 900;
+  font-style: italic;
+  color: #7ed957;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -1px;
+  text-shadow: 2px 4px 12px rgba(0,0,0,0.85);
+}
+
+/* ── SECTION 2: GREEN BANNER ── */
+.green-banner {
+  background: #4caf50;
+  padding: 9px 22px;
+  text-align: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.green-banner::before, .green-banner::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 8px;
+  background: #388e3c;
+}
+.green-banner::before { left: 0; }
+.green-banner::after { right: 0; }
+.green-banner span {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ── SECTION 3: BODY ── */
+.body {
+  flex: 1;
+  background: #fff;
+  padding: 18px 24px 14px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+}
+
+/* Love row */
+.love-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.people-svg { flex-shrink: 0; width: 100px; }
+.love-text { flex: 1; }
+.love-text h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a3a5c;
+  line-height: 1.25;
+}
+.love-text h2 .prop-hl { color: #388e3c; }
+.love-underline {
+  width: 50px; height: 3px;
+  background: #4caf50;
+  border-radius: 2px;
+  margin: 6px 0 10px 0;
+}
+.love-text p {
+  font-size: 14px; color: #333; line-height: 1.5;
+}
+.love-text p em { font-style: italic; font-weight: 700; color: #1a3a5c; }
+
+/* $200 badge */
+.badge-200 {
+  flex-shrink: 0;
+  width: 128px; height: 128px;
+  background: radial-gradient(circle at 38% 38%, #42a5f5, #1565c0);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(21,101,192,0.55);
+  border: 4px solid #fff;
+  outline: 3px solid #42a5f5;
+  text-align: center;
+  padding: 8px;
+}
+.badge-200 .bd-dollar {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px; font-weight: 900; color: #fff; line-height: 1;
+}
+.badge-200 .bd-amount {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 50px; font-weight: 900; color: #fff; line-height: 0.85;
+}
+.badge-200 .bd-sub {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 9.5px; font-weight: 700;
+  color: #bbdefb; text-transform: uppercase;
+  letter-spacing: 0.5px; line-height: 1.4;
+}
+
+/* Easy + Fine Print row */
+.bottom-row {
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  align-items: stretch;
+  margin-top: 14px;
+}
+
+/* IT'S EASY box */
+.easy-box {
+  flex: 1.15;
+  background: #1a3a5c;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.easy-header {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+}
+.check-circle {
+  width: 34px; height: 34px;
+  background: #4caf50;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.easy-title {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px; font-weight: 900; font-style: italic;
+  color: #fff; text-transform: uppercase; letter-spacing: 1px;
+}
+.easy-steps { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.easy-steps li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13.5px; color: #d0dde8; line-height: 1.45;
+}
+.step-num {
+  background: #4caf50; color: #fff;
+  font-weight: 900; font-size: 11px;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.easy-steps li strong { color: #7ed957; font-weight: 800; }
+
+/* Fine Print box */
+.fine-box {
+  flex: 1;
+  border: 2.5px solid #1a3a5c;
+  border-radius: 10px;
+  padding: 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+.fine-icon {
+  width: 40px; height: 40px;
+  background: #e8f5e9; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.fine-box h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px; font-weight: 900; color: #1a3a5c;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.fine-box p { font-size: 13px; color: #444; line-height: 1.6; }
+.fine-box p strong { color: #1a3a5c; }
+
+/* ── SECTION 4: TAGLINE BANNER ── */
+.tagline-banner {
+  background: #4caf50;
+  padding: 10px 22px;
+  flex-shrink: 0;
+  position: relative;
+}
+.tagline-banner::before, .tagline-banner::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; width: 8px;
+  background: #388e3c;
+}
+.tagline-banner::before { left: 0; }
+.tagline-banner::after { right: 0; }
+.tagline-banner .tagline-text {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 24px; font-weight: 900; font-style: italic;
+  color: #fff; text-align: center;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+}
+
+/* ── SECTION 5: FOOTER ── */
+.footer {
+  background: #fff;
+  padding: 10px 22px 10px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  border-top: 1px solid #e0e0e0;
+}
+.megaphone-badge {
+  background: #1a3a5c; color: #fff;
+  border-radius: 8px; padding: 8px 12px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 10px; font-weight: 800;
+  text-align: center; text-transform: uppercase;
+  line-height: 1.5; letter-spacing: 0.5px;
+  min-width: 86px;
+}
+.footer-center { text-align: center; flex: 1; padding: 0 16px; }
+.footer-center p { font-size: 13px; color: #333; line-height: 1.6; }
+.footer-center p strong { color: #1a3a5c; font-weight: 800; }
+.footer-phone {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 14px; font-weight: 700; color: #1a3a5c; margin-top: 2px;
+}
+
+/* EHO logo */
+.eho-wrap { flex-shrink: 0; text-align: center; }
+.eho-wrap svg { width: 56px; height: 56px; }
+
+/* ── CONTACT BAR ── */
+.contact-bar {
+  background: #1a3a5c;
+  padding: 6px 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.contact-bar p {
+  font-size: 11px; color: #b0c4de; font-style: italic;
+}
+
+/* ===== PRINT ===== */
+@media print {
+  body, html { background: #fff !important; margin: 0; padding: 0; }
+  .controls, .preview-wrap > *:not(#flyer) { display: none !important; }
+  .preview-wrap { padding: 0; background: #fff; display: block; }
+  #flyer {
+    width: 8.5in !important;
+    height: 11in !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== CONTROLS ===== -->
+<div class="controls">
+  <div class="ctrl-group">
+    <label>Select Property</label>
+    <select id="propertySelect" onchange="updateFlyer()">
+      <optgroup label="── Region 1 · FL · MS ──">
+        <option value="Boca Ciega">Boca Ciega Apartments – St. Petersburg, FL</option>
+        <option value="Jefferson Arms">Jefferson Arms – Monticello, FL</option>
+        <option value="Opa Locka (135th Street)">Opa Locka (135th Street) – Opa Locka, FL</option>
+        <option value="Macedonia Garden">Macedonia Garden – Panama City, FL</option>
+        <option value="Coral Village">Coral Village – Cape Coral, FL</option>
+        <option value="Holiday Apartments">Holiday Apartments – Natchez, MS</option>
+        <option value="Cumberland Apartments">Cumberland Apartments – Crystal Springs, MS</option>
+        <option value="Walnut Hill">Walnut Hill – Natchez, MS</option>
+      </optgroup>
+      <optgroup label="── Region 2 · OH · TX · CA · MO ──">
+        <option value="River Pointe">River Pointe – Columbus, OH</option>
+        <option value="Breckenridge Village">Breckenridge Village – Ennis, TX</option>
+        <option value="Lexington Arms">Lexington Arms – Waxahachie, TX</option>
+        <option value="Grace Townhomes">Grace Townhomes – Ennis, TX</option>
+        <option value="Grove Park Terrace">Grove Park Terrace – Waxahachie, TX</option>
+        <option value="La Promesa">La Promesa – Odessa, TX</option>
+        <option value="New Wilmington Arms">New Wilmington Arms – Compton, CA</option>
+        <option value="Crossroads of Lee Summit">Crossroads of Lee Summit – Lee's Summit, MO</option>
+      </optgroup>
+      <optgroup label="── Region 3 · LA · FL ──">
+        <option value="Gates on Manhattan">Gates on Manhattan – Harvey, LA</option>
+        <option value="Ruby Diamond">Ruby Diamond – Marrero, LA</option>
+        <option value="Star Homes">Star Homes – Marrero, LA</option>
+        <option value="Thibodaux (Colonial Estates)">Thibodaux (Colonial Estates) – Thibodaux, LA</option>
+        <option value="Marrero 3">Marrero 3 – Harvey, LA</option>
+        <option value="Arbor Crest">Arbor Crest – Quincy, FL</option>
+        <option value="Windsor / Yorkshire Village">Windsor / Yorkshire Village – Shreveport, LA</option>
+        <option value="North Pointe">North Pointe – Bossier City, LA</option>
+        <option value="Granite Bayou">Granite Bayou – Baton Rouge, LA</option>
+        <option value="St. Charles Place">St. Charles Place – Lake Charles, LA</option>
+        <option value="Pelican Bay">Pelican Bay – Baton Rouge, LA</option>
+        <option value="Howell Place">Howell Place – Baton Rouge, LA</option>
+        <option value="Pirates Bend">Pirates Bend – Baton Rouge, LA</option>
+      </optgroup>
+      <optgroup label="── Region 4 · AR · CA · GA ──">
+        <option value="NWA">NWA – Bentonville, AR</option>
+        <option value="Anaheim">Anaheim – Anaheim, CA</option>
+        <option value="Fairfax">Fairfax – Los Angeles, CA</option>
+        <option value="Urban 1 & 2">Urban 1 &amp; 2 – Los Angeles, CA</option>
+        <option value="Midtown Manor">Midtown Manor – Los Angeles, CA</option>
+        <option value="Pacific Pointe">Pacific Pointe – Stockton, CA</option>
+        <option value="Granite Ridge">Granite Ridge – Stockton, CA</option>
+        <option value="Columbia Village">Columbia Village – Sonora, CA</option>
+        <option value="Forest View (Senior)">Forest View (Senior) – Sonora, CA</option>
+        <option value="Oak Hills">Oak Hills – Jamestown, CA</option>
+        <option value="River Garden">River Garden – Sonora, CA</option>
+        <option value="Rivercrest">Rivercrest – Augusta, GA</option>
+      </optgroup>
+      <optgroup label="── Region 5 · NC ──">
+        <option value="Silver Springs Terrace">Silver Springs Terrace – Hickory, NC</option>
+        <option value="Thomasville Church Homes">Thomasville Church Homes – Thomasville, NC</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="ctrl-group">
+    <label>Office Phone Number</label>
+    <input type="text" id="phoneInput" placeholder="(555) 555-5555 Ext. 000" oninput="updatePhone()" />
+  </div>
+
+  <div class="ctrl-group">
+    <label>📁 Upload Property Photo</label>
+    <div class="drop-zone" id="dropZone"
+         ondragover="handleDragOver(event)"
+         ondragleave="handleDragLeave(event)"
+         ondrop="handleDrop(event)">
+      <input type="file" id="fileInput" accept="image/*" onchange="handleFileSelect(event)" />
+      <div class="dz-title">📂 Drop photo here or click to browse</div>
+      <div class="dz-sub">Replaces the photo for the selected property</div>
+    </div>
+  </div>
+
+  <button class="btn-print" onclick="printFlyer()">🖨&nbsp; Print / Save as PDF</button>
+</div>
+
+<!-- ===== PREVIEW ===== -->
+<div class="preview-wrap">
+<div id="flyer">
+
+  <!-- HERO PHOTO -->
+  <div class="hero">
+    <img id="flyerPhoto" class="hero-photo" src="" alt="Property" />
+    <div class="hero-arc"></div>
+    <div class="hero-logo">
+      <!-- Tree SVG matching the Walnut Hill logo style -->
+      <svg class="tree-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="none"/>
+        <!-- Tree trunk -->
+        <rect x="36" y="56" width="8" height="14" rx="2" fill="white"/>
+        <!-- Tree layers -->
+        <polygon points="40,6 18,36 28,36 20,52 60,52 52,36 62,36" fill="white"/>
+      </svg>
+      <div class="prop-name" id="badgeName">WALNUT HILL</div>
+      <div class="prop-sub">APARTMENTS</div>
+      <div class="logo-rule"></div>
+    </div>
+    <div class="hero-headline">
+      <div class="h1">REFER A FRIEND,</div>
+      <div class="h2">GET REWARDED!</div>
+    </div>
+  </div>
+
+  <!-- GREEN BANNER -->
+  <div class="green-banner">
+    <span>OUR RESIDENT REFERRAL PROGRAM</span>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- Love row -->
+    <div class="love-row">
+      <!-- People SVG — two figures with heart, matching sample -->
+      <svg class="people-svg" viewBox="0 0 130 110" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left person (teal) -->
+        <circle cx="38" cy="30" r="18" fill="#26a69a"/>
+        <ellipse cx="38" cy="78" rx="22" ry="26" fill="#26a69a"/>
+        <!-- Right person (blue) -->
+        <circle cx="82" cy="34" r="16" fill="#1565c0"/>
+        <ellipse cx="82" cy="80" rx="20" ry="24" fill="#1565c0"/>
+        <!-- Heart above -->
+        <path d="M58,10 C58,10 50,2 44,8 C40,12 40,18 44,22 L58,37 L72,22 C76,18 76,12 72,8 C66,2 58,10 58,10 Z" fill="#e53935"/>
+      </svg>
+
+      <div class="love-text">
+        <h2>Love living at <span class="prop-hl" id="lovePropertyName">Walnut Hill Apartments</span>?<br>Share the experience!</h2>
+        <div class="love-underline"></div>
+        <p>For every person you refer that moves in, we will give <em>you</em></p>
+      </div>
+
+      <!-- $200 badge -->
+      <div class="badge-200">
+        <div class="bd-dollar">$</div>
+        <div class="bd-amount">200</div>
+        <div class="bd-sub">ON YOUR<br>TENANT<br>LEDGER!</div>
+      </div>
+    </div>
+
+    <!-- IT'S EASY + Fine Print -->
+    <div class="bottom-row">
+
+      <div class="easy-box">
+        <div class="easy-header">
+          <div class="check-circle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 13l4 4L19 7" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="easy-title">IT'S EASY!</div>
+        </div>
+        <ul class="easy-steps">
+          <li><div class="step-num">1</div><span><strong>REFER</strong> your friends, family, or co-workers.</span></li>
+          <li><div class="step-num">2</div><span><strong>THEY</strong> apply and move in.</span></li>
+          <li><div class="step-num">3</div><span><strong>YOU</strong> get $200 on your tenant ledger!</span></li>
+        </ul>
+      </div>
+
+      <div class="fine-box">
+        <div class="fine-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="14 2 14 8 20 8" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="16" y1="13" x2="8" y2="13" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"/>
+            <line x1="16" y1="17" x2="8" y2="17" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>THE FINE PRINT:</h3>
+        <p>The person you refer must pay full rent on time at least <strong>twice</strong> before we add the credit to your account.</p>
+      </div>
+
+    </div>
+  </div><!-- /body -->
+
+  <!-- TAGLINE BANNER -->
+  <div class="tagline-banner">
+    <div class="tagline-text">Good neighbors make the best community!</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="megaphone-badge">📢 SPREAD<br>THE WORD.<br>ENJOY THE<br>REWARDS!</div>
+
+    <div class="footer-center">
+      <p>Thank you for being a part of<br><strong id="footerPropName">Walnut Hill Apartments</strong>!</p>
+      <div class="footer-phone" id="footerPhone">(601) 445-5765 Ext. 267</div>
+    </div>
+
+    <!-- Equal Housing Opportunity logo -->
+    <div class="eho-wrap">
+      <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="115" fill="white"/>
+        <!-- House -->
+        <polygon points="50,5 3,44 14,44 14,90 86,90 86,44 97,44" fill="#1a3a5c"/>
+        <!-- Door cutout -->
+        <rect x="37" y="60" width="26" height="30" fill="white"/>
+        <!-- Equal bars on house -->
+        <rect x="18" y="50" width="64" height="7" fill="white" rx="2"/>
+        <rect x="18" y="62" width="64" height="7" fill="white" rx="2"/>
+        <!-- Text -->
+        <text x="50" y="102" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1a3a5c" font-family="Arial">EQUAL HOUSING</text>
+        <text x="50" y="113" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#1a3a5c" font-family="Arial">OPPORTUNITY</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- CONTACT BAR -->
+  <div class="contact-bar">
+    <p>Questions? Contact the Leasing Office for details.</p>
+  </div>
+
+</div><!-- /flyer -->
+</div><!-- /preview-wrap -->
+
+<script>
+// ===== PROPERTY DATA =====
+const properties = {
+  "Boca Ciega":                  { phone: "(727) 865-1649 Ext. 216",  photo: "photos/boca_ciega.jpg" },
+  "Jefferson Arms":               { phone: "(850) 997-2743 Ext. 236",  photo: "photos/jefferson_arms.jpg" },
+  "Opa Locka (135th Street)":     { phone: "(305) 681-0711 Ext. 221",  photo: "photos/opa_locka_135th.jpg" },
+  "Macedonia Garden":             { phone: "(850) 785-9912 Ext. 222",  photo: "photos/macedonia_garden.jpg" },
+  "Coral Village":                { phone: "(239) 573-9001 Ext. 251",  photo: "photos/coral_village.jpg" },
+  "Holiday Apartments":           { phone: "(601) 653-4061 Ext. 235",  photo: "photos/holiday_apartments.jpg" },
+  "Cumberland Apartments":        { phone: "(601) 281-8700 Ext. 219",  photo: "photos/cumberland_apartments.jpg" },
+  "Walnut Hill":                  { phone: "(601) 445-5765 Ext. 267",  photo: "photos/walnut_hill.jpg" },
+  "River Pointe":                 { phone: "(614) 274-4670 Ext. 224",  photo: "photos/river_pointe.jpg" },
+  "Breckenridge Village":         { phone: "(972) 878-2270 Ext. 238",  photo: "photos/breckenridge_village.jpg" },
+  "Lexington Arms":               { phone: "(972) 935-0250 Ext. 239",  photo: "photos/lexington_arms.jpg" },
+  "Grace Townhomes":              { phone: "(972) 878-2040 Ext. 227",  photo: "photos/grace_townhomes.jpg" },
+  "Grove Park Terrace":           { phone: "(972) 937-5414 Ext. 265",  photo: "photos/grove_park_terrace.jpg" },
+  "La Promesa":                   { phone: "(432) 319-8106 Ext. 269",  photo: "photos/la_promesa.jpg" },
+  "New Wilmington Arms":          { phone: "(323) 456-7800 Ext. 211",  photo: "photos/new_wilmington_arms.jpg" },
+  "Crossroads of Lee Summit":     { phone: "(816) 554-6240 Ext. 273",  photo: "photos/crossroads_lee_summit.jpg" },
+  "Gates on Manhattan":           { phone: "(504) 362-9794 Ext. 284",  photo: "photos/gates_on_manhattan.jpg" },
+  "Ruby Diamond":                 { phone: "(504) 507-1365 Ext. 286",  photo: "photos/ruby_diamond.jpg" },
+  "Star Homes":                   { phone: "(504) 507-1365 Ext. 286",  photo: "photos/star_homes.jpg" },
+  "Thibodaux (Colonial Estates)": { phone: "(985) 999-1009 Ext. 228",  photo: "photos/thibodaux_colonial_estates.jpg" },
+  "Marrero 3":                    { phone: "(504) 507-8200 Ext. 283",  photo: "photos/marrero_3.jpg" },
+  "Arbor Crest":                  { phone: "(850) 629-0605 Ext. 261",  photo: "photos/arbor_crest.jpg" },
+  "Windsor / Yorkshire Village":  { phone: "(318) 424-4775 Ext. 291",  photo: "photos/windsor_yorkshire.jpg" },
+  "North Pointe":                 { phone: "(318) 222-1441 Ext. 297",  photo: "photos/north_pointe.jpg" },
+  "Granite Bayou":                { phone: "(318) 687-3886 Ext. 298",  photo: "photos/granite_bayou.jpg" },
+  "St. Charles Place":            { phone: "(337) 478-5543 Ext. 255",  photo: "photos/st_charles_place.jpg" },
+  "Pelican Bay":                  { phone: "(225) 216-3131 Ext. 257",  photo: "photos/pelican_bay.jpg" },
+  "Howell Place":                 { phone: "(225) 357-0224 Ext. 259",  photo: "photos/howell_place.jpg" },
+  "Pirates Bend":                 { phone: "(225) 356-8949 Ext. 260",  photo: "photos/pirates_bend.jpg" },
+  "NWA":                          { phone: "(323) 917-4300 Ext. 205",  photo: "photos/nwa.jpg" },
+  "Anaheim":                      { phone: "(310) 438-6502 Ext. 212",  photo: "photos/anaheim.jpg" },
+  "Fairfax":                      { phone: "(323) 456-7800",            photo: "photos/fairfax.jpg" },
+  "Urban 1 & 2":                  { phone: "(323) 456-7800",            photo: "photos/urban_1_2.jpg" },
+  "Midtown Manor":                { phone: "(323) 456-7800",            photo: "photos/midtown_manor.jpg" },
+  "Pacific Pointe":               { phone: "(209) 478-0198 Ext. 243",  photo: "photos/pacific_pointe.jpg" },
+  "Granite Ridge":                { phone: "(209) 474-1863 Ext. 242",  photo: "photos/granite_ridge.jpg" },
+  "Columbia Village":             { phone: "(209) 588-8000 Ext. 275",  photo: "photos/columbia_village.jpg" },
+  "Forest View (Senior)":         { phone: "(209) 533-8500 Ext. 277",  photo: "photos/forest_view_senior.jpg" },
+  "Oak Hills":                    { phone: "(209) 984-5080 Ext. 279",  photo: "photos/oak_hills.jpg" },
+  "River Garden":                 { phone: "(916) 922-7058 Ext. 252",  photo: "photos/river_garden.jpg" },
+  "Rivercrest":                   { phone: "(323) 917-4300",            photo: "photos/rivercrest.jpg" },
+  "Silver Springs Terrace":       { phone: "(828) 322-1129 Ext. 245",  photo: "photos/silver_springs_terrace.jpg" },
+  "Thomasville Church Homes":     { phone: "(336) 475-2817 Ext. 295",  photo: "photos/thomasville_church_homes.jpg" },
+};
+
+// Per-property uploaded photo overrides
+const uploadedPhotos = {};
+
+function updateFlyer() {
+  const propName = document.getElementById('propertySelect').value;
+  const data = properties[propName];
+  if (!data) return;
+
+  // Photo
+  const imgEl = document.getElementById('flyerPhoto');
+  imgEl.src = uploadedPhotos[propName] || data.photo;
+
+  // Property name (split into lines if needed for badge)
+  document.getElementById('badgeName').textContent = propName.toUpperCase();
+
+  // Love text
+  document.getElementById('lovePropertyName').textContent = propName + ' Apartments';
+
+  // Footer
+  document.getElementById('footerPropName').textContent = propName + ' Apartments';
+
+  // Phone
+  document.getElementById('phoneInput').value = data.phone;
+  document.getElementById('footerPhone').textContent = data.phone;
+}
+
+function updatePhone() {
+  document.getElementById('footerPhone').textContent =
+    document.getElementById('phoneInput').value;
+}
+
+// Photo upload
+function handleFileSelect(e) {
+  const file = e.target.files[0];
+  if (file) loadPhoto(file);
+}
+function handleDragOver(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').classList.add('drag-over');
+}
+function handleDragLeave(e) {
+  document.getElementById('dropZone').classList.remove('drag-over');
+}
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) loadPhoto(file);
+}
+function loadPhoto(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const propName = document.getElementById('propertySelect').value;
+    uploadedPhotos[propName] = e.target.result;
+    document.getElementById('flyerPhoto').src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function printFlyer() { window.print(); }
+
+// Init
+updateFlyer();
+</script>
+</body>
+</html>

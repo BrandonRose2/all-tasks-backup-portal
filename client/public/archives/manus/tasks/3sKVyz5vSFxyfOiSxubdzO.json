@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:26.834640Z",
+  "task": {
+    "id": "3sKVyz5vSFxyfOiSxubdzO",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 19,
+    "created_at": "1784746120",
+    "updated_at": "1784746242",
+    "task_url": "https://manus.im/app/3sKVyz5vSFxyfOiSxubdzO",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "2QSSUIQUhDpBC5XhQtZYyM",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746121406",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched Star Homes and gathered verified public flyer fields."
+      },
+      "id": "7Kx4jG4Tu07PWNb33g5mFU",
+      "timestamp": "1784746242556",
+      "type": "assistant_message"
+    },
+    {
+      "id": "JXMf3p9RCvpOZDafJ2Ncb4",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746242663",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

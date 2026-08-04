@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:34:50.455632Z",
+  "task": {
+    "id": "VbXypb0nMy5K625Ive9SMs",
+    "title": "What is Ayllu Code",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 9,
+    "created_at": "1780591147",
+    "updated_at": "1780591193",
+    "task_url": "https://manus.im/app/VbXypb0nMy5K625Ive9SMs",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "2hYAfzqZXZt87g3LDFWbSs",
+      "timestamp": "1780591147178",
+      "type": "user_message",
+      "user_message": {
+        "content": "what is Ayllu Code",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "5kjU0E7ywLjk8nnCPfuUHc-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780591149696",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me research that for you right away."
+      },
+      "id": "mNseEh7qiNxw90kalvODRt",
+      "timestamp": "1780591153182",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "## Ayllu — A Hyper-Performant & Hackable Code Forge\n\n**Ayllu** (pronounced */ˈajʎu/*, \"eye-joo\") is an **open-source code forge** — a self-hosted platform for Git repository hosting and software collaboration, similar in concept to GitHub, GitLab, Gitea, or Sourcehut. It is developed primarily by [Kevin Schoon](https://kevinschoon.com) and is available at [ayllu-forge.org](https://ayllu-forge.org).\n\n---\n\n### Name & Cultural Origin\n\nThe name is borrowed from the **Quechua word *ayllu***, which refers to the traditional form of community organization in the Andes region of South America (particularly Bolivia and Peru). An ayllu is essentially an extended family or kin group that functions as a local governance and mutual-support unit among Quechua and Aymara peoples. The name was chosen to reflect the project's community-oriented philosophy.\n\n---\n\n### What Is a Code Forge?\n\nA **code forge** is a class of software that provides collaborative infrastructure for software development. This includes:\n\n- Git repository hosting and browsing\n- Issue/bug tracking\n- Code review and patch management\n- Mailing list and CI/CD integrations\n\nWell-known examples include GitHub, GitLab, Forgejo, and Sourcehut. Ayllu belongs to this category but is designed to be far more **lightweight and hackable**.\n\n---\n\n### Key Characteristics of Ayllu\n\n| Feature | Details |\n|---|---|\n| **Language** | Written in **Rust** for high performance |\n| **Target audience** | Individuals and small-to-medium software communities |\n| **Deployment model** | Optimized for **single-instance, self-hosted** deployments |\n| **Database** | SQLite-based (stateless binary in v0.4) |\n| **License** | AGPL-3.0 |\n| **Current version** | 0.4.0 (released May 2025) |\n\n---\n\n### Core Features\n\nAyllu provides a rich set of Git-centric features:\n\n- Full **Git log, clone (HTTP & SSH), blame, LFS, notes, and tag/branch** support\n- **Syntax highlighting** via Tree-sitter\n- **Markdown rendering** and diff generation\n- **Patch generation** and release exporting\n- **RSS feeds**, customizable themes, and a plugin system\n- **WebFinger protocol** support for federated identity\n- **Static hosting** and activity tracking\n\nFeatures still in progress include XMPP integration, mailing list support, ActivityPub-based federation, and continuous integration.\n\n---\n\n### Design Philosophy\n\nAyllu is explicitly designed as a **middle ground** between heavy platforms like Gitea/GitLab and minimal tools like cgit. Its design goals are:\n\n> \"Lightweight, hackable, and oriented towards individuals or small software communities.\"\n\nIt leverages the **distributed nature of Git** and integrates with open, standards-based protocols (WebFinger, ForgeFed, OCI containers, SMTP patches). The project also ships adjacent libraries such as **Maitred** (an embeddable SMTP server for email-based patch workflows) and **Papyri** (an OCI-compliant container registry).\n\n---\n\n### Summary\n\nIn short, **Ayllu** is a self-hosted, Rust-powered, open-source code forge built for developers and small communities who want a fast, customizable, and standards-respecting alternative to mainstream platforms like GitHub or GitLab. It is actively developed but still a work in progress, with federation and CI/CD features planned for future releases.\n\n- **Homepage:** [ayllu-forge.org](https://ayllu-forge.org)\n- **Source code:** [ayllu-forge.org/ayllu/ayllu](https://ayllu-forge.org/ayllu/ayllu)\n- **License:** AGPL-3.0\n"
+      },
+      "id": "HVuJXWFfhFrGSLn5jxlLbo",
+      "timestamp": "1780591193419",
+      "type": "assistant_message"
+    },
+    {
+      "id": "zurjPC6Ny8eOt0eDaKjKXG",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1780591193777",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

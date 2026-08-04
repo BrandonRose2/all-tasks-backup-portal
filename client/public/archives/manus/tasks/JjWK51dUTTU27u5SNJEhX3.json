@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:50.931501Z",
+  "task": {
+    "id": "JjWK51dUTTU27u5SNJEhX3",
+    "title": "Testing",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 5,
+    "created_at": "1782762264",
+    "updated_at": "1782762269",
+    "task_url": "https://manus.im/app/JjWK51dUTTU27u5SNJEhX3",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "3vOf1tC6u14TOSk8UAWhEC",
+      "timestamp": "1782762264471",
+      "type": "user_message",
+      "user_message": {
+        "content": "testing ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "hrDwie7wRSPq4xIvPTMRS6-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1782762265298",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Hello! I'm Manus, your autonomous AI agent. I'm up and running and ready to help you with a wide range of tasks — research, writing, coding, data analysis, web development, media generation, and much more.\n\nFeel free to send me a task whenever you're ready!"
+      },
+      "id": "PbtoOXDWY7sqS1B7DFqkd7",
+      "timestamp": "1782762269530",
+      "type": "assistant_message"
+    },
+    {
+      "id": "MowHzBluk0Fr9AKHj10quN",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1782762269805",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

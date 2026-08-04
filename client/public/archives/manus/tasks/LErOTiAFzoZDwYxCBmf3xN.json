@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:04.673510Z",
+  "task": {
+    "id": "LErOTiAFzoZDwYxCBmf3xN",
+    "title": "How to Test and Use ClickUp Connector Features",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 80,
+    "created_at": "1784067342",
+    "updated_at": "1784067513",
+    "task_url": "https://manus.im/app/LErOTiAFzoZDwYxCBmf3xN",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "16btSrTxXAONsseSOqrq2d",
+      "timestamp": "1784067341708",
+      "type": "user_message",
+      "user_message": {
+        "content": "Help me test the ClickUp connector and show me how to use its feature (e.g. show any data you fetched with it). Give me a brief about its capabilities.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "xr9SixXvpoEicF74j3zTfd-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784067342591",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Understood. I’ll verify the ClickUp connection, retrieve a small set of read-only workspace data, and then summarize the connector’s capabilities with practical usage examples."
+      },
+      "id": "loZm7Q5sTv3WQuv1I0uVvh",
+      "timestamp": "1784067347821",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "clickup_connector_test_brief.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/LErOTiAFzoZDwYxCBmf3xN/sandbox/SimF0T6fBYw7jzs9Md1wZB_1784067512868_na1fn_L2hvbWUvdWJ1bnR1L2NsaWNrdXBfY29ubmVjdG9yX3Rlc3RfYnJpZWY.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTEVyT1RpQUZ6b1pEd1l4Q0JtZjN4Ti9zYW5kYm94L1NpbUYwVDZmQll3N2p6czlNZDF3WkJfMTc4NDA2NzUxMjg2OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJOc2FXTnJkWEJmWTI5dWJtVmpkRzl5WDNSbGMzUmZZbkpwWldZLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCpsnvQAbuMNIzw-GvI1lG9CDl37LTTZSuW-I1jvG2dkwIhALOKMKXp0rS-ypikrUcBpv30QQi~A7EXesmDB1bVRg9z"
+          }
+        ],
+        "content": "**The ClickUp connector passed the test.** It is enabled and successfully performed read-only workspace discovery, hierarchy retrieval, task search, and direct task lookup.\n\nIt found **3 accessible workspaces**. Representative fetched data included the spaces **Apartment Corp Workspace**, **Team Space**, **Vacancy Report Webapp**, and **PropertyMax.ai**. A task search returned examples such as **Collections** (completed), **Vacancy Report App** (Closed), and **Phone Excellence** (completed).\n\nThe connector currently supports **52 operations**, covering task management, search, comments, attachments, time tracking, folders/lists, workspace members, chat, reminders, custom fields, and ClickUp documents. I made no changes to your account.\n\nI attached a concise report with the test evidence, capability table, and natural-language examples showing how to use the connector."
+      },
+      "id": "uEQ7YnYr30OO8kVOfuzXJn",
+      "timestamp": "1784067513084",
+      "type": "assistant_message"
+    },
+    {
+      "id": "A9CgyvNuedBuhzLMZt3xEp",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784067513291",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 3,
+      "type": "file",
+      "filename": "clickup_connector_test_brief.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/LErOTiAFzoZDwYxCBmf3xN/sandbox/SimF0T6fBYw7jzs9Md1wZB_1784067512868_na1fn_L2hvbWUvdWJ1bnR1L2NsaWNrdXBfY29ubmVjdG9yX3Rlc3RfYnJpZWY.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTEVyT1RpQUZ6b1pEd1l4Q0JtZjN4Ti9zYW5kYm94L1NpbUYwVDZmQll3N2p6czlNZDF3WkJfMTc4NDA2NzUxMjg2OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJOc2FXTnJkWEJmWTI5dWJtVmpkRzl5WDNSbGMzUmZZbkpwWldZLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCpsnvQAbuMNIzw-GvI1lG9CDl37LTTZSuW-I1jvG2dkwIhALOKMKXp0rS-ypikrUcBpv30QQi~A7EXesmDB1bVRg9z",
+      "status": "archived",
+      "bytes": 5156,
+      "archive_path": "attachments/LErOTiAFzoZDwYxCBmf3xN/3-assistant_message-0_efdcd52e8c45d9fc_clickup_connector_test_brief.md"
+    }
+  ]
+}

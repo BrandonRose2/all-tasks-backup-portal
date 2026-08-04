@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:31:11.482670Z",
+  "task": {
+    "id": "fg82FhiHIULe1ANzZxmKMQ",
+    "title": "How Do GitHub Repositories Work with Examples",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 9,
+    "created_at": "1781587399",
+    "updated_at": "1781587450",
+    "task_url": "https://manus.im/app/fg82FhiHIULe1ANzZxmKMQ",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "KQdMJ3Lrf1SsyXwsBz1uhm",
+      "timestamp": "1781587399388",
+      "type": "user_message",
+      "user_message": {
+        "content": "can you tell me how github repositories work - i need a clear breakdown because they confuse me a lot - please show examples of what pushing and pulling means etc and everything I need to deploy ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "vW5iodYYusWNV1oqzsPqXz-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1781587400241",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll put together a clear, comprehensive guide on how GitHub repositories work — covering the core concepts, pushing, pulling, branching, and everything you need to deploy. Give me a moment to write this up for you."
+      },
+      "id": "UCq1zrPWdZqCFqxY9n7S7H",
+      "timestamp": "1781587403281",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "github_guide.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/fg82FhiHIULe1ANzZxmKMQ/sandbox/Yjv1X10HDaJY4w29c8BXDn_1781587449715_na1fn_L2hvbWUvdWJ1bnR1L2dpdGh1Yl9ndWlkZQ.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvZmc4MkZoaUhJVUxlMUFOelp4bUtNUS9zYW5kYm94L1lqdjFYMTBIRGFKWTR3MjljOEJYRG5fMTc4MTU4NzQ0OTcxNV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJkcGRHaDFZbDluZFdsa1pRLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHL0szCKJWg5PmdVU5z9jGgfOi8qhFNmWNCe8qMPW4k0AiEA1EpWqK8r5fvISCzOUoXr03qq4MTwmuiDNHX6edrh7Jk_"
+          }
+        ],
+        "content": "Here is your complete guide — it covers everything from the ground up. See the attached file for the full formatted version, and here is a summary of what is covered:\n\n---\n\n## Demystifying GitHub: A Beginner's Guide\n\n### 1. Git vs. GitHub — They Are Not the Same\n**Git** is software on your computer that tracks changes to files. **GitHub** is a website that stores your Git projects in the cloud so you can share them and collaborate with others. Git is the engine; GitHub is the garage.\n\n---\n\n### 2. What is a Repository?\nA **repository (repo)** is just a folder tracked by Git. It holds all your project files *and* the full history of every change ever made. There are two kinds:\n- **Local repo** — the folder on your computer where you write code.\n- **Remote repo** — the copy hosted on GitHub.\n\n---\n\n### 3. The Core Workflow: Add → Commit → Push → Pull\n\nThink of writing a book with co-authors:\n\n| Command | What it does | Analogy |\n| :--- | :--- | :--- |\n| `git add` | Stages files you want to save | Putting chapters in a box marked \"ready\" |\n| `git commit -m \"message\"` | Saves a permanent snapshot locally | Sealing the box with a date and note |\n| `git push` | Uploads your commits to GitHub | Mailing the box to the publisher |\n| `git pull` | Downloads others' changes to your computer | Checking your mailbox for co-authors' chapters |\n\n**Example in practice:**\n```bash\n# 1. Make a change to a file, then stage it\ngit add index.html\n\n# 2. Commit it with a message describing what you did\ngit commit -m \"Add hero section to homepage\"\n\n# 3. Push it up to GitHub\ngit push origin main\n\n# 4. Later, pull down a teammate's changes\ngit pull origin main\n```\n\n---\n\n### 4. Branching — Working Safely Without Breaking Things\nA **branch** is a parallel copy of your code. You work on it freely without touching the stable `main` branch.\n\n```bash\ngit checkout -b new-feature   # Create and switch to a new branch\n# ... make changes, add, commit ...\ngit push origin new-feature   # Push the branch to GitHub\n```\n\nOn GitHub, you then open a **Pull Request (PR)** — a request to merge your branch into `main`. Teammates can review it before it goes live.\n\n---\n\n### 5. Deployment — Getting Your Code Live\nGitHub just *stores* your code. To make it a live website, you need a hosting provider. The modern workflow is:\n\n1. You merge a PR into `main` on GitHub.\n2. GitHub notifies your hosting platform automatically.\n3. The platform downloads your code, builds it, and deploys it globally within seconds.\n\n**Recommended platforms by project type:**\n\n| Project Type | Best Platform |\n| :--- | :--- |\n| Static sites / HTML / CSS | GitHub Pages, Netlify, Vercel |\n| React / Vue / Next.js apps | Vercel, Netlify |\n| Full-stack (Node, Python + DB) | Render, Heroku, Railway |\n| Enterprise / complex infra | AWS, GCP, Azure + GitHub Actions |\n\n---\n\nThe attached `.md` file has the full guide formatted for easy reading and future reference. Let me know if you want me to go deeper on any specific part — like GitHub Actions, resolving merge conflicts, or setting up a deployment pipeline step by step!"
+      },
+      "id": "GUPDluaODDoz6D8Xh4DVJI",
+      "timestamp": "1781587450061",
+      "type": "assistant_message"
+    },
+    {
+      "id": "AFsviTw0BjV4DADkdkgwNW",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1781587450325",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 3,
+      "type": "file",
+      "filename": "github_guide.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/fg82FhiHIULe1ANzZxmKMQ/sandbox/Yjv1X10HDaJY4w29c8BXDn_1781587449715_na1fn_L2hvbWUvdWJ1bnR1L2dpdGh1Yl9ndWlkZQ.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvZmc4MkZoaUhJVUxlMUFOelp4bUtNUS9zYW5kYm94L1lqdjFYMTBIRGFKWTR3MjljOEJYRG5fMTc4MTU4NzQ0OTcxNV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJkcGRHaDFZbDluZFdsa1pRLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHL0szCKJWg5PmdVU5z9jGgfOi8qhFNmWNCe8qMPW4k0AiEA1EpWqK8r5fvISCzOUoXr03qq4MTwmuiDNHX6edrh7Jk_",
+      "status": "archived",
+      "bytes": 7649,
+      "archive_path": "attachments/fg82FhiHIULe1ANzZxmKMQ/3-assistant_message-0_c74cc8902753c25f_github_guide.md"
+    }
+  ]
+}

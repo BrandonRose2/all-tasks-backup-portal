@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:27.426045Z",
+  "task": {
+    "id": "GJD1X5MnVZOmoFS0Se3NyJ",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 13,
+    "created_at": "1784746076",
+    "updated_at": "1784746149",
+    "task_url": "https://manus.im/app/GJD1X5MnVZOmoFS0Se3NyJ",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "PnSEWPshuiU2XvNcKSU7rM",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746079142",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully extracted information for Granite Ridge Apartments from the Apartment Corp portfolio page."
+      },
+      "id": "nWgGenh6AEuq8iS3F2Ookv",
+      "timestamp": "1784746149828",
+      "type": "assistant_message"
+    },
+    {
+      "id": "etmdLsBmdzjZeU95IOlOiM",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746149954",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

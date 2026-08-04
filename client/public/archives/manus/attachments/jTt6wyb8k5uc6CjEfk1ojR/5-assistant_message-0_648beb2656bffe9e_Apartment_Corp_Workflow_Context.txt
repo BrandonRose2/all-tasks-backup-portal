@@ -1,0 +1,53 @@
+# Apartment Corp Management & Automation Workflows
+
+This document contains extracted context from the Apartment Corp Notion workspace regarding their management structure, AI systems, and automated workflows.
+
+## 1. Executive Management Structure
+The "Contact List - Upper Management" database contains the key executives overseeing operations:
+- **Marc Menowitz** - Executive (mam@apartmentcorp.com)
+- **Todd Menowitz** - Executive (todd@menowitz.com)
+- **Myles Menowitz** - Executive (myles@menowitz.com)
+- **Ethan Cowles** - Operations (ethan@apartmentcorp.com)
+- **Robert Sagarang** - SaaS Director (robert@apartmentcorp.com)
+- **Brandon Rose** - SaaS (brandon@apartmentcorp.com)
+- **Nicole Chriqui** - Operations Manager (nicole@apartmentcorp.com)
+
+## 2. AI Systems & Automation Workflows
+Apartment Corp utilizes several AI and automation tools to manage their properties and staff:
+
+### Manus AI Integration
+Manus AI ($29/month) is used as the central AI software for operations. It connects to various systems to automate complex manager performance workflows.
+
+### Operations Hub & KPI Tracking
+The company uses a "PropertyMax.ai V2.0 : Operations Hub" (hosted at operationshub-aptcorp.manus.space) to track performance. 
+- Managers are evaluated based on KPI scores.
+- The system tracks metrics like leads, appointments, listings, and closings.
+- There is a specific focus on "Phone Excellence" and capturing required information on prospect calls (the "5 Golden Questions").
+
+### Vacancy Report App
+A dedicated "Vacancy Report App" (hosted at apartmentcorpvacancyreport.manus.space) is used to monitor property vacancies across the portfolio.
+
+### Automated Coaching Workflow
+The AI system (Manus) connects these data sources to automate management oversight:
+1. **Data Retrieval**: The LLM pulls real-time KPI data from the Operations Hub and live occupancy data from the Vacancy Report App.
+2. **Performance Evaluation**: It autonomously identifies underperforming managers based on these metrics.
+3. **Reporting**: It generates detailed Excel reports regarding property vacancies.
+4. **Action & Communication**: The process culminates in the AI drafting personalized constructive coaching emails to the underperforming managers.
+5. **Scheduling**: It automatically schedules follow-up meetings in the calendar to address specific operational weaknesses.
+
+## 3. Manager Contact & Tracking
+The "Managers & Assistants : Contact List" database tracks all property managers across 5 regions. It monitors:
+- 1:1 Phone Calls and Notes
+- Training Status (Date Trained, Scheduled Training)
+- Payroll and AP information
+- Property assignments and contact details
+
+## 4. Training & Development
+The "PropertyMax.ai Training Hub" includes modules on:
+- Phone Excellence
+- Marketing Training
+- Call Recordings
+- CRM Management (Prospects, Tenants, Vendors)
+- Maintenance Requests
+
+Staff are incentivized with prizes for the most conversions, highest KPI scores on the "5 Golden Questions", and highest completion of To-Do items.

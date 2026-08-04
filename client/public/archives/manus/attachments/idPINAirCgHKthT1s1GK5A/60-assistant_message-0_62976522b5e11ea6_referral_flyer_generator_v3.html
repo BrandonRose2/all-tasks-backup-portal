@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referral Flyer Generator – Apartment Corp</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Arial', sans-serif; background: #1a1a2e; color: #fff; min-height: 100vh; }
+
+  /* ===== APP HEADER ===== */
+  .app-header {
+    background: #0f3460;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 3px solid #16213e;
+  }
+  .app-header h1 { font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+  .app-header span { font-size: 12px; opacity: 0.65; }
+
+  /* ===== SIDEBAR + MAIN LAYOUT ===== */
+  .app-body {
+    display: flex;
+    min-height: calc(100vh - 56px);
+  }
+
+  /* ===== LEFT SIDEBAR ===== */
+  .sidebar {
+    width: 300px;
+    min-width: 300px;
+    background: #16213e;
+    border-right: 2px solid #0f3460;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+  }
+  .sidebar-section {
+    padding: 16px 18px;
+    border-bottom: 1px solid #0f3460;
+  }
+  .sidebar-section label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #8892b0;
+    margin-bottom: 8px;
+  }
+  .sidebar-section select,
+  .sidebar-section input[type="text"] {
+    width: 100%;
+    background: #0f3460;
+    color: #fff;
+    border: 1px solid #2d4a7a;
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .sidebar-section select:focus,
+  .sidebar-section input[type="text"]:focus { border-color: #4fc3f7; }
+
+  /* ===== DRAG & DROP PHOTO ZONE ===== */
+  .drop-zone {
+    border: 2px dashed #4fc3f7;
+    border-radius: 10px;
+    padding: 18px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    background: rgba(79,195,247,0.05);
+    position: relative;
+  }
+  .drop-zone:hover, .drop-zone.drag-over {
+    background: rgba(79,195,247,0.15);
+    border-color: #81d4fa;
+  }
+  .drop-zone .drop-icon { font-size: 28px; margin-bottom: 6px; }
+  .drop-zone .drop-title { font-size: 13px; font-weight: 700; color: #4fc3f7; margin-bottom: 4px; }
+  .drop-zone .drop-sub { font-size: 11px; color: #8892b0; line-height: 1.4; }
+  .drop-zone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Photo library grid */
+  .photo-library {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+  }
+  .photo-thumb {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.15s;
+    aspect-ratio: 4/3;
+  }
+  .photo-thumb:hover { border-color: #4fc3f7; }
+  .photo-thumb.active { border-color: #4caf50; }
+  .photo-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-thumb .thumb-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    font-size: 8px;
+    color: #fff;
+    padding: 2px 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .photo-thumb .thumb-assign {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #4caf50;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 1px 3px;
+    display: none;
+  }
+  .photo-thumb.active .thumb-assign { display: block; }
+
+  .photo-status {
+    font-size: 11px;
+    color: #8892b0;
+    margin-top: 8px;
+    text-align: center;
+  }
+  .photo-status.has-photos { color: #4caf50; }
+
+  /* Assign photo button */
+  .btn-assign {
+    width: 100%;
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+    display: none;
+  }
+  .btn-assign:hover { opacity: 0.85; }
+  .btn-assign.visible { display: block; }
+
+  /* Print button */
+  .btn-print {
+    width: calc(100% - 36px);
+    margin: 16px 18px;
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+  }
+  .btn-print:hover { opacity: 0.85; }
+
+  /* ===== MAIN PREVIEW AREA ===== */
+  .preview-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    background: #111;
+    overflow-y: auto;
+  }
+
+  /* ===== FLYER: 8.5 x 11 @ 96dpi = 816 x 1056px ===== */
+  #flyer {
+    width: 816px;
+    height: 1056px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  /* ===== PHOTO SECTION ===== */
+  .flyer-photo-section {
+    position: relative;
+    width: 100%;
+    height: 310px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .flyer-photo-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .flyer-photo-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+    pointer-events: none;
+  }
+
+  /* Property logo badge */
+  .property-logo-badge {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    z-index: 10;
+    background: rgba(255,255,255,0.96);
+    border-radius: 10px;
+    padding: 9px 14px 9px 10px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    max-width: 230px;
+  }
+  .logo-circle {
+    width: 42px;
+    height: 42px;
+    background: #1a3a5c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .prop-name-wrap { display: flex; flex-direction: column; }
+  .prop-name {
+    font-size: 14px;
+    font-weight: 900;
+    color: #1a3a5c;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .prop-sub {
+    font-size: 8.5px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2px;
+  }
+
+  /* Headline overlay */
+  .headline-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0 22px 12px 22px;
+  }
+  .headline-refer {
+    font-size: 58px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 0.95;
+    text-transform: uppercase;
+    font-style: italic;
+    text-shadow: 2px 3px 10px rgba(0,0,0,0.8);
+    letter-spacing: -1px;
+  }
+  .headline-rewarded {
+    font-size: 58px;
+    font-weight: 900;
+    color: #7ed957;
+    line-height: 0.95;
+    text-transform: uppercase;
+    font-style: italic;
+    text-shadow: 2px 3px 10px rgba(0,0,0,0.8);
+    letter-spacing: -1px;
+  }
+
+  /* Green referral banner */
+  .referral-banner {
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    padding: 9px 22px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .referral-banner span {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+  }
+
+  /* ===== FLYER BODY ===== */
+  .flyer-body {
+    flex: 1;
+    background: #fff;
+    padding: 20px 26px 16px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Love living row */
+  .love-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .people-icon-wrap { flex-shrink: 0; }
+  .love-text { flex: 1; }
+  .love-text h2 {
+    font-size: 21px;
+    font-weight: 800;
+    color: #1a3a5c;
+    line-height: 1.2;
+  }
+  .love-text h2 .prop-highlight { color: #43a047; }
+  .green-rule {
+    width: 55px;
+    height: 3px;
+    background: #43a047;
+    border-radius: 2px;
+    margin: 5px 0 9px 0;
+  }
+  .love-text p { font-size: 14px; color: #333; line-height: 1.5; }
+  .love-text p strong { color: #1a3a5c; font-weight: 800; }
+
+  /* $200 badge */
+  .badge-200 {
+    flex-shrink: 0;
+    width: 124px;
+    height: 124px;
+    background: radial-gradient(circle at 40% 40%, #29b6f6, #0277bd);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px rgba(2,119,189,0.5);
+    border: 3px solid #fff;
+    outline: 3px solid #29b6f6;
+    text-align: center;
+    padding: 6px;
+  }
+  .badge-200 .b-dollar { font-size: 18px; font-weight: 900; color: #fff; line-height: 1; }
+  .badge-200 .b-amount { font-size: 46px; font-weight: 900; color: #fff; line-height: 0.88; }
+  .badge-200 .b-sub { font-size: 9px; font-weight: 700; color: #e3f2fd; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.35; }
+
+  /* IT'S EASY + Fine Print row */
+  .easy-row {
+    display: flex;
+    gap: 14px;
+    align-items: stretch;
+    flex: 1;
+    margin-top: 16px;
+  }
+
+  .easy-box {
+    background: #1a3a5c;
+    border-radius: 10px;
+    padding: 16px 20px;
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .easy-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .check-circle {
+    width: 32px;
+    height: 32px;
+    background: #43a047;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .easy-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+  .easy-steps { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .easy-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13.5px;
+    color: #dde;
+    line-height: 1.4;
+  }
+  .step-num {
+    background: #43a047;
+    color: #fff;
+    font-weight: 900;
+    font-size: 11px;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .easy-steps li strong { color: #7ed957; font-weight: 800; }
+
+  .fine-print-box {
+    flex: 1;
+    border: 2.5px solid #1a3a5c;
+    border-radius: 10px;
+    padding: 16px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+  .fp-icon {
+    width: 38px;
+    height: 38px;
+    background: #e8f5e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fine-print-box h3 {
+    font-size: 13px;
+    font-weight: 900;
+    color: #1a3a5c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .fine-print-box p { font-size: 12.5px; color: #444; line-height: 1.55; }
+  .fine-print-box p strong { color: #1a3a5c; }
+
+  /* ===== TAGLINE BANNER ===== */
+  .tagline-section {
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    padding: 10px 22px;
+    flex-shrink: 0;
+  }
+  .tagline-text {
+    font-size: 23px;
+    font-weight: 900;
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  }
+
+  /* ===== FOOTER ===== */
+  .flyer-footer {
+    background: #fff;
+    padding: 10px 22px 10px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-top: 1px solid #e0e0e0;
+  }
+  .megaphone-badge {
+    background: #1a3a5c;
+    color: #fff;
+    border-radius: 8px;
+    padding: 7px 11px;
+    font-size: 10px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    min-width: 82px;
+  }
+  .footer-center { text-align: center; flex: 1; padding: 0 14px; }
+  .footer-center p { font-size: 13px; color: #333; line-height: 1.5; }
+  .footer-center p strong { color: #1a3a5c; font-weight: 800; }
+  .phone-line { font-size: 14px; font-weight: 700; color: #1a3a5c; margin-top: 3px; }
+
+  /* EHO Logo SVG */
+  .eho-logo { width: 54px; height: 54px; flex-shrink: 0; }
+
+  .contact-bar {
+    background: #1a3a5c;
+    text-align: center;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+  .contact-bar p { font-size: 11px; color: #b0c4de; font-style: italic; }
+
+  /* ===== PRINT STYLES ===== */
+  @media print {
+    body, html { background: #fff !important; margin: 0; padding: 0; }
+    .app-header, .sidebar, .preview-area > *:not(#flyer) { display: none !important; }
+    .app-body { display: block; }
+    .preview-area { padding: 0; background: #fff; display: block; }
+    #flyer {
+      width: 8.5in !important;
+      height: 11in !important;
+      box-shadow: none !important;
+      margin: 0 !important;
+    }
+    .headline-refer, .headline-rewarded { font-size: 58pt !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div>
+    <h1>🏠 Referral Flyer Generator</h1>
+    <span>Apartment Corp · Select a property, upload photos, and print</span>
+  </div>
+</div>
+
+<div class="app-body">
+
+  <!-- ===== LEFT SIDEBAR ===== -->
+  <div class="sidebar">
+
+    <!-- Property selector -->
+    <div class="sidebar-section">
+      <label>Select Property</label>
+      <select id="propertySelect" onchange="updateFlyer()">
+        <optgroup label="── Region 1 · FL · MS ──">
+          <option value="Boca Ciega">Boca Ciega Apartments – St. Petersburg, FL</option>
+          <option value="Jefferson Arms">Jefferson Arms – Monticello, FL</option>
+          <option value="Opa Locka (135th Street)">Opa Locka (135th Street) – Opa Locka, FL</option>
+          <option value="Macedonia Garden">Macedonia Garden – Panama City, FL</option>
+          <option value="Coral Village">Coral Village – Cape Coral, FL</option>
+          <option value="Holiday Apartments">Holiday Apartments – Natchez, MS</option>
+          <option value="Cumberland Apartments">Cumberland Apartments – Crystal Springs, MS</option>
+          <option value="Walnut Hill">Walnut Hill – Natchez, MS</option>
+        </optgroup>
+        <optgroup label="── Region 2 · OH · TX · CA · MO ──">
+          <option value="River Pointe">River Pointe – Columbus, OH</option>
+          <option value="Breckenridge Village">Breckenridge Village – Ennis, TX</option>
+          <option value="Lexington Arms">Lexington Arms – Waxahachie, TX</option>
+          <option value="Grace Townhomes">Grace Townhomes – Ennis, TX</option>
+          <option value="Grove Park Terrace">Grove Park Terrace – Waxahachie, TX</option>
+          <option value="La Promesa">La Promesa – Odessa, TX</option>
+          <option value="New Wilmington Arms">New Wilmington Arms – Compton, CA</option>
+          <option value="Crossroads of Lee Summit">Crossroads of Lee Summit – Lee's Summit, MO</option>
+        </optgroup>
+        <optgroup label="── Region 3 · LA · FL ──">
+          <option value="Gates on Manhattan">Gates on Manhattan – Harvey, LA</option>
+          <option value="Ruby Diamond">Ruby Diamond – Marrero, LA</option>
+          <option value="Star Homes">Star Homes – Marrero, LA</option>
+          <option value="Thibodaux (Colonial Estates)">Thibodaux (Colonial Estates) – Thibodaux, LA</option>
+          <option value="Marrero 3">Marrero 3 – Harvey, LA</option>
+          <option value="Arbor Crest">Arbor Crest – Quincy, FL</option>
+          <option value="Windsor / Yorkshire Village">Windsor / Yorkshire Village – Shreveport, LA</option>
+          <option value="North Pointe">North Pointe – Bossier City, LA</option>
+          <option value="Granite Bayou">Granite Bayou – Baton Rouge, LA</option>
+          <option value="St. Charles Place">St. Charles Place – Lake Charles, LA</option>
+          <option value="Pelican Bay">Pelican Bay – Baton Rouge, LA</option>
+          <option value="Howell Place">Howell Place – Baton Rouge, LA</option>
+          <option value="Pirates Bend">Pirates Bend – Baton Rouge, LA</option>
+        </optgroup>
+        <optgroup label="── Region 4 · AR · CA · GA ──">
+          <option value="NWA">NWA – Bentonville, AR</option>
+          <option value="Anaheim">Anaheim – Anaheim, CA</option>
+          <option value="Fairfax">Fairfax – Los Angeles, CA</option>
+          <option value="Urban 1 & 2">Urban 1 &amp; 2 – Los Angeles, CA</option>
+          <option value="Midtown Manor">Midtown Manor – Los Angeles, CA</option>
+          <option value="Pacific Pointe">Pacific Pointe – Stockton, CA</option>
+          <option value="Granite Ridge">Granite Ridge – Stockton, CA</option>
+          <option value="Columbia Village">Columbia Village – Sonora, CA</option>
+          <option value="Forest View (Senior)">Forest View (Senior) – Sonora, CA</option>
+          <option value="Oak Hills">Oak Hills – Jamestown, CA</option>
+          <option value="River Garden">River Garden – Sonora, CA</option>
+          <option value="Rivercrest">Rivercrest – Augusta, GA</option>
+        </optgroup>
+        <optgroup label="── Region 5 · NC ──">
+          <option value="Silver Springs Terrace">Silver Springs Terrace – Hickory, NC</option>
+          <option value="Thomasville Church Homes">Thomasville Church Homes – Thomasville, NC</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <!-- Phone number -->
+    <div class="sidebar-section">
+      <label>Office Phone Number</label>
+      <input type="text" id="phoneInput" placeholder="(555) 555-5555 Ext. 000" oninput="updatePhone()" />
+    </div>
+
+    <!-- Drag & Drop Photo Zone -->
+    <div class="sidebar-section">
+      <label>📁 Property Photos</label>
+      <div class="drop-zone" id="dropZone"
+           ondragover="handleDragOver(event)"
+           ondragleave="handleDragLeave(event)"
+           ondrop="handleDrop(event)">
+        <input type="file" id="fileInput" accept="image/*" multiple onchange="handleFileSelect(event)" />
+        <div class="drop-icon">📂</div>
+        <div class="drop-title">Drag &amp; Drop Photos Here</div>
+        <div class="drop-sub">Or click to browse.<br>Drop a whole folder of property photos at once.</div>
+      </div>
+      <div class="photo-status" id="photoStatus">No photos loaded yet</div>
+
+      <!-- Photo library thumbnails -->
+      <div class="photo-library" id="photoLibrary"></div>
+
+      <!-- Assign selected photo to current property -->
+      <button class="btn-assign" id="btnAssign" onclick="assignSelectedPhoto()">
+        ✅ Use Selected Photo for This Property
+      </button>
+    </div>
+
+    <!-- Print button -->
+    <button class="btn-print" onclick="printFlyer()">🖨&nbsp; Print / Save as PDF</button>
+
+  </div><!-- /sidebar -->
+
+  <!-- ===== MAIN PREVIEW ===== -->
+  <div class="preview-area">
+    <div id="flyer">
+
+      <!-- TOP PHOTO SECTION -->
+      <div class="flyer-photo-section">
+        <img id="flyerPhoto" src="" alt="Property Photo" />
+        <!-- Logo badge -->
+        <div class="property-logo-badge">
+          <div class="logo-circle">
+            <!-- Tree icon -->
+            <svg width="26" height="26" viewBox="0 0 60 60" fill="none">
+              <polygon points="30,4 8,34 18,34 12,56 48,56 42,34 52,34" fill="white" opacity="0.92"/>
+            </svg>
+          </div>
+          <div class="prop-name-wrap">
+            <div class="prop-name" id="badgeName">PROPERTY NAME</div>
+            <div class="prop-sub">APARTMENTS</div>
+          </div>
+        </div>
+        <!-- Headline -->
+        <div class="headline-overlay">
+          <div class="headline-refer">REFER A FRIEND,</div>
+          <div class="headline-rewarded">GET REWARDED!</div>
+        </div>
+      </div>
+
+      <!-- GREEN BANNER -->
+      <div class="referral-banner">
+        <span>⭐&nbsp; OUR RESIDENT REFERRAL PROGRAM &nbsp;⭐</span>
+      </div>
+
+      <!-- BODY -->
+      <div class="flyer-body">
+
+        <!-- Love living row -->
+        <div class="love-row">
+          <!-- People SVG -->
+          <div class="people-icon-wrap">
+            <svg width="96" height="84" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="34" cy="27" r="16" fill="#26a69a"/>
+              <ellipse cx="34" cy="68" rx="20" ry="22" fill="#26a69a"/>
+              <circle cx="76" cy="31" r="14" fill="#1565c0"/>
+              <ellipse cx="76" cy="70" rx="18" ry="20" fill="#1565c0"/>
+              <path d="M55,17 C55,17 48,9 42,15 C38,19 38,25 42,29 L55,43 L68,29 C72,25 72,19 68,15 C62,9 55,17 55,17 Z" fill="#e53935"/>
+            </svg>
+          </div>
+
+          <div class="love-text">
+            <h2>Love living at <span class="prop-highlight" id="lovePropertyName">Your Property</span>?<br>Share the experience!</h2>
+            <div class="green-rule"></div>
+            <p>For every person you refer that moves in, we will give <strong>you</strong></p>
+          </div>
+
+          <!-- $200 badge -->
+          <div class="badge-200">
+            <div class="b-dollar">$</div>
+            <div class="b-amount">200</div>
+            <div class="b-sub">ON YOUR<br>TENANT<br>LEDGER!</div>
+          </div>
+        </div>
+
+        <!-- IT'S EASY + Fine Print -->
+        <div class="easy-row">
+          <div class="easy-box">
+            <div class="easy-header">
+              <div class="check-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="easy-title">IT'S EASY!</div>
+            </div>
+            <ul class="easy-steps">
+              <li><div class="step-num">1</div><span><strong>REFER</strong> your friends, family, or co-workers.</span></li>
+              <li><div class="step-num">2</div><span><strong>THEY</strong> apply and move in.</span></li>
+              <li><div class="step-num">3</div><span><strong>YOU</strong> get $200 on your tenant ledger!</span></li>
+            </ul>
+          </div>
+
+          <div class="fine-print-box">
+            <div class="fp-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="14 2 14 8 20 8" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="13" x2="8" y2="13" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"/>
+                <line x1="16" y1="17" x2="8" y2="17" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>THE FINE PRINT:</h3>
+            <p>The person you refer must pay full rent on time at least <strong>twice</strong> before we add the credit to your account.</p>
+          </div>
+        </div>
+
+      </div><!-- /flyer-body -->
+
+      <!-- TAGLINE BANNER -->
+      <div class="tagline-section">
+        <div class="tagline-text">"Good neighbors make the best community!"</div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="flyer-footer">
+        <div class="megaphone-badge">📢 SPREAD<br>THE WORD.<br>ENJOY THE<br>REWARDS!</div>
+
+        <div class="footer-center">
+          <p>Thank you for being a part of<br><strong id="footerPropertyName">Your Property</strong>!</p>
+          <div class="phone-line" id="footerPhone"></div>
+        </div>
+
+        <!-- Equal Housing Opportunity Logo -->
+        <svg class="eho-logo" viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="130" fill="white"/>
+          <!-- House -->
+          <polygon points="60,6 4,52 18,52 18,104 102,104 102,52 116,52" fill="#1a3a5c"/>
+          <rect x="44" y="72" width="32" height="32" fill="white"/>
+          <!-- Equal bars -->
+          <rect x="22" y="58" width="76" height="8" fill="white" rx="2"/>
+          <rect x="22" y="72" width="76" height="8" fill="white" rx="2"/>
+          <!-- "EQUAL HOUSING" text -->
+          <text x="60" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a3a5c" font-family="Arial">EQUAL HOUSING</text>
+          <text x="60" y="128" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a3a5c" font-family="Arial">OPPORTUNITY</text>
+        </svg>
+      </div>
+
+      <!-- CONTACT BAR -->
+      <div class="contact-bar">
+        <p>Questions? Contact the Leasing Office for details.</p>
+      </div>
+
+    </div><!-- /flyer -->
+  </div><!-- /preview-area -->
+
+</div><!-- /app-body -->
+
+<script>
+// ===== PROPERTY DATA =====
+const properties = {
+  "Boca Ciega":                  { phone: "(727) 865-1649 Ext. 216",  photo: "boca_ciega.jpg" },
+  "Jefferson Arms":               { phone: "(850) 997-2743 Ext. 236",  photo: "jefferson_arms.jpg" },
+  "Opa Locka (135th Street)":     { phone: "(305) 681-0711 Ext. 221",  photo: "opa_locka_135th.jpg" },
+  "Macedonia Garden":             { phone: "(850) 785-9912 Ext. 222",  photo: "macedonia_garden.jpg" },
+  "Coral Village":                { phone: "(239) 573-9001 Ext. 251",  photo: "coral_village.jpg" },
+  "Holiday Apartments":           { phone: "(601) 653-4061 Ext. 235",  photo: "holiday_apartments.jpg" },
+  "Cumberland Apartments":        { phone: "(601) 281-8700 Ext. 219",  photo: "cumberland_apartments.jpg" },
+  "Walnut Hill":                  { phone: "(804) 722-8271 Ext. 267",  photo: "walnut_hill.jpg" },
+  "River Pointe":                 { phone: "(614) 274-4670 Ext. 224",  photo: "river_pointe.jpg" },
+  "Breckenridge Village":         { phone: "(972) 878-2270 Ext. 238",  photo: "breckenridge_village.jpg" },
+  "Lexington Arms":               { phone: "(972) 935-0250 Ext. 239",  photo: "lexington_arms.jpg" },
+  "Grace Townhomes":              { phone: "(972) 878-2040 Ext. 227",  photo: "grace_townhomes.jpg" },
+  "Grove Park Terrace":           { phone: "(972) 937-5414 Ext. 265",  photo: "grove_park_terrace.jpg" },
+  "La Promesa":                   { phone: "(432) 319-8106 Ext. 269",  photo: "la_promesa.jpg" },
+  "New Wilmington Arms":          { phone: "(323) 456-7800 Ext. 211",  photo: "new_wilmington_arms.jpg" },
+  "Crossroads of Lee Summit":     { phone: "(816) 554-6240 Ext. 273",  photo: "crossroads_lee_summit.jpg" },
+  "Gates on Manhattan":           { phone: "(504) 362-9794 Ext. 284",  photo: "gates_on_manhattan.jpg" },
+  "Ruby Diamond":                 { phone: "(504) 507-1365 Ext. 286",  photo: "ruby_diamond.jpg" },
+  "Star Homes":                   { phone: "(504) 507-1365 Ext. 286",  photo: "star_homes.jpg" },
+  "Thibodaux (Colonial Estates)": { phone: "(985) 999-1009 Ext. 228",  photo: "thibodaux_colonial_estates.jpg" },
+  "Marrero 3":                    { phone: "(504) 507-8200 Ext. 283",  photo: "marrero_3.jpg" },
+  "Arbor Crest":                  { phone: "(850) 629-0605 Ext. 261",  photo: "arbor_crest.jpg" },
+  "Windsor / Yorkshire Village":  { phone: "(318) 424-4775 Ext. 291",  photo: "windsor_yorkshire.jpg" },
+  "North Pointe":                 { phone: "(318) 222-1441 Ext. 297",  photo: "north_pointe.jpg" },
+  "Granite Bayou":                { phone: "(318) 687-3886 Ext. 298",  photo: "granite_bayou.jpg" },
+  "St. Charles Place":            { phone: "(337) 478-5543 Ext. 255",  photo: "st_charles_place.jpg" },
+  "Pelican Bay":                  { phone: "(225) 216-3131 Ext. 257",  photo: "pelican_bay.jpg" },
+  "Howell Place":                 { phone: "(225) 357-0224 Ext. 259",  photo: "howell_place.jpg" },
+  "Pirates Bend":                 { phone: "(225) 356-8949 Ext. 260",  photo: "pirates_bend.jpg" },
+  "NWA":                          { phone: "(323) 917-4300 Ext. 205",  photo: "nwa.jpg" },
+  "Anaheim":                      { phone: "(310) 438-6502 Ext. 212",  photo: "anaheim.jpg" },
+  "Fairfax":                      { phone: "(323) 456-7800",            photo: "fairfax.jpg" },
+  "Urban 1 & 2":                  { phone: "(323) 456-7800",            photo: "urban_1_2.jpg" },
+  "Midtown Manor":                { phone: "(323) 456-7800",            photo: "midtown_manor.jpg" },
+  "Pacific Pointe":               { phone: "(209) 478-0198 Ext. 243",  photo: "pacific_pointe.jpg" },
+  "Granite Ridge":                { phone: "(209) 474-1863 Ext. 242",  photo: "granite_ridge.jpg" },
+  "Columbia Village":             { phone: "(209) 588-8000 Ext. 275",  photo: "columbia_village.jpg" },
+  "Forest View (Senior)":         { phone: "(209) 533-8500 Ext. 277",  photo: "forest_view_senior.jpg" },
+  "Oak Hills":                    { phone: "(209) 984-5080 Ext. 279",  photo: "oak_hills.jpg" },
+  "River Garden":                 { phone: "(916) 922-7058 Ext. 252",  photo: "river_garden.jpg" },
+  "Rivercrest":                   { phone: "(323) 917-4300",            photo: "rivercrest.jpg" },
+  "Silver Springs Terrace":       { phone: "(828) 322-1129 Ext. 245",  photo: "silver_springs_terrace.jpg" },
+  "Thomasville Church Homes":     { phone: "(336) 475-2817 Ext. 295",  photo: "thomasville_church_homes.jpg" },
+};
+
+// ===== PHOTO LIBRARY =====
+// Stores: { fileName, dataURL, assignedTo (property name or null) }
+let photoLibrary = [];
+let selectedPhotoIndex = null;
+
+// Per-property custom photo overrides (dataURL)
+const customPhotos = {};
+
+// ===== AUTO-MATCH: try to match filename to a property =====
+function autoMatch(fileName) {
+  const base = fileName.toLowerCase().replace(/[^a-z0-9]/g, ' ').trim();
+  let bestMatch = null;
+  let bestScore = 0;
+  for (const propName of Object.keys(properties)) {
+    const propNorm = propName.toLowerCase().replace(/[^a-z0-9]/g, ' ').trim();
+    const propWords = propNorm.split(' ').filter(w => w.length > 2);
+    let score = 0;
+    for (const word of propWords) {
+      if (base.includes(word)) score++;
+    }
+    if (score > bestScore) { bestScore = score; bestMatch = propName; }
+  }
+  return bestScore >= 1 ? bestMatch : null;
+}
+
+// ===== HANDLE FILE INPUT =====
+function handleFileSelect(e) {
+  processFiles(Array.from(e.target.files));
+}
+
+function handleDragOver(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').classList.add('drag-over');
+}
+function handleDragLeave(e) {
+  document.getElementById('dropZone').classList.remove('drag-over');
+}
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').classList.remove('drag-over');
+  const items = e.dataTransfer.items;
+  const files = [];
+  if (items) {
+    for (let i = 0; i < items.length; i++) {
+      const entry = items[i].webkitGetAsEntry ? items[i].webkitGetAsEntry() : null;
+      if (entry && entry.isDirectory) {
+        readDirectory(entry, files, () => processFiles(files));
+        return;
+      } else {
+        const f = items[i].getAsFile();
+        if (f && f.type.startsWith('image/')) files.push(f);
+      }
+    }
+  } else {
+    for (const f of e.dataTransfer.files) {
+      if (f.type.startsWith('image/')) files.push(f);
+    }
+  }
+  processFiles(files);
+}
+
+function readDirectory(dirEntry, files, done) {
+  const reader = dirEntry.createReader();
+  reader.readEntries(entries => {
+    let pending = entries.length;
+    if (!pending) { done(); return; }
+    entries.forEach(entry => {
+      if (entry.isFile) {
+        entry.file(f => {
+          if (f.type.startsWith('image/')) files.push(f);
+          if (--pending === 0) done();
+        });
+      } else if (entry.isDirectory) {
+        readDirectory(entry, files, () => { if (--pending === 0) done(); });
+      } else {
+        if (--pending === 0) done();
+      }
+    });
+  });
+}
+
+function processFiles(files) {
+  if (!files.length) return;
+  let loaded = 0;
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const dataURL = e.target.result;
+      const matched = autoMatch(file.name);
+      const entry = { fileName: file.name, dataURL, assignedTo: matched };
+      photoLibrary.push(entry);
+      // Auto-apply if matched
+      if (matched && !customPhotos[matched]) {
+        customPhotos[matched] = dataURL;
+      }
+      loaded++;
+      if (loaded === files.length) {
+        renderPhotoLibrary();
+        updateFlyer();
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// ===== RENDER PHOTO LIBRARY THUMBNAILS =====
+function renderPhotoLibrary() {
+  const lib = document.getElementById('photoLibrary');
+  const status = document.getElementById('photoStatus');
+  lib.innerHTML = '';
+  selectedPhotoIndex = null;
+  document.getElementById('btnAssign').classList.remove('visible');
+
+  if (!photoLibrary.length) {
+    status.textContent = 'No photos loaded yet';
+    status.className = 'photo-status';
+    return;
+  }
+
+  const matched = photoLibrary.filter(p => p.assignedTo).length;
+  status.textContent = `${photoLibrary.length} photo${photoLibrary.length > 1 ? 's' : ''} loaded · ${matched} auto-matched`;
+  status.className = 'photo-status has-photos';
+
+  photoLibrary.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'photo-thumb' + (p.assignedTo ? ' active' : '');
+    div.onclick = () => selectPhoto(i);
+    div.innerHTML = `
+      <img src="${p.dataURL}" alt="${p.fileName}" />
+      <div class="thumb-label">${p.fileName}</div>
+      <div class="thumb-assign">${p.assignedTo ? '✓' : ''}</div>
+    `;
+    lib.appendChild(div);
+  });
+}
+
+function selectPhoto(index) {
+  selectedPhotoIndex = index;
+  // Highlight selected
+  document.querySelectorAll('.photo-thumb').forEach((el, i) => {
+    el.style.outline = i === index ? '2px solid #4fc3f7' : '';
+  });
+  document.getElementById('btnAssign').classList.add('visible');
+}
+
+function assignSelectedPhoto() {
+  if (selectedPhotoIndex === null) return;
+  const propName = document.getElementById('propertySelect').value;
+  const photo = photoLibrary[selectedPhotoIndex];
+  customPhotos[propName] = photo.dataURL;
+  photo.assignedTo = propName;
+  renderPhotoLibrary();
+  updateFlyer();
+}
+
+// ===== FLYER UPDATE =====
+function photoPath(filename) {
+  return 'photos/' + filename;
+}
+
+function updateFlyer() {
+  const sel = document.getElementById('propertySelect');
+  const propName = sel.value;
+  const data = properties[propName];
+  if (!data) return;
+
+  // Photo: custom uploaded > default file
+  const imgEl = document.getElementById('flyerPhoto');
+  if (customPhotos[propName]) {
+    imgEl.src = customPhotos[propName];
+  } else {
+    imgEl.src = photoPath(data.photo);
+  }
+
+  // Property name in badge
+  document.getElementById('badgeName').textContent = propName.toUpperCase();
+
+  // Love text
+  document.getElementById('lovePropertyName').textContent = propName + ' Apartments';
+
+  // Footer
+  document.getElementById('footerPropertyName').textContent = propName + ' Apartments';
+
+  // Phone (auto-fill, allow manual override)
+  const phoneInput = document.getElementById('phoneInput');
+  phoneInput.value = data.phone;
+  document.getElementById('footerPhone').textContent = data.phone;
+}
+
+function updatePhone() {
+  const phone = document.getElementById('phoneInput').value;
+  document.getElementById('footerPhone').textContent = phone;
+}
+
+function printFlyer() {
+  window.print();
+}
+
+// Init
+updateFlyer();
+</script>
+</body>
+</html>

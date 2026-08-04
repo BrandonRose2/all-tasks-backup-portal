@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:19.665539Z",
+  "task": {
+    "id": "DuhN16TwZ4ZYTso1tfbVTP",
+    "title": "Best Supplements for Nerve Support with Amazon Links",
+    "status": "stopped",
+    "type": "agent_subtask",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 156,
+    "created_at": "1784837778",
+    "updated_at": "1784838249",
+    "task_url": "https://manus.im/app/DuhN16TwZ4ZYTso1tfbVTP",
+    "message_count": 0
+  },
+  "event_count": 7,
+  "events": [
+    {
+      "id": "beJnJTTgtdkYkv5bIXzhWJ",
+      "timestamp": "1784837778925",
+      "type": "user_message",
+      "user_message": {
+        "content": "Research the best supplements to take for nerve support/nerve health. Find the top recommended supplements with Amazon links for each one.\n\nLook for:\n- The most commonly recommended nerve support supplements (e.g., B vitamins, Alpha Lipoic Acid, Acetyl-L-Carnitine, Lion's Mane, etc.)\n- Specific highly-rated products on Amazon for each supplement type\n- Include the Amazon product links\n\nCreate a document at /home/ubuntu/nerve_supplements.md that includes:\n1. Each supplement name and why it helps with nerve health/support\n2. A specific recommended product on Amazon (name, brand, key details)\n3. The Amazon link for each product\n4. Any dosage notes or tips\n\nFocus on supplements that are well-reviewed and commonly recommended by health professionals for nerve support, neuropathy relief, or nerve regeneration. Include a mix of individual supplements and comprehensive nerve support formulas.\n\nSearch Amazon for these products and provide direct links.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "1F0PHcv4wkE8O5EVl7vyHV-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784837779449",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I’ll prepare the requested source-supported guide, including verified Amazon product links and concise safety notes. I’ll distinguish evidence-supported options from supplements with more limited evidence."
+      },
+      "id": "skFm0jHR7iztoXr1ghrRsv",
+      "timestamp": "1784837809628",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Amazon’s storefront is blocked in this workspace, so I can verify direct Amazon product URLs from Amazon-indexed results but cannot independently confirm live star ratings or review counts on the listings. I’ll use established-brand products, note that Amazon ratings are time-sensitive, and preserve the direct links you requested."
+      },
+      "id": "gBvI2AiFj65JqV6aFNMoLe",
+      "timestamp": "1784838005445",
+      "type": "assistant_message"
+    },
+    {
+      "id": "NJVSGSFZF4GW3YRNNY17zM",
+      "timestamp": "1784838225441",
+      "type": "user_message",
+      "user_message": {
+        "content": "Please wrap up and write the final document to /home/ubuntu/nerve_supplements.md now with whatever research you have. The user is waiting.",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "nerve_supplements.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/DuhN16TwZ4ZYTso1tfbVTP/sandbox/XC4cnoeQl32m7Ni2KJaCVA_1784838248625_na1fn_L2hvbWUvdWJ1bnR1L25lcnZlX3N1cHBsZW1lbnRz.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvRHVoTjE2VHdaNFpZVHNvMXRmYlZUUC9zYW5kYm94L1hDNGNub2VRbDMybTdOaTJLSmFDVkFfMTc4NDgzODI0ODYyNV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDI1bGNuWmxYM04xY0hCc1pXMWxiblJ6Lm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg2NzUyMDAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIBs1eXrqQ0WgyR2W0IE2wm2ZvtJtYluMlxFRLMdmAhxRAiEA2~lAubULV-93lZgfWAfcYPPH355znYO0U0gzRgNVqOk_"
+          }
+        ],
+        "content": "Here is the comprehensive guide on nerve support supplements, including product recommendations and Amazon links, as requested. Please remember to consult with a healthcare professional before starting any new supplement regimen."
+      },
+      "id": "n6Fg9ubHekILgWprqACtRB",
+      "timestamp": "1784838248968",
+      "type": "assistant_message"
+    },
+    {
+      "id": "loajdKD50RlLeXPAQYWKMF",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784838249145",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "nerve_supplements.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/DuhN16TwZ4ZYTso1tfbVTP/sandbox/XC4cnoeQl32m7Ni2KJaCVA_1784838248625_na1fn_L2hvbWUvdWJ1bnR1L25lcnZlX3N1cHBsZW1lbnRz.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvRHVoTjE2VHdaNFpZVHNvMXRmYlZUUC9zYW5kYm94L1hDNGNub2VRbDMybTdOaTJLSmFDVkFfMTc4NDgzODI0ODYyNV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDI1bGNuWmxYM04xY0hCc1pXMWxiblJ6Lm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg2NzUyMDAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIBs1eXrqQ0WgyR2W0IE2wm2ZvtJtYluMlxFRLMdmAhxRAiEA2~lAubULV-93lZgfWAfcYPPH355znYO0U0gzRgNVqOk_",
+      "status": "archived",
+      "bytes": 10254,
+      "archive_path": "attachments/DuhN16TwZ4ZYTso1tfbVTP/5-assistant_message-0_c2299ed62c51683d_nerve_supplements.md"
+    }
+  ]
+}

@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brandon Rose — Portfolio Constellation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+  :root{
+    --bg:#030308;
+    --panel-bg: rgba(10,12,20,0.65);
+    --panel-border: rgba(255,255,255,0.08);
+    --text:#e8ecf5;
+    --text-dim:#8892a8;
+    --c-platform:#ff7a1a;
+    --c-operations:#22d3ee;
+    --c-financial:#facc15;
+    --c-marketing:#ec4899;
+    --c-personal:#a78bfa;
+    --c-code:#94a3b8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;width:100%;height:100%;background:var(--bg);overflow:hidden;
+    font-family:'Segoe UI',ui-sans-serif,system-ui,-apple-system,sans-serif;color:var(--text);}
+  /* Static surreal stage — the app/site carousel is the only moving layer. */
+  #bg-art{position:fixed;inset:0;z-index:0;overflow:hidden;
+    background:url('./assets/dali-bg.jpg') center 42%/cover no-repeat;pointer-events:none;}
+  #bg-art::after{content:'';position:absolute;inset:0;z-index:1;
+    background:radial-gradient(ellipse at 50% 42%, rgba(3,3,8,0) 4%, rgba(3,3,8,0.26) 58%, rgba(3,3,8,0.76) 100%),
+               linear-gradient(180deg, rgba(3,3,8,0.16), rgba(3,3,8,0.44));}
+
+  /* Liquid Glass Base */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.01);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  #scene-container{position:fixed;inset:0;z-index:1;}
+  #scene-container canvas{display:block;cursor:grab;}
+  #scene-container canvas.hovering{cursor:pointer;}
+
+  #hud{position:fixed;top:0;left:0;right:0;padding:24px 28px;pointer-events:none;
+    display:flex;flex-direction:column;gap:14px;z-index:10;}
+  #hud .title-block{pointer-events:none;}
+  #hud h1{margin:0;font-family:'Instrument Serif', serif;font-size:38px;font-weight:400;letter-spacing:0;color:#fff;}
+  #hud h1 span{font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;color:var(--text-dim);font-weight:400;display:block;margin-top:2px;}
+  #hud .hint{margin:2px 0 0;font-size:12px;color:var(--text-dim);}
+
+  #filters{display:flex;flex-wrap:wrap;gap:8px;pointer-events:auto;}
+  .pill{padding:8px 18px;border-radius:999px;font-size:13px;font-weight:500;
+    color:var(--text);cursor:pointer;display:flex;align-items:center;gap:8px;
+    transition:transform .15s ease, background .15s ease;}
+  .pill.liquid-glass{background:rgba(255,255,255,0.02);}
+  .pill:hover{background:rgba(255,255,255,0.05);transform:translateY(-1px);}
+  .pill.active{background:rgba(255,255,255,0.08);box-shadow:inset 0 1px 1px rgba(255,255,255,0.15);}
+  .pill .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+  #tooltip{position:fixed;pointer-events:none;z-index:15;padding:6px 10px;border-radius:8px;
+    background:rgba(10,12,20,0.85);border:1px solid var(--panel-border);font-size:12px;
+    color:var(--text);transform:translate(-50%,-140%);opacity:0;transition:opacity .12s ease;
+    white-space:nowrap;}
+  #tooltip.show{opacity:1;}
+
+  #editToggle{margin-left:auto;pointer-events:auto;}
+  #editToggle.active{background:#fff;color:#0a0a12;border-color:#fff;}
+
+  #editToolbar{display:none;align-items:center;gap:8px;pointer-events:auto;}
+  body.edit-mode #editToolbar{display:flex;}
+  #editToolbar .draft-badge{font-size:11px;color:var(--text-dim);margin-right:4px;}
+  #editToolbar button{padding:6px 14px;border-radius:999px;font-size:12px;font-weight:500;
+    background:var(--panel-bg);border:1px solid var(--panel-border);color:var(--text);
+    cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+  #editToolbar button:hover{border-color:rgba(255,255,255,0.35);}
+  #addProjectBtn{display:none;position:fixed;right:28px;bottom:28px;z-index:19;padding:14px 20px;
+    border-radius:999px;background:#fff;color:#0a0a12;font-weight:600;font-size:14px;border:none;
+    cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+  body.edit-mode #addProjectBtn{display:block;}
+
+  .side-panel{position:fixed;top:0;right:0;height:100%;width:380px;max-width:88vw;
+    background:rgba(5,7,12,0.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+    border-left:1px solid rgba(255,255,255,0.08);z-index:20;
+    transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.9,.25,1);
+    padding:28px 26px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;}
+  .side-panel.open{transform:translateX(0);}
+  .side-panel .close-btn{position:absolute;top:20px;right:20px;background:none;border:none;
+    color:var(--text-dim);font-size:20px;cursor:pointer;line-height:1;padding:4px;}
+  .side-panel .close-btn:hover{color:var(--text);}
+
+  #detail-panel .cat-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;
+    text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);margin-top:26px;}
+  #detail-panel .cat-badge .dot{width:8px;height:8px;border-radius:50%;}
+  #detail-panel h2{margin:6px 0 0;font-family:'Instrument Serif', serif;font-size:42px;font-weight:400;line-height:1.1;color:#fff;}
+  #detail-panel .subtitle{margin:0;font-size:13px;color:var(--text-dim);}
+  #detail-panel p.desc{margin:10px 0 0;font-size:14px;line-height:1.55;color:#c7cede;}
+  #detail-panel a.launch{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;
+    gap:8px;padding:12px 18px;border-radius:10px;background:#fff;color:#0a0a12;font-weight:600;
+    font-size:14px;text-decoration:none;transition:transform .15s ease, opacity .15s ease;}
+  #detail-panel a.launch:hover{transform:translateY(-1px);}
+  #detail-panel .launch.disabled{background:rgba(255,255,255,0.08);color:var(--text-dim);
+    pointer-events:none;font-weight:500;}
+  #detail-panel .info-block{margin-top:18px;padding-top:16px;border-top:1px solid var(--panel-border);}
+  #detail-panel .info-block h3{margin:0 0 8px;font-size:11px;text-transform:uppercase;
+    letter-spacing:1px;color:var(--text-dim);font-weight:600;}
+  #detail-panel .info-block p{margin:0;font-size:13.5px;line-height:1.55;color:#c7cede;}
+  #detail-panel .info-block ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6;color:#c7cede;}
+  #detail-panel .info-block ul li{margin-bottom:2px;}
+
+  #edit-panel h2{margin:26px 0 4px;font-size:20px;font-weight:600;}
+  #edit-panel label{font-size:12px;color:var(--text-dim);display:flex;flex-direction:column;gap:6px;}
+  #edit-panel input, #edit-panel select, #edit-panel textarea{
+    font:inherit;font-size:14px;color:var(--text);background:rgba(255,255,255,0.06);
+    border:1px solid var(--panel-border);border-radius:8px;padding:9px 10px;resize:vertical;}
+  #edit-panel input:focus, #edit-panel select:focus, #edit-panel textarea:focus{
+    outline:none;border-color:rgba(255,255,255,0.35);}
+  #edit-panel .form-actions{margin:auto -26px -28px;display:flex;gap:10px;
+    position:sticky;bottom:0;padding:14px 26px 22px;background:rgba(10,12,20,0.92);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-top:1px solid var(--panel-border);}
+  #edit-panel .form-actions button{flex:1;padding:12px 16px;border-radius:10px;font-size:14px;
+    font-weight:600;cursor:pointer;border:none;}
+  #edit-panel #f-save{background:#fff;color:#0a0a12;}
+  #edit-panel #f-save:hover{opacity:0.9;}
+  #edit-panel #f-delete{background:rgba(239,68,68,0.15);color:#f87171;display:none;}
+  #edit-panel #f-delete:hover{background:rgba(239,68,68,0.25);}
+  #edit-panel .hint-small{font-size:11px;color:var(--text-dim);margin:-4px 0 0;}
+
+  @media (max-width:640px){
+    #hud{padding:16px;}
+    #hud h1{font-size:17px;}
+    .pill{padding:5px 10px;font-size:11px;}
+    .side-panel{width:100%;max-width:100%;}
+    #addProjectBtn{right:16px;bottom:16px;}
+  }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+  <div id="bg-art" aria-hidden="true"></div>
+  <div id="scene-container"></div>
+
+  <div id="hud">
+    <div class="title-block" style="display:flex;align-items:flex-start;">
+      <div>
+        <h1>Brandon Rose <span>— Portfolio Constellation</span></h1>
+        <p class="hint">Drag to orbit · Scroll to zoom · Click a node to open a project</p>
+      </div>
+      <button class="pill liquid-glass" id="editToggle">✎ Edit Mode</button>
+    </div>
+    <div id="filters"></div>
+    <div id="editToolbar">
+      <span class="draft-badge" id="draftBadge"></span>
+      <button id="exportBtn">Export projects.json</button>
+      <button id="resetBtn">Reset to published</button>
+    </div>
+  </div>
+
+  <div id="tooltip"></div>
+
+  <button id="addProjectBtn">+ Add Project</button>
+
+  <div id="detail-panel" class="side-panel liquid-glass">
+    <button class="close-btn" id="closePanel" aria-label="Close">✕</button>
+    <div class="cat-badge"><span class="dot"></span><span id="d-cat"></span></div>
+    <h2 id="d-title"></h2>
+    <p class="subtitle" id="d-subtitle"></p>
+    <p class="desc" id="d-desc"></p>
+    <div class="info-block" id="d-built-block">
+      <h3>How it was made</h3>
+      <p id="d-built"></p>
+    </div>
+    <div class="info-block" id="d-features-block">
+      <h3>Features</h3>
+      <ul id="d-features"></ul>
+    </div>
+    <div class="info-block" id="d-howto-block">
+      <h3>How to use it</h3>
+      <p id="d-howto"></p>
+    </div>
+    <a class="launch" id="d-launch" target="_blank" rel="noopener noreferrer">Launch App ↗</a>
+  </div>
+
+  <div id="edit-panel" class="side-panel liquid-glass">
+    <button class="close-btn" id="closeEditPanel" aria-label="Close">✕</button>
+    <h2 id="edit-heading">Add Project</h2>
+    <label>Title
+      <input id="f-title" type="text" placeholder="Project name" />
+    </label>
+    <label>Subtitle
+      <input id="f-subtitle" type="text" placeholder="Short subtitle" />
+    </label>
+    <label>Category
+      <select id="f-category"></select>
+    </label>
+    <label>Size / Importance
+      <select id="f-tier">
+        <option value="1">Hero (large, close)</option>
+        <option value="2">Standard</option>
+        <option value="3">Compact (small, distant)</option>
+      </select>
+    </label>
+    <label>Description
+      <textarea id="f-desc" rows="2" placeholder="One-line summary shown under the title"></textarea>
+    </label>
+    <label>How it was made
+      <textarea id="f-built" rows="2" placeholder="e.g. Built with Claude — static site on GitHub Pages"></textarea>
+    </label>
+    <label>Features <span class="hint-small">one per line</span>
+      <textarea id="f-features" rows="4" placeholder="Feature one&#10;Feature two"></textarea>
+    </label>
+    <label>How to use it
+      <textarea id="f-howto" rows="2" placeholder="Short usage instructions"></textarea>
+    </label>
+    <label>Live URL <span class="hint-small">leave blank if internal/no public link</span>
+      <input id="f-url" type="text" placeholder="https://…" />
+    </label>
+    <label>Image URL <span class="hint-small">leave blank for an auto-generated card</span>
+      <input id="f-image" type="text" placeholder="screenshots/yourfile.png or https://…" />
+    </label>
+    <div class="form-actions">
+      <button id="f-delete">Delete</button>
+      <button id="f-save">Save</button>
+    </div>
+  </div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+/* ---------------------------------------------------------------------
+   DATA — every project pulled from brandonrosewebsites Google Site
+--------------------------------------------------------------------- */
+const CATEGORIES = {
+  platform:   { label: 'Platform',   color: 0xff7a1a },
+  operations: { label: 'Operations', color: 0x22d3ee },
+  financial:  { label: 'Financial',  color: 0xfacc15 },
+  marketing:  { label: 'Marketing',  color: 0xec4899 },
+  personal:   { label: 'Personal',   color: 0xa78bfa },
+  code:       { label: 'Code & Docs',color: 0x94a3b8 },
+};
+
+// Emergency fallback only — used if projects.json can't be fetched at all.
+// The real data lives in ./projects.json (or the visitor's local draft).
+const DEFAULT_PROJECTS = [
+  { slug:"propertymax-ai", title:"PropertyMax.ai", subtitle:"CEO Command Center MVP", category:"platform", tier:1,
+    desc:"Flagship AI-driven property management platform and executive command center prototype.",
+    builtWith:"", features:[], howToUse:"", url:"http://propertymax.ai/", image:null },
+];
+
+const STORAGE_KEY = 'portfolio_projects_v1';
+let PROJECTS = [];
+
+async function loadProjects(){
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved){
+    try { return JSON.parse(saved); } catch(e) { /* corrupt draft, ignore */ }
+  }
+  try {
+    const res = await fetch('./projects.json', { cache: 'no-store' });
+    if (res.ok) return await res.json();
+  } catch(e) { /* fetch unavailable, e.g. opened via file:// */ }
+  return DEFAULT_PROJECTS;
+}
+
+/* ---------------------------------------------------------------------
+   SCENE — bare-minimum geometry, tight camera bounds, fog for depth cue
+--------------------------------------------------------------------- */
+const container = document.getElementById('scene-container');
+
+const scene = new THREE.Scene();
+const carouselGroup = new THREE.Group();
+scene.add(carouselGroup);
+// background left transparent (no scene.background) so the #bg-art
+// artwork behind the canvas shows through in empty space
+scene.fog = new THREE.FogExp2(0x030308, 0.028);
+
+const camera = new THREE.PerspectiveCamera(
+  45, window.innerWidth / window.innerHeight, 0.1, 80
+);
+// Lower, more cinematic angle looking slightly up at the carousel
+camera.position.set(0, 2, 28);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+renderer.setClearColor(0x000000, 0);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+container.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.04;
+controls.minDistance = 12;
+controls.maxDistance = 42;
+// Restrict vertical rotation to keep the cinematic horizon intact
+controls.minPolarAngle = Math.PI * 0.35;
+controls.maxPolarAngle = Math.PI * 0.65;
+controls.autoRotate = false; // We manually rotate the carouselGroup instead
+controls.target.set(0, 0.5, 0);
+
+// idle-based autorotate: pause while user is interacting, resume after 2.5s
+let idleTimer = null;
+function markInteracting(){
+  controls.autoRotate = false;
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => controls.autoRotate = true, 2500);
+}
+controls.addEventListener('start', markInteracting);
+
+/* starfield — single BufferGeometry, one draw call */
+(function buildStarfield(){
+  const COUNT = 1600;
+  const positions = new Float32Array(COUNT * 3);
+  for (let i = 0; i < COUNT; i++){
+    const r = 24 + Math.random() * 40;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos((Math.random() * 2) - 1);
+    positions[i*3]     = r * Math.sin(phi) * Math.cos(theta);
+    positions[i*3 + 1] = r * Math.cos(phi);
+    positions[i*3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const mat = new THREE.PointsMaterial({ color: 0xaab4ff, size: 0.045, sizeAttenuation: true,
+    transparent: true, opacity: 0.6 });
+  scene.add(new THREE.Points(geo, mat));
+})();
+
+/* ground rings — cheap depth reference, no lit surfaces */
+[6, 10, 14].forEach((r, i) => {
+  const ring = new THREE.Mesh(
+    new THREE.RingGeometry(r - 0.01, r, 96),
+    new THREE.MeshBasicMaterial({ color: 0x141a2c, side: THREE.DoubleSide, transparent: true, opacity: 0.5 - i*0.1 })
+  );
+  ring.rotation.x = -Math.PI / 2;
+  ring.position.y = -3.4;
+  scene.add(ring);
+});
+
+/* "the rose as a lamp" — a warm glow sitting above the cluster, aligned
+   with the rose in the ./assets/dali-bg.jpg backdrop, so the constellation
+   of project cards reads as if lit from that point overhead */
+(function addLampGlow(){
+  const size = 512;
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  const grad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+  grad.addColorStop(0,   'rgba(255, 214, 170, 0.4)');
+  grad.addColorStop(0.4, 'rgba(255, 170, 110, 0.12)');
+  grad.addColorStop(1,   'rgba(255, 170, 110, 0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, size, size);
+
+  const lamp = new THREE.Sprite(new THREE.SpriteMaterial({
+    map: new THREE.CanvasTexture(canvas), transparent: true, depthWrite: false,
+    blending: THREE.AdditiveBlending, fog: false,
+  }));
+  lamp.scale.set(11, 11, 1);
+  lamp.position.set(0, 12, -3);
+  lamp.renderOrder = -1;
+  scene.add(lamp);
+})();
+
+/* ---------------------------------------------------------------------
+   NODES — "asymmetric-yield" layout: importance (tier) drives both
+   card size and camera proximity, not a uniform grid/sphere. Each node
+   is a pair of camera-facing sprites: a soft category-colored glow
+   behind a live screenshot of the project's homepage.
+--------------------------------------------------------------------- */
+const TIER_CONFIG = {
+  1: { radius: 14, width: 3.6, y: 0.35 },
+  2: { radius: 14, width: 2.9, y: 0 },
+  3: { radius: 14, width: 2.2, y: -0.35 },
+};
+const CARD_ASPECT = 640 / 960; // matches the 960x640 card textures
+
+const textureLoader = new THREE.TextureLoader();
+const glowTextureCache = {};
+function getGlowTexture(colorHex){
+  if (glowTextureCache[colorHex]) return glowTextureCache[colorHex];
+  const size = 256;
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  const r = `${(colorHex >> 16) & 255}, ${(colorHex >> 8) & 255}, ${colorHex & 255}`;
+  const grad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+  grad.addColorStop(0, `rgba(${r}, 0.85)`);
+  grad.addColorStop(0.5, `rgba(${r}, 0.35)`);
+  grad.addColorStop(1, `rgba(${r}, 0)`);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, size, size);
+  const tex = new THREE.CanvasTexture(canvas);
+  glowTextureCache[colorHex] = tex;
+  return tex;
+}
+
+/* placeholder card — drawn when a project has no resolvable image,
+   mirrors the look of the pre-rendered screenshot cards */
+function makePlaceholderTexture(p){
+  const w = 960, h = 640, chromeH = 56;
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  const color = CATEGORIES[p.category]?.color ?? 0x94a3b8;
+  const rgb = `${(color >> 16) & 255}, ${(color >> 8) & 255}, ${color & 255}`;
+
+  ctx.fillStyle = '#11131c';
+  roundRectPath(ctx, 0, 0, w, h, 26);
+  ctx.fill();
+
+  const grad = ctx.createLinearGradient(0, chromeH, 0, h);
+  grad.addColorStop(0, `rgba(${rgb}, 0.18)`);
+  grad.addColorStop(1, `rgba(${rgb}, 0)`);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, chromeH, w, h - chromeH);
+
+  ctx.fillStyle = '#11131c';
+  ctx.fillRect(0, 0, w, chromeH);
+  [['#ff5f56',22], ['#ffbd2e',44], ['#27c93f',66]].forEach(([c, cx]) => {
+    ctx.beginPath(); ctx.arc(cx, chromeH/2, 6, 0, Math.PI*2); ctx.fillStyle = c; ctx.fill();
+  });
+
+  const cx = w/2, cy = chromeH + (h - chromeH)/2 - 30;
+  ctx.strokeStyle = `rgba(${rgb}, 1)`; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.arc(cx, cy, 44, 0, Math.PI*2); ctx.stroke();
+  ctx.fillStyle = `rgba(${rgb}, 1)`;
+  ctx.beginPath(); ctx.arc(cx, cy, 10, 0, Math.PI*2); ctx.fill();
+
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#eef1fb';
+  ctx.font = '600 40px Segoe UI, -apple-system, sans-serif';
+  ctx.fillText(p.title, cx, cy + 68);
+  ctx.fillStyle = '#949eb8';
+  ctx.font = '20px Segoe UI, -apple-system, sans-serif';
+  ctx.fillText(p.subtitle || '', cx, cy + 106);
+  ctx.fillStyle = '#6e768c';
+  ctx.fillText('No public preview', cx, cy + 140);
+
+  // border
+  ctx.strokeStyle = `rgba(${rgb}, 0.9)`; ctx.lineWidth = 4;
+  roundRectPath(ctx, 2, 2, w - 4, h - 4, 24);
+  ctx.stroke();
+
+  return new THREE.CanvasTexture(canvas);
+}
+function roundRectPath(ctx, x, y, w, h, r){
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.arcTo(x+w, y, x+w, y+h, r);
+  ctx.arcTo(x+w, y+h, x, y+h, r);
+  ctx.arcTo(x, y+h, x, y, r);
+  ctx.arcTo(x, y, x+w, y, r);
+  ctx.closePath();
+}
+
+const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
+const nodes = [];       // { card, glow, project, baseWidth, baseHeight }
+const raycastTargets = [];
+
+  function disposeNode(n){
+    carouselGroup.remove(n.card, n.glow);
+  n.card.material.map?.dispose();
+  n.card.material.dispose();
+  n.glow.material.dispose(); // glow's texture is cached/shared — not disposed here
+}
+
+function rebuildScene(){
+  nodes.forEach(disposeNode);
+  nodes.length = 0;
+  raycastTargets.length = 0;
+  PROJECTS.forEach((p, index) => {
+    const cfg = TIER_CONFIG[p.tier] ?? TIER_CONFIG[3];
+
+    // One continuous orbit puts every creation into the same carousel.
+    const angle = (index / Math.max(1, PROJECTS.length)) * Math.PI * 2 - Math.PI / 2;
+    const waveY = Math.sin(angle * 2) * 0.55;
+    const color = CATEGORIES[p.category]?.color ?? 0x94a3b8;
+
+    const width = cfg.width;
+    const height = width * CARD_ASPECT;
+    const position = new THREE.Vector3(
+      Math.cos(angle) * cfg.radius,
+      cfg.y + waveY,
+      Math.sin(angle) * cfg.radius
+    );
+
+    // Store original orbit coordinates for lerping back from center
+    const baseX = position.x;
+    const baseZ = position.z;
+
+    /* glow — soft radial category-color halo, rendered behind the card */
+    const glow = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: getGlowTexture(color), transparent: true, depthWrite: false,
+    }));
+    const glowSize = Math.max(width, height) * 1.6;
+    glow.scale.set(glowSize, glowSize, 1);
+    glow.position.copy(position);
+    glow.renderOrder = 0;
+    carouselGroup.add(glow);
+
+    /* card — screenshot/custom image matching the app-preview reference, falling back to a generated placeholder if no image resolves */
+    const card = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthWrite: false }));
+    const imageUrl = p.image || `./screenshots/${p.slug}.png`;
+    card.material.map = textureLoader.load(
+      imageUrl,
+      undefined,
+      undefined,
+      () => { card.material.map = makePlaceholderTexture(p); card.material.needsUpdate = true; }
+    );
+    card.scale.set(width, height, 1);
+    card.position.copy(position);
+    card.renderOrder = 1;
+    card.userData.project = p;
+    card.userData.baseX = baseX;
+    card.userData.baseY = position.y;
+    card.userData.baseZ = baseZ;
+    card.userData.phase = index + 1;
+    carouselGroup.add(card);
+    raycastTargets.push(card);
+
+    nodes.push({ card, glow, project: p, baseWidth: width, baseHeight: height });
+  });
+}
+
+/* ---------------------------------------------------------------------
+   INTERACTION — raycast hover + click, category filter, detail panel
+--------------------------------------------------------------------- */
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+const tooltip = document.getElementById('tooltip');
+const panel = document.getElementById('detail-panel');
+let hovered = null;
+let activeCategory = 'all';
+let selectedCard = null;
+
+function onPointerMove(e){
+  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const hits = raycaster.intersectObjects(raycastTargets, false);
+  const hit = hits[0]?.object ?? null;
+
+  if (hit !== hovered){
+    hovered = hit;
+    renderer.domElement.classList.toggle('hovering', !!hovered);
+    tooltip.classList.toggle('show', !!hovered);
+  }
+  if (hovered){
+    tooltip.style.left = e.clientX + 'px';
+    tooltip.style.top = e.clientY + 'px';
+    tooltip.textContent = hovered.userData.project.subtitle;
+  }
+}
+
+function onClick(e){
+  // raycast fresh from the click coordinates rather than relying on
+  // `hovered` — some input paths (touch, synthetic/automation events)
+  // fire click without a preceding pointermove.
+  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const hit = raycaster.intersectObjects(raycastTargets, false)[0]?.object ?? null;
+  if (!hit) return;
+  if (editMode){
+    openEditForm(hit.userData.project);
+  } else {
+    selectedCard = hit;
+    openPanel(hit.userData.project);
+  }
+}
+
+renderer.domElement.addEventListener('pointermove', onPointerMove);
+renderer.domElement.addEventListener('pointerdown', markInteracting);
+renderer.domElement.addEventListener('click', onClick);
+
+function fillList(ul, items){
+  ul.innerHTML = '';
+  (items || []).filter(Boolean).forEach(text => {
+    const li = document.createElement('li');
+    li.textContent = text;
+    ul.appendChild(li);
+  });
+}
+
+function openPanel(p){
+  editPanel.classList.remove('open');
+  const cat = CATEGORIES[p.category];
+  document.getElementById('d-cat').textContent = cat?.label ?? p.category;
+  document.querySelector('#detail-panel .cat-badge .dot').style.background =
+    `#${(cat?.color ?? 0x94a3b8).toString(16).padStart(6,'0')}`;
+  document.getElementById('d-title').textContent = p.title;
+  document.getElementById('d-subtitle').textContent = p.subtitle;
+  document.getElementById('d-desc').textContent = p.desc;
+
+  document.getElementById('d-built-block').style.display = p.builtWith ? '' : 'none';
+  document.getElementById('d-built').textContent = p.builtWith || '';
+
+  const hasFeatures = p.features && p.features.filter(Boolean).length > 0;
+  document.getElementById('d-features-block').style.display = hasFeatures ? '' : 'none';
+  fillList(document.getElementById('d-features'), p.features);
+
+  document.getElementById('d-howto-block').style.display = p.howToUse ? '' : 'none';
+  document.getElementById('d-howto').textContent = p.howToUse || '';
+
+  const launch = document.getElementById('d-launch');
+  if (p.url){
+    launch.href = p.url;
+    launch.textContent = 'Launch App ↗';
+    launch.classList.remove('disabled');
+    launch.removeAttribute('aria-disabled');
+  } else {
+    launch.href = '#';
+    launch.textContent = 'Internal tool — no public link';
+    launch.classList.add('disabled');
+    launch.setAttribute('aria-disabled', 'true');
+  }
+  panel.classList.add('open');
+}
+document.getElementById('closePanel').addEventListener('click', () => {
+  panel.classList.remove('open');
+  selectedCard = null;
+});
+
+/* ---------------------------------------------------------------------
+   EDIT MODE — add/edit/remove projects, persisted to localStorage.
+   Off by default: regular visitors always see the read-only view above.
+--------------------------------------------------------------------- */
+let editMode = false;
+let editingProject = null;
+const editPanel = document.getElementById('edit-panel');
+const editToggleBtn = document.getElementById('editToggle');
+const categorySelect = document.getElementById('f-category');
+Object.entries(CATEGORIES).forEach(([key, cfg]) => {
+  const opt = document.createElement('option');
+  opt.value = key; opt.textContent = cfg.label;
+  categorySelect.appendChild(opt);
+});
+
+function slugify(str, ignoreProject){
+  const base = str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'project';
+  let slug = base, n = 2;
+  while (PROJECTS.some(p => p.slug === slug && p !== ignoreProject)) slug = `${base}-${n++}`;
+  return slug;
+}
+
+function openEditForm(project){
+  panel.classList.remove('open');
+  editingProject = project;
+  document.getElementById('edit-heading').textContent = project ? 'Edit Project' : 'Add Project';
+  document.getElementById('f-title').value = project?.title || '';
+  document.getElementById('f-subtitle').value = project?.subtitle || '';
+  categorySelect.value = project?.category || 'operations';
+  document.getElementById('f-tier').value = String(project?.tier || 2);
+  document.getElementById('f-desc').value = project?.desc || '';
+  document.getElementById('f-built').value = project?.builtWith || '';
+  document.getElementById('f-features').value = (project?.features || []).join('\n');
+  document.getElementById('f-howto').value = project?.howToUse || '';
+  document.getElementById('f-url').value = project?.url || '';
+  document.getElementById('f-image').value = project?.image || '';
+  document.getElementById('f-delete').style.display = project ? 'block' : 'none';
+  editPanel.classList.add('open');
+}
+function closeEditForm(){
+  editPanel.classList.remove('open');
+  editingProject = null;
+}
+
+document.getElementById('closeEditPanel').addEventListener('click', closeEditForm);
+document.getElementById('addProjectBtn').addEventListener('click', () => openEditForm(null));
+
+document.getElementById('f-save').addEventListener('click', () => {
+  const title = document.getElementById('f-title').value.trim();
+  if (!title){ alert('Title is required.'); return; }
+  const data = {
+    slug: editingProject ? editingProject.slug : slugify(title),
+    title,
+    subtitle: document.getElementById('f-subtitle').value.trim(),
+    category: categorySelect.value,
+    tier: Number(document.getElementById('f-tier').value),
+    desc: document.getElementById('f-desc').value.trim(),
+    builtWith: document.getElementById('f-built').value.trim(),
+    features: document.getElementById('f-features').value.split('\n').map(s => s.trim()).filter(Boolean),
+    howToUse: document.getElementById('f-howto').value.trim(),
+    url: document.getElementById('f-url').value.trim() || null,
+    image: document.getElementById('f-image').value.trim() || null,
+  };
+  if (editingProject) Object.assign(editingProject, data);
+  else PROJECTS.push(data);
+  saveProjectsLocal();
+  rebuildScene();
+  closeEditForm();
+});
+
+document.getElementById('f-delete').addEventListener('click', () => {
+  if (!editingProject) return;
+  if (!confirm(`Remove "${editingProject.title}" from the portfolio?`)) return;
+  PROJECTS = PROJECTS.filter(p => p !== editingProject);
+  saveProjectsLocal();
+  rebuildScene();
+  closeEditForm();
+});
+
+function saveProjectsLocal(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(PROJECTS));
+  updateDraftBadge();
+}
+function updateDraftBadge(){
+  const badge = document.getElementById('draftBadge');
+  badge.textContent = localStorage.getItem(STORAGE_KEY) ? '● local draft active' : '';
+}
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(PROJECTS, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'projects.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if (!confirm('Discard your local draft and reload the published projects.json?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+});
+editToggleBtn.addEventListener('click', () => {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  editToggleBtn.classList.toggle('active', editMode);
+  editToggleBtn.textContent = editMode ? '✎ Editing…' : '✎ Edit Mode';
+  document.querySelector('#hud .hint').textContent = editMode
+    ? 'Edit Mode — click a card to edit it, or Add Project below'
+    : 'Drag to orbit · Scroll to zoom · Click a node to open a project';
+});
+updateDraftBadge();
+
+/* category filter pills */
+const filtersEl = document.getElementById('filters');
+function buildFilters(){
+  const allPill = makePill('all', 'All Projects', null);
+  filtersEl.appendChild(allPill);
+  Object.entries(CATEGORIES).forEach(([key, cfg]) => {
+    filtersEl.appendChild(makePill(key, cfg.label, cfg.color));
+  });
+}
+function makePill(key, label, color){
+  const el = document.createElement('div');
+  el.className = 'pill liquid-glass' + (key === 'all' ? ' active' : '');
+  el.dataset.key = key;
+  el.innerHTML = color != null
+    ? `<span class="dot" style="background:#${color.toString(16).padStart(6,'0')}"></span>${label}`
+    : `<span class="dot" style="background:#fff"></span>${label}`;
+  el.addEventListener('click', () => {
+    activeCategory = key;
+    [...filtersEl.children].forEach(c => c.classList.toggle('active', c === el));
+  });
+  return el;
+}
+buildFilters();
+
+/* ---------------------------------------------------------------------
+   RESIZE
+--------------------------------------------------------------------- */
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+/* ---------------------------------------------------------------------
+   ANIMATE
+--------------------------------------------------------------------- */
+const clock = new THREE.Clock();
+
+  // Center-focus target coordinates for the active card
+  const centerTarget = new THREE.Vector3(0, 0, 14);
+
+  function animate(){
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+
+    nodes.forEach(n => {
+      const { card, glow, project, baseWidth, baseHeight } = n;
+      const isHover = card === hovered;
+      const isSelected = card === selectedCard;
+      const matches = activeCategory === 'all' || project.category === activeCategory;
+
+      if (isSelected) {
+        // Active card: scale up significantly and translate to center front
+        const targetScale = baseWidth * 2.2;
+        card.scale.x += (targetScale - card.scale.x) * 0.08;
+        card.scale.y += (targetScale * CARD_ASPECT - card.scale.y) * 0.08;
+
+        // Calculate the center target in the local coordinate space of the rotating group.
+        // Refresh its world transform first so the focused card does not remain in the orbit.
+        carouselGroup.updateMatrixWorld(true);
+        // Move the center target much closer to the camera so the active card is prominently foregrounded
+        const prominentTarget = new THREE.Vector3(0, 0, 20);
+        const localCenter = carouselGroup.worldToLocal(prominentTarget);
+        card.position.lerp(localCenter, 0.08);
+        card.renderOrder = 10;
+        glow.renderOrder = 9;
+
+        const glowBase = Math.max(baseWidth, baseHeight) * 2.8;
+        glow.scale.x += (glowBase - glow.scale.x) * 0.08;
+        glow.scale.y += (glowBase - glow.scale.y) * 0.08;
+        glow.position.copy(card.position);
+
+        card.material.opacity += (1 - card.material.opacity) * 0.15;
+        glow.material.opacity += (1 - glow.material.opacity) * 0.15;
+
+      } else {
+        // Background cards: gentle bob in their orbit position
+        card.renderOrder = 1;
+        glow.renderOrder = 0;
+        const y = card.userData.baseY + Math.sin(t * 0.6 + card.userData.phase) * 0.15;
+
+        // Target orbit position (needs to rotate with the scene group)
+        const orbitPos = new THREE.Vector3(
+          card.userData.baseX,
+          y,
+          card.userData.baseZ
+        );
+
+        // If something is selected, push unselected cards back and dim them
+        const depthFactor = selectedCard ? 0.65 : 1;
+        const scaleFactor = (isHover ? 1.16 : 1) * (matches ? 1 : 0.72) * depthFactor;
+
+        card.scale.x += (baseWidth * scaleFactor - card.scale.x) * 0.12;
+        card.scale.y += (baseHeight * scaleFactor - card.scale.y) * 0.12;
+
+        card.position.lerp(orbitPos, 0.12);
+
+        const glowBase = Math.max(baseWidth, baseHeight) * 1.6;
+        glow.scale.x += (glowBase * scaleFactor - glow.scale.x) * 0.12;
+        glow.scale.y += (glowBase * scaleFactor - glow.scale.y) * 0.12;
+        glow.position.copy(card.position);
+
+        const targetCardOpacity = (matches ? 1 : 0.3) * (selectedCard ? 0.4 : 1);
+        card.material.opacity += (targetCardOpacity - card.material.opacity) * 0.15;
+
+        const targetGlowOpacity = (isHover ? 1 : 0.6) * (matches ? 1 : 0.2) * (selectedCard ? 0.3 : 1);
+        glow.material.opacity += (targetGlowOpacity - glow.material.opacity) * 0.15;
+      }
+    });
+
+    // If a card is selected, stop auto-rotating and let the user interact with the detail panel
+    if (selectedCard) {
+      controls.autoRotate = false;
+    } else if (!idleTimer) {
+      controls.autoRotate = true;
+    }
+
+    // Apply the auto-rotation to the carousel group rather than the camera controls
+    // to allow the active card to break out of the rotation orbit.
+    if (controls.autoRotate && !selectedCard) {
+      carouselGroup.rotation.y += 0.002;
+    }
+
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+/* ---------------------------------------------------------------------
+   BOOTSTRAP
+--------------------------------------------------------------------- */
+(async function init(){
+  PROJECTS = await loadProjects();
+  rebuildScene();
+  animate();
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:41:56.571232Z",
+  "task": {
+    "id": "XGQ9Q9RhKvh3DFpg00RzUg",
+    "title": "Testing and Using the Outlook Mail Connector",
+    "status": "waiting",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 21,
+    "created_at": "1776376653",
+    "updated_at": "1778010433",
+    "task_url": "https://manus.im/app/XGQ9Q9RhKvh3DFpg00RzUg",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "h9HQqd0kxAGLPtXvBUnw4w",
+      "timestamp": "1776376653045",
+      "type": "user_message",
+      "user_message": {
+        "content": "Help me test the Outlook Mail connector and show me how to use its feature (e.g. show any data you fetched with it). Give me a brief about its capabilities.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "Wh89db5Lsuh5B1K2cAZ3KW-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776376654170",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll explore the Outlook Mail connector, test its available tools, fetch some real data, and give you a comprehensive overview of its capabilities."
+      },
+      "id": "5xD63ihQmHK2y0AE2vPaaG",
+      "timestamp": "1776376658708",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Found 3 tools in the Outlook Mail connector. Now testing each one by fetching real data — searching messages, reading them, and verifying the send capability."
+      },
+      "id": "IKiTr9NZ6G6XRsl07WEZUr",
+      "timestamp": "1776376674705",
+      "type": "assistant_message"
+    },
+    {
+      "id": "2R3RwYUvbu2LYph48KNBnv",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "confirm_input_schema": {
+            "properties": {
+              "accept": {
+                "type": "boolean"
+              },
+              "save_draft": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "accept"
+            ],
+            "type": "object"
+          },
+          "waiting_description": "Preparing Outlook mail messages",
+          "waiting_for_event_id": "8VuZWCuwXVhmbQ0Q29pn2S",
+          "waiting_for_event_type": "outlookSendMailsAction"
+        }
+      },
+      "timestamp": "1776376690485",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

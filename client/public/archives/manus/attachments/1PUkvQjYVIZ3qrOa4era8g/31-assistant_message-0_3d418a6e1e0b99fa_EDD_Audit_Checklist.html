@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDD Audit Preparation Checklist</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --card: #ffffff;
+      --primary: #1a3a5c;
+      --accent: #2e7d32;
+      --accent-light: #e8f5e9;
+      --border: #dde3ec;
+      --text: #1e2a38;
+      --muted: #5a6a7a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a3a5c 0%, #0d2137 100%);
+      color: #fff;
+      padding: 24px 32px 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.25);
+      position: sticky; top: 0; z-index: 200;
+    }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header p.subtitle { font-size: .83rem; opacity: .72; margin-top: 3px; }
+
+    /* ── Overall Progress ── */
+    .overall-progress-wrap {
+      background: #0d2137;
+      padding: 12px 32px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .overall-label { display: flex; justify-content: space-between; color: #cfd8e3; font-size: .8rem; margin-bottom: 6px; }
+    .overall-label span:last-child { font-weight: 700; color: #81c784; font-size: .92rem; }
+    .bar-track { background: rgba(255,255,255,.15); border-radius: 999px; height: 11px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg,#43a047,#81c784); transition: width .4s; }
+
+    /* ── Tab Nav ── */
+    .tab-nav {
+      display: flex; background: var(--card);
+      border-bottom: 2px solid var(--border); padding: 0 32px; gap: 4px;
+    }
+    .tab-btn {
+      padding: 13px 22px; border: none; background: none;
+      font-size: .9rem; font-weight: 600; color: var(--muted);
+      cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px;
+      transition: color .15s, border-color .15s;
+    }
+    .tab-btn:hover { color: var(--primary); }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+    /* ── Checklist Controls ── */
+    .controls {
+      display: flex; gap: 10px; padding: 13px 32px;
+      flex-wrap: wrap; align-items: center;
+      background: var(--card); border-bottom: 1px solid var(--border);
+    }
+    .controls button { padding: 7px 15px; border: none; border-radius: 6px; cursor: pointer; font-size: .82rem; font-weight: 600; }
+    .btn-expand  { background: #e3eaf4; color: #1a3a5c; }
+    .btn-collapse{ background: #e3eaf4; color: #1a3a5c; }
+    .btn-reset   { background: #fdecea; color: #b71c1c; margin-left: auto; }
+    .controls .note { font-size: .77rem; color: var(--muted); }
+
+    /* ── Tab Panels ── */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ══════════════════════════════════════
+       CHECKLIST STYLES
+    ══════════════════════════════════════ */
+    main { max-width: 900px; margin: 26px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 20px; }
+    .phase-card { background: var(--card); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.07); overflow: hidden; border: 1px solid var(--border); }
+    .phase-header { display: flex; align-items: center; gap: 14px; padding: 15px 20px; cursor: pointer; user-select: none; }
+    .phase-header:hover { filter: brightness(.97); }
+    .phase-badge { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .95rem; color: #fff; flex-shrink: 0; }
+    .phase-title-block { flex: 1; }
+    .phase-title-block h2 { font-size: .97rem; font-weight: 700; line-height: 1.3; }
+    .phase-title-block .phase-sub { font-size: .76rem; color: var(--muted); margin-top: 2px; }
+    .phase-progress-mini { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; min-width: 86px; }
+    .phase-progress-mini .count { font-size: .76rem; font-weight: 700; color: var(--muted); }
+    .mini-bar-track { width: 86px; height: 6px; background: #e0e0e0; border-radius: 999px; overflow: hidden; }
+    .mini-bar-fill { height: 100%; border-radius: 999px; transition: width .4s; }
+    .chevron { font-size: 1rem; color: var(--muted); transition: transform .25s; margin-left: 6px; }
+    .phase-card.open .chevron { transform: rotate(180deg); }
+    .phase-body { display: none; padding: 0 20px 16px; border-top: 1px solid var(--border); }
+    .phase-card.open .phase-body { display: block; }
+    .section-title { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin: 16px 0 7px; padding-bottom: 4px; border-bottom: 1px dashed var(--border); }
+    .item { display: flex; align-items: flex-start; gap: 11px; padding: 8px 10px; border-radius: 8px; transition: background .12s; cursor: pointer; }
+    .item:hover { background: #f0f4f8; }
+    .item.checked { background: var(--accent-light); }
+    .item input[type="checkbox"] { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; accent-color: var(--accent); cursor: pointer; }
+    .item-label { font-size: .88rem; line-height: 1.5; flex: 1; }
+    .item.checked .item-label { text-decoration: line-through; color: var(--muted); }
+    .tag { display: inline-block; font-size: .68rem; font-weight: 700; padding: 1px 7px; border-radius: 999px; margin-left: 5px; vertical-align: middle; }
+    .tag-critical { background: #b71c1c; color: #fff; }
+    .tag-cease    { background: #e65100; color: #fff; }
+    .note-block { background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 0 8px 8px 0; padding: 9px 13px; font-size: .81rem; color: #4e3b00; margin: 8px 0 3px; line-height: 1.5; }
+    .phase-complete-banner { display: none; align-items: center; gap: 8px; background: var(--accent-light); border: 1px solid #a5d6a7; border-radius: 8px; padding: 9px 13px; font-size: .83rem; font-weight: 600; color: var(--accent); margin-top: 12px; }
+    .phase-complete-banner.visible { display: flex; }
+
+    /* ══════════════════════════════════════
+       FILE SORTER STYLES
+    ══════════════════════════════════════ */
+    .sorter-wrap { max-width: 980px; margin: 0 auto; padding: 24px 20px 0; }
+
+    /* Phase Section */
+    .sorter-phase-section { margin-bottom: 32px; }
+    .sorter-phase-heading {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 18px; border-radius: 10px;
+      margin-bottom: 14px; color: #fff;
+    }
+    .sorter-phase-heading .ph-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .9rem; flex-shrink: 0;
+    }
+    .sorter-phase-heading h3 { font-size: 1rem; font-weight: 700; }
+    .sorter-phase-heading p  { font-size: .76rem; opacity: .85; margin-top: 1px; }
+
+    /* Grid of drop cards */
+    .drop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    /* Individual drop card */
+    .drop-card {
+      background: var(--card);
+      border: 2px dashed #c5d0e0;
+      border-radius: 12px;
+      padding: 18px 16px 14px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: border-color .2s, background .2s, transform .15s;
+      position: relative;
+      cursor: default;
+    }
+    .drop-card:hover { border-color: #90a4c8; background: #f8faff; }
+    .drop-card.drag-over {
+      border-color: var(--primary);
+      background: #dce8ff;
+      transform: scale(1.02);
+      box-shadow: 0 4px 18px rgba(26,58,92,.18);
+    }
+    .drop-card.has-files { border-style: solid; }
+
+    .card-top { display: flex; align-items: flex-start; gap: 10px; }
+    .card-icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; }
+    .card-info { flex: 1; }
+    .card-info .card-title { font-size: .88rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .card-info .card-path  { font-size: .7rem; color: var(--muted); margin-top: 3px; font-family: monospace; line-height: 1.4; }
+
+    /* File count badge */
+    .file-count-badge {
+      position: absolute; top: 10px; right: 12px;
+      background: var(--primary); color: #fff;
+      font-size: .7rem; font-weight: 800;
+      padding: 2px 9px; border-radius: 999px;
+      display: none;
+    }
+    .drop-card.has-files .file-count-badge { display: block; }
+
+    /* Drop target area */
+    .drop-target {
+      border: 1.5px dashed #c5d0e0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+      background: #f8fafc;
+      transition: background .15s;
+      position: relative;
+      cursor: pointer;
+    }
+    .drop-target:hover { background: #eef2f8; border-color: #90a4c8; }
+    .drop-target input[type="file"] {
+      position: absolute; inset: 0; opacity: 0;
+      cursor: pointer; width: 100%; height: 100%;
+    }
+    .drop-target .dt-icon { font-size: 1.1rem; display: block; margin-bottom: 3px; }
+    .drop-target .dt-text { font-weight: 600; color: var(--primary); }
+
+    /* File list inside card */
+    .card-file-list { display: flex; flex-direction: column; gap: 4px; max-height: 160px; overflow-y: auto; }
+    .card-file-item {
+      display: flex; align-items: center; gap: 7px;
+      background: #f4f6f9; border-radius: 6px;
+      padding: 5px 8px; font-size: .77rem;
+    }
+    .card-file-item .cfi-ext {
+      font-size: .65rem; font-weight: 800; padding: 1px 6px;
+      border-radius: 4px; text-transform: uppercase; flex-shrink: 0;
+    }
+    .card-file-item .cfi-name { flex: 1; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .card-file-item .cfi-size { color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+    .card-file-item .cfi-remove {
+      background: none; border: none; cursor: pointer;
+      color: #b71c1c; font-size: .85rem; padding: 0 2px;
+      flex-shrink: 0; line-height: 1;
+    }
+    .card-file-item .cfi-remove:hover { color: #7f0000; }
+
+    /* Contractor note */
+    .contractor-note {
+      background: #fff8e1; border: 1px solid #ffe082;
+      border-radius: 8px; padding: 10px 13px;
+      font-size: .78rem; color: #5d4037; line-height: 1.5;
+      margin-bottom: 4px;
+    }
+    .contractor-note strong { color: #e65100; }
+
+    /* Sorter toolbar */
+    .sorter-toolbar {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap; padding: 14px 0 20px;
+      border-bottom: 1px solid var(--border); margin-bottom: 26px;
+    }
+    .sorter-toolbar h2 { font-size: 1.05rem; font-weight: 700; color: var(--primary); flex: 1; }
+    .sorter-toolbar .toolbar-stats { display: flex; gap: 8px; flex-wrap: wrap; }
+    .stat-pill { padding: 4px 13px; border-radius: 999px; font-size: .76rem; font-weight: 700; }
+    .stat-total  { background: #e3eaf4; color: #1a3a5c; }
+    .stat-filled { background: #e8f5e9; color: #2e7d32; }
+    .btn-export-all { padding: 7px 16px; border: none; border-radius: 7px; background: #1a3a5c; color: #fff; font-size: .82rem; font-weight: 600; cursor: pointer; }
+    .btn-export-all:hover { opacity: .88; }
+    .btn-clear-all { padding: 7px 14px; border: none; border-radius: 7px; background: #fdecea; color: #b71c1c; font-size: .82rem; font-weight: 600; cursor: pointer; }
+    .btn-clear-all:hover { opacity: .88; }
+
+    footer { text-align: center; font-size: .74rem; color: var(--muted); margin-top: 28px; }
+
+    @media (max-width: 640px) {
+      header { padding: 16px; }
+      .overall-progress-wrap { padding: 10px 16px 14px; }
+      .tab-nav { padding: 0 10px; }
+      .tab-btn { padding: 10px 12px; font-size: .82rem; }
+      .controls { padding: 10px 14px; }
+      main, .sorter-wrap { padding: 0 12px; }
+      .drop-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>&#128196; EDD Audit Preparation Checklist</h1>
+  <p class="subtitle">California Employment Development Department — Audit Defense Roadmap</p>
+</header>
+
+<!-- PROGRESS BAR -->
+<div class="overall-progress-wrap">
+  <div class="overall-label">
+    <span>Overall Checklist Progress</span>
+    <span id="overall-pct">0%</span>
+  </div>
+  <div class="bar-track"><div class="bar-fill" id="overall-bar" style="width:0%"></div></div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('checklist',this)">&#9989; Checklist</button>
+  <button class="tab-btn" onclick="switchTab('sorter',this)">&#128193; File Sorter</button>
+</div>
+
+<!-- CHECKLIST CONTROLS -->
+<div class="controls" id="checklist-controls">
+  <button class="btn-expand" onclick="expandAll()">&#9660; Expand All</button>
+  <button class="btn-collapse" onclick="collapseAll()">&#9650; Collapse All</button>
+  <span class="note">&#128190; Progress saves automatically in your browser.</span>
+  <button class="btn-reset" onclick="resetAll()">&#8635; Reset All</button>
+</div>
+
+<!-- ══════════ TAB: CHECKLIST ══════════ -->
+<div id="tab-checklist" class="tab-panel active">
+  <main id="checklist-root"></main>
+</div>
+
+<!-- ══════════ TAB: FILE SORTER ══════════ -->
+<div id="tab-sorter" class="tab-panel">
+  <div class="sorter-wrap">
+
+    <!-- Toolbar -->
+    <div class="sorter-toolbar">
+      <h2>&#128228; Drop Files Into the Right Category</h2>
+      <div class="toolbar-stats">
+        <span class="stat-pill stat-total"  id="stat-total">0 files total</span>
+        <span class="stat-pill stat-filled" id="stat-filled">0 categories filled</span>
+      </div>
+      <button class="btn-export-all" onclick="exportAll()">&#128190; Export Summary</button>
+      <button class="btn-clear-all"  onclick="clearAll()">&#10005; Clear All</button>
+    </div>
+
+    <!-- ── PHASE 1 ── -->
+    <div class="sorter-phase-section">
+      <div class="sorter-phase-heading" style="background:#1a3a5c">
+        <div class="ph-num">1</div>
+        <div>
+          <h3>Phase 1 — Professional Representation</h3>
+          <p>Documents related to your CPA/attorney and EDD communications</p>
+        </div>
+      </div>
+      <div class="drop-grid">
+        <div class="drop-card" id="dc-p1-cpa"
+             data-phase="Phase 1" data-phase-color="#1a3a5c"
+             data-folder="Phase 1 - Professional Representation"
+             data-subfolder="Correspondence with CPA or Attorney"
+             data-icon="&#128101;">
+          <span class="file-count-badge" id="badge-p1-cpa">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128101;</span>
+            <div class="card-info">
+              <div class="card-title">Correspondence with CPA or Attorney</div>
+              <div class="card-path">Phase 1 › Correspondence with CPA or Attorney</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p1-cpa')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p1-cpa"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p1-edd"
+             data-phase="Phase 1" data-phase-color="#1a3a5c"
+             data-folder="Phase 1 - Professional Representation"
+             data-subfolder="EDD Notices and Letters"
+             data-icon="&#128394;">
+          <span class="file-count-badge" id="badge-p1-edd">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128394;</span>
+            <div class="card-info">
+              <div class="card-title">EDD Notices and Letters</div>
+              <div class="card-path">Phase 1 › EDD Notices and Letters</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p1-edd')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p1-edd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 2 ── -->
+    <div class="sorter-phase-section">
+      <div class="sorter-phase-heading" style="background:#1565c0">
+        <div class="ph-num">2</div>
+        <div>
+          <h3>Phase 2 — General Business Records</h3>
+          <p>Company-wide financial and payroll records for the full audit period</p>
+        </div>
+      </div>
+      <div class="drop-grid">
+
+        <div class="drop-card" id="dc-p2-941"
+             data-phase="Phase 2" data-phase-color="#1565c0"
+             data-folder="Phase 2 - General Business Records"
+             data-subfolder="Federal Payroll Returns (Form 941 and 940)">
+          <span class="file-count-badge" id="badge-p2-941">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#127981;</span>
+            <div class="card-info">
+              <div class="card-title">Federal Payroll Returns</div>
+              <div class="card-path">Form 941 (quarterly) &amp; Form 940 (annual)</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p2-941')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p2-941"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p2-de9"
+             data-phase="Phase 2" data-phase-color="#1565c0"
+             data-folder="Phase 2 - General Business Records"
+             data-subfolder="State Payroll Returns (DE9 and DE9C)">
+          <span class="file-count-badge" id="badge-p2-de9">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#127982;</span>
+            <div class="card-info">
+              <div class="card-title">State Payroll Returns</div>
+              <div class="card-path">DE 9 &amp; DE 9C (quarterly)</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p2-de9')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p2-de9"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p2-corp"
+             data-phase="Phase 2" data-phase-color="#1565c0"
+             data-folder="Phase 2 - General Business Records"
+             data-subfolder="State Corporate Returns (Form 100 or 565)">
+          <span class="file-count-badge" id="badge-p2-corp">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#127970;</span>
+            <div class="card-info">
+              <div class="card-title">State Corporate Returns</div>
+              <div class="card-path">Form 100 (Corp) or Form 565 (Partnership)</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p2-corp')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p2-corp"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p2-bank"
+             data-phase="Phase 2" data-phase-color="#1565c0"
+             data-folder="Phase 2 - General Business Records"
+             data-subfolder="Business Bank Statements">
+          <span class="file-count-badge" id="badge-p2-bank">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#127981;</span>
+            <div class="card-info">
+              <div class="card-title">Business Bank Statements</div>
+              <div class="card-path">All statements for every business account</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p2-bank')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p2-bank"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p2-gl"
+             data-phase="Phase 2" data-phase-color="#1565c0"
+             data-folder="Phase 2 - General Business Records"
+             data-subfolder="General Ledger">
+          <span class="file-count-badge" id="badge-p2-gl">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128218;</span>
+            <div class="card-info">
+              <div class="card-title">General Ledger</div>
+              <div class="card-path">Detailed accounting records &amp; QuickBooks exports</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p2-gl')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p2-gl"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p2-1099"
+             data-phase="Phase 2" data-phase-color="#1565c0"
+             data-folder="Phase 2 - General Business Records"
+             data-subfolder="W-2s and 1099-NECs Issued">
+          <span class="file-count-badge" id="badge-p2-1099">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128203;</span>
+            <div class="card-info">
+              <div class="card-title">W-2s and 1099-NECs Issued</div>
+              <div class="card-path">Copies of all wage &amp; contractor tax forms</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p2-1099')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p2-1099"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p2-master"
+             data-phase="Phase 2" data-phase-color="#1565c0"
+             data-folder="Phase 2 - General Business Records"
+             data-subfolder="Contractor Master List">
+          <span class="file-count-badge" id="badge-p2-master">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128202;</span>
+            <div class="card-info">
+              <div class="card-title">Contractor Master List</div>
+              <div class="card-path">Spreadsheet: name, address, Tax ID, amounts paid</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p2-master')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p2-master"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PHASE 3 ── -->
+    <div class="sorter-phase-section">
+      <div class="sorter-phase-heading" style="background:#6a1b9a">
+        <div class="ph-num">3</div>
+        <div>
+          <h3>Phase 3 — Contractor Defense Files</h3>
+          <p>One complete file per contractor — duplicate these folders for each individual/company</p>
+        </div>
+      </div>
+
+      <div class="contractor-note">
+        <strong>&#9888; Important:</strong> The folders below represent the subfolders inside each contractor's folder.
+        When you export the summary, it will show the full path including
+        <strong>[Contractor Name]</strong> — rename that to the actual contractor's business name when filing.
+      </div>
+
+      <div class="drop-grid">
+
+        <div class="drop-card" id="dc-p3-contract"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Signed Contract">
+          <span class="file-count-badge" id="badge-p3-contract">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128221;</span>
+            <div class="card-info">
+              <div class="card-title">Signed Contracts</div>
+              <div class="card-path">Original signed independent contractor agreements</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-contract')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-contract"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-license"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Business License and Trade License">
+          <span class="file-count-badge" id="badge-p3-license">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#127989;</span>
+            <div class="card-info">
+              <div class="card-title">Business &amp; Trade Licenses</div>
+              <div class="card-path">City/county license, DBA, CSLB C-33, trade licenses</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-license')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-license"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-insurance"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Insurance Certificates (GL and WC)">
+          <span class="file-count-badge" id="badge-p3-insurance">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128737;</span>
+            <div class="card-info">
+              <div class="card-title">Insurance Certificates</div>
+              <div class="card-path">General Liability &amp; Workers' Comp COIs — verify "Additionally Insured"</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-insurance')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-insurance"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-marketing"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Proof of Marketing and Public Presence">
+          <span class="file-count-badge" id="badge-p3-marketing">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#127760;</span>
+            <div class="card-info">
+              <div class="card-title">Proof of Marketing / Public Presence</div>
+              <div class="card-path">Website screenshots, Yelp/Google profile, business cards, ads</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-marketing')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-marketing"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-clients"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Other Clients Evidence">
+          <span class="file-count-badge" id="badge-p3-clients">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128101;</span>
+            <div class="card-info">
+              <div class="card-title">Other Clients Evidence</div>
+              <div class="card-path">Proof they work for multiple clients, not just you</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-clients')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-clients"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-invoices"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Invoices">
+          <span class="file-count-badge" id="badge-p3-invoices">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128190;</span>
+            <div class="card-info">
+              <div class="card-title">Invoices</div>
+              <div class="card-path">Professional letterhead, itemized, with Tax ID &amp; business address</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-invoices')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-invoices"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-payment"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Proof of Payment (Checks and Bank Transfers)">
+          <span class="file-count-badge" id="badge-p3-payment">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128184;</span>
+            <div class="card-info">
+              <div class="card-title">Proof of Payment</div>
+              <div class="card-path">Canceled checks &amp; bank transfers — must be to business account</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-payment')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-payment"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-expenses"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Expense Records and Material Receipts">
+          <span class="file-count-badge" id="badge-p3-expenses">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#129534;</span>
+            <div class="card-info">
+              <div class="card-title">Expense Records &amp; Material Receipts</div>
+              <div class="card-path">Receipts for materials &amp; supplies purchased by contractor</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-expenses')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-expenses"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-bids"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Bid Documentation">
+          <span class="file-count-badge" id="badge-p3-bids">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128196;</span>
+            <div class="card-info">
+              <div class="card-title">Bid Documentation</div>
+              <div class="card-path">All bids &amp; proposals received — shows competitive hiring process</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-bids')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-bids"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-comms"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → Communication Records (Emails and Texts)">
+          <span class="file-count-badge" id="badge-p3-comms">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128172;</span>
+            <div class="card-info">
+              <div class="card-title">Communication Records</div>
+              <div class="card-path">Emails &amp; texts showing project outcomes discussed, not methods</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-comms')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-comms"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p3-nocontrol"
+             data-phase="Phase 3" data-phase-color="#6a1b9a"
+             data-folder="Phase 3 - Contractor Defense Files"
+             data-subfolder="[Contractor Name] → No-Control Evidence (Signed Statements)">
+          <span class="file-count-badge" id="badge-p3-nocontrol">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128394;</span>
+            <div class="card-info">
+              <div class="card-title">No-Control Evidence</div>
+              <div class="card-path">Signed statements: own tools, own schedule, no company meetings</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p3-nocontrol')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p3-nocontrol"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PHASE 4 ── -->
+    <div class="sorter-phase-section">
+      <div class="sorter-phase-heading" style="background:#e65100">
+        <div class="ph-num">4</div>
+        <div>
+          <h3>Phase 4 — Interview Preparation</h3>
+          <p>Notes and materials for your auditor interview</p>
+        </div>
+      </div>
+      <div class="drop-grid">
+
+        <div class="drop-card" id="dc-p4-mock"
+             data-phase="Phase 4" data-phase-color="#e65100"
+             data-folder="Phase 4 - Interview Preparation"
+             data-subfolder="Mock Interview Notes">
+          <span class="file-count-badge" id="badge-p4-mock">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128483;</span>
+            <div class="card-info">
+              <div class="card-title">Mock Interview Notes</div>
+              <div class="card-path">Practice Q&amp;A, notes from sessions with your CPA/attorney</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p4-mock')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p4-mock"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p4-narrative"
+             data-phase="Phase 4" data-phase-color="#e65100"
+             data-folder="Phase 4 - Interview Preparation"
+             data-subfolder="Business Narrative and Talking Points">
+          <span class="file-count-badge" id="badge-p4-narrative">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128221;</span>
+            <div class="card-info">
+              <div class="card-title">Business Narrative &amp; Talking Points</div>
+              <div class="card-path">Your consistent story about the business model &amp; contractor use</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p4-narrative')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p4-narrative"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PHASE 5 ── -->
+    <div class="sorter-phase-section">
+      <div class="sorter-phase-heading" style="background:#00695c">
+        <div class="ph-num">5</div>
+        <div>
+          <h3>Phase 5 — Post-Audit</h3>
+          <p>EDD findings and any appeal materials</p>
+        </div>
+      </div>
+      <div class="drop-grid">
+
+        <div class="drop-card" id="dc-p5-determination"
+             data-phase="Phase 5" data-phase-color="#00695c"
+             data-folder="Phase 5 - Post-Audit"
+             data-subfolder="Notice of Determination">
+          <span class="file-count-badge" id="badge-p5-determination">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#128220;</span>
+            <div class="card-info">
+              <div class="card-title">Notice of Determination</div>
+              <div class="card-path">Official EDD audit findings &amp; tax assessment documents</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p5-determination')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p5-determination"></div>
+        </div>
+
+        <div class="drop-card" id="dc-p5-appeals"
+             data-phase="Phase 5" data-phase-color="#00695c"
+             data-folder="Phase 5 - Post-Audit"
+             data-subfolder="Appeals Documentation">
+          <span class="file-count-badge" id="badge-p5-appeals">0</span>
+          <div class="card-top">
+            <span class="card-icon">&#9878;</span>
+            <div class="card-info">
+              <div class="card-title">Appeals Documentation</div>
+              <div class="card-path">Appeal letters, briefs, hearing notices &amp; responses</div>
+            </div>
+          </div>
+          <div class="drop-target">
+            <input type="file" multiple onchange="handleInput(this,'p5-appeals')" />
+            <span class="dt-icon">&#128228;</span>
+            <span class="dt-text">Drop or click to add files</span>
+          </div>
+          <div class="card-file-list" id="list-p5-appeals"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /sorter-wrap -->
+</div><!-- /tab-sorter -->
+
+<footer>
+  <p>&#128190; Checklist progress saved to browser local storage &mdash; last updated: <span id="last-saved">never</span></p>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+//  FILE STORE  { cardId: [File, ...] }
+// ══════════════════════════════════════════════
+const fileStore = {};
+
+const EXT_COLORS = {
+  pdf:  { bg:"#ffebee", color:"#c62828" },
+  doc:  { bg:"#e3f2fd", color:"#1565c0" },
+  docx: { bg:"#e3f2fd", color:"#1565c0" },
+  xls:  { bg:"#e8f5e9", color:"#2e7d32" },
+  xlsx: { bg:"#e8f5e9", color:"#2e7d32" },
+  csv:  { bg:"#e8f5e9", color:"#2e7d32" },
+  png:  { bg:"#f3e5f5", color:"#6a1b9a" },
+  jpg:  { bg:"#f3e5f5", color:"#6a1b9a" },
+  jpeg: { bg:"#f3e5f5", color:"#6a1b9a" },
+  webp: { bg:"#f3e5f5", color:"#6a1b9a" },
+  heic: { bg:"#f3e5f5", color:"#6a1b9a" },
+  gif:  { bg:"#f3e5f5", color:"#6a1b9a" },
+  txt:  { bg:"#fff8e1", color:"#f57f17" },
+  eml:  { bg:"#e0f7fa", color:"#00695c" },
+  msg:  { bg:"#e0f7fa", color:"#00695c" },
+  zip:  { bg:"#eceff1", color:"#455a64" },
+  default: { bg:"#eceff1", color:"#455a64" }
+};
+
+function fmtSize(b) {
+  if (!b) return "";
+  if (b < 1024) return b + " B";
+  if (b < 1048576) return (b/1024).toFixed(1) + " KB";
+  return (b/1048576).toFixed(1) + " MB";
+}
+function escH(s) {
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+// ── Add files to a card ──
+function handleInput(input, cardId) {
+  addFiles(cardId, Array.from(input.files));
+  input.value = "";
+}
+
+function addFiles(cardId, files) {
+  if (!fileStore[cardId]) fileStore[cardId] = [];
+  files.forEach(f => {
+    // Avoid duplicates by name
+    if (!fileStore[cardId].find(x => x.name === f.name)) {
+      fileStore[cardId].push(f);
+    }
+  });
+  renderCard(cardId);
+  updateToolbar();
+}
+
+function removeFile(cardId, idx) {
+  fileStore[cardId].splice(idx, 1);
+  renderCard(cardId);
+  updateToolbar();
+}
+
+function renderCard(cardId) {
+  const files = fileStore[cardId] || [];
+  const card  = document.getElementById("dc-" + cardId);
+  const list  = document.getElementById("list-" + cardId);
+  const badge = document.getElementById("badge-" + cardId);
+
+  badge.textContent = files.length;
+  if (files.length > 0) {
+    card.classList.add("has-files");
+    badge.style.display = "block";
+  } else {
+    card.classList.remove("has-files");
+    badge.style.display = "none";
+  }
+
+  list.innerHTML = files.map((f, i) => {
+    const ext = f.name.split(".").pop().toLowerCase();
+    const ec  = EXT_COLORS[ext] || EXT_COLORS.default;
+    return `<div class="card-file-item">
+      <span class="cfi-ext" style="background:${ec.bg};color:${ec.color}">${escH(ext)}</span>
+      <span class="cfi-name" title="${escH(f.name)}">${escH(f.name)}</span>
+      <span class="cfi-size">${fmtSize(f.size)}</span>
+      <button class="cfi-remove" onclick="removeFile('${cardId}',${i})" title="Remove">&#10005;</button>
+    </div>`;
+  }).join("");
+}
+
+function updateToolbar() {
+  let total = 0, filled = 0;
+  for (const id of Object.keys(fileStore)) {
+    const n = (fileStore[id] || []).length;
+    total += n;
+    if (n > 0) filled++;
+  }
+  document.getElementById("stat-total").textContent  = total  + " file" + (total  !== 1 ? "s" : "") + " total";
+  document.getElementById("stat-filled").textContent = filled + " categor" + (filled !== 1 ? "ies" : "y") + " filled";
+}
+
+function clearAll() {
+  if (!confirm("Clear all files from every category? This cannot be undone.")) return;
+  for (const id of Object.keys(fileStore)) { fileStore[id] = []; renderCard(id); }
+  updateToolbar();
+}
+
+// ── Export summary ──
+function exportAll() {
+  const BASE = "EDD\\Document Organization";
+  const lines = ["File Name\tDestination Path\tFile Size"];
+  let hasAny = false;
+  document.querySelectorAll(".drop-card").forEach(card => {
+    const rawId  = card.id.replace("dc-","");
+    const files  = fileStore[rawId] || [];
+    if (!files.length) return;
+    hasAny = true;
+    const folder    = card.dataset.folder;
+    const subfolder = card.dataset.subfolder;
+    const fullPath  = `${BASE}\\${folder}\\${subfolder}`;
+    files.forEach(f => lines.push(`${f.name}\t${fullPath}\t${fmtSize(f.size)}`));
+  });
+  if (!hasAny) { alert("No files have been added yet."); return; }
+  const blob = new Blob([lines.join("\n")], { type: "text/plain" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "EDD_File_Sort_Summary.txt";
+  a.click();
+}
+
+// ── Drag & drop on each card ──
+document.querySelectorAll(".drop-card").forEach(card => {
+  const rawId = card.id.replace("dc-","");
+  card.addEventListener("dragover", e => { e.preventDefault(); card.classList.add("drag-over"); });
+  card.addEventListener("dragleave", e => { if (!card.contains(e.relatedTarget)) card.classList.remove("drag-over"); });
+  card.addEventListener("drop", e => {
+    e.preventDefault();
+    card.classList.remove("drag-over");
+    if (e.dataTransfer.files.length) addFiles(rawId, Array.from(e.dataTransfer.files));
+  });
+});
+
+// ══════════════════════════════════════════════
+//  TAB SWITCHING
+// ══════════════════════════════════════════════
+function switchTab(name, btn) {
+  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("tab-" + name).classList.add("active");
+  btn.classList.add("active");
+  document.getElementById("checklist-controls").style.display = name === "checklist" ? "flex" : "none";
+}
+
+// ══════════════════════════════════════════════
+//  CHECKLIST
+// ══════════════════════════════════════════════
+const PHASES = [
+  {
+    id:"p1", color:"#1a3a5c", number:"1",
+    title:"Phase 1: Immediate Actions & Professional Representation",
+    sub:"Do This First — Damage control and expert guidance",
+    sections:[{ title:null, items:[
+      { id:"1.1", label:"1.1. Engage a Tax Professional: Immediately hire a CPA or tax attorney who specializes in California employment tax and EDD audits. Do not use a generalist." },
+      { id:"1.2", label:"1.2. Do Not Contact the EDD: Direct all communication from the EDD to your representative. Do not answer questions without your advisor's approval." },
+      { id:"1.3", label:"1.3. Stop All Potentially Problematic Practices — review all three CEASE items below.", note:"This item covers three mandatory CEASE actions listed below." },
+      { id:"1.3a", label:"CEASE creating invoices retroactively. Do not alter, backdate, or generate any new documentation for past work.", tag:{text:"CEASE",cls:"tag-cease"} },
+      { id:"1.3b", label:"CEASE paying contractors in cash. All payments must have a paper trail (check or bank transfer to a business account).", tag:{text:"CEASE",cls:"tag-cease"} },
+      { id:"1.3c", label:"CEASE giving contractors company uniforms, business cards with your logo, or company email addresses.", tag:{text:"CEASE",cls:"tag-cease"} }
+    ]}]
+  },
+  {
+    id:"p2", color:"#1565c0", number:"2",
+    title:"Phase 2: Document Organization & Internal Review",
+    sub:"Core preparation — organize by year, then by individual contractor",
+    sections:[
+      { title:null, items:[
+        { id:"2.1", label:"2.1. Establish a Master Audit File: Create a folder system — top level \"EDD Audit [Start Year]–[End Year]\", subfolders for General Business Records and each contractor." }
+      ]},
+      { title:"2.2 — General Business Records (entire audit period, typically 3–8 years)", items:[
+        { id:"2.2a", label:"Federal Payroll Returns: Form 941s (quarterly) and Form 940 (annual)." },
+        { id:"2.2b", label:"State Payroll Returns: DE 9 and DE 9C forms (quarterly)." },
+        { id:"2.2c", label:"State Corporate Returns: Form 100 (corporations) or Form 565 (partnerships)." },
+        { id:"2.2d", label:"Business Bank Statements: All statements for every business account." },
+        { id:"2.2e", label:"General Ledger: Detailed accounting records showing how contractor payments were coded." },
+        { id:"2.2f", label:"Copies of all W-2s and 1099-NECs issued." }
+      ]},
+      { title:null, items:[
+        { id:"2.3", label:"2.3. Create a Contractor Master List: Spreadsheet with name, address, Tax ID, total paid, and services performed for every contractor." }
+      ]}
+    ]
+  },
+  {
+    id:"p3", color:"#6a1b9a", number:"3",
+    title:"Phase 3: Contractor-Specific Defense File",
+    sub:"Build a complete file for every contractor on your Master List",
+    sections:[
+      { title:"3.1 — The Written Agreement", items:[
+        { id:"3.1a", label:"Signed Contract: Locate the original, signed contract for each contractor. No contract = major red flag." },
+        { id:"3.1b", label:"Contract Review: Contract must define worker as \"Independent Contractor,\" outline a specific project with flat fee, and state they are responsible for their own tools, insurance, and labor." }
+      ]},
+      { title:"3.2 — Proof of a Separate Business Entity (\"B\" Prong Defense)", items:[
+        { id:"3.2a", label:"Business License: City/county business license or Fictitious Name Statement (DBA)." },
+        { id:"3.2b", label:"Professional Trade License: C-33 (painters), or relevant license for other trades." },
+        { id:"3.2c", label:"General Liability Insurance certificate (at least $1M coverage)." },
+        { id:"3.2d", label:"Workers' Compensation Insurance certificate (or Certificate of Self-Insurance)." },
+        { id:"3.2e", label:"Verify your company is listed as \"Additionally Insured\" on their policy.", tag:{text:"CRITICAL",cls:"tag-critical"} },
+        { id:"3.2f", label:"Proof of Marketing/Public Presence: Website screenshot, Yelp/Google profile, or business card/ad." },
+        { id:"3.2g", label:"List of Other Clients: Proof they serve multiple clients and are not economically dependent on you." }
+      ]},
+      { title:"3.3 — The Financial Trail (\"C\" Prong Defense)", items:[
+        { id:"3.3a", label:"Original Invoices: Professional letterhead, itemized, with business address and Tax ID." },
+        { id:"3.3b", label:"Proof of Payment: Match every invoice to a canceled check or bank transfer to the business account." },
+        { id:"3.3c", label:"Expense Records: Receipts for materials — shows they manage their own business expenses." }
+      ]},
+      { title:"3.4 — Evidence of Lack of Control (\"A\" Prong Defense)", items:[
+        { id:"3.4a", label:"Bid Documentation: All bids received — shows competitive bidding process, not a hire." },
+        { id:"3.4b", label:"Communication Records: Emails/texts showing you discussed outcomes, not methods." },
+        { id:"3.4c", label:"No-Control Evidence: Signed statement showing they used own tools, set own schedule, not required at company meetings." }
+      ]}
+    ]
+  },
+  {
+    id:"p4", color:"#e65100", number:"4",
+    title:"Phase 4: Interview Preparation",
+    sub:"The auditor will interview you — do not go in unprepared",
+    sections:[{ title:null, items:[
+      { id:"4.1", label:"4.1. Prepare with Your Representative: Review all documents and conduct a mock interview with your CPA/attorney." },
+      { id:"4.2", label:"4.2. Know Your Story: \"Our company manages properties. We hire licensed, insured, independent businesses to perform specialized tasks on behalf of property owners.\"" },
+      { id:"4.3", label:"4.3. Answer Only What is Asked: Do not volunteer information. If you don't know, say \"I'll look that up.\" Refer complex questions to your representative." },
+      { id:"4.4", label:"4.4. Be Professional and Cooperative: Be polite and organized. Provide requested documents in a timely manner through your representative." }
+    ]}]
+  },
+  {
+    id:"p5", color:"#00695c", number:"5",
+    title:"Phase 5: Post-Audit Actions",
+    sub:"After the auditor completes their examination",
+    sections:[{ title:null, items:[
+      { id:"5.1", label:"5.1. Review the EDD's Findings: The auditor will issue a \"Notice of Determination.\" Review it carefully with your representative." },
+      { id:"5.2", label:"5.2. Plan for Appeal: If the assessment is unfavorable, your representative will guide you through the formal appeals process." }
+    ]}]
+  }
+];
+
+const STORAGE_KEY = "edd_audit_checklist_v1";
+function loadState() { try { const r=localStorage.getItem(STORAGE_KEY); return r?JSON.parse(r):{};} catch{return{};} }
+function saveState(s) {
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(s));
+  const n=new Date();
+  document.getElementById("last-saved").textContent=n.toLocaleDateString()+" "+n.toLocaleTimeString();
+}
+function pct(d,t){ return t===0?0:Math.round((d/t)*100); }
+function hexToRgba(h,a){ const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16); return `rgba(${r},${g},${b},${a})`; }
+
+function buildChecklist() {
+  const state=loadState();
+  const root=document.getElementById("checklist-root");
+  root.innerHTML="";
+  PHASES.forEach(phase=>{
+    const card=document.createElement("div");
+    card.className="phase-card open"; card.id="card-"+phase.id;
+    const allItems=phase.sections.flatMap(s=>s.items);
+    const total=allItems.length, done=allItems.filter(it=>state[it.id]).length;
+    const header=document.createElement("div");
+    header.className="phase-header";
+    header.style.background=hexToRgba(phase.color,.07);
+    header.innerHTML=`
+      <div class="phase-badge" style="background:${phase.color}">${phase.number}</div>
+      <div class="phase-title-block"><h2>${phase.title}</h2><div class="phase-sub">${phase.sub}</div></div>
+      <div class="phase-progress-mini">
+        <span class="count" id="count-${phase.id}">${done}/${total}</span>
+        <div class="mini-bar-track"><div class="mini-bar-fill" id="mini-bar-${phase.id}" style="width:${pct(done,total)}%;background:${phase.color}"></div></div>
+      </div>
+      <span class="chevron">&#9660;</span>`;
+    header.addEventListener("click",()=>card.classList.toggle("open"));
+    card.appendChild(header);
+    const body=document.createElement("div"); body.className="phase-body";
+    phase.sections.forEach(section=>{
+      if(section.title){ const st=document.createElement("div"); st.className="section-title"; st.textContent=section.title; body.appendChild(st); }
+      section.items.forEach(item=>{
+        const row=document.createElement("div");
+        row.className="item"+(state[item.id]?" checked":""); row.id="row-"+item.id;
+        const cb=document.createElement("input"); cb.type="checkbox"; cb.id="cb-"+item.id; cb.checked=!!state[item.id];
+        cb.addEventListener("change",()=>toggleItem(item.id,phase.id,total));
+        const lbl=document.createElement("label"); lbl.className="item-label"; lbl.htmlFor="cb-"+item.id;
+        let html=escH(item.label);
+        if(item.tag) html+=` <span class="tag ${item.tag.cls}">${item.tag.text}</span>`;
+        lbl.innerHTML=html;
+        row.appendChild(cb); row.appendChild(lbl); body.appendChild(row);
+        if(item.note){ const nb=document.createElement("div"); nb.className="note-block"; nb.textContent="Note: "+item.note; body.appendChild(nb); }
+      });
+    });
+    const banner=document.createElement("div");
+    banner.className="phase-complete-banner"+(done===total?" visible":""); banner.id="banner-"+phase.id;
+    banner.innerHTML=`&#10003; Phase ${phase.number} Complete!`;
+    body.appendChild(banner); card.appendChild(body); root.appendChild(card);
+  });
+  updateOverall(state);
+}
+
+function toggleItem(itemId,phaseId,total){
+  const state=loadState(); const cb=document.getElementById("cb-"+itemId);
+  state[itemId]=cb.checked; saveState(state);
+  const row=document.getElementById("row-"+itemId);
+  cb.checked?row.classList.add("checked"):row.classList.remove("checked");
+  const phase=PHASES.find(p=>p.id===phaseId);
+  const allItems=phase.sections.flatMap(s=>s.items);
+  const done=allItems.filter(it=>state[it.id]).length;
+  document.getElementById("count-"+phaseId).textContent=`${done}/${total}`;
+  document.getElementById("mini-bar-"+phaseId).style.width=pct(done,total)+"%";
+  const banner=document.getElementById("banner-"+phaseId);
+  done===total?banner.classList.add("visible"):banner.classList.remove("visible");
+  updateOverall(state);
+}
+
+function updateOverall(state){
+  const all=PHASES.flatMap(p=>p.sections.flatMap(s=>s.items));
+  const total=all.length, done=all.filter(it=>state[it.id]).length, p=pct(done,total);
+  document.getElementById("overall-bar").style.width=p+"%";
+  document.getElementById("overall-pct").textContent=p+"% ("+done+"/"+total+")";
+}
+
+function expandAll() { document.querySelectorAll(".phase-card").forEach(c=>c.classList.add("open")); }
+function collapseAll(){ document.querySelectorAll(".phase-card").forEach(c=>c.classList.remove("open")); }
+function resetAll()  { if(!confirm("Reset ALL checklist progress?")) return; localStorage.removeItem(STORAGE_KEY); buildChecklist(); }
+
+buildChecklist();
+if(Object.keys(loadState()).length>0) document.getElementById("last-saved").textContent="previously saved";
+</script>
+</body>
+</html>

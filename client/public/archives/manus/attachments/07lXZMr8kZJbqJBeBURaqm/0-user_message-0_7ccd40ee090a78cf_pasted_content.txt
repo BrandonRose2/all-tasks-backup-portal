@@ -1,0 +1,200 @@
+B
+68 
+Designs
+ & 
+Consulting
+ — 
+Full
+ 
+Session
+Chat
+ 
+Log
+Date: June 26, 2026
+Project: B68 Hero Landing Page
+Live Site: https://b68designs-4f88utul.manus.space
+GitHub Repo: https://github.com/b68designs/manus-push
+Session Summary
+This session covered the full build of the B68 Designs & Consulting website — from a Higgsfield
+cinematic video prompt, to a JARVIS-style hero landing page, to a full multi-page site with AI
+Solutions, Portfolio, and interactive WebGL/canvas effects.
+Full Conversation
+Robert: give me a prompt for my higgsfield connecter in Claude, i need to create some very
+kool visaul for a opening splash page for a website, that defines my AI and computer consulting
+skills it should be tony stark style with jarvis and a picture of some master hacker or something
+like that maybe use the back of a person so i dont have to show my face interacting with
+hologram screens moving around in front of me etc.. do you get my point
+Manus: Here is the prompt you can use with the Higgsfield connector in Claude to generate
+your cinematic opening splash page video.
+Model: 
+kling3_0_turbo | Aspect Ratio: 
+16:9
+Prompt:
+Cinematic, photorealistic over-the-shoulder shot from behind a tech-savvy consultant sitting in
+a dimly lit, high-tech command center. The subject’s face is completely hidden from view,
+showing only the back of their head and shoulders, wearing a sleek dark hoodie. In front of
+them, an array of glowing, translucent holographic screens floats in mid-air, displaying
+complex code, data streams, and AI neural network visualizations in glowing cyan and amber
+(JARVIS / Tony Stark aesthetic). Subtle graffiti and dark tribal motifs are faintly visible etched
+into the metallic desk surface. The camera slowly pushes in as the holographic interfaces
+gently rotate and shift. Volumetric lighting cuts through the dark room, casting soft neon
+reflections on the subject’s shoulders. High-end sci-fi hacker atmosphere, 8k resolution,
+cinematic depth of field.
+Robert: also generate some type of letters at the end of it saying “B68 Designs & Consulting”
+Manus: Generated the cinematic splash video using Cinema Studio 3.0 (Higgsfield’s most
+advanced cinema-grade model). The video includes:
+Over-the-shoulder perspective of a lone tech figure in a dark command center — face never
+shown
+Floating JARVIS-style holographic screens with cascading code, AI network maps, and data
+streams in electric cyan and amber
+Dark tribal and graffiti motifs etched into the metallic desk surface
+Slow cinematic push-in camera move as holographic panels pulse and rotate
+“B68 DESIGNS AND CONSULTING” materializes letter by letter in glowing cyan-white
+JARVIS typography with an electric flicker effect
+Duration: 15 seconds | Aspect Ratio: 16:9
+Robert: use this prompt for my hero landing page [pasted Lithos-style design prompt]
+Manus: Built the B68 Designs & Consulting hero landing page with:
+JARVIS Command Center design direction (dark immersive sci-fi)
+Cursor spotlight reveal mechanic — move mouse to reveal second image through glowing
+circle
+Ken Burns slow zoom-out on load
+Staggered blur-rise text entrances for “Intelligence / by design.”
+Frosted-glass nav pill with Services, AI Solutions, Portfolio, About, Contact
+Orange “Start the Mission” CTA
+JARVIS corner accents
+Below-fold services section with brand statement “The intelligence behind the interface.”
+Robert: Swap in your Higgsfield splash video
+Manus: Swapped both static images for the B68 splash video as an autoplay muted loop hero
+background. Added scroll-aware nav that transitions from transparent to dark-frosted on scroll.
+Poster frame fallback ensures the hero never shows a blank screen while video loads.
+Robert: use this prompt for my hero landing page [pasted Higgsfield Nexus prompt]
+Manus: Connected GitHub repo b68designs/manus-push with PAT. Pushed all code. PAT
+stored globally so all future git operations auto-authenticate.
+Robert: import the skills from this repo giglianepefrei/motionsites.ai-prompt-library
+Manus: Cloned and imported 133 production-ready web design prompts as a persistent skill at
+/home/ubuntu/skills/motionsites-prompt-library/. Categories include Landing
+Pages, SaaS Heroes, Portfolio, Gaming, Finance, Web3, and 67 Pro Prompts.
+Robert: can you give me the list of the pro prompts
+Manus: Delivered the full list of 67 Pro prompts including:
+Named prompts: AI Automation Hero, Bold Portfolio Hero, Synapse Dark Hero, Weblex Dark
+Hero, Space Voyage, Web3 EOS Hero, Wealth Video Hero, Viktor Portfolio, etc.
+Extended slugs: akor-security-landing, nexus-hero, guardnet-landing, impressive-hero,
+urban-jungle-hero, liquid-glass-agency, stellar-ai-v2-hero, yacht-club-hero, etc.
+Robert: can you give me the prompt for nexus-hero IT / Nexus Consulting
+Manus: Delivered the full raw Nexus Hero prompt:
+Create a full-viewport (100vh) hero landing page using React, Tailwind CSS, and TypeScript.
+Load Google Fonts: Akshar (400–700) and Inter (400–700). Background Video: object-fill
+stretches to fill the full viewport. Navbar: NEXUS logo, nav links HOME/SOLUTIONS/OUR
+TEAM/NEWS, GET IN TOUCH CTA. Hero H1: “We drive companies beyond their biggest
+obstacles” with heading-gradient. NotchedButton “START YOUR JOURNEY” with corner
+decorations. Trusted By: FedEx, amazon, McKESSON, pitney bowes. CSS tokens:–background: 0 0% 100%; –heading-gradient-from: 212 72% 10%; –heading-gradient-to: 205
+65% 48%.
+Robert: i dont want it for b68 designs i just want the nexus prompt
+Manus: Delivered the raw Nexus prompt with no B68 modifications.
+Robert: Put this effect inside of the AI Solutions page [pasted EvilEye WebGL component]
+Manus:
+Installed ogl WebGL library
+Built EvilEye.tsx TypeScript component with cursor-tracking pupil and flame GLSL shader
+Built full 
+/ai-solutions page with EvilEye as the full-screen hero visual
+Fire orange 
+#FF6F37 color, cursor-tracking pupil slit, flame flicker animation on GPU
+6 AI service cards below: Strategy, Engineering, Automation, Integration, Infrastructure,
+Security
+Wired “AI Solutions” nav button on home page to 
+/ai-solutions
+Robert: trun the color of the eye back to the original fire color
+Manus: Removed the cyan overlay div that was sitting on top of the eye and washing it blue.
+Updated all glow colors to fire orange 
+#FF6F37 with amber outer glow.
+Robert: publish now
+Manus: Saved final checkpoint. Instructed Robert to click Publish button in Management UI.
+Robert: can you make the whole screen the eye and not just a circle
+Manus: Made the EvilEye fill the entire viewport edge to edge — flame explodes out in all
+directions, pupil slit sits dead center, text floats over it with a dark vignette. Cursor tracking works
+across the full viewport.
+Robert: Save and publish this version.
+Manus: Saved checkpoint 
+ca4d5ad6 . Instructed Robert to publish via Management UI.
+Robert: the mobile version of this does not play the video when u open up the website
+Manus: Implemented 6-step bulletproof mobile video autoplay fix:
+1. All attributes forced via JavaScript (not just HTML)
+2. Plays on 
+canplay and 
+loadeddata events
+3. Immediate play attempt on mount
+4. 
+vid.load() call to force iOS to start buffering
+5. Unlocks on first 
+touchstart , 
+touchend , 
+click , 
+scroll , or 
+pointerdown
+6. Retries when app comes back to foreground via 
+visibilitychange
+Robert: make sure the home video plays when u land on the website through the phone
+Manus: Added 
+webkit-playsinline and 
+x5-playsinline attributes. Set 
+playsInline programmatically. Added 
+muted and
+onCanPlayThrough trigger and retry logic on
+visibility change.
+Robert: okay now lets put this effect around all of the cards u have underneath “what we build”
+[pasted ElectricBorder canvas component]
+Manus:
+Built 
+ElectricBorder.tsx — canvas-based noise-displaced animated border
+Wrapped all 3 service cards (AI Consulting cyan, Web & App Dev amber, IT Infrastructure
+cyan)
+Each card has a continuously animated electric border that never repeats
+Robert: put those same effects around AI Solutions — Six disciplines. One unified intelligence.
+Manus: Wrapped all 6 discipline cards on the AI Solutions page with ElectricBorder:
+Strategy, Automation, Infrastructure → cyan 
+#00d4ff
+Engineering, Integration, Security → amber 
+#e8702a
+Grid changed from gap-px unified border to gap-8 individual bordered cards
+Robert: now add this to the portfolio button [pasted Foldcraft-style hero prompt]
+Manus: Built full 
+/portfolio page:
+Foldcraft-style fullscreen video hero with looping background video
+Staggered 
+fadeSlideUp text animations (badge 0.2s, H1 0.4s, subtext 0.7s, CTA 0.9s)
+B68 branding: italic Playfair Display, Inter body
+Animated hamburger/X mobile menu with cubic-bezier slide
+6 project cards below: JARVIS Command Center, Neural Network Visualizer, SecureOps
+Platform, CloudMesh Infrastructure, Predictive Analytics Engine, B68 Design System
+All 6 cards wrapped with ElectricBorder (alternating cyan/amber)
+Portfolio nav button wired on Home and AI Solutions pages
+Pages Built
+Page
+Route
+Home /
+AI
+Solutions
+/ai
+solutions
+Portfolio
+Key Feature
+Higgsfield cinematic video hero, cursor spotlight reveal,
+ElectricBorder service cards
+Full-screen EvilEye WebGL fire shader, 6 ElectricBorder
+discipline cards
+/portfolio
+Tech Stack
+Foldcraft-style video hero, staggered animations, 6
+ElectricBorder project cards
+Framework: React 19 + TypeScript + Vite
+Styling: Tailwind CSS 4 + shadcn/ui
+Animation: Framer Motion, GSAP, CSS keyframes
+WebGL: ogl (EvilEye shader), Three.js
+Fonts: Playfair Display (display), Inter (body), Geist (Portfolio)
+Video: Higgsfield Cinema Studio 3.0 (B68 splash video)
+Hosting: Manus (b68designs-4f88utul.manus.space)
+Repo: github.com/b68designs/manus-push
+Skills Installed
+motionsites-prompt-library — 133 production-ready web design prompts at
+/home/ubuntu/skills/motionsites-prompt-library/
+End of session log — B68 Designs & Consulting, Los Angeles, CA

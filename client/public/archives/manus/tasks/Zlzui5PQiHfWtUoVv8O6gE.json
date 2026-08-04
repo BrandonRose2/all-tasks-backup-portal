@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:40:18.155202Z",
+  "task": {
+    "id": "Zlzui5PQiHfWtUoVv8O6gE",
+    "title": "Testing and Using the Outlook Mail Connector Features",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 45,
+    "created_at": "1776814035",
+    "updated_at": "1776814120",
+    "task_url": "https://manus.im/app/Zlzui5PQiHfWtUoVv8O6gE",
+    "message_count": 0
+  },
+  "event_count": 8,
+  "events": [
+    {
+      "id": "5KKKVkLSa1Lt6EquNaiHfE",
+      "timestamp": "1776814035598",
+      "type": "user_message",
+      "user_message": {
+        "content": "Help me test the Outlook Mail connector and show me how to use its feature (e.g. show any data you fetched with it). Give me a brief about its capabilities.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "T1HeBJfPeffixMkiKoh4dh-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776814036159",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll explore the Outlook Mail connector, test its available tools, fetch some real data, and give you a comprehensive overview of its capabilities."
+      },
+      "id": "HBqmVTVcmwwRXoGLXTXcqa",
+      "timestamp": "1776814039318",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Found 3 tools. Now testing each one — searching messages, reading content, and exploring the send capability with live data."
+      },
+      "id": "5Bnwcr8KntLblguHesEUcO",
+      "timestamp": "1776814053515",
+      "type": "assistant_message"
+    },
+    {
+      "id": "mwzv5Ou9nik07BpdtFurQ9",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "confirm_input_schema": {
+            "properties": {
+              "accept": {
+                "type": "boolean"
+              },
+              "save_draft": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "accept"
+            ],
+            "type": "object"
+          },
+          "waiting_description": "Processing Outlook mail messages",
+          "waiting_for_event_id": "1NLWxJYlccd7nEPjZbWPja",
+          "waiting_for_event_type": "outlookSendMailsAction"
+        }
+      },
+      "timestamp": "1776814070415",
+      "type": "status_update"
+    },
+    {
+      "id": "JNHfggp1cgXC9UIqjkWcUv",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776814087178",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "Outlook_Mail_MCP_Capability_Brief.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/Zlzui5PQiHfWtUoVv8O6gE/sandbox/5BRxeQ4rZTnA6xjsZxNozy_1776814118929_na1fn_L2hvbWUvdWJ1bnR1L091dGxvb2tfTWFpbF9NQ1BfQ2FwYWJpbGl0eV9CcmllZg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWmx6dWk1UFFpSGZXdFVvVnY4TzZnRS9zYW5kYm94LzVCUnhlUTRyWlRuQTZ4anNaeE5venlfMTc3NjgxNDExODkyOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDA5MWRHeHZiMnRmVFdGcGJGOU5RMUJmUTJGd1lXSnBiR2wwZVY5Q2NtbGxaZy5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHN23HISwdiwGc6FWl2dGeB4z2vSz1eXznd4UVx4CjXqAiEA1NGx97M9XPvMRopujofolMJRWQMxP-jxv7Zf3fojig8_"
+          }
+        ],
+        "content": "I've tested the Outlook Mail MCP connector and compiled a capability brief for you. \n\nDuring the test, I was able to successfully invoke the tools and explore their schemas. However, the specific Microsoft account connected to the test environment returned an error indicating that the mailbox is \"either inactive, soft-deleted, or is hosted on-premise.\" This means the account doesn't have an active Exchange Online mailbox enabled for the REST API.\n\nDespite this, I've documented all the available tools (`outlook_search_messages`, `outlook_read_messages`, and `outlook_send_messages`) and their capabilities in the attached brief. You can review the details on how to use them, including advanced KQL searches, batch reading, and sending emails with attachments."
+      },
+      "id": "R2XAzx9MUgFRvOy8OXhjUN",
+      "timestamp": "1776814119261",
+      "type": "assistant_message"
+    },
+    {
+      "id": "KSgUAdOc9VHm2dROw1Ey4l",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776814119558",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 6,
+      "type": "file",
+      "filename": "Outlook_Mail_MCP_Capability_Brief.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/Zlzui5PQiHfWtUoVv8O6gE/sandbox/5BRxeQ4rZTnA6xjsZxNozy_1776814118929_na1fn_L2hvbWUvdWJ1bnR1L091dGxvb2tfTWFpbF9NQ1BfQ2FwYWJpbGl0eV9CcmllZg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWmx6dWk1UFFpSGZXdFVvVnY4TzZnRS9zYW5kYm94LzVCUnhlUTRyWlRuQTZ4anNaeE5venlfMTc3NjgxNDExODkyOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDA5MWRHeHZiMnRmVFdGcGJGOU5RMUJmUTJGd1lXSnBiR2wwZVY5Q2NtbGxaZy5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHN23HISwdiwGc6FWl2dGeB4z2vSz1eXznd4UVx4CjXqAiEA1NGx97M9XPvMRopujofolMJRWQMxP-jxv7Zf3fojig8_",
+      "status": "archived",
+      "bytes": 3377,
+      "archive_path": "attachments/Zlzui5PQiHfWtUoVv8O6gE/6-assistant_message-0_8752621ff4d44320_Outlook_Mail_MCP_Capability_Brief.md"
+    }
+  ]
+}

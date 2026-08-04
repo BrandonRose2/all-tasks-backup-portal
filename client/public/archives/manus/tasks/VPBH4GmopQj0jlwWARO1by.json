@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:26:55.616521Z",
+  "task": {
+    "id": "VPBH4GmopQj0jlwWARO1by",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 35,
+    "created_at": "1785865940",
+    "updated_at": "1785866168",
+    "task_url": "https://manus.im/app/VPBH4GmopQj0jlwWARO1by",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "7pJnwWKEhWEskNNg2Khrmv",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785865940908",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Here is the research memo detailing AI-assisted income opportunities, including AI data labeling/evaluation, AI automation services for small businesses, and prompt/content services. The memo includes details on platforms, job paths, skill levels, earnings, time commitments, eligibility, risks, and source URLs."
+      },
+      "id": "2ciXcX693v2uSkfGwYkae2",
+      "timestamp": "1785866168482",
+      "type": "assistant_message"
+    },
+    {
+      "id": "KQTdWwiZBkKPsYNOXz8pvm",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785866168610",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

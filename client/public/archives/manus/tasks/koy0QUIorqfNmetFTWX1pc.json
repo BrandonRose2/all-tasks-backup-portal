@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:23.663834Z",
+  "task": {
+    "id": "koy0QUIorqfNmetFTWX1pc",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 9,
+    "created_at": "1784746210",
+    "updated_at": "1784746356",
+    "task_url": "https://manus.im/app/koy0QUIorqfNmetFTWX1pc",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "FAcubbR2pBvfTLgfvAEHsJ",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746210607",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully retrieved all requested information for Crossroads of Lee's Summit."
+      },
+      "id": "sVKojyKgbPoWfrk2lXOKKz",
+      "timestamp": "1784746356322",
+      "type": "assistant_message"
+    },
+    {
+      "id": "QPDSHcdlDoKzGpGS8KAIu6",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746356485",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

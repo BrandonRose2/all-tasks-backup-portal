@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:55.230885Z",
+  "task": {
+    "id": "HUpm8PwpkRD9B6IRz3YvtD",
+    "title": "Explore YouTube Channel and Suggest Top 3 Videos",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 9,
+    "created_at": "1782672549",
+    "updated_at": "1782672563",
+    "task_url": "https://manus.im/app/HUpm8PwpkRD9B6IRz3YvtD",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "DMf5ZQvkLkuw08AWkdgIP0",
+      "timestamp": "1782672549752",
+      "type": "user_message",
+      "user_message": {
+        "content": "Use My Browser to visit https://www.youtube.com/channel/UCYfdidRxbB8Qhf0Nx7ioOYw, then explore thoroughly. Tell me what's going on and suggest top 3 videos to watch.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "24Mfs0BjBdKpEZgcBnDUQl-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1782672550196",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll visit that YouTube channel using your browser, explore it thoroughly, and give you a full rundown along with my top 3 video recommendations."
+      },
+      "id": "zMiOPRhXbGpxl3FxOuQHPc",
+      "timestamp": "1782672553218",
+      "type": "assistant_message"
+    },
+    {
+      "id": "WnSxrsTJMT57lozpGaWKaP",
+      "timestamp": "1782672563239",
+      "type": "user_stop"
+    },
+    {
+      "id": "h9tuFdqHhVtxK9E67oxtyX",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus has stopped",
+        "description": "The user stopped Manus's work"
+      },
+      "timestamp": "1782672563337",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

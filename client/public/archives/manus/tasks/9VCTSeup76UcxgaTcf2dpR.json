@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:30:41.758958Z",
+  "task": {
+    "id": "9VCTSeup76UcxgaTcf2dpR",
+    "title": "List of LLMs and Their Best Skillsets",
+    "status": "stopped",
+    "type": "agent_subtask",
+    "agent_profile": "manus-1.6",
+    "credits_used": 27,
+    "created_at": "1781804473",
+    "updated_at": "1781804545",
+    "task_url": "https://manus.im/app/9VCTSeup76UcxgaTcf2dpR",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "NavTYJHHZEq6YncZU9i8P3",
+      "timestamp": "1781804473442",
+      "type": "user_message",
+      "user_message": {
+        "content": "Can you give me a list of LLMs and their corresponding skillsets that they are best known for?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "Vg1HGKBtXc1oCyhY3e4tm1-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1781804474170",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Here is a comprehensive overview of the major LLMs available today, organized by developer and annotated with their best-known skillsets and capabilities. The landscape as of mid-2026 is dominated by a mix of proprietary and open-weight models, each with distinct strengths.\n\n---\n\n## Major LLMs and Their Best-Known Skillsets\n\n### OpenAI\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **GPT-5** | General-purpose flagship | Multimodal (text, image, audio, video), reasoning, broad knowledge, long 400K context window, combines GPT-4o fluency with o3 reasoning |\n| **GPT-4o** | Conversational AI & multimodal interaction | Real-time voice (~320ms latency), image/audio/text input, enterprise integrations, natural conversation, tone mirroring |\n| **GPT-4.5 (Orion)** | Natural conversation & knowledge breadth | Reduced hallucinations, 128K context, highly conversational, fast content generation, broad general knowledge |\n| **o3** | Complex reasoning & mathematics | Chain-of-thought (CoT) reasoning, mathematics, scientific problem-solving, coding, deliberative alignment for safety, agent-ready |\n| **o1** | Structured reasoning | Step-by-step logical decomposition, STEM tasks, multi-step problem solving |\n\n---\n\n### Anthropic\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Claude 4 Opus** | Deep reasoning & enterprise analysis | Long-context retention (200K tokens), complex document analysis, structured reasoning across large workspaces, flagship intelligence |\n| **Claude 4 Sonnet** | Conversational AI & software engineering | Instruction-following, nuanced dialogue, coding (top SWE-bench scores), Extended Thinking Mode, fast and focused responses |\n| **Claude Code** | Agentic software development | Terminal-native coding agent, file editing, test running, GitHub integration, plain-English code commands |\n\n> **Anthropic's hallmark** is safety-focused design, strong instruction-following, and exceptional performance on long, multi-turn conversations and software engineering tasks.\n\n---\n\n### Google DeepMind\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Gemini 2.5 Pro** | Reasoning, research & long-context tasks | 1M token context window, multimodal (text, image, audio), top scores on GPQA/AIME math benchmarks, deep research workflows, reinforcement-learning-based reasoning |\n| **Gemma 3 (4B)** | Lightweight on-device use | Runs on modest/mobile hardware, fast startup, instruction-following discipline, open-weight |\n\n> **Google's hallmark** is deep integration with its ecosystem (Search, YouTube, Drive), massive context windows, and strong performance on research and science benchmarks.\n\n---\n\n### Meta\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Llama 4 Maverick** | Open-weight multimodal assistant | Image understanding, creative writing, general chat, cost-efficient open deployment, fine-tunable |\n| **Llama 4 Scout** | Long-context open-weight tasks | Extremely long input handling, open-weight for private/self-hosted deployments, community fine-tuning |\n\n> **Meta's hallmark** is open-weight accessibility — models can be downloaded, self-hosted, and fine-tuned without API dependency, making them the go-to for privacy-conscious and research deployments.\n\n---\n\n### DeepSeek\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **DeepSeek V3** | Cost-effective high performance | Mixture-of-Experts (MoE) architecture (685B params, 37B active), competitive with GPT-4.5 on math and coding, MIT-licensed open source, extremely low inference cost ($0.27/1M tokens) |\n| **DeepSeek R1** | Open-source reasoning | Outperforms Claude and o1 on reasoning benchmarks, clean token handling, long-context logic, fully open-weight — the only open-source reasoning model at this tier |\n\n> **DeepSeek's hallmark** is delivering frontier-level performance at a fraction of the cost, with full open-weight transparency.\n\n---\n\n### xAI\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Grok 3** | Real-time awareness & mathematics | Live web + X (Twitter) data access via DeepSearch, Think/Big Brain reasoning modes, 1M token context, top AIME math scores (96%), multimodal (image + video), humor and personality |\n\n> **xAI's hallmark** is real-time internet and social media grounding, making Grok uniquely suited for news analysis, fact-checking, and market research.\n\n---\n\n### Mistral AI\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Mistral Large** | Efficient enterprise reasoning | Multimodal (text + image), fast inference (20–30% faster than prior versions), open-weight, strong reasoning, low-latency deployments |\n| **Mistral Small 3.1** | Lightweight local deployment | On-device use, open-source, efficient for edge and low-spec environments |\n\n> **Mistral's hallmark** is efficiency and accessibility — high performance at small model sizes, ideal for local and latency-sensitive deployments.\n\n---\n\n### Alibaba Cloud\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Qwen3** | Multilingual reasoning & long-context | MoE architecture, 131K token context, trained on 36T tokens, strong on LiveBench/Arena-Hard, multilingual capabilities, open-weight |\n\n---\n\n### Microsoft\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Phi-4** | Small model STEM reasoning | 14B parameters, complex reasoning and math at small scale, multimodal (speech, vision, text), designed for edge/on-device deployment |\n\n---\n\n### Cohere\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Command A** | Enterprise RAG & retrieval | Retrieval-Augmented Generation (RAG), enterprise search, document summarization, business-grade API reliability |\n\n---\n\n### Moonshot AI\n\n| Model | Best Known For | Key Strengths |\n|---|---|---|\n| **Kimi K2** | Long-context reasoning | Extremely long document processing, research-oriented tasks, open-weight availability |\n\n---\n\n## Quick Reference: Models by Use Case\n\n| Use Case | Recommended Models |\n|---|---|\n| **Complex reasoning / mathematics** | OpenAI o3, DeepSeek R1, Gemini 2.5 Pro, Grok 3 |\n| **Software engineering / coding** | Claude 4 Sonnet, Claude Code, GPT-4.5, DeepSeek V3 |\n| **Natural conversation / chatbots** | GPT-4o, Claude 4 Sonnet, Grok 3 |\n| **Long-document analysis** | Gemini 2.5 Pro (1M ctx), Claude 4 Opus (200K ctx), Kimi K2 |\n| **Real-time / live data** | Grok 3 (DeepSearch), GPT-5 |\n| **Cost-sensitive / budget deployments** | DeepSeek V3, Groq (Llama-3), Qwen3 |\n| **On-device / edge / local** | Phi-4, Gemma 3 (4B), Mistral Small 3.1, Llama 4 |\n| **Enterprise search & RAG** | Cohere Command A, Claude 4 Opus |\n| **Open-source / self-hosted** | DeepSeek R1, Llama 4, Qwen3, Mistral Large |\n| **Multimodal (image/audio/video)** | GPT-5, GPT-4o, Gemini 2.5 Pro, Grok 3, Llama 4 Maverick |\n\n---\n\n**A few important notes on the current landscape:**\n\nThe distinction between **reasoning models** (o3, DeepSeek R1, Claude with Extended Thinking) and **standard models** (GPT-4o, standard Claude) is one of the most important axes of comparison today. Reasoning models trade speed and cost for significantly higher accuracy on structured, multi-step problems. Standard models remain superior for fast, conversational, and creative tasks.\n\nThe **open-weight vs. proprietary** divide is equally significant. Models like Llama 4, DeepSeek V3/R1, Mistral, and Qwen3 can be self-hosted and fine-tuned, offering data privacy and customization that proprietary APIs cannot match — though proprietary models still generally lead on raw benchmark performance.\n"
+      },
+      "id": "9DY84iQgu7D0nJCDOwQ2Ia",
+      "timestamp": "1781804544901",
+      "type": "assistant_message"
+    },
+    {
+      "id": "FqHfjdFzsjvMXjBiVFcpgD",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1781804545133",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

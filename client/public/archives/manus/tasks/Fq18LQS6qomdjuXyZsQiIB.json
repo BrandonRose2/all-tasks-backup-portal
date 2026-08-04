@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:39:58.522277Z",
+  "task": {
+    "id": "Fq18LQS6qomdjuXyZsQiIB",
+    "title": "Customizable Task for PropertyMax.ai Dashboard Widget",
+    "status": "waiting",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 2,
+    "created_at": "1776985825",
+    "updated_at": "1778011005",
+    "task_url": "https://manus.im/app/Fq18LQS6qomdjuXyZsQiIB",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "C2he2IKCogPNTwMk3SoM8W",
+      "timestamp": "1776985825420",
+      "type": "user_message",
+      "user_message": {
+        "content": "Create a similar task with a plan for customization",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "Ok, let me check this task and make a plan."
+      },
+      "id": "C2he2IKCogPNTwMk3SoM8W-1",
+      "timestamp": "1776985825421",
+      "type": "assistant_message"
+    },
+    {
+      "id": "QIsEOTxqBz9kiKkqy7aADP-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776985826292",
+      "type": "status_update"
+    },
+    {
+      "id": "xNcEwfAm6XE0wCurdyQ2ig",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "waiting_for_event_id": "EF0imRcHdum4ReS4791RJU",
+          "waiting_for_event_type": "makeYourVersionEnd"
+        }
+      },
+      "timestamp": "1776985873830",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

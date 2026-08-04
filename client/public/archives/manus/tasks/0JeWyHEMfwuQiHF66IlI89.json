@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:24.846848Z",
+  "task": {
+    "id": "0JeWyHEMfwuQiHF66IlI89",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 6,
+    "created_at": "1784746156",
+    "updated_at": "1784746284",
+    "task_url": "https://manus.im/app/0JeWyHEMfwuQiHF66IlI89",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "P3z0NhNEyQuZsfqhNfJIAa",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746156717",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched Wilmington Arms Apartments and gathered the requested information."
+      },
+      "id": "4gOpQVXDfOsf5Be5P1ZjuC",
+      "timestamp": "1784746284026",
+      "type": "assistant_message"
+    },
+    {
+      "id": "Z4FbUqJVDQMbdh2eX25Xk0",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746284140",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

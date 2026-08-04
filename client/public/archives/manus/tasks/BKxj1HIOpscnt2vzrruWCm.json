@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:35.952043Z",
+  "task": {
+    "id": "BKxj1HIOpscnt2vzrruWCm",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 6,
+    "created_at": "1784746076",
+    "updated_at": "1784746120",
+    "task_url": "https://manus.im/app/BKxj1HIOpscnt2vzrruWCm",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "Lsb7dFZL06jNmX8w1RIAOu",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746078493",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched the official public listing for La Promesa and extracted all requested information."
+      },
+      "id": "RYIgQxfmnS1qEhle3LaplP",
+      "timestamp": "1784746120497",
+      "type": "assistant_message"
+    },
+    {
+      "id": "wZfBqVOZRlLuvpmT7eyZt9",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746120675",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

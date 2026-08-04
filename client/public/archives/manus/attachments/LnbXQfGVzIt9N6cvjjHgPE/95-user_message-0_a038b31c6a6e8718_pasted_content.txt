@@ -1,0 +1,77 @@
+Last login: Sun Jul  5 10:02:24 on ttys001
+brandonrose@Brandons-MacBook-Pro ~ % rclone config create gdrive drive scope=drive
+
+2026/07/05 10:03:57 NOTICE: Make sure your Redirect URL is set to "http://127.0.0.1:53682/" in your custom config.
+Error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+Usage:
+  rclone config create name type [key value]* [flags]
+
+Flags:
+      --all               Ask the full set of config questions
+      --continue          Continue the configuration process with an answer
+  -h, --help              help for create
+      --no-obscure        Force any passwords not to be obscured
+      --no-output         Don't provide any output
+      --non-interactive   Don't interact with user and return questions
+      --obscure           Force any passwords to be obscured
+      --result string     Result - use with --continue
+      --state string      State - use with --continue
+
+Use "rclone [command] --help" for more information about a command.
+Use "rclone help flags" for to see the global flags.
+Use "rclone help backends" for a list of supported services.
+
+2026/07/05 10:03:57 NOTICE: Fatal error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+brandonrose@Brandons-MacBook-Pro ~ % rclone config create gdrive drive scope=drive
+
+2026/07/05 10:04:35 NOTICE: Make sure your Redirect URL is set to "http://127.0.0.1:53682/" in your custom config.
+Error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+Usage:
+  rclone config create name type [key value]* [flags]
+
+Flags:
+      --all               Ask the full set of config questions
+      --continue          Continue the configuration process with an answer
+  -h, --help              help for create
+      --no-obscure        Force any passwords not to be obscured
+      --no-output         Don't provide any output
+      --non-interactive   Don't interact with user and return questions
+      --obscure           Force any passwords to be obscured
+      --result string     Result - use with --continue
+      --state string      State - use with --continue
+
+Use "rclone [command] --help" for more information about a command.
+Use "rclone help flags" for to see the global flags.
+Use "rclone help backends" for a list of supported services.
+
+2026/07/05 10:04:35 NOTICE: Fatal error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+brandonrose@Brandons-MacBook-Pro ~ % killall rclone 2>/dev/null; sleep 2
+
+brandonrose@Brandons-MacBook-Pro ~ % rclone config create gdrive drive scope=drive
+
+2026/07/05 10:05:20 NOTICE: Make sure your Redirect URL is set to "http://127.0.0.1:53682/" in your custom config.
+Error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+Usage:
+  rclone config create name type [key value]* [flags]
+
+Flags:
+      --all               Ask the full set of config questions
+      --continue          Continue the configuration process with an answer
+  -h, --help              help for create
+      --no-obscure        Force any passwords not to be obscured
+      --no-output         Don't provide any output
+      --non-interactive   Don't interact with user and return questions
+      --obscure           Force any passwords to be obscured
+      --result string     Result - use with --continue
+      --state string      State - use with --continue
+
+Use "rclone [command] --help" for more information about a command.
+Use "rclone help flags" for to see the global flags.
+Use "rclone help backends" for a list of supported services.
+
+2026/07/05 10:05:20 NOTICE: Fatal error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+brandonrose@Brandons-MacBook-Pro ~ % rclone lsd gdrive:Recordings
+
+2026/07/05 10:05:45 ERROR : error listing: directory not found
+2026/07/05 10:05:45 NOTICE: Failed to lsd with 2 errors: last error was: directory not found
+brandonrose@Brandons-MacBook-Pro ~ % 

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:14.890392Z",
+  "task": {
+    "id": "zR7uEFpcUvsTTsenYX4Ork",
+    "title": "Top 100 GitHub Repos for Manus Integration",
+    "status": "stopped",
+    "type": "agent_subtask",
+    "agent_profile": "manus-1.6-max",
+    "credits_used": 55,
+    "created_at": "1783469546",
+    "updated_at": "1783469627",
+    "task_url": "https://manus.im/app/zR7uEFpcUvsTTsenYX4Ork",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "94sPOxznlYmSmdE1tX0gLW",
+      "timestamp": "1783469545975",
+      "type": "user_message",
+      "user_message": {
+        "content": "Give me a list of the top most amazing github repositories that I could clone and use with Manus. Give me 100. Organize them into categories and for each repo include the name, link, description, approximate stars, and why it's useful with an AI agent like Manus. Deliver the final list as a Markdown file at /home/ubuntu/top_100_github_repos.md. Make sure these are real, popular, well-maintained repositories that are actionable — things you can actually build with, deploy, or integrate into workflows. Write the file directly and deliver quickly.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "bdMQvAA4gY9awkrCteZNb3-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783469546941",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "top_100_github_repos.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/zR7uEFpcUvsTTsenYX4Ork/sandbox/JVO8cQP2atJvpyrciJIa3p_1783469626861_na1fn_L2hvbWUvdWJ1bnR1L3RvcF8xMDBfZ2l0aHViX3JlcG9z.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvelI3dUVGcGNVdnNUVHNlbllYNE9yay9zYW5kYm94L0pWTzhjUVAyYXRKdnB5cmNpSklhM3BfMTc4MzQ2OTYyNjg2MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSdmNGOHhNREJmWjJsMGFIVmlYM0psY0c5ei5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIAlWocMpOJcYtCutowpnt80GdhQ47iZ~O3FI-kNAIQTLAiEAjhCIHWEb4YLYDSrE3hoFfGk55xoI6f25ptQs3j-Et58_"
+          }
+        ],
+        "content": "Brandon, your curated list of the top 100 GitHub repositories to use with Manus is ready at `/home/ubuntu/top_100_github_repos.md` (attached).\n\nThe list is organized into 10 categories with 10 repos each:\n\n1. **Web Frameworks & UI** — Next.js, React, Tailwind CSS, MUI, and more\n2. **Backend & APIs** — FastAPI, Django, NestJS, Gin, etc.\n3. **AI & Machine Learning** — LangChain, Transformers, Ollama, AutoGPT\n4. **Databases & Data Engineering** — Supabase, Prisma, Airflow, DuckDB\n5. **DevOps & Deployment** — Docker, Kubernetes, Terraform, Grafana\n6. **Automation & Scraping** — Playwright, Puppeteer, Scrapy, n8n\n7. **Productivity & Tools** — Excalidraw, Hoppscotch, Logseq, Outline\n8. **E-commerce & CMS** — Strapi, Medusa, Ghost, Payload\n9. **Game Development & Graphics** — Godot, Three.js, Phaser, Bevy\n10. **Miscellaneous & Utilities** — FFmpeg, yt-dlp, ripgrep, Tauri\n\nEach entry includes the repo name, direct GitHub link, description, approximate star count, and a note on why it's useful when paired with an AI agent like Manus. All are real, popular, actively maintained projects you can clone, deploy, or integrate into your workflows — several (Supabase, n8n, Playwright, FastAPI, Medusa) would be especially relevant if you move forward with building your own property management platform.\n\nNote: star counts are approximate and drift over time; happy to refresh any category with live numbers or expand a section if you want deeper picks in a specific area."
+      },
+      "id": "upQTi5PqHAluF4UcHhFKe8",
+      "timestamp": "1783469627300",
+      "type": "assistant_message"
+    },
+    {
+      "id": "9BCh9Z6uajnnZIPSkLEvH8",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783469627704",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 2,
+      "type": "file",
+      "filename": "top_100_github_repos.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/zR7uEFpcUvsTTsenYX4Ork/sandbox/JVO8cQP2atJvpyrciJIa3p_1783469626861_na1fn_L2hvbWUvdWJ1bnR1L3RvcF8xMDBfZ2l0aHViX3JlcG9z.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvelI3dUVGcGNVdnNUVHNlbllYNE9yay9zYW5kYm94L0pWTzhjUVAyYXRKdnB5cmNpSklhM3BfMTc4MzQ2OTYyNjg2MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSdmNGOHhNREJmWjJsMGFIVmlYM0psY0c5ei5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIAlWocMpOJcYtCutowpnt80GdhQ47iZ~O3FI-kNAIQTLAiEAjhCIHWEb4YLYDSrE3hoFfGk55xoI6f25ptQs3j-Et58_",
+      "status": "archived",
+      "bytes": 19445,
+      "archive_path": "attachments/zR7uEFpcUvsTTsenYX4Ork/2-assistant_message-0_35ce11ec5ad4ed98_top_100_github_repos.md"
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+Last login: Sun Jun 28 16:40:46 on ttys003
+brandonrose@Mac ~ % brew install node
+
+==> Would install 1 formula:
+node
+==> Downloading https://ghcr.io/v2/homebrew/core/node
+############################################## 100.0%
+==> Would install 24 dependencies for node:
+fmt
+ada-url
+brotli
+c-ares
+hdrhistogram_c
+icu4c@78
+libffi
+libnghttp2
+libnghttp3
+ca-certificates
+openssl@3
+libngtcp2
+libuv
+llhttp
+simdutf
+merve
+nbytes
+simdjson
+readline
+sqlite
+uvwasi
+lz4
+xz
+zstd
+==> Do you want to proceed with the installation? [y/
+==> Fetching downloads for: node
+✔︎ Bottle Manifest fmt (12 Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest ada-url Downloaded    8.7KB/  8.7KB
+✔︎ Bottle Manifest hdrhist Downloaded    7.8KB/  7.8KB
+✔︎ Bottle Manifest brotli  Downloaded    8.0KB/  8.0KB
+✔︎ Bottle Manifest c-ares  Downloaded    7.5KB/  7.5KB
+✔︎ Bottle Manifest icu4c@7 Downloaded    9.7KB/  9.7KB
+✔︎ Bottle Manifest libffi  Downloaded    7.2KB/  7.2KB
+✔︎ Bottle Manifest libnght Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest libnght Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest ca-cert Downloaded    1.7KB/  1.7KB
+✔︎ Bottle Manifest openssl Downloaded   12.0KB/ 12.0KB
+✔︎ Bottle Manifest libngtc Downloaded    9.7KB/  9.7KB
+✔︎ Bottle Manifest libuv ( Downloaded    7.5KB/  7.5KB
+✔︎ Bottle Manifest llhttp  Downloaded    7.2KB/  7.2KB
+✔︎ Bottle hdrhistogram_c ( Downloaded   43.6KB/ 43.6KB
+✔︎ Bottle libnghttp3 (1.17 Downloaded  190.6KB/190.6KB
+✔︎ Bottle fmt (12.2.0)     Downloaded  288.4KB/288.4KB
+✔︎ Bottle brotli (1.2.0)   Downloaded  793.5KB/793.5KB
+✔︎ Bottle libffi (3.6.0)   Downloaded  242.2KB/242.2KB
+✔︎ Bottle libnghttp2 (1.69 Downloaded  231.4KB/231.4KB
+✔︎ Bottle ca-certificates  Downloaded  112.1KB/112.1KB
+✔︎ Bottle ada-url (3.4.4)  Downloaded  345.6KB/345.6KB
+✔︎ Bottle c-ares (1.34.6)  Downloaded  304.0KB/304.0KB
+✔︎ Bottle libngtcp2 (1.24. Downloaded  422.6KB/422.6KB
+✔︎ Bottle llhttp (9.4.2)   Downloaded   38.3KB/ 38.3KB
+✔︎ Bottle libuv (1.52.1)   Downloaded  375.7KB/375.7KB
+✔︎ Bottle Manifest simdutf Downloaded    9.0KB/  9.0KB
+✔︎ Bottle Manifest merve ( Downloaded    9.4KB/  9.4KB
+✔︎ Bottle Manifest nbytes  Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest simdjso Downloaded    7.3KB/  7.3KB
+✔︎ Bottle Manifest sqlite  Downloaded   11.8KB/ 11.8KB
+✔︎ Bottle Manifest uvwasi  Downloaded    8.3KB/  8.3KB
+✔︎ Bottle Manifest xz (5.8 Downloaded   11.8KB/ 11.8KB
+✔︎ Bottle nbytes (0.1.4)   Downloaded   13.3KB/ 13.3KB
+✔︎ Bottle icu4c@78 (78.3)  Downloaded   31.8MB/ 31.8MB
+✔︎ Bottle simdutf (9.0.0)  Downloaded  391.1KB/391.1KB
+✔︎ Bottle Manifest lz4 (1. Downloaded   13.8KB/ 13.8KB
+✔︎ Bottle merve (1.2.2_1)  Downloaded   33.0KB/ 33.0KB
+✔︎ Bottle Manifest readlin Downloaded   10.0KB/ 10.0KB
+✔︎ Bottle uvwasi (0.0.23)  Downloaded   70.0KB/ 70.0KB
+✔︎ Bottle Manifest zstd (1 Downloaded   13.2KB/ 13.2KB
+✔︎ Bottle readline (8.3.3) Downloaded  757.9KB/757.9KB
+✔︎ Bottle lz4 (1.10.0)     Downloaded  279.7KB/279.7KB
+✔︎ Bottle xz (5.8.3)       Downloaded  770.8KB/770.8KB
+✔︎ Bottle sqlite (3.53.3)  Downloaded    2.5MB/  2.5MB
+✔︎ Bottle simdjson (4.6.4) Downloaded    1.4MB/  1.4MB
+✔︎ Bottle zstd (1.5.7_1)   Downloaded  793.6KB/793.6KB
+✔︎ Bottle openssl@3 (3.6.2 Downloaded   10.9MB/ 10.9MB
+✔︎ Bottle node (26.4.0)    Downloaded   22.2MB/ 22.2MB
+==> Installing dependencies for node: fmt, ada-url, brotli, c-ares, hdrhistogram_c, icu4c@78, libffi, libnghttp2, libnghttp3, ca-certificates, openssl@3, libngtcp2, libuv, llhttp, simdutf, merve, nbytes, simdjson, readline, sqlite, uvwasi, lz4, xz and zstd
+==> Installing node dependency: fmt
+==> Pouring fmt--12.2.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/fmt/12.2.0: 31 files, 1.1MB
+==> Installing node dependency: ada-url
+==> Pouring ada-url--3.4.4.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/ada-url/3.4.4: 55 files, 1.3MB
+==> Installing node dependency: brotli
+==> Pouring brotli--1.2.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/brotli/1.2.0: 33 files, 1.9MB
+==> Installing node dependency: c-ares
+==> Pouring c-ares--1.34.6.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/c-ares/1.34.6: 176 files, 1MB
+==> Installing node dependency: hdrhistogram_c
+==> Pouring hdrhistogram_c--0.11.9.arm64_tahoe.bottle
+🍺  /opt/homebrew/Cellar/hdrhistogram_c/0.11.9: 22 files, 171.3KB
+==> Installing node dependency: icu4c@78
+==> Pouring icu4c@78--78.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/icu4c@78/78.3: 279 files, 87.7MB
+==> Installing node dependency: libffi
+==> Pouring libffi--3.6.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libffi/3.6.0: 18 files, 883.7KB
+==> Installing node dependency: libnghttp2
+==> Pouring libnghttp2--1.69.0.arm64_tahoe.bottle.tar
+🍺  /opt/homebrew/Cellar/libnghttp2/1.69.0: 14 files, 847.3KB
+==> Installing node dependency: libnghttp3
+==> Pouring libnghttp3--1.17.0.arm64_tahoe.bottle.tar
+🍺  /opt/homebrew/Cellar/libnghttp3/1.17.0: 20 files, 614.9KB
+==> Installing node dependency: ca-certificates
+==> Pouring ca-certificates--2026-05-14.all.bottle.ta
+==> Regenerating CA certificate bundle from keychain,
+🍺  /opt/homebrew/Cellar/ca-certificates/2026-05-14: 4 files, 199.2KB
+==> Installing node dependency: openssl@3
+==> Pouring openssl@3--3.6.2.arm64_tahoe.bottle.tar.g
+🍺  /opt/homebrew/Cellar/openssl@3/3.6.2: 7,627 files, 37.6MB
+==> Installing node dependency: libngtcp2
+==> Pouring libngtcp2--1.24.0.arm64_tahoe.bottle.tar.
+🍺  /opt/homebrew/Cellar/libngtcp2/1.24.0: 21 files, 1.4MB
+==> Installing node dependency: libuv
+==> Pouring libuv--1.52.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libuv/1.52.1: 35 files, 1.3MB
+==> Installing node dependency: llhttp
+==> Pouring llhttp--9.4.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/llhttp/9.4.2: 15 files, 164.0KB
+==> Installing node dependency: simdutf
+==> Pouring simdutf--9.0.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/simdutf/9.0.0: 65 files, 2MB
+==> Installing node dependency: merve
+==> Pouring merve--1.2.2_1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/merve/1.2.2_1: 19 files, 148.6KB
+==> Installing node dependency: nbytes
+==> Pouring nbytes--0.1.4.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/nbytes/0.1.4: 9 files, 89KB
+==> Installing node dependency: simdjson
+==> Pouring simdjson--4.6.4.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/simdjson/4.6.4: 19 files, 8.0MB
+==> Installing node dependency: readline
+==> Pouring readline--8.3.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/readline/8.3.3: 56 files, 2.7MB
+==> Installing node dependency: sqlite
+==> Pouring sqlite--3.53.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/sqlite/3.53.3: 13 files, 5.3MB
+==> Installing node dependency: uvwasi
+==> Pouring uvwasi--0.0.23.arm64_tahoe.bottle.1.tar.g
+🍺  /opt/homebrew/Cellar/uvwasi/0.0.23: 15 files, 286.9KB
+==> Installing node dependency: lz4
+==> Pouring lz4--1.10.0.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/lz4/1.10.0: 24 files, 767.6KB
+==> Installing node dependency: xz
+==> Pouring xz--5.8.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/xz/5.8.3: 96 files, 2.7MB
+==> Installing node dependency: zstd
+==> Pouring zstd--1.5.7_1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/zstd/1.5.7_1: 32 files, 2.3MB
+==> Installing node
+==> Pouring node--26.4.0.arm64_tahoe.bottle.tar.gz
+==> Caveats
+The following node executables are shadowed by other commands earlier in your PATH:
+  node (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/node)
+  npm (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/npm)
+  npx (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/npx)
+Running these by name will not invoke the version provided by Homebrew.
+Disable this behaviour by setting `HOMEBREW_NO_PATH_SHADOW_CHECK=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Summary
+🍺  /opt/homebrew/Cellar/node/26.4.0: 2,071 files, 92MB
+==> Running `brew cleanup node`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Caveats
+==> node
+The following node executables are shadowed by other commands earlier in your PATH:
+  node (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/node)
+  npm (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/npm)
+  npx (shadowed by /Users/brandonrose/.nvm/versions/node/v24.14.0/bin/npx)
+Running these by name will not invoke the version provided by Homebrew.
+Disable this behaviour by setting `HOMEBREW_NO_PATH_SHADOW_CHECK=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+brandonrose@Mac ~ % npm install -g pnpm
+
+/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/lib/cli/validate-engines.js:25
+    throw err
+    ^
+
+Error: Cannot find module '/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (node:internal/modules/cjs/loader:531:19)
+    at Module._findPath (node:internal/modules/cjs/loader:799:18)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1441:27)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.require (node:internal/modules/cjs/loader:1556:12)
+    at require (node:internal/modules/helpers:152:16)
+    at module.exports (/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/lib/cli/entry.js:7:3) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/node_modules/graceful-fs/package.json',
+  requestPath: 'graceful-fs'
+}
+
+Node.js v24.14.0
+brandonrose@Mac ~ % git clone https://github.com/BrandonRose2/piano-composition-mastery.git
+cd piano-composition-mastery
+
+Cloning into 'piano-composition-mastery'...
+remote: Enumerating objects: 384, done.
+remote: Counting objects: 100% (384/384), done.
+remote: Compressing objects: 100% (228/228), done.
+remote: Total 384 (delta 186), reused 340 (delta 142), pack-reused 0 (from 0)
+Receiving objects: 100% (384/384), 354.41 KiB | 2.23 MiB/s, done.
+Resolving deltas: 100% (186/186), done.
+brandonrose@Mac piano-composition-mastery % nvm install-latest-npm
+
+Attempting to upgrade to the latest working version of npm...
+Unable to obtain npm version.
+brandonrose@Mac piano-composition-mastery % npm install -g pnpm
+
+/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/lib/cli/validate-engines.js:25
+    throw err
+    ^
+
+Error: Cannot find module '/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (node:internal/modules/cjs/loader:531:19)
+    at Module._findPath (node:internal/modules/cjs/loader:799:18)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1441:27)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.require (node:internal/modules/cjs/loader:1556:12)
+    at require (node:internal/modules/helpers:152:16)
+    at module.exports (/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/lib/cli/entry.js:7:3) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/node_modules/graceful-fs/package.json',
+  requestPath: 'graceful-fs'
+}
+
+Node.js v24.14.0
+brandonrose@Mac piano-composition-mastery % pnpm install
+
+(node:72728) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Lockfile is up to date, resolution step is skipped
+Packages: +707
++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 707, reused 7, downloaded 0, addedProgress: resolved 707, reused 7, downloaded 20, addeProgress: resolved 707, reused 7, downloaded 46, addeProgress: resolved 707, reused 7, downloaded 81, addeProgress: resolved 707, reused 7, downloaded 120, addProgress: resolved 707, reused 7, downloaded 156, addProgress: resolved 707, reused 7, downloaded 207, added 214
+Downloading pdfjs-dist@5.4.296: 11.47 kB/9.73 MB
+Downloading pdfjs-dist@5.4.296: 9.73 MB/9.73 MB, don
+Downloading @napi-rs/canvas-darwin-arm64@1.0.0: 12.37 MB/12.37 MB, donedist@6.0.227: 3.06 MB/9.09 MB
+Progress: resolved 707, reused 7, downloaded 241, addDownloading mermaid@11.12.0: 14.37 MB/14.37 MB, done
+Progress: resolved 707, reused 7, downloaded 290, addDownloading pdfjs-dist@6.0.227: 9.09 MB/9.09 MB, don
+Progress: resolved 707, reused 7, downloaded 290, addProgress: resolved 707, reused 7, downloaded 294, addProgress: resolved 707, reused 7, downloaded 298, addProgress: resolved 707, reused 7, downloaded 310, addDownloading cytoscape-fcose@2.2.0: 7.60 MB/7.60 MB, done
+Progress: resolved 707, reused 7, downloaded 365, addProgress: resolved 707, reused 7, downloaded 371, addProgress: resolved 707, reused 7, downloaded 388, addProgress: resolved 707, reused 7, downloaded 421, addProgress: resolved 707, reused 7, downloaded 457, addProgress: resolved 707, reused 7, downloaded 494, addProgress: resolved 707, reused 7, downloaded 512, addProgress: resolved 707, reused 7, downloaded 523, addProgress: resolved 707, reused 7, downloaded 544, addProgress: resolved 707, reused 7, downloaded 575, addProgress: resolved 707, reused 7, downloaded 601, addProgress: resolved 707, reused 7, downloaded 621, addProgress: resolved 707, reused 7, downloaded 642, addProgress: resolved 707, reused 7, downloaded 658, added 659
+Downloading @napi-rs/canvas-darwin-arm64@0.1.80: 0.00Downloading @napi-rs/canvas-darwin-arm64@0.1.80: 11.46 MB/11.46 MB, done
+Progress: resolved 707, reused 7, downloaded 699, addProgress: resolved 707, reused 7, downloaded 699, addProgress: resolved 707, reused 7, downloaded 700, addProgress: resolved 707, reused 7, downloaded 700, addProgress: resolved 707, reused 7, downloaded 700, added 707, done
+
+dependencies:
++ @aws-sdk/client-s3 3.1072.0
++ @aws-sdk/s3-request-presigner 3.1072.0
++ @hookform/resolvers 5.2.2
++ @radix-ui/react-accordion 1.2.12
++ @radix-ui/react-alert-dialog 1.1.15
++ @radix-ui/react-aspect-ratio 1.1.7
++ @radix-ui/react-avatar 1.1.10
++ @radix-ui/react-checkbox 1.3.3
++ @radix-ui/react-collapsible 1.1.12
++ @radix-ui/react-context-menu 2.2.16
++ @radix-ui/react-dialog 1.1.15
++ @radix-ui/react-dropdown-menu 2.1.16
++ @radix-ui/react-hover-card 1.1.15
++ @radix-ui/react-label 2.1.7
++ @radix-ui/react-menubar 1.1.16
++ @radix-ui/react-navigation-menu 1.2.14
++ @radix-ui/react-popover 1.1.15
++ @radix-ui/react-progress 1.1.7
++ @radix-ui/react-radio-group 1.3.8
++ @radix-ui/react-scroll-area 1.2.10
++ @radix-ui/react-select 2.2.6
++ @radix-ui/react-separator 1.1.7
++ @radix-ui/react-slider 1.3.6
++ @radix-ui/react-slot 1.2.3
++ @radix-ui/react-switch 1.2.6
++ @radix-ui/react-tabs 1.1.13
++ @radix-ui/react-toggle 1.1.10
++ @radix-ui/react-toggle-group 1.1.11
++ @radix-ui/react-tooltip 1.2.8
++ @tanstack/react-query 5.101.0
++ @trpc/client 11.18.0
++ @trpc/react-query 11.18.0
++ @trpc/server 11.18.0
++ @types/bcryptjs 3.0.0
++ @types/pdf-parse 1.1.5
++ axios 1.12.2
++ bcryptjs 3.0.3
++ class-variance-authority 0.7.1
++ clsx 2.1.1
++ cmdk 1.1.1
++ cookie 1.1.1
++ date-fns 4.1.0
++ dotenv 17.4.2
++ drizzle-orm 0.44.7
++ embla-carousel-react 8.6.0
++ express 4.21.2
++ framer-motion 12.23.22
++ input-otp 1.4.2
++ jose 6.1.0
++ lucide-react 0.453.0
++ mysql2 3.22.5
++ nanoid 5.1.6
++ next-themes 0.4.6
++ pdf-parse 2.4.5
++ pdfjs-dist 6.0.227
++ react 19.2.1
++ react-day-picker 9.11.1
++ react-dom 19.2.1
++ react-hook-form 7.64.0
++ react-resizable-panels 3.0.6
++ recharts 2.15.4
++ sonner 2.0.7
++ streamdown 1.4.0
++ superjson 1.13.3
++ tailwind-merge 3.3.1
++ tailwindcss-animate 1.0.7
++ vaul 1.1.2
++ wouter 3.7.1
++ zod 4.1.12
+
+devDependencies:
++ @builder.io/vite-plugin-jsx-loc 0.1.1
++ @tailwindcss/typography 0.5.19
++ @tailwindcss/vite 4.1.14
++ @types/express 4.17.21
++ @types/google.maps 3.58.1
++ @types/node 24.7.0
++ @types/react 19.2.1
++ @types/react-dom 19.2.1
++ @vitejs/plugin-react 5.0.4
++ add 2.0.6
++ autoprefixer 10.4.21
++ drizzle-kit 0.31.10
++ esbuild 0.25.10
++ pnpm 10.18.1
++ postcss 8.5.6
++ prettier 3.6.2
++ tailwindcss 4.1.14
++ tsx 4.20.6
++ tw-animate-css 1.4.0
++ typescript 5.9.3
++ vite 7.1.9
++ vite-plugin-manus-runtime 0.0.58
++ vitest 2.1.9
+
+╭ Warning ──────────────────────────────────────────╮│                                                   ││   Ignored build scripts: @tailwindcss/oxide,      ││   esbuild.                                        ││   Run "pnpm approve-builds" to pick which         ││   dependencies should be allowed to run           ││   scripts.                                        ││                                                   │╰───────────────────────────────────────────────────╯
+
+Done in 8.4s using pnpm v10.4.1
+brandonrose@Mac piano-composition-mastery % pnpm build
+
+
+> la-campanella@1.0.0 build /Users/brandonrose/piano-composition-mastery
+> vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v7.1.9 building for production...
+(!) %VITE_ANALYTICS_ENDPOINT% is not defined in env variables found in /index.html. Is the variable mistyped?
+(!) %VITE_ANALYTICS_WEBSITE_ID% is not defined in env variables found in /index.html. Is the variable mistyped?
+<script src="%VITE_ANALYTICS_ENDPOINT%/umami"> in "/index.html" can't be bundled without type="module" attribute
+✓ 2173 modules transformed.
+../dist/public/index.html                 367.82 kB │ gzip: 105.60 kB
+../dist/public/assets/index-B6fX09mw.css  149.57 kB │ gzip:  23.70 kB
+../dist/public/assets/pdf-o1CUHkl-.js     427.61 kB │ gzip: 127.31 kB
+../dist/public/assets/index-B67PeOLo.js   741.15 kB │ gzip: 207.70 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.90s
+
+  dist/index.js  65.7kb
+
+⚡ Done in 5ms
+brandonrose@Mac piano-composition-mastery % 

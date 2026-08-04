@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:35:38.594158Z",
+  "task": {
+    "id": "U8nVKI2HjKNyZc8axFlDIO",
+    "title": "How to Write a Biography Using a Resume",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 144,
+    "created_at": "1779158795",
+    "updated_at": "1779162349",
+    "task_url": "https://manus.im/app/U8nVKI2HjKNyZc8axFlDIO",
+    "message_count": 0
+  },
+  "event_count": 28,
+  "events": [
+    {
+      "id": "7zlQsNOuNTKj597LHXT4B9",
+      "timestamp": "1779158795567",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "pasted_file_Dbr0oT_BrandonRoseResuméMostcurrent.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-dq5sqnRnGkS9ceoI4XzQv6_na1fn_cGFzdGVkX2ZpbGVfRGJyMG9UX0JyYW5kb25Sb3NlUmVzdW1lzIFNb3N0Y3VycmVudA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1kcTVzcW5SbkdrUzljZW9JNFh6UXY2X25hMWZuX2NHRnpkR1ZrWDJacGJHVmZSR0p5TUc5VVgwSnlZVzVrYjI1U2IzTmxVbVZ6ZFcxbHpJRk5iM04wWTNWeWNtVnVkQS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGLWjexaUzihJoc1zbA-ILFayGnW~Wi42huz4SZ3Um~IAiEAsCJ3wg~9ahcW6vEm7qnAKRKrefyAFxqzsbkky28A2c0_"
+          }
+        ],
+        "content": "my company needs a biography for me for our new website ... please create one using my current resume ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "17GzZppkBUlLokKkVD0dij-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1779158796987",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll read through your resume and craft a professional biography for your company website."
+      },
+      "id": "oxZiKG5wnGqqU7jQgDrP6u",
+      "timestamp": "1779158800057",
+      "type": "assistant_message"
+    },
+    {
+      "id": "dnD5gDDeU4AeWFnM1EdXb4",
+      "timestamp": "1779158825776",
+      "type": "user_message",
+      "user_message": {
+        "content": "i am currently doing SaSS and software/website development for my new company ",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "Thanks for the update! That completely changes the angle. I'll revise the biography to focus on your current role in SaaS and software/website development, highlighting your AI expertise, engineering background, and executive management experience to show a strong foundation for your new tech company."
+      },
+      "id": "K5K0b5k8LzhV9QDY5GfDRj",
+      "timestamp": "1779158830896",
+      "type": "assistant_message"
+    },
+    {
+      "id": "OlHBU7cQ4D7QOoMNw2HL07",
+      "timestamp": "1779158843120",
+      "type": "user_message",
+      "user_message": {
+        "content": "this is the companies website so tailor it to it www.apartmentcorp.com",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "I'll check out www.apartmentcorp.com right now to understand your company's mission, services, and tone, and then tailor your biography specifically to fit the website!"
+      },
+      "id": "UxyYCpOW7iZr7U409OMpK9",
+      "timestamp": "1779158846995",
+      "type": "assistant_message"
+    },
+    {
+      "id": "ff2zDnmSeBJl14aGpugJlO",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "confirm_input_schema": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "select",
+                  "skip"
+                ],
+                "type": "string"
+              },
+              "client_id": {
+                "type": "string"
+              },
+              "reason": {
+                "enum": [
+                  "no_clients_available",
+                  "same_browser_rejected",
+                  "client_offline",
+                  "api_error"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          },
+          "waiting_for_event_id": "ODc4RCPlkn8hzH17eaBnBI",
+          "waiting_for_event_type": "needConnectMyBrowser"
+        }
+      },
+      "timestamp": "1779158853941",
+      "type": "status_update"
+    },
+    {
+      "id": "eBiFkNPt9cXAWLVDzwjPEO",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1779158857986",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "Brandon_Rose_ApartmentCorp_Bio.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/U8nVKI2HjKNyZc8axFlDIO/sandbox/HUA8M6WEaFd4NxYUj6lyAr_1779158929760_na1fn_L2hvbWUvdWJ1bnR1L0JyYW5kb25fUm9zZV9BcGFydG1lbnRDb3JwX0Jpbw.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVThuVktJMkhqS055WmM4YXhGbERJTy9zYW5kYm94L0hVQThNNldFYUZkNE54WVVqNmx5QXJfMTc3OTE1ODkyOTc2MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKeVlXNWtiMjVmVW05elpWOUJjR0Z5ZEcxbGJuUkRiM0p3WDBKcGJ3Lm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHSeTY89eoiy5HqIzHJnS3TI32zwWs0Cwd3EOz8HnOjHAiEAqXof3F13LNQDfIZDaDgXb6waEswyuernGTE41Z-G52s_"
+          }
+        ],
+        "content": "Here is your biography, fully tailored to match the style, tone, and structure of the other leadership bios on **apartmentcorp.com**. It's been crafted to align with the company's technology-forward, professional brand voice.\n\nThe file includes two components:\n\n**1. Team Card Snippet** — The short tagline text that appears on the \"Meet the Team\" grid card, matching the format of other team members (e.g., *\"Special Projects · Strategic Initiatives · Operations\"*).\n\n**2. Full Biography Page** — Structured exactly like Marc Menowitz's bio, with:\n- A compelling headline section\n- A multi-paragraph narrative that connects your engineering background, executive management experience, real estate expertise, and AI/tech skills directly to your role at ApartmentCorp and the Property MAX AI platform\n- A closing quote\n- Three \"What Sets Brandon Apart\" highlight cards\n\nA few things worth noting about how the bio was tailored:\n- It positions your **AI and SaaS expertise** as central to your value at ApartmentCorp, tying directly to the Property MAX AI product\n- It references your **Petroleum Engineering degree** as the source of your analytical, data-driven mindset — which fits perfectly with the company's tech-driven identity\n- The tone mirrors the **professional, innovation-focused voice** used throughout the site\n\nLet me know if you'd like to adjust your title, add any details about your specific SaaS/development work, or tweak the tone in any way!"
+      },
+      "id": "vZiDfh80ZmDqcuAVixIkVY",
+      "timestamp": "1779158929968",
+      "type": "assistant_message"
+    },
+    {
+      "id": "3tB31JCMehcYr5L6IerGLF",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1779158930237",
+      "type": "status_update"
+    },
+    {
+      "id": "xz8zhnzsFtmI3mSBiks5PA",
+      "timestamp": "1779159064666",
+      "type": "user_message",
+      "user_message": {
+        "content": "whats taking to long to convert to pdf?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "Aw1VsddORlbb1MUX9un6vs",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1779159065617",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Converting the biography to PDF now — just a moment!"
+      },
+      "id": "xvgEfst0cTUhWl8eI6aQfo",
+      "timestamp": "1779159068935",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "Brandon_Rose_ApartmentCorp_Bio.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/U8nVKI2HjKNyZc8axFlDIO/sandbox/XMMp9dj0knuLDy3xk1OHjQ_1779159078988_na1fn_L2hvbWUvdWJ1bnR1L0JyYW5kb25fUm9zZV9BcGFydG1lbnRDb3JwX0Jpbw.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVThuVktJMkhqS055WmM4YXhGbERJTy9zYW5kYm94L1hNTXA5ZGowa251TER5M3hrMU9IalFfMTc3OTE1OTA3ODk4OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKeVlXNWtiMjVmVW05elpWOUJjR0Z5ZEcxbGJuUkRiM0p3WDBKcGJ3LnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCmeZNG1-plxfRWwo9xPsRKmUYQ2TjTZy2DCaEyvBvj3AIgH38AyM0CJ6jZeC1L0UhtXX7SZDcZejhK-gHF6vWSIJg_"
+          }
+        ],
+        "content": "Here is your biography as a PDF, ready to hand off to your web team!"
+      },
+      "id": "nzyUZI1BQdvhpElYWrmKRX",
+      "timestamp": "1779159079184",
+      "type": "assistant_message"
+    },
+    {
+      "id": "uc5yKsR9e6kcuMPQvZ5pcQ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1779159079463",
+      "type": "status_update"
+    },
+    {
+      "id": "TQ0VSwX8XBYTxFoU1yxq1v",
+      "timestamp": "1779159213658",
+      "type": "user_message",
+      "user_message": {
+        "content": "fit it to one page ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "8rCd0iK1aQMNyINzkEuhPy",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1779159213803",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Condensing the biography to fit on a single page now!"
+      },
+      "id": "He5cLyamnTNIIVLX4Ei68k",
+      "timestamp": "1779159217484",
+      "type": "assistant_message"
+    },
+    {
+      "id": "8W9YoK2favPK46XgvLs87a",
+      "timestamp": "1779159252887",
+      "type": "user_message",
+      "user_message": {
+        "content": "no i want it on one page",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "Got it — I'll build it as a custom HTML file with tighter margins and smaller font so everything fits on a single PDF page."
+      },
+      "id": "AHNjk0YDQijpI4EArUkrYx",
+      "timestamp": "1779159257011",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "Brandon_Rose_OnePage_Final.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/U8nVKI2HjKNyZc8axFlDIO/sandbox/vZP1MABs5Hn2obYX7WHdPy_1779159297679_na1fn_L2hvbWUvdWJ1bnR1L0JyYW5kb25fUm9zZV9PbmVQYWdlX0ZpbmFs.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVThuVktJMkhqS055WmM4YXhGbERJTy9zYW5kYm94L3ZaUDFNQUJzNUhuMm9iWVg3V0hkUHlfMTc3OTE1OTI5NzY3OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKeVlXNWtiMjVmVW05elpWOVBibVZRWVdkbFgwWnBibUZzLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIAC7F39Bz4Vy0-x0SpZuLudbRumtPzk6AjnLPdhAn6fHAiEA--PGtZAkK5l54xusMXKVi0MEvnB-8Rpt-C8pXR811lI_"
+          }
+        ],
+        "content": "Here you go — your biography, perfectly fitted to one page! Let me know if you'd like any changes to the content, formatting, or styling."
+      },
+      "id": "0OvH3JQob2mBo72n7BDuCx",
+      "timestamp": "1779159297797",
+      "type": "assistant_message"
+    },
+    {
+      "id": "l8ZclKIgy7FDanEdkKRXZZ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1779159298127",
+      "type": "status_update"
+    },
+    {
+      "id": "3bOTTm76z7aYf9B6zFvuBW",
+      "timestamp": "1779159376679",
+      "type": "user_message",
+      "user_message": {
+        "content": "change the last paragraph that gives specfic tools to a vast knowledge in ai platforms and all sources of technology or something like that ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "2LAvdexjnD6JTCSpnV1Q3Y",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1779159376870",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Updating that paragraph now!"
+      },
+      "id": "1s6IEtTYRO2pvrjJ3Z2pFq",
+      "timestamp": "1779159380558",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "Brandon_Rose_OnePage_Final.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/U8nVKI2HjKNyZc8axFlDIO/sandbox/VD2P6UMoYZ58knqWABWAEs_1779159407613_na1fn_L2hvbWUvdWJ1bnR1L0JyYW5kb25fUm9zZV9PbmVQYWdlX0ZpbmFs.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVThuVktJMkhqS055WmM4YXhGbERJTy9zYW5kYm94L1ZEMlA2VU1vWVo1OGtucVdBQldBRXNfMTc3OTE1OTQwNzYxM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKeVlXNWtiMjVmVW05elpWOVBibVZRWVdkbFgwWnBibUZzLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGf2FE0zWXbHNb~UDvj0O1bmlg4~EzqgVEPsMmywS~JYAiEAgkVvvdQE-4B--vKoj8MvbCZKYoQXDAPvihxG57cDoTo_"
+          }
+        ],
+        "content": "Done! The last paragraph now reads broadly — referencing your vast knowledge of AI platforms, emerging technologies, and the full spectrum of modern software solutions — without calling out any specific tools. Still fits perfectly on one page. Let me know if you'd like any other tweaks!"
+      },
+      "id": "9qx0FNRIhqo4EiusmxHXMM",
+      "timestamp": "1779159408291",
+      "type": "assistant_message"
+    },
+    {
+      "id": "mTzEYwx2qAk36jN4Yonhry",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1779159408623",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "pasted_file_Dbr0oT_BrandonRoseResuméMostcurrent.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-dq5sqnRnGkS9ceoI4XzQv6_na1fn_cGFzdGVkX2ZpbGVfRGJyMG9UX0JyYW5kb25Sb3NlUmVzdW1lzIFNb3N0Y3VycmVudA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1kcTVzcW5SbkdrUzljZW9JNFh6UXY2X25hMWZuX2NHRnpkR1ZrWDJacGJHVmZSR0p5TUc5VVgwSnlZVzVrYjI1U2IzTmxVbVZ6ZFcxbHpJRk5iM04wWTNWeWNtVnVkQS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGLWjexaUzihJoc1zbA-ILFayGnW~Wi42huz4SZ3Um~IAiEAsCJ3wg~9ahcW6vEm7qnAKRKrefyAFxqzsbkky28A2c0_",
+      "status": "archived",
+      "bytes": 4814,
+      "archive_path": "attachments/U8nVKI2HjKNyZc8axFlDIO/0-user_message-0_83c96dd4580b5cf5_pasted_file_Dbr0oT_BrandonRoseResume_Mostcurrent.pdf"
+    },
+    {
+      "event_index": 9,
+      "type": "file",
+      "filename": "Brandon_Rose_ApartmentCorp_Bio.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/U8nVKI2HjKNyZc8axFlDIO/sandbox/HUA8M6WEaFd4NxYUj6lyAr_1779158929760_na1fn_L2hvbWUvdWJ1bnR1L0JyYW5kb25fUm9zZV9BcGFydG1lbnRDb3JwX0Jpbw.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVThuVktJMkhqS055WmM4YXhGbERJTy9zYW5kYm94L0hVQThNNldFYUZkNE54WVVqNmx5QXJfMTc3OTE1ODkyOTc2MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKeVlXNWtiMjVmVW05elpWOUJjR0Z5ZEcxbGJuUkRiM0p3WDBKcGJ3Lm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHSeTY89eoiy5HqIzHJnS3TI32zwWs0Cwd3EOz8HnOjHAiEAqXof3F13LNQDfIZDaDgXb6waEswyuernGTE41Z-G52s_",
+      "status": "archived",
+      "bytes": 3330,
+      "archive_path": "attachments/U8nVKI2HjKNyZc8axFlDIO/9-assistant_message-0_20c8ddfdcd7beefe_Brandon_Rose_ApartmentCorp_Bio.md"
+    },
+    {
+      "event_index": 14,
+      "type": "file",
+      "filename": "Brandon_Rose_ApartmentCorp_Bio.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/U8nVKI2HjKNyZc8axFlDIO/sandbox/XMMp9dj0knuLDy3xk1OHjQ_1779159078988_na1fn_L2hvbWUvdWJ1bnR1L0JyYW5kb25fUm9zZV9BcGFydG1lbnRDb3JwX0Jpbw.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVThuVktJMkhqS055WmM4YXhGbERJTy9zYW5kYm94L1hNTXA5ZGowa251TER5M3hrMU9IalFfMTc3OTE1OTA3ODk4OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKeVlXNWtiMjVmVW05elpWOUJjR0Z5ZEcxbGJuUkRiM0p3WDBKcGJ3LnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCmeZNG1-plxfRWwo9xPsRKmUYQ2TjTZy2DCaEyvBvj3AIgH38AyM0CJ6jZeC1L0UhtXX7SZDcZejhK-gHF6vWSIJg_",
+      "status": "archived",
+      "bytes": 39306,
+      "archive_path": "attachments/U8nVKI2HjKNyZc8axFlDIO/14-assistant_message-0_175803f469a079cd_Brandon_Rose_ApartmentCorp_Bio.pdf"
+    },
+    {
+      "event_index": 21,
+      "type": "file",
+      "filename": "Brandon_Rose_OnePage_Final.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/U8nVKI2HjKNyZc8axFlDIO/sandbox/vZP1MABs5Hn2obYX7WHdPy_1779159297679_na1fn_L2hvbWUvdWJ1bnR1L0JyYW5kb25fUm9zZV9PbmVQYWdlX0ZpbmFs.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVThuVktJMkhqS055WmM4YXhGbERJTy9zYW5kYm94L3ZaUDFNQUJzNUhuMm9iWVg3V0hkUHlfMTc3OTE1OTI5NzY3OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKeVlXNWtiMjVmVW05elpWOVBibVZRWVdkbFgwWnBibUZzLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIAC7F39Bz4Vy0-x0SpZuLudbRumtPzk6AjnLPdhAn6fHAiEA--PGtZAkK5l54xusMXKVi0MEvnB-8Rpt-C8pXR811lI_",
+      "status": "archived",
+      "bytes": 18406,
+      "archive_path": "attachments/U8nVKI2HjKNyZc8axFlDIO/21-assistant_message-0_141d74af7a151cdf_Brandon_Rose_OnePage_Final.pdf"
+    },
+    {
+      "event_index": 26,
+      "type": "file",
+      "filename": "Brandon_Rose_OnePage_Final.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/U8nVKI2HjKNyZc8axFlDIO/sandbox/VD2P6UMoYZ58knqWABWAEs_1779159407613_na1fn_L2hvbWUvdWJ1bnR1L0JyYW5kb25fUm9zZV9PbmVQYWdlX0ZpbmFs.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVThuVktJMkhqS055WmM4YXhGbERJTy9zYW5kYm94L1ZEMlA2VU1vWVo1OGtucVdBQldBRXNfMTc3OTE1OTQwNzYxM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKeVlXNWtiMjVmVW05elpWOVBibVZRWVdkbFgwWnBibUZzLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGf2FE0zWXbHNb~UDvj0O1bmlg4~EzqgVEPsMmywS~JYAiEAgkVvvdQE-4B--vKoj8MvbCZKYoQXDAPvihxG57cDoTo_",
+      "status": "archived",
+      "bytes": 18247,
+      "archive_path": "attachments/U8nVKI2HjKNyZc8axFlDIO/26-assistant_message-0_b9a89a785437d3cd_Brandon_Rose_OnePage_Final.pdf"
+    }
+  ]
+}

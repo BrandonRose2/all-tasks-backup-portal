@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:37:23.352660Z",
+  "task": {
+    "id": "jTt6wyb8k5uc6CjEfk1ojR",
+    "title": "How Do Manus Connectors Automate Manager Performance Workflows?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 82,
+    "created_at": "1778207846",
+    "updated_at": "1778208007",
+    "task_url": "https://manus.im/app/jTt6wyb8k5uc6CjEfk1ojR",
+    "message_count": 0
+  },
+  "event_count": 7,
+  "events": [
+    {
+      "id": "nlqAb4IyjLYrC9KYfALfoE",
+      "timestamp": "1778207845910",
+      "type": "user_message",
+      "user_message": {
+        "content": "I was trying to upload a source from my notion into NotebookLM and it told em this : \n\n·\nMay 7, 2026\nThis text illustrates how advanced AI agents can be programmed to manage complex organizational workflows by connecting various software tools. The author outlines a sophisticated automation strategy where an LLM interacts with Notion databases, email servers, and calendar apps to evaluate staff performance. By pulling real-time KPI data, the system autonomously identifies underperforming managers and generates detailed Excel reports regarding property vacancies. The process culminates in the AI drafting personalized coaching emails and scheduling follow-up meetings to address specific operational weaknesses. Ultimately, the source serves as a practical demonstration of using AI connectors to eliminate manual administrative burdens while maintaining professional oversight.\n\nHow do Manus connectors automate complex manager performance workflows?\nWhat data sources are integrated to generate the performance reports?\nExplain the strategy for drafting constructive coaching emails to managers.\nToday • 7:35 PM\nDiscuss JavaScript requirements.\n\nBased on the sources provided, JavaScript must be enabled specifically to access and use Notion, which serves as the primary data repository for Apartment Corp's management and automation workflows\n.\nThe sources highlight the following regarding this requirement:\nAccessing Information: The \"Contact List - Upper Management\" is hosted on Notion, and the platform explicitly states that users must enable JavaScript to continue using the service or to skip to the content\n.\nWorkflow Integration: Enabling JavaScript is essential because the automated performance workflows described in the sources rely heavily on the Notion Connector\n. This connector is used to retrieve critical data, including:\nExecutive contact information for individuals like Marc Menowitz, Ethan Cowles, and Robert Sagarang\n.\nThe Operations Hub, which contains manager KPI scores used to identify underperforming properties\n.\nThe Vacancy Report App, which provides live occupancy and leasing data for buildings\n.\nWithout JavaScript enabled to access these Notion-based resources, the automated systems (such as Manus) would be unable to load the reference materials necessary to execute multi-step tasks like drafting emails, generating Excel reports, or scheduling follow-up calls\n.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "6w5sPo2p9IezjdJliRezED-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778207846542",
+      "type": "status_update"
+    },
+    {
+      "id": "loAud6kdI9aqecdbKK98gi",
+      "timestamp": "1778207850423",
+      "type": "user_message",
+      "user_message": {
+        "content": "How do i fix this",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "Let me look into your Notion content to understand what's happening and find the best way to get it into NotebookLM."
+      },
+      "id": "zsULvfShsFuj1d7ivn9NWl",
+      "timestamp": "1778207853030",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "I've found the relevant Notion content. Now I understand the issue — NotebookLM couldn't properly read the Notion page because Notion requires JavaScript to render its content in a browser. I'll now export the relevant content into a clean text/PDF file that NotebookLM can accept as a source upload."
+      },
+      "id": "h34aTuYzJvxZsDWqdha1iG",
+      "timestamp": "1778207962989",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/plain",
+            "filename": "Apartment_Corp_Workflow_Context.txt",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/jTt6wyb8k5uc6CjEfk1ojR/sandbox/ZjoIA68IVdMfPfXwKUmhda_1778208006789_na1fn_L2hvbWUvdWJ1bnR1L0FwYXJ0bWVudF9Db3JwX1dvcmtmbG93X0NvbnRleHQ.txt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvalR0Nnd5YjhrNXVjNkNqRWZrMW9qUi9zYW5kYm94L1pqb0lBNjhJVmRNZlBmWHdLVW1oZGFfMTc3ODIwODAwNjc4OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBGd1lYSjBiV1Z1ZEY5RGIzSndYMWR2Y210bWJHOTNYME52Ym5SbGVIUS50eHQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHSRkDSBiBXsAf161QPyo35jtZUG-XP6lPmABQuZWcCaAiEA9hU4vZRFjRcpf~c2eOtFw48RBT-ZJXJdfl9lg5EZ3os_"
+          }
+        ],
+        "content": "Here is the fix for your NotebookLM issue, and the exported file to use.\n\n**Why it happened:** NotebookLM tried to read your Notion page directly via URL, but Notion requires JavaScript to load its content in a browser. Since NotebookLM's web importer cannot execute JavaScript, it only saw a blank or near-empty page — which is why the summary was vague and the \"JavaScript must be enabled\" message appeared as source content.\n\n**How to fix it:** Instead of pasting a Notion URL into NotebookLM, you need to upload the content as a file. I've pulled all the relevant content from your Notion workspace and exported it into the `.txt` file attached below.\n\n**Steps to add it to NotebookLM:**\n1. Download the attached `Apartment_Corp_Workflow_Context.txt` file.\n2. Open [NotebookLM](https://notebooklm.google.com).\n3. In your notebook, click **\"+ Add Source\"**.\n4. Choose **\"Upload file\"** (not \"Website\").\n5. Upload the `.txt` file — NotebookLM will process it immediately.\n\n**What's included in the file:**\n- Executive management contact structure (Marc Menowitz, Ethan Cowles, Robert Sagarang, etc.)\n- The AI/Manus automation workflow for manager performance evaluation\n- Operations Hub & KPI tracking details\n- Vacancy Report App description\n- Manager contact list structure across all 5 regions\n- Training Hub modules and incentive programs\n\nIf you want me to include additional pages from your Notion workspace (such as specific manager pages, the full property list, or the vacancy data), just let me know and I can expand the export."
+      },
+      "id": "epthaGgV9rQtbdx508r550",
+      "timestamp": "1778208007003",
+      "type": "assistant_message"
+    },
+    {
+      "id": "d6UC9zgBlUXaCjtynJtQ4e",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778208007257",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "Apartment_Corp_Workflow_Context.txt",
+      "content_type": "text/plain",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/jTt6wyb8k5uc6CjEfk1ojR/sandbox/ZjoIA68IVdMfPfXwKUmhda_1778208006789_na1fn_L2hvbWUvdWJ1bnR1L0FwYXJ0bWVudF9Db3JwX1dvcmtmbG93X0NvbnRleHQ.txt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvalR0Nnd5YjhrNXVjNkNqRWZrMW9qUi9zYW5kYm94L1pqb0lBNjhJVmRNZlBmWHdLVW1oZGFfMTc3ODIwODAwNjc4OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBGd1lYSjBiV1Z1ZEY5RGIzSndYMWR2Y210bWJHOTNYME52Ym5SbGVIUS50eHQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIHSRkDSBiBXsAf161QPyo35jtZUG-XP6lPmABQuZWcCaAiEA9hU4vZRFjRcpf~c2eOtFw48RBT-ZJXJdfl9lg5EZ3os_",
+      "status": "archived",
+      "bytes": 3028,
+      "archive_path": "attachments/jTt6wyb8k5uc6CjEfk1ojR/5-assistant_message-0_648beb2656bffe9e_Apartment_Corp_Workflow_Context.txt"
+    }
+  ]
+}

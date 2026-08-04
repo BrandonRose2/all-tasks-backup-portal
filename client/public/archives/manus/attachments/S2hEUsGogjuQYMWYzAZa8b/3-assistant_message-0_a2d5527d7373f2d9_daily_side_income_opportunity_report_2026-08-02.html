@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Family Income Opportunity Report — August 2, 2026</title>
+  <style>
+    :root {
+      --ink: #13233a;
+      --muted: #50647d;
+      --paper: #f5f8fc;
+      --white: #ffffff;
+      --navy: #173a63;
+      --teal: #0b8078;
+      --teal-soft: #e8f7f4;
+      --amber: #aa5b09;
+      --amber-soft: #fff6e8;
+      --blue-soft: #eaf2fe;
+      --red: #a22a2a;
+      --red-soft: #fff0f0;
+      --line: #dce5ef;
+      --shadow: 0 10px 28px rgba(21, 47, 75, .08);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: #075fa5; font-weight: 650; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { color: #02436f; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 30px 22px 54px; }
+    header { background: linear-gradient(120deg, #16345b, #0b8078); color: #fff; padding: 36px 38px; border-radius: 20px; box-shadow: var(--shadow); }
+    .eyebrow { margin: 0 0 8px; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .84; }
+    h1 { margin: 0; max-width: 780px; font-size: clamp(28px, 5vw, 43px); line-height: 1.08; letter-spacing: -.035em; }
+    .subhead { margin: 15px 0 0; max-width: 820px; font-size: 17px; opacity: .95; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .pill { border: 1px solid rgba(255,255,255,.25); padding: 6px 11px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: 13px; }
+    main { margin-top: 24px; }
+    .notice { padding: 15px 18px; border-left: 5px solid var(--amber); background: var(--amber-soft); border-radius: 0 12px 12px 0; color: #68410b; }
+    .notice strong { color: #643700; }
+    .grid { display: grid; gap: 18px; margin-top: 20px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card, section { background: var(--white); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 4px 14px rgba(21, 47, 75, .035); }
+    .card { padding: 20px; }
+    section { margin-top: 20px; overflow: hidden; }
+    .section-head { padding: 22px 24px 17px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #fff, #fcfdff); }
+    h2 { margin: 0; color: var(--navy); font-size: 22px; line-height: 1.25; letter-spacing: -.02em; }
+    h3 { margin: 0 0 7px; color: var(--navy); font-size: 17px; line-height: 1.25; }
+    p { margin: 9px 0; }
+    .small { color: var(--muted); font-size: 13px; }
+    .body { padding: 4px 24px 23px; }
+    .key { margin: 0; color: var(--muted); }
+    .priority { display: grid; grid-template-columns: 44px 1fr; gap: 13px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .priority:last-child { border-bottom: none; }
+    .rank { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: #fff; background: var(--teal); font-weight: 800; }
+    .value { color: var(--teal); font-weight: 800; }
+    .tag { display: inline-block; margin: 6px 5px 0 0; border-radius: 999px; padding: 3px 8px; background: var(--blue-soft); color: #245786; font-size: 12px; font-weight: 700; }
+    .tag.caution { color: #8c510b; background: var(--amber-soft); }
+    .tag.skill { color: #0a645f; background: var(--teal-soft); }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; min-width: 770px; border-collapse: collapse; }
+    th, td { padding: 14px 12px; vertical-align: top; border-bottom: 1px solid var(--line); text-align: left; }
+    th { color: #35526f; background: #f7faff; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+    td:first-child { font-weight: 750; color: var(--navy); }
+    tr:last-child td { border-bottom: none; }
+    .quick-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+    .quick { padding: 16px; border-radius: 12px; background: #f8fbff; border: 1px solid #dce8f5; }
+    .quick strong { display: block; color: var(--navy); font-size: 16px; margin-bottom: 5px; }
+    .callout { margin-top: 16px; padding: 15px 17px; border-radius: 12px; background: var(--teal-soft); color: #174f4d; }
+    .warn { margin: 0 24px 24px; padding: 17px 19px; border-radius: 12px; background: var(--red-soft); color: #7f2626; border: 1px solid #f2cfcf; }
+    .checklist { margin: 0; padding-left: 20px; }
+    .checklist li { margin: 9px 0; }
+    .footnotes { columns: 2; column-gap: 32px; font-size: 12.5px; color: var(--muted); }
+    .footnotes p { break-inside: avoid; }
+    footer { margin-top: 18px; color: var(--muted); font-size: 12px; text-align: center; }
+    @media (max-width: 820px) {
+      .grid.two, .quick-grid { grid-template-columns: 1fr; }
+      header { padding: 28px 24px; }
+      .section-head, .body { padding-left: 18px; padding-right: 18px; }
+      .warn { margin-left: 18px; margin-right: 18px; }
+      .footnotes { columns: 1; }
+    }
+    @media print { body { background: #fff; } .wrap { max-width: none; padding: 0; } header, section, .card { box-shadow: none; } a { color: inherit; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Daily verified opportunity scan</p>
+      <h1>Family Income Opportunity Report</h1>
+      <p class="subhead">Immediate, legitimate routes across flexible local work, remote services, freelance marketplaces, digital products, and AI-training work.</p>
+      <div class="meta">
+        <span class="pill">August 2, 2026</span>
+        <span class="pill">First daily baseline</span>
+        <span class="pill">All links point to official platforms</span>
+      </div>
+    </header>
+
+    <main>
+      <aside class="notice"><strong>Financial-information notice.</strong> These are practical opportunity recommendations, not earnings guarantees. Every figure is gross and may be reduced by taxes, platform fees, vehicle costs, supplies, shipping, and payment processing.</aside>
+
+      <div class="grid two">
+        <article class="card">
+          <h2>Recommended strategy</h2>
+          <p>Use a <strong>two-track approach</strong>: activate one near-term local/flexible option for cashflow and one skilled remote route for higher upside. Do not launch every platform at once.</p>
+          <p class="small">The strongest existing-skill matches are STEM/statistics/engineering tutoring, classical-piano/ear-training lessons, data and spreadsheet work, AI-output evaluation, and focused research or AI-workflow services.</p>
+        </article>
+        <article class="card">
+          <h2>Daily-change tracking</h2>
+          <p><strong>Baseline established today.</strong> No prior report was available in this workspace for a verified day-over-day comparison.</p>
+          <p class="small">Future reports should identify newly available official routes, changes in published rates or terms, and observed outcomes from the household’s active applications.</p>
+        </article>
+      </div>
+
+      <section>
+        <div class="section-head">
+          <h2>Start here: the eight highest-priority routes</h2>
+          <p class="key">Choose the top two that match actual skills, location, eligibility, and available time.</p>
+        </div>
+        <div class="body">
+          <div class="priority">
+            <div class="rank">1</div>
+            <div><h3><a href="https://dataannotation.tech/">DataAnnotation — specialist AI training</a></h3><p><span class="value">Official posted rates:</span> $50–$100+/hour in listed specialist domains; $25–$30+/hour for generalists; $20–$50+/hour for bilingual work. Approval, task availability, and rates vary by assessment and project.</p><span class="tag skill">STEM / math / accounting / science</span><span class="tag">Remote, flexible</span></div>
+          </div>
+          <div class="priority">
+            <div class="rank">2</div>
+            <div><h3><a href="https://www.wyzant.com/tutorsignupstart">Wyzant — online tutoring</a></h3><p><span class="value">Suggested launch price:</span> $35–$60/hour for credentialed STEM, statistics, Excel, or music tutoring. This is a proposed starter price, not a platform guarantee. Create a free profile and answer relevant requests quickly.</p><span class="tag skill">Math / engineering / piano</span><span class="tag">Highest skill match</span></div>
+          </div>
+          <div class="priority">
+            <div class="rank">3</div>
+            <div><h3><a href="https://www.upwork.com/i/how-it-works/freelancer/">Upwork — focused freelance services</a></h3><p><span class="value">Marketplace reference:</span> entry/admin roles commonly start around $10–$25/hour, intermediate roles $25–$75/hour, and specialized AI/development/consulting can reach $75–$150+/hour. Start with one narrow offer and a work sample.</p><span class="tag">Research / Excel / technical writing</span><span class="tag">90-min setup</span></div>
+          </div>
+          <div class="priority">
+            <div class="rank">4</div>
+            <div><h3><a href="https://www.linkedin.com/services/page/onboarding">LinkedIn Services — direct client acquisition</a></h3><p><span class="value">Suggested launch price:</span> $30–$75/hour or a $75–$250 fixed-scope starter package. Service Page setup is free; use actual credentials, evidence, and targeted outreach to local businesses.</p><span class="tag">Professional services</span><span class="tag">Direct client route</span></div>
+          </div>
+          <div class="priority">
+            <div class="rank">5</div>
+            <div><h3><a href="https://www.fiverr.com/start_selling">Fiverr — productized micro-services</a></h3><p><span class="value">Suggested first packages:</span> $25–$75 for a bounded Excel cleanup, research brief, proofreading task, workflow map, or practice plan. Publish three sharply defined listings rather than an unfocused catalog.</p><span class="tag">AI, data, writing, music</span><span class="tag">Portfolio-led</span></div>
+          </div>
+          <div class="priority">
+            <div class="rank">6</div>
+            <div><h3><a href="https://outlier.ai/generalists/t1">Outlier — AI-output evaluation</a></h3><p><span class="value">Official posted rate for the linked opportunity:</span> up to $15/hour, paid weekly. The published opportunity is specifically for blind/low-vision contributors; evaluate eligibility and project fit before applying.</p><span class="tag caution">Eligibility-specific</span><span class="tag">5–10 hours/week typical</span></div>
+          </div>
+          <div class="priority">
+            <div class="rank">7</div>
+            <div><h3><a href="https://belaysolutions.com/jobs">BELAY</a> / <a href="https://bookminders.com/join-our-team/careers/">Bookminders</a> — remote bookkeeping and assistant work</h3><p><span class="value">Market reference:</span> Upwork lists freelance bookkeeping at $11–$25/hour. Confirm compensation in each application. BELAY currently lists remote contractor roles; Bookminders offers remote-first, flexible part-time accounting work.</p><span class="tag skill">Detail-oriented accounting / admin</span><span class="tag">Application route</span></div>
+          </div>
+          <div class="priority">
+            <div class="rank">8</div>
+            <div><h3><a href="https://workplace.clickworker.com/en/users/new/">Clickworker — microtasks</a></h3><p><span class="value">Pay model:</span> variable, task-by-task. Use as a supplement only; the platform lists AI training, surveys, voice recordings, and photo contests with weekly payments after approved work.</p><span class="tag caution">Variable availability</span><span class="tag">Low barrier</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><h2>Local flexible-work options</h2><p class="key">Choose a route based on transportation, physical capacity, pet/home setup, and actual local demand.</p></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Platform</th><th>Best fit</th><th>Published / estimated earnings</th><th>Time & prerequisites</th><th>Start</th></tr></thead>
+            <tbody>
+              <tr><td>Taskrabbit</td><td>Assembly, cleaning, moving, organization, errands, household help.</td><td>Self-set and city-dependent. Price competitively after reviewing nearby work; no universal earnings claim.</td><td>Official process includes profile, eligibility verification, a disclosed registration fee, schedule/work-area selection, then jobs.</td><td><a href="https://www.taskrabbit.com/become-a-tasker">Become a Tasker</a></td></tr>
+              <tr><td>Instacart</td><td>Eligible adult with vehicle, smartphone, bank account, and ability to lift 40 lb with/without accommodation.</td><td>Per-batch variable. Official examples include $11.90, $15.21, and $23.37 individual order offers—not hourly guarantees.</td><td>Choose batches with upfront displayed earnings; eligible instant cashout as soon as two hours after a batch.</td><td><a href="https://shoppers.instacart.com/role/full-service">Apply to shop</a></td></tr>
+              <tr><td>DoorDash</td><td>Eligible adult with car, scooter, or bike in selected cities; best around meal peaks.</td><td>Per-offer variable: base pay + promotions + tips.</td><td>Official page says sign up in minutes and begin within days after approval. Age, ID, vehicle, and background-check requirements apply.</td><td><a href="https://dasher.doordash.com/en-us">Become a Dasher</a></td></tr>
+              <tr><td>Rover</td><td>Pet care, walking, drop-ins, day care, house sitting, or safe boarding space.</td><td>Self-set and booking-dependent. Rover says boarding can make up to 2× more than services without boarding.</td><td>Profile approval, schedules/preferences, then requests; withdrawals are available two days after completed service.</td><td><a href="https://www.rover.com/become-a-sitter/">Become a sitter</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><h2>Scalable routes: build slowly, validate cheaply</h2><p class="key">Do not substitute a catalog business for near-term cashflow. Start with a small original test.</p></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Model</th><th>First original product</th><th>Simple earnings scenario</th><th>Start</th></tr></thead>
+            <tbody>
+              <tr><td>Etsy digital downloads</td><td>STEM planners, piano practice sheets, editable business checklists, non-infringing templates.</td><td>A $7 sale leaves about <strong>$6.35</strong> after Etsy’s 6.5% transaction fee and $0.20 listing fee, before payment processing/tax. Ten sales: <strong>$63.45</strong>. Scenario only.</td><td><a href="https://www.etsy.com/sell">Open Etsy shop</a></td></tr>
+              <tr><td>Printify + Etsy POD</td><td>Original niche shirts, stickers, mugs, posters using owned/licensed visual assets.</td><td>Illustrative gross margin of <strong>$14.02</strong> for a $26.95 shirt with $10.98 listed production cost, Etsy 6.5%, and $0.20 listing fee—before shipping, payment fees, ads, returns, tax, or discounts.</td><td><a href="https://printify.com/sell-on-etsy-drop-shipping/">Start Printify POD</a></td></tr>
+              <tr><td>Amazon KDP</td><td>Original study workbook, practice journal, guide, or problem set with real subject-matter value.</td><td>Amazon says eBooks can earn up to 70% royalty. A theoretical $4.99 book at 70% is <strong>$3.49</strong> per copy, before applicable delivery costs/tax.</td><td><a href="https://kdp.amazon.com/">Start KDP</a></td></tr>
+              <tr><td>Amazon Associates</td><td>Useful niche resource page or review content for a real audience.</td><td>Physical Books are listed at 5% commission; a $50 qualifying sale equals <strong>$2.50</strong>. Some categories pay 0%; payment is delayed about 60 days after month-end.</td><td><a href="https://affiliate-program.amazon.com/signup">Apply to Associates</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><h2>High-confidence service offers</h2><p class="key">Use AI to accelerate drafting and organization, but keep human expertise, source verification, and final review in the offer.</p></div>
+        <div class="body">
+          <div class="quick-grid">
+            <div class="quick"><strong>STEM / statistics lesson</strong>$45–$60 for a 60-minute credentialed lesson. Prepare a short teaching outline and two sample problems.</div>
+            <div class="quick"><strong>Piano / ear-training lesson</strong>$35–$60 for a 60-minute lesson. Offer a simple practice-plan PDF as supporting proof.</div>
+            <div class="quick"><strong>Excel cleanup & dashboard starter</strong>$75–$150 fixed scope. Publish an anonymized before/after sample with documented changes.</div>
+            <div class="quick"><strong>AI-workflow discovery session</strong>$75–$150 fixed scope. Deliver a one-page workflow map and explain privacy boundaries.</div>
+            <div class="quick"><strong>Source-linked research brief</strong>$75–$200 fixed scope. Show a citation-forward one-page sample with limits stated.</div>
+            <div class="quick"><strong>Bookkeeping / VA support</strong>Start from verified marketplace references and only sell tasks you are trained and qualified to perform.</div>
+          </div>
+          <div class="callout"><strong>Best channel pairing:</strong> Wyzant for tutoring; Upwork and Fiverr for packaged deliverables; LinkedIn Services for direct professional relationships; DataAnnotation for specialist AI training.</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><h2>48-hour execution plan</h2><p class="key">The goal is completed applications and live offers—not bookmarked ideas.</p></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>When</th><th>Action</th><th>Done means</th></tr></thead>
+            <tbody>
+              <tr><td>First 60 minutes</td><td>Select one local platform and one remote platform per participating adult.</td><td>Simple name / platform / document-needed tracker.</td></tr>
+              <tr><td>First 2 hours</td><td>Submit one AI-training or tutoring application and one local-work application.</td><td>At least two applications completed through official pages.</td></tr>
+              <tr><td>By tonight</td><td>Create one Upwork profile and one Fiverr gig around a single precise service.</td><td>One portfolio sample and one live, bounded offer.</td></tr>
+              <tr><td>Tomorrow morning</td><td>Send 3–5 tailored Upwork proposals or five individualized LinkedIn messages.</td><td>Tracked outreach with price, proposed deliverable, and follow-up date.</td></tr>
+              <tr><td>Tomorrow afternoon</td><td>Choose Etsy digital products <em>or</em> a KDP outline, if immediate cashflow setup is already complete.</td><td>Three original listings or one validated outline/sample chapter.</td></tr>
+              <tr><td>After 2 weeks</td><td>Calculate effective hourly return for every active route.</td><td>Continue only the top two channels after fees and direct expenses.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><h2>Safety and decision rules</h2><p class="key">Protect time, identity, and cash while testing opportunities.</p></div>
+        <div class="warn"><strong>Never pay for the promise of a job.</strong> The FTC advises job seekers to research the company, speak with someone trusted, never deposit a check and send money back, and never pay a recruiter or employer for access to work. Use only official platform workflows and URLs.</div>
+        <div class="body">
+          <ul class="checklist">
+            <li>Track gross income, platform fees, mileage, supplies, hours, and payout dates from day one.</li>
+            <li>Do not use copyrighted, trademarked, plagiarized, or unlicensed content in digital products, print-on-demand listings, or AI-assisted services.</li>
+            <li>Use direct, written scopes for freelance projects: deliverable, revision count, price, deadline, and what the client must provide.</li>
+            <li>Judge local gig routes by <strong>net</strong> return after vehicle and time costs, not by the app’s displayed gross offer.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><h2>Source notes</h2><p class="key">Official platforms and consumer-protection sources used for this scan.</p></div>
+        <div class="body footnotes">
+          <p><a href="https://dataannotation.tech/">DataAnnotation</a> — stated starting rates and flexible contributor model.</p>
+          <p><a href="https://www.wyzant.com/tutorhome">Wyzant</a> — tutor onboarding and jobs.</p>
+          <p><a href="https://www.upwork.com/resources/upwork-hourly-rates">Upwork hourly-rate guide</a> — directional service-rate benchmarks.</p>
+          <p><a href="https://www.upwork.com/hire/bookkeepers/">Upwork bookkeepers</a> — bookkeeping rate reference.</p>
+          <p><a href="https://www.linkedin.com/services/page/onboarding">LinkedIn Services</a>, <a href="https://www.fiverr.com/start_selling">Fiverr</a>, <a href="https://www.toptal.com/talent/apply">Toptal</a> — official freelance onboarding.</p>
+          <p><a href="https://belaysolutions.com/jobs">BELAY</a>, <a href="https://bookminders.com/join-our-team/careers/">Bookminders</a>, <a href="https://workplace.clickworker.com/en/users/new/">Clickworker</a>, and <a href="https://outlier.ai/generalists/t1">Outlier</a> — remote role information.</p>
+          <p><a href="https://www.taskrabbit.com/become-a-tasker">Taskrabbit</a>, <a href="https://shoppers.instacart.com/role/full-service">Instacart</a>, <a href="https://dasher.doordash.com/en-us">DoorDash</a>, and <a href="https://www.rover.com/become-a-sitter/">Rover</a> — official local-work onboarding.</p>
+          <p><a href="https://www.etsy.com/sell">Etsy</a>, <a href="https://printify.com/sell-on-etsy-drop-shipping/">Printify</a>, <a href="https://kdp.amazon.com/">KDP</a>, and <a href="https://affiliate-program.amazon.com/help/node/topic/GRXPHT8U84RAYDXZ">Amazon Associates</a> — official terms and commission/royalty information.</p>
+          <p><a href="https://consumer.ftc.gov/articles/job-scams">Federal Trade Commission job-scam guidance</a> — fraud safeguards.</p>
+        </div>
+      </section>
+    </main>
+    <footer>Prepared as a daily research baseline. Verify platform eligibility, local availability, and terms at the point of application.</footer>
+  </div>
+</body>
+</html>

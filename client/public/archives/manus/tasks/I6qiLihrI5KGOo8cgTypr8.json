@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:30:40.962605Z",
+  "task": {
+    "id": "I6qiLihrI5KGOo8cgTypr8",
+    "title": "Extracting Email Addresses from BocaCiegaResidents.csv",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 103,
+    "created_at": "1781812715",
+    "updated_at": "1781812934",
+    "task_url": "https://manus.im/app/I6qiLihrI5KGOo8cgTypr8",
+    "message_count": 0
+  },
+  "event_count": 20,
+  "events": [
+    {
+      "id": "k27QZKO8dS5NJJd0blbUsw",
+      "timestamp": "1781812715496",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "text/csv",
+            "filename": "BocaCiegaResidents.csv",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-MJvHTcrGCfwR60D3zwtVpI_na1fn_Qm9jYUNpZWdhUmVzaWRlbnRz.csv?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1NSnZIVGNyR0Nmd1I2MEQzend0VnBJX25hMWZuX1FtOWpZVU5wWldkaFVtVnphV1JsYm5Sei5jc3YiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIG08~J7pElQ8HKptthBn3zg81Tu~uqmSepM0yblimeLDAiEAo2dI1xNIbCq7JhvH~bBsocKTeINirLc4-tbTQFo55yQ_"
+          }
+        ],
+        "content": "can you extract the email addresses from this csv file for me ? ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "WS0gdehJ8q7Wx1tg0zuGUB-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1781812716691",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Sure! Let me read the CSV file and extract all email addresses for you."
+      },
+      "id": "0xrPuG9uQJfcNHwMdqX92h",
+      "timestamp": "1781812720133",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/csv; charset=utf-8",
+            "filename": "BocaCiega_Emails.csv",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/I6qiLihrI5KGOo8cgTypr8/sandbox/XgOSFVyICAG0sxu6F8IgUR_1781812766096_na1fn_L2hvbWUvdWJ1bnR1L0JvY2FDaWVnYV9FbWFpbHM.csv?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSTZxaUxpaHJJNUtHT284Y2dUeXByOC9zYW5kYm94L1hnT1NGVnlJQ0FHMHN4dTZGOElnVVJfMTc4MTgxMjc2NjA5Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKdlkyRkRhV1ZuWVY5RmJXRnBiSE0uY3N2IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGs21uYAw3G8x2UPwT-jIAKC19kzBFYfaqvhOuyCHaJoAiEA-2kKTf5xYUF7UdyVdcVBmUkuzCD5iHtsVgdMCRFcajI_"
+          }
+        ],
+        "content": "Here are the results from the extraction:\n\n| Metric | Count |\n|---|---|\n| Total residents in file | 108 |\n| Residents **with** email | **52** |\n| Residents **without** email | 56 |\n\nThe extracted CSV file contains two columns — **Name** and **Email** — for all 52 residents who have an email address on file. See the attachment below."
+      },
+      "id": "fQmu0pEILugpafqk5070Ku",
+      "timestamp": "1781812766266",
+      "type": "assistant_message"
+    },
+    {
+      "id": "FkfCsHGv0GS9tztXg3ngR5",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1781812766582",
+      "type": "status_update"
+    },
+    {
+      "id": "rdBbaUJ2V758zW6xEB2fs3",
+      "timestamp": "1781812790911",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "SKM_451i26061815420.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-fhntQaQ3yOTTZhM3AQH7X7_na1fn_U0tNXzQ1MWkyNjA2MTgxNTQyMA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1maG50UWFRM3lPVFRaaE0zQVFIN1g3X25hMWZuX1UwdE5YelExTVdreU5qQTJNVGd4TlRReU1BLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIBJesjVdAL-fWHOm9dyYKlxgLVfHkonUOyiXbCXmqBLUAiB8jElySICN8MYpsAARMaMtj-rKyVb0akEI36Yvq1t0NQ__"
+          }
+        ],
+        "content": "and draft an email that i can send to them regarding this attachment ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "a7uHNrADrTRtjeMOMha1oj",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1781812791110",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me read the PDF attachment first so I can draft a relevant email."
+      },
+      "id": "ddL8iGIhrD7hSA61TJ6K4M",
+      "timestamp": "1781812794076",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "hurricane_email_draft.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/I6qiLihrI5KGOo8cgTypr8/sandbox/jhzpzN1RkblaYiCkHPYtUl_1781812838954_na1fn_L2hvbWUvdWJ1bnR1L2h1cnJpY2FuZV9lbWFpbF9kcmFmdA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSTZxaUxpaHJJNUtHT284Y2dUeXByOC9zYW5kYm94L2poenB6TjFSa2JsYVlpQ2tIUFl0VWxfMTc4MTgxMjgzODk1NF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoMWNuSnBZMkZ1WlY5bGJXRnBiRjlrY21GbWRBLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDnUHDG7magcLTE7O7P8s-vYjcCusn~VCuVPUVGRn5S8gIhAIEetKBMdv-BIxoK3yVKZhgG~kOw7rrWQ~6SmViUiqgb"
+          }
+        ],
+        "content": "Here is the drafted email for you to send to the 52 residents. Feel free to adjust any wording before sending.\n\n---\n\n**From:** Brandon@ApartmentCorp.com\n**Subject:** Test3 - Important Hurricane Season Preparedness Notice & Resources\n\n---\n\nDear Residents,\n\nAs we enter the official hurricane season in Florida, meteorologists are predicting a season with potentially high-intensity storms. Now is the time to prepare yourself, your family, and your household for the possibility of severe weather, tropical storms, hurricanes, flooding, power outages, and emergency evacuations.\n\nAttached to this email, you will find important hurricane preparedness information, including:\n\n- A Hurricane Season Preparedness Notice from the Boca Ciega Management Team\n- Recommendations from the Florida Dept. of Health for \"Before the Storm Safety\" and \"After the Storm Safety\"\n- A Disaster Supply Checklist to help you build your emergency kit\n- A FEMA Guide to Documenting and Insuring Your Property\n\n**Key Reminders:**\n\n- **Make a Plan:** Use resources like the Florida Department of Emergency Management's online tool at [Ready.gov](https://www.ready.gov/plan) to create a customized emergency plan for your family.\n- **Emergency Supplies:** Maintain a well-stocked emergency preparedness kit to last you and your family for a minimum of seven days, including drinking water, non-perishable food, prescription medications, flashlights, and portable phone chargers.\n- **Secure Loose Items:** Before a storm approaches, please secure all outdoor furniture, decorations, grills, planters, and any other loose items that could become airborne and cause property damage or injury.\n- **Evacuation Orders:** If an evacuation order is issued, please follow all instructions provided by local emergency management officials. Do not remain in your apartment if authorities direct residents to evacuate.\n\nPlease review the attached documents carefully to aid in your plan preparation. Taking steps now will help reduce stress later when access to supplies may be limited as storms approach.\n\nPlease note that during a declared State of Emergency, management and maintenance personnel are also required to follow local emergency orders and seek shelter. As a result, staff may not be available to respond to maintenance requests or emergency calls while emergency conditions exist. Following a storm, our staff will assess the property as soon as conditions are safe and local authorities permit travel. We appreciate your patience during this process.\n\nThank you for your cooperation and commitment to keeping our community safe during hurricane season.\n\nSincerely,\n\n**Brandon**\nBoca Ciega Management Team\nBrandon@ApartmentCorp.com\nPhone: 727-865-1649 | Fax: 727-865-4366\n\n---\n\nThe draft is also saved as an attachment below. Let me know if you'd like any changes to the tone, wording, or content!"
+      },
+      "id": "HiK5rcP1WVrHCxRjRYkW3J",
+      "timestamp": "1781812839187",
+      "type": "assistant_message"
+    },
+    {
+      "id": "pcyCxQUxiYkbDoKBE99h4n",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1781812839513",
+      "type": "status_update"
+    },
+    {
+      "id": "BzyDkdWmzUkcUu8eAUa02a",
+      "timestamp": "1781812888065",
+      "type": "user_message",
+      "user_message": {
+        "content": "give me the list of residents emails that i can just copy and paste in the \"to\" part of the email",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "oCJGR4TYErqgfeY1W31BDU",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1781812888288",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Pulling the email list now..."
+      },
+      "id": "oM69FmPLGvGqcM22DZ1Tgv",
+      "timestamp": "1781812892013",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Here are **46 unique, valid email addresses** (duplicates and the placeholder `no@email.com` removed) — just copy and paste the line below directly into the **To** field:\n\n---\n\nleealexisk@gmail.com; katrina@apartmentcorp.com; angeliccharlemagne@gmail.com; tootisepop12314@gmail.com; arnettasmith16@gmail.com; bakera504@yahoo.com; ashley.cruz.1990@gmail.com; berrynudo@gmail.com; bebewalton5@gmail.com; brindlesbacon@gmail.com; chesylfigueroa08@gmail.com; gabrielle26vic@gmail.com; cypraeab1@gmail.com; dartaviad@yahoo.com; dominiquegordon31@gmail.com; donnareid541@gmail.com; dorissalaa530@gmail.com; geyka_14@hotmail.com; macgabbs18@icloud.com; graciespencemichael@gmail.com; gregorywilson1964ss@gmail.com; mylesjasmine1986@gmail.com; garciajeicha@gmail.com; jguilbeaux1994@gmail.com; kairamorales1414@gmail.com; tclark220@yahoo.com; kgordon2275@gmail.com; liondatalley504@gmail.com; lisbethluna270@gmail.com; mariangely710@gmail.com; maryrohena2978@gmail.com; jm0801189@gmail.com; mist0516928@yahoo.com; delgadovilchezoskalit@gmail.com; mizznita02@gmail.com; r.leap1968@gmail.com; dixonrose996@gmail.com; sharee.gordon90@gmail.com; shibraillewilliams@yahoo.com; silverinahidalgo@gmail.com; tameshawilson24@yahoo.com; tayaleknife@gmail.com; roquemoreteresa90@gmail.com; smithplumm@gmail.com; ramseytiara10@yahoo.com; yunygarcia7@gmail.com\n\n---\n\n> **Note:** Most email clients (Outlook, Gmail, etc.) accept semicolon- or comma-separated addresses in the To field. If your client requires commas, let me know and I'll reformat the list."
+      },
+      "id": "wEZHwlPiyujQRwcGsIYnpY",
+      "timestamp": "1781812914867",
+      "type": "assistant_message"
+    },
+    {
+      "id": "fdY0dTUoZYuT9NraAmm13X",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1781812915273",
+      "type": "status_update"
+    },
+    {
+      "id": "xIPKn6Z3oNmxSFAdTKinoS",
+      "timestamp": "1781812919965",
+      "type": "user_message",
+      "user_message": {
+        "content": "give me the email draft as a pdf as well ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "7WwvtuMwaC2jJn2ypJExnc",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1781812920658",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Converting the email draft to PDF now..."
+      },
+      "id": "7lO0SYpYduGQ0V2Rzk1XIU",
+      "timestamp": "1781812924442",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "hurricane_email_draft.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/I6qiLihrI5KGOo8cgTypr8/sandbox/ANBGTTb4aOrwemgEqSduNN_1781812933600_na1fn_L2hvbWUvdWJ1bnR1L2h1cnJpY2FuZV9lbWFpbF9kcmFmdA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSTZxaUxpaHJJNUtHT284Y2dUeXByOC9zYW5kYm94L0FOQkdUVGI0YU9yd2VtZ0VxU2R1Tk5fMTc4MTgxMjkzMzYwMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoMWNuSnBZMkZ1WlY5bGJXRnBiRjlrY21GbWRBLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDynMUDrXQ2RZvhZRIv6yu~pr0eH5adO1KeNqucD7EnmQIhALhGLWP~iF9SF08f~JGPc6iKsteQsTCj0L7mDkOob2Ls"
+          }
+        ],
+        "content": "Here is the email draft as a PDF. Let me know if you need any changes!"
+      },
+      "id": "KtwVej9s7wIUNqEYHeE1Sb",
+      "timestamp": "1781812933788",
+      "type": "assistant_message"
+    },
+    {
+      "id": "iwFbKNrWImoq75drWZKNWI",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1781812934264",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "BocaCiegaResidents.csv",
+      "content_type": "text/csv",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-MJvHTcrGCfwR60D3zwtVpI_na1fn_Qm9jYUNpZWdhUmVzaWRlbnRz.csv?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1NSnZIVGNyR0Nmd1I2MEQzend0VnBJX25hMWZuX1FtOWpZVU5wWldkaFVtVnphV1JsYm5Sei5jc3YiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIG08~J7pElQ8HKptthBn3zg81Tu~uqmSepM0yblimeLDAiEAo2dI1xNIbCq7JhvH~bBsocKTeINirLc4-tbTQFo55yQ_",
+      "status": "archived",
+      "bytes": 19740,
+      "archive_path": "attachments/I6qiLihrI5KGOo8cgTypr8/0-user_message-0_5ce5ceb2657d2a8a_BocaCiegaResidents.csv"
+    },
+    {
+      "event_index": 3,
+      "type": "file",
+      "filename": "BocaCiega_Emails.csv",
+      "content_type": "text/csv; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/I6qiLihrI5KGOo8cgTypr8/sandbox/XgOSFVyICAG0sxu6F8IgUR_1781812766096_na1fn_L2hvbWUvdWJ1bnR1L0JvY2FDaWVnYV9FbWFpbHM.csv?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSTZxaUxpaHJJNUtHT284Y2dUeXByOC9zYW5kYm94L1hnT1NGVnlJQ0FHMHN4dTZGOElnVVJfMTc4MTgxMjc2NjA5Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBKdlkyRkRhV1ZuWVY5RmJXRnBiSE0uY3N2IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGs21uYAw3G8x2UPwT-jIAKC19kzBFYfaqvhOuyCHaJoAiEA-2kKTf5xYUF7UdyVdcVBmUkuzCD5iHtsVgdMCRFcajI_",
+      "status": "archived",
+      "bytes": 2180,
+      "archive_path": "attachments/I6qiLihrI5KGOo8cgTypr8/3-assistant_message-0_8ed56d7dcbc180d8_BocaCiega_Emails.csv"
+    },
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "SKM_451i26061815420.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-fhntQaQ3yOTTZhM3AQH7X7_na1fn_U0tNXzQ1MWkyNjA2MTgxNTQyMA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1maG50UWFRM3lPVFRaaE0zQVFIN1g3X25hMWZuX1UwdE5YelExTVdreU5qQTJNVGd4TlRReU1BLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIBJesjVdAL-fWHOm9dyYKlxgLVfHkonUOyiXbCXmqBLUAiB8jElySICN8MYpsAARMaMtj-rKyVb0akEI36Yvq1t0NQ__",
+      "status": "archived",
+      "bytes": 909292,
+      "archive_path": "attachments/I6qiLihrI5KGOo8cgTypr8/5-user_message-0_c8bb1dad782bcf26_SKM_451i26061815420.pdf"
+    },
+    {
+      "event_index": 8,
+      "type": "file",
+      "filename": "hurricane_email_draft.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/I6qiLihrI5KGOo8cgTypr8/sandbox/jhzpzN1RkblaYiCkHPYtUl_1781812838954_na1fn_L2hvbWUvdWJ1bnR1L2h1cnJpY2FuZV9lbWFpbF9kcmFmdA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSTZxaUxpaHJJNUtHT284Y2dUeXByOC9zYW5kYm94L2poenB6TjFSa2JsYVlpQ2tIUFl0VWxfMTc4MTgxMjgzODk1NF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoMWNuSnBZMkZ1WlY5bGJXRnBiRjlrY21GbWRBLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDnUHDG7magcLTE7O7P8s-vYjcCusn~VCuVPUVGRn5S8gIhAIEetKBMdv-BIxoK3yVKZhgG~kOw7rrWQ~6SmViUiqgb",
+      "status": "archived",
+      "bytes": 2474,
+      "archive_path": "attachments/I6qiLihrI5KGOo8cgTypr8/8-assistant_message-0_0056737ad61f6069_hurricane_email_draft.md"
+    },
+    {
+      "event_index": 18,
+      "type": "file",
+      "filename": "hurricane_email_draft.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/I6qiLihrI5KGOo8cgTypr8/sandbox/ANBGTTb4aOrwemgEqSduNN_1781812933600_na1fn_L2hvbWUvdWJ1bnR1L2h1cnJpY2FuZV9lbWFpbF9kcmFmdA.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSTZxaUxpaHJJNUtHT284Y2dUeXByOC9zYW5kYm94L0FOQkdUVGI0YU9yd2VtZ0VxU2R1Tk5fMTc4MTgxMjkzMzYwMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJoMWNuSnBZMkZ1WlY5bGJXRnBiRjlrY21GbWRBLnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDynMUDrXQ2RZvhZRIv6yu~pr0eH5adO1KeNqucD7EnmQIhALhGLWP~iF9SF08f~JGPc6iKsteQsTCj0L7mDkOob2Ls",
+      "status": "archived",
+      "bytes": 27766,
+      "archive_path": "attachments/I6qiLihrI5KGOo8cgTypr8/18-assistant_message-0_70101c9726c0279f_hurricane_email_draft.pdf"
+    }
+  ]
+}

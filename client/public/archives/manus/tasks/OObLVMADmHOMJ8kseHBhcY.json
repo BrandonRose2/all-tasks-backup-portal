@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:45:40.320867Z",
+  "task": {
+    "id": "OObLVMADmHOMJ8kseHBhcY",
+    "title": "Evaluate Workbook and Provide Summary and Suggestions",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 306,
+    "created_at": "1775447569",
+    "updated_at": "1778010593",
+    "task_url": "https://manus.im/app/OObLVMADmHOMJ8kseHBhcY",
+    "message_count": 0
+  },
+  "event_count": 7,
+  "events": [
+    {
+      "id": "9JbPInB8v7MnX3nieNBc7U",
+      "timestamp": "1775447569487",
+      "type": "user_message",
+      "user_message": {
+        "content": "could you evaluate this entire workbook and give your detailed summary and suggestions for these projections? \nhttps://docs.google.com/spreadsheets/d/1EcOkU9wyNiAta6pnUNLkdSeA-hhdmZmsmiOq_3XYcrc/edit?usp=sharing",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "MaJs1xIq68C9HFI141SSVY-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1775447569987",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll open and evaluate the entire workbook, then provide a detailed summary and suggestions for your projections."
+      },
+      "id": "D823wotXyO7L7jTnYbiyNp",
+      "timestamp": "1775447571955",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The workbook has 20 sheets. I'm now systematically navigating through each tab to capture all the data. This will take a few minutes to read all sheets thoroughly."
+      },
+      "id": "hvf6FzOXdT37thrSBadPvL",
+      "timestamp": "1775447623523",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "I've now reviewed all 20 sheets. I'm now performing the deep analysis of the data, financial logic, errors, and projection quality before writing the final report."
+      },
+      "id": "vSbF9ajoBu1c4YbbfxK1bb",
+      "timestamp": "1775448243672",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "evaluation_report.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/OObLVMADmHOMJ8kseHBhcY/sandbox/XNtkpYeCoJD6h5bDu806tW_1775448328956_na1fn_L2hvbWUvdWJ1bnR1L3dvcmtib29rX2FuYWx5c2lzL2V2YWx1YXRpb25fcmVwb3J0.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT09iTFZNQURtSE9NSjhrc2VIQmhjWS9zYW5kYm94L1hOdGtwWWVDb0pENmg1YkR1ODA2dFdfMTc3NTQ0ODMyODk1Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkdmNtdGliMjlyWDJGdVlXeDVjMmx6TDJWMllXeDFZWFJwYjI1ZmNtVndiM0owLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIALOU2o4v75bHQYj010sI6PqXXkAOnUgopp9bDulGl8tAiAMgilgPNE3afV72xWmZSSLxPgwy~0968c6YsS-fY-fKw__"
+          }
+        ],
+        "content": "Here is my full evaluation of the workbook. The full report is attached, but here is a structured summary of everything I found across all 20 sheets.\n\n---\n\n## Workbook Overview\n\nThe model is titled **\"Bridge vs Scale Financing Model\"** and contains 20 sheets organized around two parallel financial scenarios — a lean **Bridge Case** ($250K initial raise) and a fully-funded **Scale Case** ($1.5M upfront raise) — both projecting the same three-year revenue targets.\n\n---\n\n## Revenue Projections\n\nBoth scenarios share an identical revenue forecast, which is the model's core design intent:\n\n| Revenue Stream | Year 1 | Year 2 | Year 3 |\n|---|---|---|---|\n| Core subscriptions / institutional licenses | $180,000 | $570,000 | $1,275,000 |\n| Implementation / onboarding fees | $50,000 | $90,000 | $100,000 |\n| Employer subscriptions | — | $120,000 | $300,000 |\n| Verification / credentialing fees | — | $40,000 | $125,000 |\n| Premium analytics / API revenue | $20,000 | $30,000 | $100,000 |\n| **Total Revenue** | **$250,000** | **$850,000** | **$1,900,000** |\n\nYear-over-year growth is **240% (Y1→Y2)** and **124% (Y2→Y3)** — aggressive but internally consistent with the model's assumptions.\n\n---\n\n## P&L Comparison: Bridge vs. Scale\n\n| Metric | Bridge Y1 | Bridge Y2 | Bridge Y3 | Scale Y1 | Scale Y2 | Scale Y3 |\n|---|---|---|---|---|---|---|\n| Revenue | $250,000 | $850,000 | $1,900,000 | $250,000 | $850,000 | $1,900,000 |\n| Gross Profit | $195,000 | $697,000 | $1,596,000 | $185,000 | $700,400 | $1,615,000 |\n| Gross Margin | **78%** | **82%** | **84%** | **74%** | **82%** | **85%** |\n| EBITDA | **($135,000)** | **($3,000)** | **$511,000** | **($550,000)** | **($440,000)** | **$90,000** |\n| Net Income | ($135,833) | ($7,167) | $500,167 | ($552,500) | ($447,933) | $73,333 |\n| Equity Raised | $250,000 | $1,250,000 | — | $1,500,000 | — | — |\n\nThe Bridge case is dramatically more capital-efficient. Both scenarios raise the same total of $1.5M over three years, but the Bridge case generates **$500K in net income in Year 3** versus only **$73K in the Scale case** — with the same top-line revenue.\n\n---\n\n## Critical Errors Found\n\nThese must be fixed before sharing with investors:\n\n**1. Cascading #VALUE! Errors in Cash Flow & Balance Sheets**\nBoth `Bridge_CF` and `Scale_CF` have broken `#VALUE!` errors on the \"Accounts Payable\" line. This cascades to Net Cash from Operations, Ending Cash, and then into the Balance Sheets — making it impossible to verify cash runway or whether the balance sheets balance. The root cause is likely an AP formula referencing a text label or invalid range.\n\n**2. Headcount vs. Payroll Disconnect**\nThe detailed `Headcount` tab calculates Year 1 Bridge payroll at ~$236K, but the `Bridge_IS` only assumes $210K. In the Scale case, the gap is even larger ($515K in headcount vs. $420K in the IS). The payroll lines in the P&L are not linked to the headcount build — they are independent assumptions.\n\n**3. Summary Sheet Has Hardcoded Placeholder Values**\nThe `Summary` tab shows Bridge Year 1 EBITDA as $20,000 and Scale Year 1 EBITDA as $45,000. The actual values from the Income Statements are -$135,000 and -$550,000 respectively. These appear to be dummy values that were never replaced with live formula references.\n\n**4. Use of Funds — Scale Section Has #DIV/0! and #REF! Errors**\nThe percentage column and total row in the Scale Case section of `Use_of_Funds` are broken, preventing a clear allocation breakdown of the $1.5M raise.\n\n---\n\n## Strategic Suggestions\n\n**On the model mechanics:**\n- Fix the AP formula in both CF sheets — this single fix will likely resolve the cascading errors across all four broken statements.\n- Link the `Summary` EBITDA cells to the actual IS outputs.\n- Link the P&L payroll lines to the `Headcount` tab so the model is self-consistent.\n- Fix the `Use_of_Funds` percentage and total formulas.\n\n**On the financial narrative:**\n- **Strengthen the Bridge case story.** The Bridge case is the stronger investor pitch — same revenue, same total capital, but $427K more net income in Year 3. Lean into this. The model's own logic proves the Bridge path is more efficient.\n- **Justify the Scale case's higher costs.** Currently, the Scale case spends far more (e.g., $420K vs. $210K on payroll in Year 1) but achieves identical revenue. Investors will ask: why does more spending not produce more revenue? Either increase Scale case revenue targets or explicitly frame the Scale case as a risk-reduction strategy (faster hiring, more experienced team).\n- **Address revenue concentration risk.** In Year 1, 72% of revenue comes from core subscriptions. If this stream misses, the entire Year 1 plan collapses. Consider adding a sensitivity table or noting the pipeline/contracts that support this figure.\n- **Employer subscriptions and verification fees are zero in Year 1.** These two streams only begin in Year 2, adding execution risk. Consider adding a note on what milestones or partnerships unlock these streams.\n- **Revenue growth rates are aggressive.** 240% growth from Year 1 to Year 2 is a high bar. Consider adding a conservative scenario or a note on the customer pipeline that supports this trajectory.\n\n---\n\nThe full detailed report is attached below."
+      },
+      "id": "QAHZIK3RVwKK96Bx1cIv97",
+      "timestamp": "1775448329240",
+      "type": "assistant_message"
+    },
+    {
+      "id": "7YnufqPVI4v1O6rRgKREXp",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1775448329654",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 5,
+      "type": "file",
+      "filename": "evaluation_report.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/OObLVMADmHOMJ8kseHBhcY/sandbox/XNtkpYeCoJD6h5bDu806tW_1775448328956_na1fn_L2hvbWUvdWJ1bnR1L3dvcmtib29rX2FuYWx5c2lzL2V2YWx1YXRpb25fcmVwb3J0.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT09iTFZNQURtSE9NSjhrc2VIQmhjWS9zYW5kYm94L1hOdGtwWWVDb0pENmg1YkR1ODA2dFdfMTc3NTQ0ODMyODk1Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkdmNtdGliMjlyWDJGdVlXeDVjMmx6TDJWMllXeDFZWFJwYjI1ZmNtVndiM0owLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIALOU2o4v75bHQYj010sI6PqXXkAOnUgopp9bDulGl8tAiAMgilgPNE3afV72xWmZSSLxPgwy~0968c6YsS-fY-fKw__",
+      "status": "archived",
+      "bytes": 6805,
+      "archive_path": "attachments/OObLVMADmHOMJ8kseHBhcY/5-assistant_message-0_8dd88e6b6594f5fe_evaluation_report.md"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:39:55.450521Z",
+  "task": {
+    "id": "Ss5JvVeuNnIi9G4vXH9lGQ",
+    "title": "Does Monday.com Have a Video Chat Function?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 12,
+    "created_at": "1776992063",
+    "updated_at": "1776993112",
+    "task_url": "https://manus.im/app/Ss5JvVeuNnIi9G4vXH9lGQ",
+    "message_count": 0
+  },
+  "event_count": 8,
+  "events": [
+    {
+      "id": "G9dxayhwtZ6hTTyuGfYJhD",
+      "timestamp": "1776992062962",
+      "type": "user_message",
+      "user_message": {
+        "content": "doers monday.com have a video chat function?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "tbjMZegPQv2x5YDoP0ZPP6-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776992063317",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "**No, Monday.com does not have a built-in video chat function.**\n\nMonday.com is primarily a work operating system (Work OS) focused on project management, task tracking, and team collaboration through boards, timelines, and workflows. It does **not** include native video calling or video chat capabilities.\n\nHowever, Monday.com integrates with popular video conferencing tools, allowing you to connect and launch calls directly from within the platform:\n\n| Integration | What It Does |\n|---|---|\n| **Zoom** | Schedule and join Zoom meetings directly from Monday.com items |\n| **Microsoft Teams** | Link Teams meetings to tasks and boards |\n| **Google Meet** | Attach Meet links to items or automations |\n| **Slack** | Communicate and initiate Slack Huddles (audio/video) from notifications |\n\nThese integrations can be set up via the **Monday.com Integration Center**, enabling you to streamline communication without leaving the platform — though the actual video call takes place in the third-party app.\n\nIf native video chat is a priority, tools like **Notion + Slack**, **ClickUp**, or **Asana** similarly rely on third-party integrations rather than built-in video."
+      },
+      "id": "Yqcrf6ji0BUtYoTOqFJDFF",
+      "timestamp": "1776992070568",
+      "type": "assistant_message"
+    },
+    {
+      "id": "9LgRLRqntaUXtxRQgj7tjG",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776992070852",
+      "type": "status_update"
+    },
+    {
+      "id": "1DVRk9lvE1YQZh24HCUyWP",
+      "timestamp": "1776993099828",
+      "type": "user_message",
+      "user_message": {
+        "content": "if my team all had the same connectors applied in their settings - could i then collaborate tasks with them ?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "LXzSCz0K5Fe39xoXyYXa0e",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776993099997",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "**Yes, absolutely** — if everyone on your team has the same integrations/connectors configured, you can collaborate on tasks very effectively within Monday.com. Here is how it works in practice:\n\n**What shared connectors enable:**\n\n| Connector | Collaboration Benefit |\n|---|---|\n| **Zoom / Google Meet / Teams** | Anyone on the board can schedule or join meetings linked to a specific task or item |\n| **Slack** | Automated notifications and updates are pushed to shared Slack channels when tasks change status, are assigned, or have due dates approaching |\n| **Email (e.g., Outlook / Gmail)** | Team members can send and receive task-related emails directly from Monday.com items |\n| **Google Drive / OneDrive** | Shared file attachments linked to tasks are accessible by all collaborators |\n\n**Core Monday.com collaboration features that work regardless of connectors:**\n\nBeyond integrations, Monday.com's native features already support strong team collaboration:\n\n- **Task assignment** — assign one or multiple team members to any item\n- **@ mentions** — tag teammates in updates and comments on tasks\n- **Status updates & activity log** — everyone sees real-time changes to tasks\n- **Workdocs** — collaborative documents embedded directly in boards\n- **Automations** — trigger notifications or actions when tasks are updated\n\n**Important consideration:** Connectors like Zoom or Slack typically need to be authorized per user (each person authenticates their own account). So while the *same connector* needs to be enabled for everyone, each team member usually links their own personal account to it — not just a single shared setting.\n\nIn short, Monday.com is **built for team collaboration**, and having consistent connectors across your team simply enhances that by bridging communication tools your team already uses."
+      },
+      "id": "JIjqbgCDB9TxXSZ5LAHUVv",
+      "timestamp": "1776993111630",
+      "type": "assistant_message"
+    },
+    {
+      "id": "Iq7wRgyLXCmobR9TsJMJob",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776993111915",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

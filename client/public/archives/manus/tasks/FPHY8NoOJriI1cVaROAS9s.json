@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:26:54.015739Z",
+  "task": {
+    "id": "FPHY8NoOJriI1cVaROAS9s",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 13,
+    "created_at": "1785866777",
+    "updated_at": "1785866845",
+    "task_url": "https://manus.im/app/FPHY8NoOJriI1cVaROAS9s",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "KT5vGzz04OhPXcBxUGA1J6",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785866778098",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Here is the research on local and flexible gig work opportunities, presented in a Markdown table, along with quality notes and quick-start options."
+      },
+      "id": "fJL8Wc2jK15hWjuXApr1HV",
+      "timestamp": "1785866845642",
+      "type": "assistant_message"
+    },
+    {
+      "id": "1WqkEqS7dRhrYUz74rKvBs",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785866845876",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

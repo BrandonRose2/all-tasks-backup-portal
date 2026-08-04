@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:34:03.073332Z",
+  "task": {
+    "id": "4xq2v2RW1olbOTW4HrSeGX",
+    "title": "Top 5 Sushi Restaurants Near Me: Ratings, Distance, Hours",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 79,
+    "created_at": "1780954912",
+    "updated_at": "1780955081",
+    "task_url": "https://manus.im/app/4xq2v2RW1olbOTW4HrSeGX",
+    "message_count": 0
+  },
+  "event_count": 8,
+  "events": [
+    {
+      "id": "b9dxanv3rz1Ezoi8OPBmr2",
+      "timestamp": "1780954912615",
+      "type": "user_message",
+      "user_message": {
+        "content": "Find the 5 highest-rated sushi restaurants near me on Google Maps in My Browser and summarize their ratings, distance, and opening hours.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "sVwL8aLFkSL4l4uAr9tHIZ-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780954913027",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll open Google Maps in your browser to find the 5 highest-rated sushi restaurants near your location and summarize their details."
+      },
+      "id": "NqwbvdgVyxmLUvicKImGQ5",
+      "timestamp": "1780954915564",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Google Maps has loaded and I can see sushi restaurants in the Riyadh area. I can see several restaurants listed. Now I'll sort by rating and collect detailed information for each of the top 5 restaurants by clicking on them one by one."
+      },
+      "id": "5pWuGSOPGxHhZ5r7IbNG3m",
+      "timestamp": "1780954942314",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "I can see the search results. Now I'll click on each of the top-rated restaurants to collect their full details (rating, distance, and opening hours)."
+      },
+      "id": "tGPzXm67hLGsqXquRvIcHD",
+      "timestamp": "1780954957150",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The individual restaurant pages aren't loading the details panel properly. I already have all the key data from the search results list. Let me now click on each restaurant from the results list to get the full details including distance information."
+      },
+      "id": "v3S4sPkjwLWv84hFOcSdyq",
+      "timestamp": "1780954993060",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown; charset=utf-8",
+            "filename": "sushi_restaurants.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/4xq2v2RW1olbOTW4HrSeGX/sandbox/gWb3sp9vt9trBD6AXNF2Yv_1780955080509_na1fn_L2hvbWUvdWJ1bnR1L3N1c2hpX3Jlc3RhdXJhbnRz.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvNHhxMnYyUlcxb2xiT1RXNEhyU2VHWC9zYW5kYm94L2dXYjNzcDl2dDl0ckJENkFYTkYyWXZfMTc4MDk1NTA4MDUwOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNOMWMyaHBYM0psYzNSaGRYSmhiblJ6Lm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCqas2g~6MY1mnKi6XjVgXbdRLgGPIvNEvDuVNZi2bp2wIhAJTeTCB8Jy6J5dxegeoiSwmtAfGVPsJd3Fzeqcr2t7wJ"
+          }
+        ],
+        "content": "Here is a summary of the **5 highest-rated sushi restaurants near you** as found on Google Maps. Your browser's location is detected as **Riyadh, Saudi Arabia**.\n\n---\n\n## Top 5 Highest-Rated Sushi Restaurants Near You\n\n| # | Restaurant | Rating | Reviews | Distance | Opening Hours | Status |\n|---|-----------|--------|---------|----------|---------------|--------|\n| 1 | **وكامي (Wokamii)** | ⭐ 4.9 | 6,335 | ~2,812 m | 12:00 PM – 1:00 AM (daily) | Closed — Opens at 12 PM |\n| 2 | **كايزو باي ميازو (Kaizo by Myazu)** | ⭐ 4.7 | 3,087 | ~2,752 m | 1:00 PM – 1:30 AM | Closing soon |\n| 3 | **ماكي هاوس (Maki House)** | ⭐ 4.6 | 867 | Nearby | 11:00 AM – 3:00 AM | Open |\n| 4 | **Fish Face** | ⭐ 4.4 | 722 | Nearby | 11:15 AM – 3:00 AM | Open |\n| 5 | **ميازو (Myazu)** | ⭐ 4.4 | 10,469 | Nearby | 1:00 PM – 1:30 AM | Closing soon |\n\n---\n\n### Key Highlights\n\n**Wokamii** stands out as the top-rated option with an exceptional **4.9-star rating** from over 6,300 reviews. It is located at Luxury Plaza on Al Olaya Street and offers dine-in, takeaway, and delivery. It is currently closed but opens daily at 12:00 PM.\n\n**Kaizo by Myazu** is the second-highest rated at **4.7 stars**, situated on Prince Musaid bin Abdulaziz bin Jalawi Street. It opens at 1:00 PM and stays open until 1:30 AM, making it a great late-night option.\n\n**Maki House** earns **4.6 stars** and is currently open, with a price range of 40–160 SAR. It operates late, closing at 3:00 AM and reopening at 11:00 AM — ideal for late-night dining.\n\n**Fish Face** and **Myazu** both hold a **4.4-star rating**, though Myazu has a significantly larger review base (10,469 reviews), indicating it is a well-established and popular upscale Japanese restaurant on Musad Bin Jalawi Street.\n\n> **Note:** Google Maps detected your location as Riyadh, Saudi Arabia. Exact driving distances were not displayed for all restaurants since precise GPS location was not available in the browser session. All data was retrieved live from Google Maps on June 8, 2026."
+      },
+      "id": "W8mYisL1guRxu0VvBfzm67",
+      "timestamp": "1780955080743",
+      "type": "assistant_message"
+    },
+    {
+      "id": "LmZ9Gx7195JWCNLcGoLeWs",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1780955081174",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 6,
+      "type": "file",
+      "filename": "sushi_restaurants.md",
+      "content_type": "text/markdown; charset=utf-8",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/4xq2v2RW1olbOTW4HrSeGX/sandbox/gWb3sp9vt9trBD6AXNF2Yv_1780955080509_na1fn_L2hvbWUvdWJ1bnR1L3N1c2hpX3Jlc3RhdXJhbnRz.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvNHhxMnYyUlcxb2xiT1RXNEhyU2VHWC9zYW5kYm94L2dXYjNzcDl2dDl0ckJENkFYTkYyWXZfMTc4MDk1NTA4MDUwOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNOMWMyaHBYM0psYzNSaGRYSmhiblJ6Lm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCqas2g~6MY1mnKi6XjVgXbdRLgGPIvNEvDuVNZi2bp2wIhAJTeTCB8Jy6J5dxegeoiSwmtAfGVPsJd3Fzeqcr2t7wJ",
+      "status": "archived",
+      "bytes": 2430,
+      "archive_path": "attachments/4xq2v2RW1olbOTW4HrSeGX/6-assistant_message-0_d712604d9b9e7c1f_sushi_restaurants.md"
+    }
+  ]
+}

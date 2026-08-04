@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:13.812746Z",
+  "task": {
+    "id": "dXC3B2FDPsfsmwFQSovqpf",
+    "title": "Can You Perform This Task Better Than Manus?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-max",
+    "credits_used": 17,
+    "created_at": "1783534994",
+    "updated_at": "1783535010",
+    "task_url": "https://manus.im/app/dXC3B2FDPsfsmwFQSovqpf",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "1glnlG0XvFyse7ZDIlCvEH",
+      "timestamp": "1783534994694",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "text/plain",
+            "filename": "pasted_content.txt",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-lgNq2inqBuDUicmr1wSZz1_na1fn_cGFzdGVkX2NvbnRlbnQ.txt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1sZ05xMmlucUJ1RFVpY21yMXdTWnoxX25hMWZuX2NHRnpkR1ZrWDJOdmJuUmxiblEudHh0IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIDWVE8lMScBKkBn-TE2FGchWkL7FIroTmkI9RA3mTr2oAiAuDcuKw5Oh0-06U6~SbGXoUml8iE0-X2H3t5Wm7ZpjMg__"
+          }
+        ],
+        "content": "Manus persistently keeps messing up in this task... can you perform it better for me? ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "zsKRSbGEbrWwip2VR7ODi6-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1783534995134",
+      "type": "status_update"
+    },
+    {
+      "id": "zw8GdPipsSUDMHjzTlb5nU",
+      "timestamp": "1783534999793",
+      "type": "user_message",
+      "user_message": {
+        "content": "cancel",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "Understood — I'll stop here and won't take any further action. If you'd like me to attempt the task later, just send the details again and I'll pick it up fresh."
+      },
+      "id": "obgogRCiOCy4pDkt83nW9X",
+      "timestamp": "1783535009818",
+      "type": "assistant_message"
+    },
+    {
+      "id": "kylRv7reQXHISZt7LRinOm",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1783535010165",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "file",
+      "filename": "pasted_content.txt",
+      "content_type": "text/plain",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-lgNq2inqBuDUicmr1wSZz1_na1fn_cGFzdGVkX2NvbnRlbnQ.txt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1sZ05xMmlucUJ1RFVpY21yMXdTWnoxX25hMWZuX2NHRnpkR1ZrWDJOdmJuUmxiblEudHh0IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIDWVE8lMScBKkBn-TE2FGchWkL7FIroTmkI9RA3mTr2oAiAuDcuKw5Oh0-06U6~SbGXoUml8iE0-X2H3t5Wm7ZpjMg__",
+      "status": "archived",
+      "bytes": 13977,
+      "archive_path": "attachments/dXC3B2FDPsfsmwFQSovqpf/0-user_message-0_b66593e3014a1279_pasted_content.txt"
+    }
+  ]
+}

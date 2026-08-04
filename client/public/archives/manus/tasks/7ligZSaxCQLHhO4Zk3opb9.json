@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:26:56.185452Z",
+  "task": {
+    "id": "7ligZSaxCQLHhO4Zk3opb9",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 58,
+    "created_at": "1785865940",
+    "updated_at": "1785866472",
+    "task_url": "https://manus.im/app/7ligZSaxCQLHhO4Zk3opb9",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "7q0W7Tgs4jjedqfLMrbtJ9",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785865940941",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "The research memo on digital products and print-on-demand opportunities has been successfully generated. It includes details on startup effort, fee/cost risks, and suitability for U.S.-based adults across various skill levels for Etsy, Gumroad, Amazon KDP, Printful, and Redbubble. Official start links and key caveats are also provided."
+      },
+      "id": "yvyOGszbXRMpIENZr0w11q",
+      "timestamp": "1785866472021",
+      "type": "assistant_message"
+    },
+    {
+      "id": "XGxI4aIc8gSl20ucjo1WIp",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785866472153",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

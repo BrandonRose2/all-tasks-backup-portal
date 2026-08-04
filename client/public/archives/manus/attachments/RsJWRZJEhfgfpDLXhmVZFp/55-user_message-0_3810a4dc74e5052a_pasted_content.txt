@@ -1,0 +1,54 @@
+The Full Technology Stack Required to Clone This
+This is a serious infrastructure project. Here is what it takes:
+1. VoIP / Telephony Layer (the hardest part)
+The actual phone network — SIP trunking, DID number provisioning, e911, call routing, extensions, IVR, voicemail, call recording storage — requires either:
+Twilio (recommended): Programmable voice, SIP trunking, call recording, phone number provisioning, SMS, fax via API. ~$0.0085/min for calls. This is what most UCaaS startups build on.
+Vonage / Bandwidth / Telnyx: Similar alternatives.
+FreeSWITCH or Asterisk (self-hosted): Full SIP server you run yourself. Much cheaper at scale but requires serious DevOps.
+2. Mobile + Web Softphone App
+A SIP client that runs on iOS, Android, and web. Options:
+React Native with a SIP library (e.g., react-native-sip2) — one codebase for iOS + Android + web.
+Progressive Web App (PWA) using WebRTC — installs from browser, no App Store needed, works on all devices.
+3. AI Call Classification
+After each call recording, pipe the audio through:
+Whisper (OpenAI) for transcription
+GPT-4 or a fine-tuned classifier to categorize: Leasing, Rent, Maintenance, Urgent, Voicemail, Requests
+Results flow into the PropertyMax.ai dashboard Call Workbench we already built
+4. Admin Portal (Teams Connect equivalent)
+The dashboard we have already built covers most of this — call queues, attendant console, real-time monitoring, wallboards.
+5. SMS/MMS (Text Connect equivalent)
+Twilio Messaging with 10DLC registration for business texting.
+6. AI Chatbot (AI Connect equivalent)
+A flow builder + LLM-powered chatbot for resident-facing interactions.
+Realistic Build Plan
+This is a multi-month, multi-phase project. Here is an honest breakdown:
+Phase
+What Gets Built
+Time Estimate
+Phase 1
+Twilio integration, DID provisioning, extension management, call routing, voicemail
+3–4 weeks
+Phase 2
+WebRTC/PWA softphone app (web + mobile install)
+3–4 weeks
+Phase 3
+Call recording + AI transcription + classification into PropertyMax dashboard
+2–3 weeks
+Phase 4
+SMS/MMS with 10DLC compliance
+1–2 weeks
+Phase 5
+Admin portal — call queues, attendant console, real-time monitoring
+2–3 weeks
+Phase 6
+Physical desk phone SIP provisioning + ATA support
+1–2 weeks
+Phase 7
+AI chatbot flow builder
+3–4 weeks
+Total: approximately 4–6 months for a full clone.
+My Recommendation
+Before I start building, I need two things from you:
+A Twilio account — this is the phone network backbone. You can create one at twilio.com. I will need the Account SID and Auth Token to provision numbers, set up SIP trunks, and enable call recording. Twilio is pay-as-you-go so there is no upfront cost.
+Confirmation on the app format — do you want a PWA (installs from browser, no App Store, fastest to build) or a native iOS + Android app (requires App Store submission, takes longer but feels more native)?
+Once I have those two answers, I can start Phase 1 immediately. Should I also finish the custom templates feature we were in the middle of first, or do you want to pause that and go straight into the phone system build?

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:41:25.420253Z",
+  "task": {
+    "id": "xh21KIrBcLu6d15hK3Qxyf",
+    "title": "Testing ClickUp Connector and Exploring Its Features",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 106,
+    "created_at": "1776634211",
+    "updated_at": "1776634447",
+    "task_url": "https://manus.im/app/xh21KIrBcLu6d15hK3Qxyf",
+    "message_count": 0
+  },
+  "event_count": 6,
+  "events": [
+    {
+      "id": "KI0r0GNxiHe7SO994BgZMs",
+      "timestamp": "1776634210775",
+      "type": "user_message",
+      "user_message": {
+        "content": "Help me test the ClickUp connector and show me how to use its feature (e.g. show any data you fetched with it). Give me a brief about its capabilities.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "j0i43M1G0P35wt6bs4fxqS-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776634212318",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll explore the ClickUp connector, test its features, fetch some real data, and give you a comprehensive overview of its capabilities."
+      },
+      "id": "cAvRVEYL4KyU0rncEd6MZT",
+      "timestamp": "1776634217788",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Found 51 tools in the ClickUp connector. Now fetching live data — workspace hierarchy, members, tasks, and more."
+      },
+      "id": "bzUy9lgcX4UsigdujUAcwF",
+      "timestamp": "1776634251271",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "clickup_mcp_report.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/xh21KIrBcLu6d15hK3Qxyf/sandbox/MwpCPHtOg4lCk7dGpLQuK3_1776634446403_na1fn_L2hvbWUvdWJ1bnR1L2NsaWNrdXBfbWNwX3JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUveGgyMUtJckJjTHU2ZDE1aEszUXh5Zi9zYW5kYm94L013cENQSHRPZzRsQ2s3ZEdwTFF1SzNfMTc3NjYzNDQ0NjQwM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJOc2FXTnJkWEJmYldOd1gzSmxjRzl5ZEEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIEEW~DpPwcPTRb9kkzymzFRlv-tNoM7o2DkEKMM8spqOAiBsrgRqY9yXJ2tcZZe3CRIMrEN4LM-4-k140td1Q71rWg__"
+          }
+        ],
+        "content": "I've tested the ClickUp MCP connector and compiled a comprehensive capability brief along with live data samples fetched from your workspace. \n\nThe connector is incredibly powerful, offering 51 tools that cover everything from task and document management to time tracking and team communication. I successfully fetched your workspace hierarchy, tasks from your \"Projects\" and \"🤖 Ai & Apps\" lists, workspace members, chat channels, and even searched through your documents.\n\nYou can review the detailed report in the attached Markdown file. Let me know if you'd like to dive deeper into any specific feature or perform any actions in your ClickUp workspace!"
+      },
+      "id": "bUZ1I4bdxnGmyQf4DDg8tE",
+      "timestamp": "1776634447014",
+      "type": "assistant_message"
+    },
+    {
+      "id": "nDE6bQPPuSI5UgGwaGSWUW",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776634447269",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 4,
+      "type": "file",
+      "filename": "clickup_mcp_report.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/xh21KIrBcLu6d15hK3Qxyf/sandbox/MwpCPHtOg4lCk7dGpLQuK3_1776634446403_na1fn_L2hvbWUvdWJ1bnR1L2NsaWNrdXBfbWNwX3JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUveGgyMUtJckJjTHU2ZDE1aEszUXh5Zi9zYW5kYm94L013cENQSHRPZzRsQ2s3ZEdwTFF1SzNfMTc3NjYzNDQ0NjQwM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJOc2FXTnJkWEJmYldOd1gzSmxjRzl5ZEEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIEEW~DpPwcPTRb9kkzymzFRlv-tNoM7o2DkEKMM8spqOAiBsrgRqY9yXJ2tcZZe3CRIMrEN4LM-4-k140td1Q71rWg__",
+      "status": "archived",
+      "bytes": 4267,
+      "archive_path": "attachments/xh21KIrBcLu6d15hK3Qxyf/4-assistant_message-0_c2b818664ba46adc_clickup_mcp_report.md"
+    }
+  ]
+}

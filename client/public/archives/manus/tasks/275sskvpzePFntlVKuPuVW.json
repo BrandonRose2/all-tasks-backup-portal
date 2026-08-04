@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:27.915605Z",
+  "task": {
+    "id": "275sskvpzePFntlVKuPuVW",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 87,
+    "created_at": "1784746076",
+    "updated_at": "1784746709",
+    "task_url": "https://manus.im/app/275sskvpzePFntlVKuPuVW",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "9EX6LkdnEAE8lCovxNqrxR",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746079288",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched Coral Village property details."
+      },
+      "id": "ypbPT4UIIp4qNJW18F0zFG",
+      "timestamp": "1784746709389",
+      "type": "assistant_message"
+    },
+    {
+      "id": "urcy0nUCrmYem7WObwEyCb",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746709515",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

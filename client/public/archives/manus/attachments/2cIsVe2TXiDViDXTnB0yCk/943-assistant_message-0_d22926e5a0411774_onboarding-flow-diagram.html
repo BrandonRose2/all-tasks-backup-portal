@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Hire Onboarding Portal — Flow Diagram</title>
+<style>
+  :root {
+    --navy:       #1a2744;
+    --navy-light: #e8ecf5;
+    --teal:       #0f766e;
+    --teal-light: #ccfbf1;
+    --amber:      #b45309;
+    --amber-light:#fef3c7;
+    --purple:     #6d28d9;
+    --purple-light:#ede9fe;
+    --rose:       #be123c;
+    --rose-light: #ffe4e6;
+    --green:      #166534;
+    --green-light:#dcfce7;
+    --slate:      #334155;
+    --slate-light:#f1f5f9;
+    --orange:     #c2410c;
+    --orange-light:#ffedd5;
+    --blue:       #1d4ed8;
+    --blue-light: #dbeafe;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    padding: 32px 24px 64px;
+    min-height: 100vh;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+  header p {
+    margin-top: 6px;
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+  .pin-badge {
+    display: inline-flex;
+    gap: 16px;
+    margin-top: 12px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 6px 18px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .pin-badge span { opacity: 0.7; font-weight: 400; }
+
+  /* ── Tree layout ── */
+  .tree {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* ── Section card ── */
+  .section-card {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1px;
+  }
+  .section-header .icon { font-size: 1.2rem; }
+  .section-header .toggle {
+    margin-left: auto;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    transition: transform 0.2s;
+  }
+  .section-header.collapsed .toggle { transform: rotate(-90deg); }
+  .section-body {
+    padding: 16px 20px 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .section-body.hidden { display: none; }
+
+  /* ── Item row ── */
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 9px;
+    border-left: 4px solid transparent;
+    transition: background 0.15s;
+  }
+  .item:hover { filter: brightness(0.97); }
+  .item.checked { opacity: 0.55; }
+  .item.checked .item-label { text-decoration: line-through; }
+
+  .item input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--navy);
+    cursor: pointer;
+  }
+
+  .item-content { flex: 1; }
+  .item-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.4;
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 100%;
+    cursor: text;
+    color: inherit;
+  }
+  .item-label:focus {
+    background: rgba(255,255,255,0.6);
+    border-radius: 4px;
+    padding: 1px 4px;
+  }
+  .item-sub {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-top: 3px;
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 100%;
+    cursor: text;
+  }
+  .item-sub:focus {
+    background: rgba(255,255,255,0.5);
+    border-radius: 4px;
+    padding: 1px 4px;
+  }
+
+  /* ── Sub-items (children) ── */
+  .sub-items {
+    margin-top: 8px;
+    margin-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* ── Approval chain ── */
+  .approval-chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-top: 4px;
+  }
+  .approver {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .approver.done {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  .approver input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--navy);
+  }
+  .arrow { color: #94a3b8; font-size: 1rem; font-weight: 700; }
+
+  /* ── Color themes ── */
+  /* Navy — Onboarding Setup */
+  .theme-navy .section-header { background: var(--navy); color: #fff; }
+  .theme-navy .item { background: var(--navy-light); border-left-color: var(--navy); }
+
+  /* Teal — Application Forms */
+  .theme-teal .section-header { background: var(--teal); color: #fff; }
+  .theme-teal .item { background: var(--teal-light); border-left-color: var(--teal); }
+
+  /* Amber — Training */
+  .theme-amber .section-header { background: var(--amber); color: #fff; }
+  .theme-amber .item { background: var(--amber-light); border-left-color: var(--amber); }
+
+  /* Purple — Approval Flow */
+  .theme-purple .section-header { background: var(--purple); color: #fff; }
+  .theme-purple .item { background: var(--purple-light); border-left-color: var(--purple); }
+  .theme-purple .approval-chain { background: var(--purple-light); }
+
+  /* Rose — Onboarding Flow Summary */
+  .theme-rose .section-header { background: var(--rose); color: #fff; }
+  .theme-rose .item { background: var(--rose-light); border-left-color: var(--rose); }
+
+  /* Green — IT / Files */
+  .theme-green .section-header { background: var(--green); color: #fff; }
+  .theme-green .item { background: var(--green-light); border-left-color: var(--green); }
+
+  /* Orange — On-Boarding Flow (summary) */
+  .theme-orange .section-header { background: var(--orange); color: #fff; }
+  .theme-orange .item { background: var(--orange-light); border-left-color: var(--orange); }
+
+  /* Blue — Files / Data */
+  .theme-blue .section-header { background: var(--blue); color: #fff; }
+  .theme-blue .item { background: var(--blue-light); border-left-color: var(--blue); }
+
+  /* ── Add item button ── */
+  .add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1.5px dashed #cbd5e1;
+    background: transparent;
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .add-btn:hover { background: #f1f5f9; border-color: #94a3b8; color: #334155; }
+
+  /* ── Toolbar ── */
+  .toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .toolbar button {
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    color: #334155;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .toolbar button:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  /* ── Progress bar ── */
+  .progress-wrap {
+    max-width: 960px;
+    margin: 0 auto 28px;
+    background: #e2e8f0;
+    border-radius: 99px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--navy));
+    border-radius: 99px;
+    transition: width 0.4s ease;
+  }
+  .progress-label {
+    max-width: 960px;
+    margin: 0 auto 6px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏢 New Hire Onboarding Portal — Flow</h1>
+  <p>Click any label to edit it &nbsp;·&nbsp; Check boxes to mark complete &nbsp;·&nbsp; Click section headers to collapse</p>
+  <div class="pin-badge">
+    <span>Admin PIN:</span> 3060 &nbsp;&nbsp;
+    <span>HR Portal PIN:</span> 3060
+  </div>
+</header>
+
+<div class="toolbar">
+  <button onclick="expandAll()">⬇ Expand All</button>
+  <button onclick="collapseAll()">⬆ Collapse All</button>
+  <button onclick="clearAll()">☐ Uncheck All</button>
+  <button onclick="checkAll()">☑ Check All</button>
+  <button onclick="exportHTML()">💾 Save / Export</button>
+</div>
+
+<div class="progress-label">
+  <span>Overall Progress</span>
+  <span id="progress-text">0 / 0 completed</span>
+</div>
+<div class="progress-wrap">
+  <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+</div>
+
+<div class="tree" id="tree">
+
+  <!-- ══════════════════════════════════════════════════════════
+       2. APPROVAL FLOW
+  ══════════════════════════════════════════════════════════ -->
+  <div class="section-card theme-purple">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">✅</span>
+      <span>1. Approval Flow</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item" id="item-6">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Personnel (next upon management)</div>
+          <div class="item-sub" contenteditable="true">Signature + Time Stamp required at each step</div>
+        </div>
+      </div>
+
+      <div class="approval-chain">
+        <div class="approver" onclick="toggleApprover(this)">
+          <input type="checkbox" onclick="event.stopPropagation(); toggleApprover(this.parentElement)" />
+          <span>Applicant</span>
+        </div>
+        <span class="arrow">→</span>
+        <div class="approver" onclick="toggleApprover(this)">
+          <input type="checkbox" onclick="event.stopPropagation(); toggleApprover(this.parentElement)" />
+          <span>Brandon</span>
+        </div>
+        <span class="arrow">→</span>
+        <div class="approver" onclick="toggleApprover(this)">
+          <input type="checkbox" onclick="event.stopPropagation(); toggleApprover(this.parentElement)" />
+          <span>Robert</span>
+        </div>
+        <span class="arrow">→</span>
+        <div class="approver" onclick="toggleApprover(this)">
+          <input type="checkbox" onclick="event.stopPropagation(); toggleApprover(this.parentElement)" />
+          <span>Ethan</span>
+        </div>
+        <span class="arrow">→</span>
+        <div class="approver" onclick="toggleApprover(this)">
+          <input type="checkbox" onclick="event.stopPropagation(); toggleApprover(this.parentElement)" />
+          <span>Nicole</span>
+        </div>
+        <span class="arrow">→</span>
+        <div class="approver" onclick="toggleApprover(this)">
+          <input type="checkbox" onclick="event.stopPropagation(); toggleApprover(this.parentElement)" />
+          <span>Marc</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       3. APPLICATION FORMS
+  ══════════════════════════════════════════════════════════ -->
+  <div class="section-card theme-teal">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">📝</span>
+      <span>2. Application Forms</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item" id="item-7">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Complete Employment Application</div>
+          <div class="item-sub" contenteditable="true">→ Commence (Mark)</div>
+        </div>
+      </div>
+
+      <div class="item" id="item-8">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Review &amp; Sign Company Docs</div>
+          <div class="item-sub" contenteditable="true">→ Login to Website</div>
+        </div>
+      </div>
+
+      <div class="item" id="item-9">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Submit Payroll &amp; Tax Forms</div>
+          <div class="item-sub" contenteditable="true">→ CW-4, Direct Deposit</div>
+        </div>
+      </div>
+
+      <div class="item" id="item-10">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">I-9 Employment Eligibility Verification</div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       4. TRAINING VIDEOS
+  ══════════════════════════════════════════════════════════ -->
+  <div class="section-card theme-amber">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🎬</span>
+      <span>3. Training Videos</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item" id="item-12">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Prompt Manager to Evaluate PropertyMAX Website</div>
+          <div class="item-sub" contenteditable="true">→ Reference #2</div>
+        </div>
+      </div>
+
+
+      <div class="item" id="item-14">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Once Completed → Send to FLOW</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       5. ON-BOARDING FLOW SUMMARY
+  ══════════════════════════════════════════════════════════ -->
+  <div class="section-card theme-orange">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">🔄</span>
+      <span>4. On-Boarding Flow Summary</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item" id="item-15">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Applicant → Application Forms → Approval → IT / Title → Training → Start</div>
+        </div>
+      </div>
+
+      <div class="item" id="item-16">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Welcome Email sent</div>
+          <div class="item-sub" contenteditable="true">→ W-4 (Brandon) &nbsp;|&nbsp; I-9 (Lindsey) &nbsp;|&nbsp; Etc.</div>
+        </div>
+      </div>
+
+      <div class="item" id="item-17">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Notify: Lindsey → Nicole → Marc</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       6. FILES / DATA PATH
+  ══════════════════════════════════════════════════════════ -->
+  <div class="section-card theme-blue">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon">📁</span>
+      <span>5. Files / Data Path</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="item" id="item-18">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Source → Server → Core Data → New Hire Onboarding Folders</div>
+        </div>
+      </div>
+
+      <div class="item" id="item-19">
+        <input type="checkbox" onchange="toggleItem(this)" />
+        <div class="item-content">
+          <div class="item-label" contenteditable="true">Old also to: Don Drive</div>
+          <div class="item-sub" contenteditable="true">→ AptCorp &nbsp;·&nbsp; Formatting &nbsp;·&nbsp; Anything &nbsp;·&nbsp; Populate Done</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end .tree -->
+
+<!-- ── Add Section button ── -->
+<div style="max-width:960px;margin:20px auto 0;text-align:center;">
+  <button class="add-btn" onclick="addSection()">＋ Add New Section</button>
+</div>
+
+<script>
+// ── Toggle section collapse ──────────────────────────────────
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  header.classList.toggle('collapsed');
+  body.classList.toggle('hidden');
+}
+
+function expandAll() {
+  document.querySelectorAll('.section-header').forEach(h => {
+    h.classList.remove('collapsed');
+    h.nextElementSibling.classList.remove('hidden');
+  });
+}
+function collapseAll() {
+  document.querySelectorAll('.section-header').forEach(h => {
+    h.classList.add('collapsed');
+    h.nextElementSibling.classList.add('hidden');
+  });
+}
+
+// ── Toggle item checkbox ─────────────────────────────────────
+function toggleItem(cb) {
+  const item = cb.closest('.item');
+  item.classList.toggle('checked', cb.checked);
+  updateProgress();
+}
+
+function toggleApprover(el) {
+  const cb = el.querySelector('input[type="checkbox"]');
+  if (cb) cb.checked = !cb.checked;
+  el.classList.toggle('done', cb ? cb.checked : false);
+  updateProgress();
+}
+
+function clearAll() {
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.checked = false;
+    const item = cb.closest('.item');
+    if (item) item.classList.remove('checked');
+    const approver = cb.closest('.approver');
+    if (approver) approver.classList.remove('done');
+  });
+  updateProgress();
+}
+
+function checkAll() {
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.checked = true;
+    const item = cb.closest('.item');
+    if (item) item.classList.add('checked');
+    const approver = cb.closest('.approver');
+    if (approver) approver.classList.add('done');
+  });
+  updateProgress();
+}
+
+// ── Progress ─────────────────────────────────────────────────
+function updateProgress() {
+  const all = document.querySelectorAll('.item input[type="checkbox"]');
+  const done = document.querySelectorAll('.item input[type="checkbox"]:checked');
+  const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `${done.length} / ${all.length} completed`;
+}
+
+// ── Add new item inside a section ────────────────────────────
+document.querySelectorAll('.section-body').forEach(body => {
+  const btn = document.createElement('button');
+  btn.className = 'add-btn';
+  btn.textContent = '＋ Add Item';
+  btn.onclick = () => addItem(body, btn);
+  body.appendChild(btn);
+});
+
+function addItem(body, btn) {
+  const item = document.createElement('div');
+  item.className = 'item';
+  // inherit color from parent section
+  item.innerHTML = `
+    <input type="checkbox" onchange="toggleItem(this)" />
+    <div class="item-content">
+      <div class="item-label" contenteditable="true">New item — click to edit</div>
+      <div class="item-sub" contenteditable="true">Sub-note (optional)</div>
+    </div>
+    <button onclick="this.closest('.item').remove(); updateProgress();" style="background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1rem;padding:0 4px;" title="Delete">✕</button>
+  `;
+  body.insertBefore(item, btn);
+  item.querySelector('.item-label').focus();
+  updateProgress();
+}
+
+// ── Add new section ──────────────────────────────────────────
+const THEMES = ['theme-navy','theme-teal','theme-amber','theme-purple','theme-rose','theme-green','theme-orange','theme-blue'];
+let themeIdx = 0;
+function addSection() {
+  const tree = document.getElementById('tree');
+  const theme = THEMES[themeIdx % THEMES.length];
+  themeIdx++;
+  const card = document.createElement('div');
+  card.className = `section-card ${theme}`;
+  card.innerHTML = `
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="icon" contenteditable="true">📌</span>
+      <span contenteditable="true">New Section — click to rename</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <button class="add-btn" onclick="addItem(this.closest('.section-body'), this)">＋ Add Item</button>
+    </div>
+  `;
+  tree.appendChild(card);
+}
+
+// ── Export / Save ────────────────────────────────────────────
+function exportHTML() {
+  const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'onboarding-flow-diagram.html';
+  a.click();
+}
+
+// ── Init progress ────────────────────────────────────────────
+updateProgress();
+</script>
+</body>
+</html>

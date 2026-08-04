@@ -1,0 +1,96 @@
+{
+  "description": "Voice/person profiles used to identify speakers and sort recordings. Add new profiles over time.",
+  "drive_root_folder_id": "1Gxg3gg06CVLO-F05kke5CXvdXgVXSPsP",
+  "folders": {
+    "Inbox": "1R8aP1YFqaiojFAqVBFDj-n0-rGhmAav9",
+    "Calls": "1Cx4xR5JV0kr8iyLCd3CdKAqPhPYGxWU3",
+    "Marc's Inappropriate Screaming": "1PKwWvR4NbUwucn_Wp6RYcP_oJV7HSmiP",
+    "Meetings": "1Kg98rGEhxKKdCUEAjiEadYeKdhkajPO_",
+    "Other": "1vIdE78TJrPDIb9tI7N1uotgfNH1T75sH",
+    "Personal Notes": "1Bw1F45StcpM8UPm6vMc14Q5pFZ_18oI7"
+  },
+  "profiles": [
+    {
+      "name": "Marc",
+      "role": "User's boss (principal at Apartment Corp; real-estate investment/property management)",
+      "target_folder": "Marc's Inappropriate Screaming",
+      "sorting_rule": "Recordings where Marc is present and behaving inappropriately (yelling, screaming, berating staff) go to this folder.",
+      "voice_characteristics": {
+        "status": "building",
+        "notes": "Older male voice. Reference sample: 'Marc Screaming at Ethan - 2026-06-24.m4a' (~9:05 yelling). New corroborating context from 2026-07-05 batch: co-workers describe him as having 'a short fuse' (Ethan, 'Ethan Company Mail Error' at 13:17); staff avoid using cost-seg credits without his approval ('you better get the okay from Mark... I'm not gonna get yelled at', V2025-12-26 at ~1:54). Likely the terse manager checking deadlines in Save.WAV at 32:21-33:54 ('When will you be done with all of them?')."
+      },
+      "known_interactions": [
+        {
+          "with": "Ethan (co-worker)",
+          "context": "Marc yelling at Ethan at ~9:05 in the reference recording (2026-06-24)"
+        },
+        {
+          "with": "Brandon (user)",
+          "context": "Deadline check-in on cost segregation work; July site-visit planning with Sebastian/Mike (Save.WAV 32:21)"
+        },
+        {
+          "with": "Nicole (co-worker)",
+          "context": "Must approve use of cost-seg credits; staff fear being yelled at (V2025-12-26 ~1:54)"
+        }
+      ],
+      "reference_recordings": [
+        {
+          "file": "Marc Screaming at Ethan - 2026-06-24.m4a",
+          "drive_file_id": "11F2aQMYSk1KUuHcO_s0U7ipgtNb198Kq",
+          "notable_moment": "Yelling at Ethan around 9:05",
+          "summary_file_id": "16dWSHvkobrPzYidmHQf6LoskOm8O7bN2"
+        }
+      ]
+    },
+    {
+      "name": "Ethan",
+      "role": "User's co-worker (handles IT-adjacent issues: Exchange/Outlook outages, SpamTitan filter, Grid 3D software)",
+      "target_folder": null,
+      "sorting_rule": "No dedicated folder yet. Ethan appears in recordings with Marc and Brandon; tag his lines in dialogues.",
+      "voice_characteristics": {
+        "status": "building",
+        "notes": "Young male voice; friendly, casual banter with Brandon. Worries about appearances at work ('you know how Mark is... he's got a short fuse' re: LinkedIn emails, Ethan Company Mail Error 13:17). Main speaker with Brandon in 'Ethan Company Mail Error.WAV' (47m54s, 2026-06-23) discussing the company-wide mail outage."
+      }
+    },
+    {
+      "name": "Jeff Sadaka",
+      "role": "External accountant/CPA working on cost segregation, 3115 forms, and depreciation for Grace, Grove Park, Granite Ridge properties",
+      "target_folder": null,
+      "sorting_rule": "Proposed profile (recurring voice, 3 appearances). Calls with Jeff -> Calls.",
+      "voice_characteristics": {
+        "status": "building",
+        "notes": "Older male voice; direct, repeats phrases ('freaking nightmare'); methodical walkthroughs of spreadsheets. Appears in Save.WAV (02:37-27:09), Ethan Company Mail Error (42:46-45:24), and V2025-12-26 (40:29+)."
+      }
+    },
+    {
+      "name": "Brandon",
+      "role": "User (recorder owner). Works at Apartment Corp; email brandon@apartmentcorp.com",
+      "target_folder": null,
+      "sorting_rule": "Solo memos -> Personal Notes.",
+      "voice_characteristics": {
+        "status": "building",
+        "notes": "Primary voice on all recordings; handles cost-seg spreadsheets, rent inputs, IT liaison work."
+      }
+    }
+  ],
+  "observed_people_not_yet_profiled": [
+    "Nicole (co-worker, cost segregation, email issues)",
+    "Kimberly (property manager, ask-rent inputs for York/Windsor)",
+    "Ginger (property/listing support, media tab photo uploads)",
+    "Leslie (manager, on the road)",
+    "Jeremy (IT admin)",
+    "Susan (manager, email certificate expiration)",
+    "Beth (wanted condensed cost-seg format)",
+    "Sebastian, Mike (July site-visit coordination)",
+    "Brandon's partner (personal late-night calls, Puerto Rico, squatter property case)"
+  ],
+  "default_sorting_rules": [
+    "Phone calls (one side of conversation audible, phone-call context) -> Calls",
+    "Multi-person work discussions, standups, reviews -> Meetings",
+    "User speaking alone (memos, notes-to-self) -> Personal Notes",
+    "Personal conversations (non-work, family/partner) -> Personal Notes",
+    "Marc behaving inappropriately/yelling -> Marc's Inappropriate Screaming",
+    "Silent/ambient recordings with no speech -> Other (recommend deletion)",
+    "Anything that doesn't match a profile or rule -> Other"
+  ]
+}

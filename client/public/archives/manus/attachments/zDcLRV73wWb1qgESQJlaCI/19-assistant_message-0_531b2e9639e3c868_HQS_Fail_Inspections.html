@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Items Most Likely to Fail HQS Inspections</title>
+
+  <!-- ═══════════════════════════════════════════
+       SCREEN STYLES
+  ═══════════════════════════════════════════ -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 40%, #0f2550 100%);
+      min-height: 100vh;
+      padding: 40px 20px 60px;
+      color: #cdd8f0;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header a {
+      display: inline-block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .header a:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 18px rgba(100,160,255,0.55));
+    }
+
+    .header img {
+      height: 110px;
+      width: auto;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6));
+    }
+
+    .page-title {
+      margin-top: 22px;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e8f0ff;
+      text-shadow: 0 2px 12px rgba(50,120,255,0.4);
+    }
+
+    .divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #2563eb, #60a5fa, #2563eb);
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+
+    /* ── Export Button ── */
+    .export-bar {
+      max-width: 820px;
+      margin: 0 auto 18px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-export {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(96,165,250,0.45);
+      background: rgba(37,99,235,0.18);
+      color: #93c5fd;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-export:hover {
+      background: rgba(37,99,235,0.32);
+      border-color: #60a5fa;
+      box-shadow: 0 0 14px rgba(96,165,250,0.25);
+      transform: translateY(-1px);
+    }
+
+    .btn-export svg {
+      flex-shrink: 0;
+    }
+
+    /* ── Card wrapper ── */
+    .card {
+      max-width: 820px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      padding: 36px 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    /* ── Section headings ── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+      margin-top: 10px;
+    }
+
+    .section-label.emergency {
+      background: linear-gradient(135deg, rgba(220,38,38,0.25), rgba(239,68,68,0.12));
+      border: 1px solid rgba(239,68,68,0.4);
+      color: #fca5a5;
+    }
+
+    .section-label.non-emergency {
+      background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(96,165,250,0.12));
+      border: 1px solid rgba(96,165,250,0.35);
+      color: #93c5fd;
+    }
+
+    .section-label .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .section-label.emergency .dot { background: #ef4444; box-shadow: 0 0 6px #ef4444; }
+    .section-label.non-emergency .dot { background: #60a5fa; box-shadow: 0 0 6px #60a5fa; }
+
+    /* ── Checklist items ── */
+    ul.checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    ul.checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 13px 16px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    ul.checklist li:hover {
+      background: rgba(96,165,250,0.08);
+      border-color: rgba(96,165,250,0.2);
+      transform: translateX(3px);
+    }
+
+    ul.checklist li.checked {
+      background: rgba(37,99,235,0.12);
+      border-color: rgba(96,165,250,0.3);
+    }
+
+    ul.checklist li.checked .item-text {
+      text-decoration: line-through;
+      color: rgba(147,197,253,0.5);
+    }
+
+    /* ── 3D Checkbox ── */
+    .checkbox-3d {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      position: relative;
+      margin-top: 1px;
+      background: linear-gradient(145deg, #1e3a6e, #0f2040);
+      border: 1.5px solid rgba(96,165,250,0.4);
+      box-shadow:
+        3px 3px 6px rgba(0,0,0,0.5),
+        -1px -1px 3px rgba(255,255,255,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 -1px 0 rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+
+    .checkbox-3d::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -60%) rotate(45deg) scale(0);
+      width: 6px; height: 11px;
+      border-right: 2.5px solid #60a5fa;
+      border-bottom: 2.5px solid #60a5fa;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s;
+      opacity: 0;
+    }
+
+    li.checked .checkbox-3d {
+      background: linear-gradient(145deg, #1d4ed8, #1e40af);
+      border-color: #60a5fa;
+      box-shadow:
+        2px 2px 4px rgba(0,0,0,0.4),
+        -1px -1px 2px rgba(255,255,255,0.05),
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 0 12px rgba(96,165,250,0.3);
+    }
+
+    li.checked .checkbox-3d::after {
+      transform: translate(-50%, -60%) rotate(45deg) scale(1);
+      opacity: 1;
+    }
+
+    /* ── Item text ── */
+    .item-text {
+      font-size: 0.92rem;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #c7d8f5;
+      transition: color 0.2s;
+    }
+
+    .item-text strong {
+      color: #e2ecff;
+      font-weight: 600;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.75rem;
+      color: rgba(147,197,253,0.4);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .card { padding: 24px 20px; }
+      .page-title { font-size: 1.1rem; }
+    }
+  </style>
+
+  <!-- ═══════════════════════════════════════════
+       PRINT / PDF STYLES  — ink-friendly B&W
+  ═══════════════════════════════════════════ -->
+  <style>
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.75in 0.75in 0.85in;
+      }
+
+      /* Reset screen chrome */
+      body {
+        background: #fff !important;
+        color: #111 !important;
+        padding: 0 !important;
+        font-size: 10pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* Hide interactive elements */
+      .export-bar,
+      .btn-export { display: none !important; }
+
+      /* Header */
+      .header { margin-bottom: 18pt; }
+
+      .header a { pointer-events: none; }
+
+      .header img {
+        height: 70pt !important;
+        filter: grayscale(100%) contrast(1.2) !important;
+      }
+
+      .page-title {
+        color: #111 !important;
+        text-shadow: none !important;
+        font-size: 15pt !important;
+        letter-spacing: 0.04em;
+      }
+
+      .divider {
+        background: #1d4ed8 !important;   /* one touch of brand blue */
+        height: 2px !important;
+        width: 60pt !important;
+      }
+
+      /* Card — plain white, light border */
+      .card {
+        background: #fff !important;
+        border: 1px solid #ccc !important;
+        border-radius: 6pt !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 18pt 20pt !important;
+      }
+
+      /* Section labels */
+      .section-label {
+        border-radius: 4pt !important;
+        padding: 3pt 10pt !important;
+        margin-bottom: 8pt !important;
+        margin-top: 6pt !important;
+        font-size: 7.5pt !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .section-label.emergency {
+        background: #fff0f0 !important;
+        border: 1px solid #f87171 !important;
+        color: #b91c1c !important;
+      }
+
+      .section-label.non-emergency {
+        background: #eff6ff !important;
+        border: 1px solid #93c5fd !important;
+        color: #1d4ed8 !important;
+      }
+
+      .section-label .dot {
+        box-shadow: none !important;
+      }
+
+      .section-label.emergency .dot { background: #ef4444 !important; }
+      .section-label.non-emergency .dot { background: #3b82f6 !important; }
+
+      /* Checklist rows */
+      ul.checklist {
+        gap: 5pt !important;
+        margin-bottom: 14pt !important;
+      }
+
+      ul.checklist li {
+        background: #fff !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 4pt !important;
+        padding: 6pt 10pt !important;
+        gap: 10pt !important;
+        transform: none !important;
+        cursor: default !important;
+        page-break-inside: avoid;
+      }
+
+      ul.checklist li:hover {
+        background: #fff !important;
+        border-color: #e0e0e0 !important;
+        transform: none !important;
+      }
+
+      /* Print checkbox — simple square outline, ink-friendly */
+      .checkbox-3d {
+        width: 14pt !important;
+        height: 14pt !important;
+        border-radius: 2pt !important;
+        background: #fff !important;
+        border: 1.5px solid #555 !important;
+        box-shadow: none !important;
+        margin-top: 0 !important;
+        flex-shrink: 0 !important;
+      }
+
+      .checkbox-3d::after { display: none !important; }
+
+      /* Item text */
+      .item-text {
+        color: #111 !important;
+        font-size: 9.5pt !important;
+        line-height: 1.45 !important;
+      }
+
+      .item-text strong {
+        color: #000 !important;
+      }
+
+      /* Footer */
+      .footer {
+        color: #888 !important;
+        font-size: 7.5pt !important;
+        margin-top: 14pt !important;
+        border-top: 1px solid #ddd;
+        padding-top: 6pt;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <a href="https://www.apartmentcorp.com" target="_blank" rel="noopener noreferrer">
+      <img src="AptCorpShimmer_transparent.gif" alt="ApartmentCorp" />
+    </a>
+    <div class="page-title">Items Most Likely to Fail HQS Inspections</div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Export Button -->
+  <div class="export-bar">
+    <button class="btn-export" onclick="window.print()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      Export as PDF
+    </button>
+  </div>
+
+  <!-- Card -->
+  <div class="card">
+
+    <!-- Emergency Section -->
+    <div class="section-label emergency">
+      <span class="dot"></span>
+      24-Hour Emergency Repair Items
+    </div>
+
+    <ul class="checklist">
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text"><strong>Smoke Detectors:</strong> Inoperable (including missing or bad batteries), missing or removed smoke detectors.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text"><strong>Utilities:</strong> Gas, Electric and/or Water not in Service.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text"><strong>Major Plumbing Leaks or Flooding.</strong></span>
+      </li>
+    </ul>
+
+    <!-- Non-Emergency Section -->
+    <div class="section-label non-emergency">
+      <span class="dot"></span>
+      Non-Emergency Items
+    </div>
+
+    <ul class="checklist">
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Deteriorating paint surfaces (peeling, chipping, cracked, water damaged, etc.) or stained, cracked or buckling ceilings (interior or exterior).</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Loose handrails (interior or exterior).</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Absence of a handrail where there are four or more consecutive steps (interior or exterior).</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Absent or non-secured railings around a porch or balcony, which is 30 inches or more above the ground.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Messy yards, grass not cut, trash, or other debris left on site or in the interior of the unit.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Infestation of roaches, rodents, bed bugs, or other insects.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Tuckpointing needed in foundation walls or other opening requiring caulking or sealing.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Deficient door weather-stripping allowing unacceptable air infiltration in unit.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Broken or cracked windows or torn screens (lower level only).</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Inoperable window (will not open or fully close).</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Windows without locks.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Loose light fixtures, missing globes, missing or blown light bulbs and non-operative switches.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Tripping hazards, such as torn carpet, vinyl, etc.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text"><strong>Kitchen:</strong> Dirty stove burners or burners do not light on command.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Gaps or unsealed openings beneath kitchen sinks or bathroom vanity sinks.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Plumbing problems including leaks, broken or dripping faucets and running toilets.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Loose toilets.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">No operable window or air ventilation fan in the bathroom.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Loose electrical outlets, broken or missing outlet covers or electric wire connections not enclosed in junction boxes.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Gaps in electrical fittings &amp; circuit breaker boxes.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Furnace or water heater flues not properly aligned and sealed at chimney.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Slope of flue on water heater and furnace to ensure proper drafting and ventilation.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Dirty furnace filter.</span>
+      </li>
+      <li onclick="toggle(this)">
+        <div class="checkbox-3d"></div>
+        <span class="item-text">Water heater discharge line leaking, missing, or not terminating approximately 6 inches from the floor.</span>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="footer">&copy; ApartmentCorp &mdash; HQS Inspection Reference</div>
+
+  <script>
+    function toggle(el) {
+      el.classList.toggle('checked');
+    }
+  </script>
+
+</body>
+</html>

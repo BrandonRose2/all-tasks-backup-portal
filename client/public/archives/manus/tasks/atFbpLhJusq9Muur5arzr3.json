@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:26.036941Z",
+  "task": {
+    "id": "atFbpLhJusq9Muur5arzr3",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 17,
+    "created_at": "1784746149",
+    "updated_at": "1784746293",
+    "task_url": "https://manus.im/app/atFbpLhJusq9Muur5arzr3",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "AWzTUceMdfy9WVwjTGmL7Z",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746150875",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched Granite Bayou Pointe Apartments and found the requested information."
+      },
+      "id": "gI9r5fRwF4CJ8Ds1l2ZtZ8",
+      "timestamp": "1784746293716",
+      "type": "assistant_message"
+    },
+    {
+      "id": "PMOc0rmKtx1T8fWTCWYXPO",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746293834",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:50.609841Z",
+  "task": {
+    "id": "eDkcG16EXqf3Uj5iK6Z844",
+    "title": "Testing My Browser",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 19,
+    "created_at": "1782762513",
+    "updated_at": "1782762536",
+    "task_url": "https://manus.im/app/eDkcG16EXqf3Uj5iK6Z844",
+    "message_count": 0
+  },
+  "event_count": 5,
+  "events": [
+    {
+      "id": "SW0SxqFx3aafQi4tlAZ4jF",
+      "timestamp": "1782762513338",
+      "type": "user_message",
+      "user_message": {
+        "content": "testing my browser ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "R8w180og0klyz0Ybnv6wXL-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1782762514532",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! Let me test your browser connection right away."
+      },
+      "id": "MT5xM5nWXHAtv8D741StqX",
+      "timestamp": "1782762516508",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Your **My Browser** is working correctly! Here is a summary of the test:\n\n| Property | Details |\n|---|---|\n| **Browser** | My Browser (your local Chrome) |\n| **Page Loaded** | Google (https://www.google.com) |\n| **Status** | Successfully navigated and rendered |\n| **Logged-in Account** | brandonrose2@gmail.com |\n| **Interactive Elements** | 28 elements detected (search bar, buttons, links, etc.) |\n\nThe browser is fully connected, responsive, and operating with your existing Google session active. You are ready to use it for any tasks that require your authenticated accounts or real browsing sessions."
+      },
+      "id": "Ljf6z9Ql28Q7tzSmM7HSCU",
+      "timestamp": "1782762536140",
+      "type": "assistant_message"
+    },
+    {
+      "id": "zR2TElpfKGmF47dG8GYzVr",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1782762536444",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

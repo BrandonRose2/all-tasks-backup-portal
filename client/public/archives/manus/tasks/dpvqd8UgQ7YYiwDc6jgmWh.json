@@ -1,0 +1,790 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:34:24.057601Z",
+  "task": {
+    "id": "dpvqd8UgQ7YYiwDc6jgmWh",
+    "title": "How to Name a Folder Urban Rehab Main Street",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 162,
+    "created_at": "1780876734",
+    "updated_at": "1780948547",
+    "task_url": "https://manus.im/app/dpvqd8UgQ7YYiwDc6jgmWh",
+    "message_count": 0
+  },
+  "event_count": 33,
+  "events": [
+    {
+      "id": "6cXRJyFwSUAwGpvHGzVhyJ",
+      "timestamp": "1780876734826",
+      "type": "user_message",
+      "user_message": {
+        "content": "Name the folder “Urban Rehab - Main Street”",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "1aOzP5ae0nLDccBeKfLJ1E-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780876735536",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Could you provide a bit more context about what you'd like me to do? Specifically:\n\n1. **Where is the folder located?** (e.g., in Notion, on the sandbox filesystem, a web app, etc.)\n2. **Which folder should be renamed?** Is there an existing folder you'd like renamed to \"Urban Rehab - Main Street\", or should a new one be created with that name?"
+      },
+      "id": "iRVMH6Cqjh2bquGAEz5gy2",
+      "timestamp": "1780876739893",
+      "type": "assistant_message"
+    },
+    {
+      "id": "3D6nDeW2PORzyRcdkPqxxe",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "waiting_description": "Could you provide a bit more context about what you'd like me to do? Specifically:\n\n1. **Where is the folder located?** (e.g., in Notion, on the sandbox filesystem, a web app, etc.)\n2. **Which folder should be renamed?** Is there an existing folder you'd like renamed to \"Urban Rehab - Main Street\", or should a new one be created with that name?",
+          "waiting_for_event_id": "iRVMH6Cqjh2bquGAEz5gy2",
+          "waiting_for_event_type": "messageAskUser"
+        }
+      },
+      "timestamp": "1780876740084",
+      "type": "status_update"
+    },
+    {
+      "id": "ksUJe9tDpndEySYRM8gYDJ",
+      "timestamp": "1780876776266",
+      "type": "user_message",
+      "user_message": {
+        "content": "Put it in this drive",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "v1t9OBHyvZlkz3FBlU5aEY",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780876776441",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Could you clarify which drive you're referring to? For example:\n\n- **OneDrive** (your connected local drive)?\n- A specific folder path within a drive?\n\nAlso, should I create a new folder named **\"Urban Rehab - Main Street\"** in that location, or rename an existing folder?"
+      },
+      "id": "96CZV0No0CGPsaUJFzYzk8",
+      "timestamp": "1780876779968",
+      "type": "assistant_message"
+    },
+    {
+      "id": "NtiNg9eJ2SkxvYIqpkRTmu",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "waiting_description": "Could you clarify which drive you're referring to? For example:\n\n- **OneDrive** (your connected local drive)?\n- A specific folder path within a drive?\n\nAlso, should I create a new folder named **\"Urban Rehab - Main Street\"** in that location, or rename an existing folder?",
+          "waiting_for_event_id": "96CZV0No0CGPsaUJFzYzk8",
+          "waiting_for_event_type": "messageAskUser"
+        }
+      },
+      "timestamp": "1780876780130",
+      "type": "status_update"
+    },
+    {
+      "id": "p9oL1JHvuqrFKaN7rVJ86s",
+      "timestamp": "1780876790174",
+      "type": "user_message",
+      "user_message": {
+        "content": "One drive",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "8zThmTVqatjMOvPEJIXuV7",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780876790398",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! Let me check your OneDrive to find the right location."
+      },
+      "id": "IpRaDIeC7q0X9D4c3YeNTH",
+      "timestamp": "1780876792697",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "I can see your OneDrive. Where within it would you like the **\"Urban Rehab - Main Street\"** folder created? Here are the top-level folders currently available:\n\n- Attachments\n- Brandon\n- Collections-FLOW Reports Check\n- Dallas\n- Fair House Authorita AptCorp Rent Rates\n- Indeed - Job Applications Workbook\n- Marketing & Advertising\n- Microsoft Copilot Chat Files\n- NAPS2.app\n- New Hire Onboarding\n- Property Flyers\n- PSI Safe Files\n- Rent Comparables\n- Websites\n\nShould it go at the **top level**, or inside one of these folders?"
+      },
+      "id": "YHVKbMv7QqSd7Bqd4kh1g3",
+      "timestamp": "1780876810928",
+      "type": "assistant_message"
+    },
+    {
+      "id": "prsrGWOl1QYeWY0HULf70A",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "waiting_description": "I can see your OneDrive. Where within it would you like the **\"Urban Rehab - Main Street\"** folder created? Here are the top-level folders currently available:\n\n- Attachments\n- Brandon\n- Collections-FLOW Reports Check\n- Dallas\n- Fair House Authorita AptCorp Rent Rates\n- Indeed - Job Applications Workbook\n- Marketing & Advertising\n- Microsoft Copilot Chat Files\n- NAPS2.app\n- New Hire Onboarding\n- Property Flyers\n- PSI Safe Files\n- Rent Comparables\n- Websites\n\nShould it go at the **top level**, or inside one of these folders?",
+          "waiting_for_event_id": "YHVKbMv7QqSd7Bqd4kh1g3",
+          "waiting_for_event_type": "messageAskUser"
+        }
+      },
+      "timestamp": "1780876811113",
+      "type": "status_update"
+    },
+    {
+      "id": "sAWH9zN6EarV6GkQmgdgyy",
+      "timestamp": "1780876856669",
+      "type": "user_message",
+      "user_message": {
+        "content": "Just make a new folder on the home page and I’ll move it later",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "2xKeUGH6p3wU5VCfuZnIvU",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780876856816",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Creating the folder at the top level of your OneDrive now..."
+      },
+      "id": "C44SdwokRHFcnwDlYzs5fJ",
+      "timestamp": "1780876859106",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Done! The folder **\"Urban Rehab - Main Street\"** has been created at the top level of your OneDrive. It should sync and appear shortly — you can move it wherever you need from there."
+      },
+      "id": "i57cCbILExiOSfrYsft8Op",
+      "timestamp": "1780876864858",
+      "type": "assistant_message"
+    },
+    {
+      "id": "3ndBlhXgTXczpWsNeeOoGl",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1780876865320",
+      "type": "status_update"
+    },
+    {
+      "id": "uaNdRbCqWNrAui8YWB2Pyu",
+      "timestamp": "1780876921973",
+      "type": "user_message",
+      "user_message": {
+        "content": "Ok enhance those photos i gave you and put them in that folder",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "RoVJYd6GeUx0LsMdCN2Ffo",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780876922135",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I don't see any photos attached to our conversation yet. Could you share the photos you'd like me to enhance? You can drag and drop them directly into the chat."
+      },
+      "id": "gTakHONHQox7XfustXidNf",
+      "timestamp": "1780876924676",
+      "type": "assistant_message"
+    },
+    {
+      "id": "BByaLaVfTppqSzo4NKUdXQ",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "waiting_description": "I don't see any photos attached to our conversation yet. Could you share the photos you'd like me to enhance? You can drag and drop them directly into the chat.",
+          "waiting_for_event_id": "gTakHONHQox7XfustXidNf",
+          "waiting_for_event_type": "messageAskUser"
+        }
+      },
+      "timestamp": "1780876924839",
+      "type": "status_update"
+    },
+    {
+      "id": "3Tv19nwo2SmcCwz2GuHtug",
+      "timestamp": "1780877060869",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1394.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/iZJOTuvPQHnalO0luUKDv4_na1fn_SU1HXzEzOTQ.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvaVpKT1R1dlBRSG5hbE8wbHVVS0R2NF9uYTFmbl9TVTFIWHpFek9UUS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDncz0h9ktYHv96gORriWjqT1H-JlAh751bEmbl00H4egIgQNuLOMv9hxFKKkRnZZeno0~MaqQAjHzRHFzyV5jyaZw_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1393.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/tx9MREHfb4n3H5ppY9Iyjh_na1fn_SU1HXzEzOTM.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdHg5TVJFSGZiNG4zSDVwcFk5SXlqaF9uYTFmbl9TVTFIWHpFek9UTS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCN-X8XeRvZi8ATLdWKWgI7YkePTS6SG0zKC7-f1~xT9AIgH48QecAM1K6FyRA5JQdf14dZRAbTVQFBoznNuabCQrA_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1392.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/7rmO94Lce7LAhVrkn9RjN1_na1fn_SU1HXzEzOTI.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvN3JtTzk0TGNlN0xBaFZya245UmpOMV9uYTFmbl9TVTFIWHpFek9USS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIGL~zk4632XworXfjMNuE5dBIplCCVnk37gCb65YvjLDAiAS2Wi1YGZIzcJ2uH8AazE2EWfUX86M9xENBsMoANlL5Q__"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1391.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/f5JbHBhxKLN5kqnsfdXyqW_na1fn_SU1HXzEzOTE.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvZjVKYkhCaHhLTE41a3Fuc2ZkWHlxV19uYTFmbl9TVTFIWHpFek9URS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCc5uLwmoO2vYbXejQ6GvfsKUhW~ouQU-GdQMBS4rGXPgIhAPhkUKVzCF10ZxaOsATkxtoebM~DTBORKLGPWueZVi9T"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1388.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/o02kTLkOnbjWDggWN6qZBf_na1fn_SU1HXzEzODg.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvbzAya1RMa09uYmpXRGdnV042cVpCZl9uYTFmbl9TVTFIWHpFek9EZy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGzsG7LGqDednLmh4CZ3Fjij0JvJXVe8ZNCOZBvDt6X8AiEAnrg3X0RGytxMKCsg2brri7ItFBqamb9L-Dk99tynWCs_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1387.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/n6cfDmUOQm9Zn5ykLvtqSQ_na1fn_SU1HXzEzODc.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvbjZjZkRtVU9RbTlabjV5a0x2dHFTUV9uYTFmbl9TVTFIWHpFek9EYy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCICG8EBNYdOqqhKLEHOpQS0vlJITrCqSnv33BlJugaE8ZAiEAgnjoyX3iGwUnfQ6t4nYbSrLMiq5SatxEsNUTJpa4uXU_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1386.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/vGooyQshrxJj6UhnZQcgmT_na1fn_SU1HXzEzODY.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdkdvb3lRc2hyeEpqNlVoblpRY2dtVF9uYTFmbl9TVTFIWHpFek9EWS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIHm5fFV2pG7Wq5FU1oUsiUqZ3Q-PQXoZZdFvAZioxTNMAiA7nxWzFNZPg~0-NPbO-GJ~xqMcrS8MEG5f-SHwIwP8wg__"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1385.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/nUTyklmoZ5kJzU4e8HQYFK_na1fn_SU1HXzEzODU.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvblVUeWtsbW9aNWtKelU0ZThIUVlGS19uYTFmbl9TVTFIWHpFek9EVS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCID6uxhADX7~V6J~bDPRQETvUVZmVLWA1Q8mNbRNTN4DAAiBPFrQg0Xar81V06ff6I1A6kczMA0Ol2QWQeYMQ2yNVOA__"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1384.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/N0x0s8612dn8u8uU7GoXlw_na1fn_SU1HXzEzODQ.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvTjB4MHM4NjEyZG44dTh1VTdHb1hsd19uYTFmbl9TVTFIWHpFek9EUS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIDhxzHyI35td2Bjqb0fkc8~w5ykihyzlY9i2745fH5y2AiAQCOxgmuIZO0R~2A4qK7f3hUdaVfnAbeqTS9kjnANVUg__"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1383.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/dl3PnsoTM7iaHL1AcB70xD_na1fn_SU1HXzEzODM.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvZGwzUG5zb1RNN2lhSEwxQWNCNzB4RF9uYTFmbl9TVTFIWHpFek9ETS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQD9vjZnaNNny6VquPeG-~MmD0OYicKQ~FiC3YIzaGe5cgIgKqr0vg-UUurFfNfzXmHvYBFwpyQK2CHsv0KuO9ZJwUc_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1382.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/T9g9pwi5aV9YlZ13HWhpXk_na1fn_SU1HXzEzODI.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvVDlnOXB3aTVhVjlZbFoxM0hXaHBYa19uYTFmbl9TVTFIWHpFek9ESS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIH9UddYin0NYWjdXXLApXJbuHFYD40GDk2z9owucduoGAiEAnDf1ZPxHVS1VO34CsJ02hUCX878otJrGwYeyHWPH6D0_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1381.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/7f9nIKqasZgdV905WkJL4O_na1fn_SU1HXzEzODE.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvN2Y5bklLcWFzWmdkVjkwNVdrSkw0T19uYTFmbl9TVTFIWHpFek9ERS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCstDLkGtGJv~eLSEZZLFduv6shAm268Sm-9wj58y2H~QIhAJ8DVyHpH3pNRZJBJ~bqMzLy6ZPxex04LiUgNtD4NMfh"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1380.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/aiOEAKI8U7U2IAWPxKEgaR_na1fn_SU1HXzEzODA.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvYWlPRUFLSThVN1UySUFXUHhLRWdhUl9uYTFmbl9TVTFIWHpFek9EQS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDGGEO7bJWn8MVV~V~NLwwcSSnpayRtOBr0ePt11DAcTQIgJPo9CCGrgHvTxbRB9ZPexFH8Ar9v18SnBSCVSLS~Evw_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1379.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/dOWO1FMbqdy51fYdHj6YjP_na1fn_SU1HXzEzNzk.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvZE9XTzFGTWJxZHk1MWZZZEhqNllqUF9uYTFmbl9TVTFIWHpFek56ay5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICk6nfyRWofdm03wsmWSHTqeNZXJiAe~Fy-h8A~cg-swAiA4AGo5GjlHHJqbnNP~h6B01RFZ3kq4N~I72a~CT8HRuA__"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1378.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/0Qo9ei88uJbksOuCltHWDW_na1fn_SU1HXzEzNzg.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvMFFvOWVpODh1SmJrc091Q2x0SFdEV19uYTFmbl9TVTFIWHpFek56Zy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIGlMR78S4UNX1qATZ11giZWkAN9zZoqyrCCwRBqME5FMAiBJ2I~bhDTrNV1FiLaVvkZQxYedeEDqzbBn38RbfGO20Q__"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1377.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/hXnLAa8VYySLl1eDAww02C_na1fn_SU1HXzEzNzc.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvaFhuTEFhOFZZeVNMbDFlREF3dzAyQ19uYTFmbl9TVTFIWHpFek56Yy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIH33nOMzLeO0NpqedQzetqTEigiL59W5MlYHsyBCWfMaAiEA6Hn2zUT5jALX~FZk3eGS~56iXgPQiDe-7bjosKaZ6tg_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1376.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/w729IyCiJFPBgZzscbIwl6_na1fn_SU1HXzEzNzY.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdzcyOUl5Q2lKRlBCZ1p6c2NiSXdsNl9uYTFmbl9TVTFIWHpFek56WS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCKNu3a3X5OCnUCJP9rKfpoo~fvOLoaSPbJPANOLnWnFwIhALV5m08MSHcVeQBxxW5-KWTBjm41UrLkuTnSSgh2638C"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1375.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/OQMi4sjpNn7TdwO9tUpwhh_na1fn_SU1HXzEzNzU.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvT1FNaTRzanBObjdUZHdPOXRVcHdoaF9uYTFmbl9TVTFIWHpFek56VS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIEIg9532QurYmjYsXQRZw1Xfn~1hkTOhG7Ohj5gibhQnAiEAlfWjUVKtlLh7dB7RAXdSAPgJyM2dtIIus9Rq0M-xoiw_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1374.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/9zUySYGMOiRjdagHV4wx7I_na1fn_SU1HXzEzNzQ.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvOXpVeVNZR01PaVJqZGFnSFY0d3g3SV9uYTFmbl9TVTFIWHpFek56US5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIERfHwS8t11-vNhLokhVgPmCSU7wb00tHme9EjrkEop6AiEA3c~e5dSwc~WVDxY-qgWiWgkjA-DXOivj4FlOAyJlQMo_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1373.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/5GhACCrsAYK0g9oa3F8qJz_na1fn_SU1HXzEzNzM.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvNUdoQUNDcnNBWUswZzlvYTNGOHFKel9uYTFmbl9TVTFIWHpFek56TS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCrWn4OTWmiEdEGN8FXFI-2-VmVrek7a795Hd4vJ8tnCwIhAKuPqpeIQmv~jSJ0qYNX1yNURrz3FCVRc9z2B3WqtUi5"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1372.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/3xf8V1w8OxQxJRLsHR3TUm_na1fn_SU1HXzEzNzI.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvM3hmOFYxdzhPeFF4SlJMc0hSM1RVbV9uYTFmbl9TVTFIWHpFek56SS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCLeSwOunQqRChZjDZ0kesE2eVjCVIbsXuRuuHZd96asQIhAIXEttOhTqpYXE8kqSDCWw1rhUd6ErtLOaRKGjL3pnQs"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1371.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/Isi8I93poRTgkxA5FSOXaj_na1fn_SU1HXzEzNzE.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvSXNpOEk5M3BvUlRna3hBNUZTT1hhal9uYTFmbl9TVTFIWHpFek56RS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQD6uukko9xYL3PnxX2gahg63cWp97~30vuo6DSGpsb6NwIge70-TEods8g2ReAgVIBgQ-St2dCmmfhidBf~y0GeT3U_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1370.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/X65atSjxjQjRJSpKEqZdhO_na1fn_SU1HXzEzNzA.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvWDY1YXRTanhqUWpSSlNwS0VxWmRoT19uYTFmbl9TVTFIWHpFek56QS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCICWPQIxu3-F0m5fdpK4QqxN-rIrdo9j9Ba6K~~8lzpOWAiEAtt29dbdCbEo04jRSd27tPxa92k-eguuuxRFHZsi9A8s_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1369.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/li89yKmXj1fSuYdp38bvYq_na1fn_SU1HXzEzNjk.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvbGk4OXlLbVhqMWZTdVlkcDM4YnZZcV9uYTFmbl9TVTFIWHpFek5qay5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDo8hJn5fPXpaETzzPLTdHR~8A7KJCfAaFKXRM1yWE~6gIhAKVxcJQkPmrfe1GT2Tt6Xwho9c2QLAhMjcsNYIE84Uu7"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1368.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/ajuJS5eWbLkS7esNunRNSJ_na1fn_SU1HXzEzNjg.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvYWp1SlM1ZVdiTGtTN2VzTnVuUk5TSl9uYTFmbl9TVTFIWHpFek5qZy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGJ3ldocxHpcWIefQWo1nE1wBfHqbVDlNwAwdAoe8lxKAiEArda0IJPNqnR-aSRwVxQfeTvXbFCTVKry5U5AxfDphjw_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1364.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/LbqNc1p6mycyhGoLezsNic_na1fn_SU1HXzEzNjQ.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvTGJxTmMxcDZteWN5aEdvTGV6c05pY19uYTFmbl9TVTFIWHpFek5qUS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDA6QQK~aR8TuX~L~ptCQF8B5MFnLac-g1-QaAyNE9zuAIhALy2oRDJpySBPejySqSegnozCHYhNUVn5uIVvUUgd5Pc"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1363.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/21ghCMvPb2UJI5CpQH8nyK_na1fn_SU1HXzEzNjM.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvMjFnaENNdlBiMlVKSTVDcFFIOG55S19uYTFmbl9TVTFIWHpFek5qTS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIExez8fJU-ZKE1ViUk0N9d6afyJV7rHzCaPiamylDQvHAiEAnA9-~1sXd6EBYxOenl6qlKFD7d9o1wkhGlzWfLIvTQU_"
+          },
+          {
+            "content_type": "image/jpeg",
+            "filename": "IMG_1362.jpeg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/xVtZyWmqZ255AS8ooWxa5f_na1fn_SU1HXzEzNjI.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMveFZ0WnlXbXFaMjU1QVM4b29XeGE1Zl9uYTFmbl9TVTFIWHpFek5qSS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCBuOTMgCK8TQCEo~cGg~v64WC5ZUvWYVKgWqaHN6DsHwIhANPGvBPgKyOjKd-Q23~D2aZGz6fZVfh46MVo4hurSAMP"
+          }
+        ],
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "dImcMResWGPJlNb9REMnrs",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780877061553",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got all 28 photos! I'll now read the imagegen skill to determine the best enhancement approach, then enhance all photos and save them to the \"Urban Rehab - Main Street\" folder."
+      },
+      "id": "zmSs07qqEHUopJftR0flps",
+      "timestamp": "1780877065048",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Got all 28 photos! I'll now enhance each one using AI upscaling/restoration and then move them to the \"Urban Rehab - Main Street\" folder. This will take a few minutes — I'll update you when done."
+      },
+      "id": "WXPs0jHAKMLQ1pDUjxzW3t",
+      "timestamp": "1780877079384",
+      "type": "assistant_message"
+    },
+    {
+      "id": "AeIMuYT50zaQX8roIegiIR",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply"
+      },
+      "timestamp": "1780877094066",
+      "type": "status_update"
+    },
+    {
+      "id": "txsrjf2NBmxg9Ne1ZVOSRn",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780947899824",
+      "type": "status_update"
+    },
+    {
+      "id": "H2Of1cw6ETdJTPRcNiKgW4",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1780948370617",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "27 of 28 photos enhanced successfully. Checking which one failed and retrying it now..."
+      },
+      "id": "aT3nblQO5RsLojR6pdN9vP",
+      "timestamp": "1780948373475",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "27 photos enhanced successfully. IMG_1371 had an upload error — I'll retry it now while downloading all the others to the OneDrive folder."
+      },
+      "id": "5h2vDTw1Gvf08n4wcB1gAu",
+      "timestamp": "1780948402751",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "All 28 photos have been AI-enhanced and saved to the **\"Urban Rehab - Main Street\"** folder in your OneDrive. Here's a summary of what was done:\n\n- **28 photos enhanced** using AI upscaling and restoration — each image was processed to improve resolution, sharpness, and clarity while preserving all original content.\n- **All 28 files saved** to `OneDrive / Urban Rehab - Main Street` as high-resolution PNG files, ready for you to move wherever you need them.\n\nThe photos should be syncing to your OneDrive now. Let me know if you need anything else with them!"
+      },
+      "id": "JG2En9ZLOyEl5BCmUpRa45",
+      "timestamp": "1780948546951",
+      "type": "assistant_message"
+    },
+    {
+      "id": "nKBdTVBd6L7C30mbl0CugQ",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1780948547387",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1394.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/iZJOTuvPQHnalO0luUKDv4_na1fn_SU1HXzEzOTQ.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvaVpKT1R1dlBRSG5hbE8wbHVVS0R2NF9uYTFmbl9TVTFIWHpFek9UUS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDncz0h9ktYHv96gORriWjqT1H-JlAh751bEmbl00H4egIgQNuLOMv9hxFKKkRnZZeno0~MaqQAjHzRHFzyV5jyaZw_",
+      "status": "archived",
+      "bytes": 926539,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-0_7c1e08ba435e7e6d_IMG_1394.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1393.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/tx9MREHfb4n3H5ppY9Iyjh_na1fn_SU1HXzEzOTM.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdHg5TVJFSGZiNG4zSDVwcFk5SXlqaF9uYTFmbl9TVTFIWHpFek9UTS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCN-X8XeRvZi8ATLdWKWgI7YkePTS6SG0zKC7-f1~xT9AIgH48QecAM1K6FyRA5JQdf14dZRAbTVQFBoznNuabCQrA_",
+      "status": "archived",
+      "bytes": 915436,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-1_7963d27cb3fe1688_IMG_1393.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1392.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/7rmO94Lce7LAhVrkn9RjN1_na1fn_SU1HXzEzOTI.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvN3JtTzk0TGNlN0xBaFZya245UmpOMV9uYTFmbl9TVTFIWHpFek9USS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIGL~zk4632XworXfjMNuE5dBIplCCVnk37gCb65YvjLDAiAS2Wi1YGZIzcJ2uH8AazE2EWfUX86M9xENBsMoANlL5Q__",
+      "status": "archived",
+      "bytes": 955596,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-2_7e22db22be2d42a4_IMG_1392.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1391.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/f5JbHBhxKLN5kqnsfdXyqW_na1fn_SU1HXzEzOTE.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvZjVKYkhCaHhLTE41a3Fuc2ZkWHlxV19uYTFmbl9TVTFIWHpFek9URS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCc5uLwmoO2vYbXejQ6GvfsKUhW~ouQU-GdQMBS4rGXPgIhAPhkUKVzCF10ZxaOsATkxtoebM~DTBORKLGPWueZVi9T",
+      "status": "archived",
+      "bytes": 824953,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-3_0c5dc487c1572f69_IMG_1391.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1388.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/o02kTLkOnbjWDggWN6qZBf_na1fn_SU1HXzEzODg.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvbzAya1RMa09uYmpXRGdnV042cVpCZl9uYTFmbl9TVTFIWHpFek9EZy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGzsG7LGqDednLmh4CZ3Fjij0JvJXVe8ZNCOZBvDt6X8AiEAnrg3X0RGytxMKCsg2brri7ItFBqamb9L-Dk99tynWCs_",
+      "status": "archived",
+      "bytes": 965797,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-4_3e3945c73ceb0d66_IMG_1388.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1387.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/n6cfDmUOQm9Zn5ykLvtqSQ_na1fn_SU1HXzEzODc.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvbjZjZkRtVU9RbTlabjV5a0x2dHFTUV9uYTFmbl9TVTFIWHpFek9EYy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCICG8EBNYdOqqhKLEHOpQS0vlJITrCqSnv33BlJugaE8ZAiEAgnjoyX3iGwUnfQ6t4nYbSrLMiq5SatxEsNUTJpa4uXU_",
+      "status": "archived",
+      "bytes": 908518,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-5_8b340b5b6732969a_IMG_1387.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1386.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/vGooyQshrxJj6UhnZQcgmT_na1fn_SU1HXzEzODY.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdkdvb3lRc2hyeEpqNlVoblpRY2dtVF9uYTFmbl9TVTFIWHpFek9EWS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIHm5fFV2pG7Wq5FU1oUsiUqZ3Q-PQXoZZdFvAZioxTNMAiA7nxWzFNZPg~0-NPbO-GJ~xqMcrS8MEG5f-SHwIwP8wg__",
+      "status": "archived",
+      "bytes": 758659,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-6_bf013f3fc847201e_IMG_1386.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1385.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/nUTyklmoZ5kJzU4e8HQYFK_na1fn_SU1HXzEzODU.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvblVUeWtsbW9aNWtKelU0ZThIUVlGS19uYTFmbl9TVTFIWHpFek9EVS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCID6uxhADX7~V6J~bDPRQETvUVZmVLWA1Q8mNbRNTN4DAAiBPFrQg0Xar81V06ff6I1A6kczMA0Ol2QWQeYMQ2yNVOA__",
+      "status": "archived",
+      "bytes": 506322,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-7_cba319004753b764_IMG_1385.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1384.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/N0x0s8612dn8u8uU7GoXlw_na1fn_SU1HXzEzODQ.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvTjB4MHM4NjEyZG44dTh1VTdHb1hsd19uYTFmbl9TVTFIWHpFek9EUS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIDhxzHyI35td2Bjqb0fkc8~w5ykihyzlY9i2745fH5y2AiAQCOxgmuIZO0R~2A4qK7f3hUdaVfnAbeqTS9kjnANVUg__",
+      "status": "archived",
+      "bytes": 532442,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-8_d7f7ebb2fccccbbe_IMG_1384.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1383.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/dl3PnsoTM7iaHL1AcB70xD_na1fn_SU1HXzEzODM.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvZGwzUG5zb1RNN2lhSEwxQWNCNzB4RF9uYTFmbl9TVTFIWHpFek9ETS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQD9vjZnaNNny6VquPeG-~MmD0OYicKQ~FiC3YIzaGe5cgIgKqr0vg-UUurFfNfzXmHvYBFwpyQK2CHsv0KuO9ZJwUc_",
+      "status": "archived",
+      "bytes": 800064,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-9_e9eadc839407f2e7_IMG_1383.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1382.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/T9g9pwi5aV9YlZ13HWhpXk_na1fn_SU1HXzEzODI.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvVDlnOXB3aTVhVjlZbFoxM0hXaHBYa19uYTFmbl9TVTFIWHpFek9ESS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIH9UddYin0NYWjdXXLApXJbuHFYD40GDk2z9owucduoGAiEAnDf1ZPxHVS1VO34CsJ02hUCX878otJrGwYeyHWPH6D0_",
+      "status": "archived",
+      "bytes": 647737,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-10_fc8810944ffe943a_IMG_1382.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1381.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/7f9nIKqasZgdV905WkJL4O_na1fn_SU1HXzEzODE.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvN2Y5bklLcWFzWmdkVjkwNVdrSkw0T19uYTFmbl9TVTFIWHpFek9ERS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCstDLkGtGJv~eLSEZZLFduv6shAm268Sm-9wj58y2H~QIhAJ8DVyHpH3pNRZJBJ~bqMzLy6ZPxex04LiUgNtD4NMfh",
+      "status": "archived",
+      "bytes": 552217,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-11_6a1c5ce4cdc177a8_IMG_1381.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1380.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/aiOEAKI8U7U2IAWPxKEgaR_na1fn_SU1HXzEzODA.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvYWlPRUFLSThVN1UySUFXUHhLRWdhUl9uYTFmbl9TVTFIWHpFek9EQS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDGGEO7bJWn8MVV~V~NLwwcSSnpayRtOBr0ePt11DAcTQIgJPo9CCGrgHvTxbRB9ZPexFH8Ar9v18SnBSCVSLS~Evw_",
+      "status": "archived",
+      "bytes": 673711,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-12_5889c210a315cdbf_IMG_1380.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1379.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/dOWO1FMbqdy51fYdHj6YjP_na1fn_SU1HXzEzNzk.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvZE9XTzFGTWJxZHk1MWZZZEhqNllqUF9uYTFmbl9TVTFIWHpFek56ay5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICk6nfyRWofdm03wsmWSHTqeNZXJiAe~Fy-h8A~cg-swAiA4AGo5GjlHHJqbnNP~h6B01RFZ3kq4N~I72a~CT8HRuA__",
+      "status": "archived",
+      "bytes": 647131,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-13_54a8a5b306a43f18_IMG_1379.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1378.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/0Qo9ei88uJbksOuCltHWDW_na1fn_SU1HXzEzNzg.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvMFFvOWVpODh1SmJrc091Q2x0SFdEV19uYTFmbl9TVTFIWHpFek56Zy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIGlMR78S4UNX1qATZ11giZWkAN9zZoqyrCCwRBqME5FMAiBJ2I~bhDTrNV1FiLaVvkZQxYedeEDqzbBn38RbfGO20Q__",
+      "status": "archived",
+      "bytes": 807453,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-14_b5f6565e37f814b8_IMG_1378.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1377.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/hXnLAa8VYySLl1eDAww02C_na1fn_SU1HXzEzNzc.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvaFhuTEFhOFZZeVNMbDFlREF3dzAyQ19uYTFmbl9TVTFIWHpFek56Yy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIH33nOMzLeO0NpqedQzetqTEigiL59W5MlYHsyBCWfMaAiEA6Hn2zUT5jALX~FZk3eGS~56iXgPQiDe-7bjosKaZ6tg_",
+      "status": "archived",
+      "bytes": 829616,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-15_1715f0c0dc5229e3_IMG_1377.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1376.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/w729IyCiJFPBgZzscbIwl6_na1fn_SU1HXzEzNzY.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdzcyOUl5Q2lKRlBCZ1p6c2NiSXdsNl9uYTFmbl9TVTFIWHpFek56WS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCKNu3a3X5OCnUCJP9rKfpoo~fvOLoaSPbJPANOLnWnFwIhALV5m08MSHcVeQBxxW5-KWTBjm41UrLkuTnSSgh2638C",
+      "status": "archived",
+      "bytes": 795965,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-16_1781d9d25b237533_IMG_1376.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1375.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/OQMi4sjpNn7TdwO9tUpwhh_na1fn_SU1HXzEzNzU.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvT1FNaTRzanBObjdUZHdPOXRVcHdoaF9uYTFmbl9TVTFIWHpFek56VS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIEIg9532QurYmjYsXQRZw1Xfn~1hkTOhG7Ohj5gibhQnAiEAlfWjUVKtlLh7dB7RAXdSAPgJyM2dtIIus9Rq0M-xoiw_",
+      "status": "archived",
+      "bytes": 923143,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-17_9bf7407c80c3610d_IMG_1375.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1374.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/9zUySYGMOiRjdagHV4wx7I_na1fn_SU1HXzEzNzQ.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvOXpVeVNZR01PaVJqZGFnSFY0d3g3SV9uYTFmbl9TVTFIWHpFek56US5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIERfHwS8t11-vNhLokhVgPmCSU7wb00tHme9EjrkEop6AiEA3c~e5dSwc~WVDxY-qgWiWgkjA-DXOivj4FlOAyJlQMo_",
+      "status": "archived",
+      "bytes": 717662,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-18_2bc654a98c0e8b02_IMG_1374.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1373.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/5GhACCrsAYK0g9oa3F8qJz_na1fn_SU1HXzEzNzM.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvNUdoQUNDcnNBWUswZzlvYTNGOHFKel9uYTFmbl9TVTFIWHpFek56TS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCrWn4OTWmiEdEGN8FXFI-2-VmVrek7a795Hd4vJ8tnCwIhAKuPqpeIQmv~jSJ0qYNX1yNURrz3FCVRc9z2B3WqtUi5",
+      "status": "archived",
+      "bytes": 807865,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-19_98b8a33fe517603e_IMG_1373.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1372.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/3xf8V1w8OxQxJRLsHR3TUm_na1fn_SU1HXzEzNzI.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvM3hmOFYxdzhPeFF4SlJMc0hSM1RVbV9uYTFmbl9TVTFIWHpFek56SS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCLeSwOunQqRChZjDZ0kesE2eVjCVIbsXuRuuHZd96asQIhAIXEttOhTqpYXE8kqSDCWw1rhUd6ErtLOaRKGjL3pnQs",
+      "status": "archived",
+      "bytes": 838339,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-20_c0930d0dd2cfc758_IMG_1372.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1371.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/Isi8I93poRTgkxA5FSOXaj_na1fn_SU1HXzEzNzE.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvSXNpOEk5M3BvUlRna3hBNUZTT1hhal9uYTFmbl9TVTFIWHpFek56RS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQD6uukko9xYL3PnxX2gahg63cWp97~30vuo6DSGpsb6NwIge70-TEods8g2ReAgVIBgQ-St2dCmmfhidBf~y0GeT3U_",
+      "status": "archived",
+      "bytes": 666757,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-21_b4ca5f2f8ea06b65_IMG_1371.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1370.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/X65atSjxjQjRJSpKEqZdhO_na1fn_SU1HXzEzNzA.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvWDY1YXRTanhqUWpSSlNwS0VxWmRoT19uYTFmbl9TVTFIWHpFek56QS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCICWPQIxu3-F0m5fdpK4QqxN-rIrdo9j9Ba6K~~8lzpOWAiEAtt29dbdCbEo04jRSd27tPxa92k-eguuuxRFHZsi9A8s_",
+      "status": "archived",
+      "bytes": 850804,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-22_cc8e92492eb31c30_IMG_1370.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1369.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/li89yKmXj1fSuYdp38bvYq_na1fn_SU1HXzEzNjk.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvbGk4OXlLbVhqMWZTdVlkcDM4YnZZcV9uYTFmbl9TVTFIWHpFek5qay5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDo8hJn5fPXpaETzzPLTdHR~8A7KJCfAaFKXRM1yWE~6gIhAKVxcJQkPmrfe1GT2Tt6Xwho9c2QLAhMjcsNYIE84Uu7",
+      "status": "archived",
+      "bytes": 802358,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-23_fbfea418328b80c5_IMG_1369.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1368.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/ajuJS5eWbLkS7esNunRNSJ_na1fn_SU1HXzEzNjg.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvYWp1SlM1ZVdiTGtTN2VzTnVuUk5TSl9uYTFmbl9TVTFIWHpFek5qZy5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIGJ3ldocxHpcWIefQWo1nE1wBfHqbVDlNwAwdAoe8lxKAiEArda0IJPNqnR-aSRwVxQfeTvXbFCTVKry5U5AxfDphjw_",
+      "status": "archived",
+      "bytes": 773071,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-24_90dad5fcb6bd8b3a_IMG_1368.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1364.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/LbqNc1p6mycyhGoLezsNic_na1fn_SU1HXzEzNjQ.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvTGJxTmMxcDZteWN5aEdvTGV6c05pY19uYTFmbl9TVTFIWHpFek5qUS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDA6QQK~aR8TuX~L~ptCQF8B5MFnLac-g1-QaAyNE9zuAIhALy2oRDJpySBPejySqSegnozCHYhNUVn5uIVvUUgd5Pc",
+      "status": "archived",
+      "bytes": 508076,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-25_8b62be318ab6dbe2_IMG_1364.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1363.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/21ghCMvPb2UJI5CpQH8nyK_na1fn_SU1HXzEzNjM.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvMjFnaENNdlBiMlVKSTVDcFFIOG55S19uYTFmbl9TVTFIWHpFek5qTS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIExez8fJU-ZKE1ViUk0N9d6afyJV7rHzCaPiamylDQvHAiEAnA9-~1sXd6EBYxOenl6qlKFD7d9o1wkhGlzWfLIvTQU_",
+      "status": "archived",
+      "bytes": 520480,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-26_38bb2abc7ddf1f09_IMG_1363.jpeg"
+    },
+    {
+      "event_index": 22,
+      "type": "image",
+      "filename": "IMG_1362.jpeg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/xVtZyWmqZ255AS8ooWxa5f_na1fn_SU1HXzEzNjI.jpeg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMveFZ0WnlXbXFaMjU1QVM4b29XeGE1Zl9uYTFmbl9TVTFIWHpFek5qSS5qcGVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCBuOTMgCK8TQCEo~cGg~v64WC5ZUvWYVKgWqaHN6DsHwIhANPGvBPgKyOjKd-Q23~D2aZGz6fZVfh46MVo4hurSAMP",
+      "status": "archived",
+      "bytes": 713202,
+      "archive_path": "attachments/dpvqd8UgQ7YYiwDc6jgmWh/22-user_message-27_c4b6ee98b5ffb49a_IMG_1362.jpeg"
+    }
+  ]
+}

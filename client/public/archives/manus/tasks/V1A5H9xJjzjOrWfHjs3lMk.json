@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:36:48.399173Z",
+  "task": {
+    "id": "V1A5H9xJjzjOrWfHjs3lMk",
+    "title": "Creating a Promotional Video Script for PropertyMax.ai",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 206,
+    "created_at": "1778621676",
+    "updated_at": "1778626800",
+    "task_url": "https://manus.im/app/V1A5H9xJjzjOrWfHjs3lMk",
+    "message_count": 0
+  },
+  "event_count": 24,
+  "events": [
+    {
+      "id": "VzaJHKqEYaM3M973K0x2JQ",
+      "timestamp": "1778621676673",
+      "type": "user_message",
+      "user_message": {
+        "content": "I want to make a video similar to this one that NotebookLM made. However, that platform assumed a few things and added it into the video that I didn't want.  Also, I want to add to the video the landlord/owner can have all of their data of their portfolio displayed in their office/conference room on 4 panels (televisions) or more and be able to see all the statistics of their buildings/apartments in real time (like we do in our office). Can you analyze this website to the fullest and give a script that I can put into a platform similar to NotebookLM that will create us a very scenematic professional video that my boss can use to advertise/promote his software, PropertyMax.ai? https://notebooklm.google.com/notebook/f4c8b088-e413-439a-a437-b05c165eb788/artifact/dd681b36-6919-4c60-b073-7484d84cad90?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_ ; https://propertymax.ai/app/",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "mbOeTP6UMlq2HcrO93NAAf-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778621677620",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll analyze both the NotebookLM video and the PropertyMax.ai website thoroughly, then craft a detailed, cinematic professional video script tailored for promoting PropertyMax.ai — including the multi-panel real-time dashboard feature for landlords. Let me get started."
+      },
+      "id": "DcVGEdwI2USrRQPdMtPl48",
+      "timestamp": "1778621680844",
+      "type": "assistant_message"
+    },
+    {
+      "id": "gVa7OwWZCZyTNAvnl8wkBw",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "confirm_input_schema": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "select",
+                  "skip"
+                ],
+                "type": "string"
+              },
+              "client_id": {
+                "type": "string"
+              },
+              "reason": {
+                "enum": [
+                  "no_clients_available",
+                  "same_browser_rejected",
+                  "client_offline",
+                  "api_error"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          },
+          "waiting_for_event_id": "071dilWZMriycunqMJ25iv",
+          "waiting_for_event_type": "needConnectMyBrowser"
+        }
+      },
+      "timestamp": "1778621689358",
+      "type": "status_update"
+    },
+    {
+      "id": "ln3DVpYwwmA5gFTD7Hn2ik",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778621733518",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I can see the PropertyMax.ai dashboard is live and logged in. I'm now doing a thorough analysis of all sections — navigating through the dashboard, features, modules, and integrations to capture everything needed for the script."
+      },
+      "id": "nQoErcYxCKQhxZBMhHjNSg",
+      "timestamp": "1778621778518",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "PropertyMax_Video_Script.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/V1A5H9xJjzjOrWfHjs3lMk/sandbox/QtTVwrfDaBzCK93nPXN98p_1778621930121_na1fn_L2hvbWUvdWJ1bnR1L1Byb3BlcnR5TWF4X1ZpZGVvX1NjcmlwdA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVjFBNUg5eEpqempPcldmSGpzM2xNay9zYW5kYm94L1F0VFZ3cmZEYUJ6Q0s5M25QWE45OHBfMTc3ODYyMTkzMDEyMV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDFCeWIzQmxjblI1VFdGNFgxWnBaR1Z2WDFOamNtbHdkQS5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICwhSKdZsH4alGKUVZuEgGtRzG3Bc6twjyRdtZhdRhHMAiAxGM0rHNB5yTfrUw50DdobB6aqsppq2JvkhTG8DVu4CA__"
+          }
+        ],
+        "content": "Here is your complete **cinematic professional video script** for PropertyMax.ai, ready to be pasted into a platform like NotebookLM, Sora, Runway, or any AI video generation tool. The script is structured into 5 distinct scenes, each with precise visual direction and narration.\n\n---\n\n## What I Found & What Was Changed from the NotebookLM Version\n\nAfter fully analyzing both the NotebookLM video artifact and the live PropertyMax.ai platform, here is a summary of what was corrected and added:\n\n| Item | NotebookLM Version | This Script |\n|---|---|---|\n| Tone | Conversational / podcast-style | Cinematic, professional, authoritative |\n| Assumptions | Made generic property software assumptions | Grounded 100% in actual PropertyMax.ai features |\n| Multi-Panel TV Wall | Not included | **Fully featured in Scene 3** as a signature differentiator |\n| Integrations | Not mentioned | Yardi, OneSite, Paychex, B of A, AppWork highlighted |\n| AI Queries | Not shown | Specific natural language examples from the live platform |\n| Owner Persona | Vague | Dedicated scene showing the owner in their command center |\n| Call to Action | Generic | Specific demo booking tied to PropertyMax.ai branding |\n\n---\n\n## How to Use This Script in a Video AI Platform\n\nWhen pasting into a platform like **Sora, Runway, Pika, HeyGen, or a similar tool**, you can use each `[SCENE]` block as a separate clip prompt. The `**VISUAL:**` sections serve as your **image/video generation prompts**, and the `**NARRATOR (V.O.):**` sections serve as your **voiceover script**.\n\nThe script is attached below as a Markdown file for easy copy-paste."
+      },
+      "id": "3ErD2EYbWNj985AmURmpRa",
+      "timestamp": "1778621930387",
+      "type": "assistant_message"
+    },
+    {
+      "id": "T0wxoCjG1dmIS0Spy7WJwe",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778621930681",
+      "type": "status_update"
+    },
+    {
+      "id": "AxrBWUOMCfsTIOKyVFjhwk",
+      "timestamp": "1778625210340",
+      "type": "user_message",
+      "user_message": {
+        "content": "what is the best platform for a 3 to 4 minute video",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "DXeuc6PjfLjVawZeouV3pp",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778625210565",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Great question — let me research the best current AI video platforms for a 3–4 minute cinematic promotional video like this one, and compare them on quality, length limits, ease of use, and pricing."
+      },
+      "id": "J4tS3BrvjgrAUkzvvVv3qo",
+      "timestamp": "1778625215559",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Based on thorough research across multiple 2026 platform comparisons, here is a definitive breakdown of the **best platforms for a 3–4 minute cinematic promotional video** like the PropertyMax.ai script:\n\n---\n\n## Top Platform Recommendations for a 3–4 Minute Promotional Video\n\nThe key constraint here is **video length**. Many popular AI video tools (Sora, Runway) generate clips of only 16–20 seconds, which means a 3–4 minute video requires stitching dozens of clips together. The platforms below are specifically suited for longer-form, script-driven professional video.\n\n---\n\n### #1 — HeyGen *(Best Overall for This Use Case)*\n**[heygen.com](https://www.heygen.com)**\n\nHeyGen is the strongest match for the PropertyMax.ai video. It is purpose-built for **script-to-video with an AI avatar presenter**, which mirrors the professional talking-head style of the NotebookLM video. There is no hard clip length limit — the avatar reads your full script from start to finish in a single render.\n\n| Feature | Detail |\n|---|---|\n| Video Length | Unlimited (avatar-driven, full script) |\n| Quality | 1080p standard, 4K on Business plan |\n| Script-to-Video | Yes — paste the full script and it generates end-to-end |\n| AI Avatar | 1,100+ professional presenters |\n| Voiceover | AI voice cloning in 175+ languages |\n| Pricing | Free (3 videos/mo) → Creator $24/mo → Business $149/mo |\n| Best For | Professional business promotional video with a presenter |\n\n**Why it wins for PropertyMax.ai:** You can paste the entire 5-scene script, select a professional-looking avatar, and it renders a polished, full-length video. The Business plan also supports team collaboration and 4K export — ideal for displaying on those 4-panel TV walls.\n\n---\n\n### #2 — InVideo AI *(Best for Script + Stock Footage Style)*\n**[invideo.io](https://invideo.io)**\n\nInVideo AI is the best option if you want a **cinematic montage style** — like a corporate brand video with voiceover narration over stock footage and motion graphics — rather than a talking-head presenter. You paste a long script, and it automatically finds matching stock clips, adds music, subtitles, and transitions.\n\n| Feature | Detail |\n|---|---|\n| Video Length | No hard limit — handles full 3–4 minute scripts |\n| Style | Stock footage + voiceover + motion graphics |\n| Script-to-Video | Yes — full script input with scene-by-scene generation |\n| Voiceover | AI voice or upload your own |\n| Pricing | Free (watermarked) → Plus $25/mo → Max $60/mo |\n| Best For | Cinematic brand/promo video with narration over visuals |\n\n**Why it's great for PropertyMax.ai:** The 5-scene script maps perfectly to InVideo AI's scene-by-scene workflow. Each `[SCENE]` block becomes a segment. The visual direction notes in the script serve as prompts for each scene.\n\n---\n\n### #3 — Pictory AI *(Best for Script-to-Video Simplicity)*\n**[pictory.ai](https://pictory.ai)**\n\nPictory has a dedicated **\"Script to Video\"** feature that is among the simplest to use. You paste your script, it auto-matches stock footage, adds captions, and generates a professional video. It is slightly less cinematic than InVideo but extremely fast and clean.\n\n| Feature | Detail |\n|---|---|\n| Video Length | Up to 10 minutes per video |\n| Style | Stock footage + captions + voiceover |\n| Script-to-Video | Yes — dedicated feature |\n| Pricing | Starter $25/mo → Professional $49/mo → Teams $119/mo |\n| Best For | Quick, clean promotional videos from a written script |\n\n---\n\n### #4 — Runway Gen-4 *(Best for Cinematic AI-Generated Visuals)*\n**[runwayml.com](https://runwayml.com)**\n\nIf you want **fully AI-generated cinematic visuals** (not stock footage), Runway is the filmmaker's choice. However, each clip is limited to 16 seconds, so a 3–4 minute video requires generating ~15–20 individual clips and stitching them together in an editor like CapCut or DaVinci Resolve.\n\n| Feature | Detail |\n|---|---|\n| Clip Length | Up to 16 seconds per generation |\n| Quality | Up to 4K upscale |\n| Style | Fully AI-generated cinematic footage |\n| Pricing | Standard $15/mo (125 credits) → Pro $35/mo |\n| Best For | Filmmakers who want stunning AI visuals and are comfortable editing |\n| Limitation | Requires manual stitching for 3–4 min video |\n\n---\n\n## The Verdict: What I Recommend for PropertyMax.ai\n\nGiven that the goal is a **professional, boss-ready promotional video** that can be produced quickly and displayed on 4-panel TVs in a conference room, here is the recommended path:\n\n> **Use HeyGen for the presenter/narration layer + InVideo AI for the cinematic B-roll scenes.**\n\nSpecifically:\n- Use **HeyGen** to generate the narrator/voiceover track with a professional AI avatar reading the full script.\n- Use **InVideo AI** to generate the scene-by-scene visual montage (the property management office, the 4-panel TV wall, the dashboard animations, etc.).\n- Combine the two in **CapCut** (free) or **DaVinci Resolve** (free) for the final polished cut.\n\nThis two-platform approach produces a result that is indistinguishable from a professionally produced corporate video — at a fraction of the cost."
+      },
+      "id": "fNjIePy9djpLIBWvZWNRjE",
+      "timestamp": "1778625332936",
+      "type": "assistant_message"
+    },
+    {
+      "id": "j4RheQpZsCYyk1GsKngmaB",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778625335648",
+      "type": "status_update"
+    },
+    {
+      "id": "RLjjAITUVqCpMPmsDZFdCi",
+      "timestamp": "1778625618179",
+      "type": "user_message",
+      "user_message": {
+        "content": "i don't wnat that to be the focus i just want that aspect also in the video - great the heygen script ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "3jU6DOdGBKLu8RYXPSnz80",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778625618349",
+      "type": "status_update"
+    },
+    {
+      "id": "XOeM8VeeFMKPJBHw4op8ev",
+      "timestamp": "1778625621440",
+      "type": "user_message",
+      "user_message": {
+        "content": "create ",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "Got it — the multi-panel TV wall is just one feature among many, not the centerpiece. I'll now rewrite the full script specifically formatted for HeyGen — with the presenter narration, scene directions, and the 4-panel display woven in naturally as part of the broader PropertyMax.ai story. Give me a moment."
+      },
+      "id": "oklN3X1EKMdqu3jnIBjK9D",
+      "timestamp": "1778625626362",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "PropertyMax_HeyGen_Script.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/V1A5H9xJjzjOrWfHjs3lMk/sandbox/432lRPEqBV9eNs3pM5F65N_1778625663596_na1fn_L2hvbWUvdWJ1bnR1L1Byb3BlcnR5TWF4X0hleUdlbl9TY3JpcHQ.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVjFBNUg5eEpqempPcldmSGpzM2xNay9zYW5kYm94LzQzMmxSUEVxQlY5ZU5zM3BNNUY2NU5fMTc3ODYyNTY2MzU5Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDFCeWIzQmxjblI1VFdGNFgwaGxlVWRsYmw5VFkzSnBjSFEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQD2ot6Cc1eZ-gx0wnIF0h~L4OeBfRcooujmtCCoXaisnAIgJSsnt0~SfMMzHVfIxg60Qo0RwwzE35MACNkyZRbsyvc_"
+          }
+        ],
+        "content": "Here is your **HeyGen-ready script** for PropertyMax.ai. Here is exactly how to use it:\n\n---\n\n## How to Use This in HeyGen\n\n**Step 1 — Create a new video** at [heygen.com](https://www.heygen.com) and select **\"Avatar Video.\"**\n\n**Step 2 — Choose your avatar.** Pick a professional business presenter from their library of 1,100+ avatars. A confident, well-dressed male or female presenter in a modern office setting works best for this brand.\n\n**Step 3 — Paste the `AVATAR SCRIPT` sections** into HeyGen's script box. These are the lines the avatar will speak on camera.\n\n**Step 4 — Use the `B-ROLL / VISUAL INSERT` notes** as your cue to either:\n- Upload a screen recording of the live PropertyMax.ai dashboard for that segment, or\n- Use HeyGen's built-in media library to drop in matching stock footage over the avatar's voiceover.\n\n**Step 5 — Select a voice.** HeyGen's AI voices work great, or you can clone your boss's actual voice using their Voice Clone feature for a more personal touch.\n\n---\n\n## What Was Adjusted from the Previous Version\n\nThe multi-panel TV wall display is now woven naturally into **Scene 3** as one of several owner-level benefits — not a standalone scene. It flows from the three levels of control (Property Manager → Regional Manager → Owner) and lands as a vivid, concrete image of what ownership-level visibility looks like in practice, then moves on immediately to AI reporting and integrations."
+      },
+      "id": "MVqJM6W2ko1v0sAjvYtS9N",
+      "timestamp": "1778625663797",
+      "type": "assistant_message"
+    },
+    {
+      "id": "zJjhqKOl7xmsc6oHuD1LG6",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778625664043",
+      "type": "status_update"
+    },
+    {
+      "id": "P0LmRyCrHz1q0GrRCOARxu",
+      "timestamp": "1778626516754",
+      "type": "user_message",
+      "user_message": {
+        "content": "i don't want to say that the ai automates EVERYTHING - i want it to emphasize that ai listenings to the call recordings of our management and sorts these calls as prospects, tenants, maintenance, vendors etc.  I want it to demonstrate that these are sorted and guest cards are created to help the property managers keep track of their appointments and tasks",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "NUDgko6OA0VsgOsXS8R69g",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778626516907",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Perfect — that's a much more accurate and compelling angle. The AI is the intelligent listener and organizer, not a full replacement for your team. I'll rewrite the script now to reflect exactly that: the AI listens to call recordings, intelligently sorts them by caller type, creates guest cards, and keeps property managers on top of their appointments and tasks. Give me just a moment."
+      },
+      "id": "e8nqpycHqkTWDgFGs6rDDQ",
+      "timestamp": "1778626524777",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "PropertyMax_HeyGen_Script_v2.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/V1A5H9xJjzjOrWfHjs3lMk/sandbox/nOM7RzPfvzmBH6lvooEy4U_1778626560252_na1fn_L2hvbWUvdWJ1bnR1L1Byb3BlcnR5TWF4X0hleUdlbl9TY3JpcHRfdjI.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVjFBNUg5eEpqempPcldmSGpzM2xNay9zYW5kYm94L25PTTdSelBmdnptQkg2bHZvb0V5NFVfMTc3ODYyNjU2MDI1Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDFCeWIzQmxjblI1VFdGNFgwaGxlVWRsYmw5VFkzSnBjSFJmZGpJLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQC5R8pF2El-tSkC7gn42Ox~ckg6xnH6zSecMdjsNsgJ8QIhAJH6oqH90O6r6GY4adooXffw8cUwmznhqpmR4BcnkptA"
+          }
+        ],
+        "content": "Here is the revised HeyGen script. The key changes made in this version:\n\n**What changed in Scene 2 (the core fix):**\n\nThe script no longer says the AI \"automates everything.\" Instead, it now accurately describes that the AI **listens to call recordings**, **understands the context of each call**, and **sorts them into the right category** — Prospects, Tenants, Maintenance, or Vendors. From there, it explains how **Guest Cards are automatically created**, giving property managers a clean, organized view of their appointments, follow-ups, and daily tasks so nothing falls through the cracks.\n\nThe language throughout also shifts from \"automation replaces your team\" to **\"AI empowers your team\"** — which is a much stronger and more honest message for your audience.\n\nThe 4-panel TV wall remains in Scene 3 as a natural, brief visual moment within the owner-level benefits — not a standalone feature.\n\nLet me know if you'd like any other adjustments to the tone, wording, or any specific scene."
+      },
+      "id": "ECqsl0r7f18OVw55dH8VW2",
+      "timestamp": "1778626560493",
+      "type": "assistant_message"
+    },
+    {
+      "id": "meYvMRGlqwifTsUlnOQl4O",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778626560759",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 6,
+      "type": "file",
+      "filename": "PropertyMax_Video_Script.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/V1A5H9xJjzjOrWfHjs3lMk/sandbox/QtTVwrfDaBzCK93nPXN98p_1778621930121_na1fn_L2hvbWUvdWJ1bnR1L1Byb3BlcnR5TWF4X1ZpZGVvX1NjcmlwdA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVjFBNUg5eEpqempPcldmSGpzM2xNay9zYW5kYm94L1F0VFZ3cmZEYUJ6Q0s5M25QWE45OHBfMTc3ODYyMTkzMDEyMV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDFCeWIzQmxjblI1VFdGNFgxWnBaR1Z2WDFOamNtbHdkQS5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4ODIyMDgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICwhSKdZsH4alGKUVZuEgGtRzG3Bc6twjyRdtZhdRhHMAiAxGM0rHNB5yTfrUw50DdobB6aqsppq2JvkhTG8DVu4CA__",
+      "status": "archived",
+      "bytes": 5327,
+      "archive_path": "attachments/V1A5H9xJjzjOrWfHjs3lMk/6-assistant_message-0_bbcdacf105977686_PropertyMax_Video_Script.md"
+    },
+    {
+      "event_index": 17,
+      "type": "file",
+      "filename": "PropertyMax_HeyGen_Script.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/V1A5H9xJjzjOrWfHjs3lMk/sandbox/432lRPEqBV9eNs3pM5F65N_1778625663596_na1fn_L2hvbWUvdWJ1bnR1L1Byb3BlcnR5TWF4X0hleUdlbl9TY3JpcHQ.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVjFBNUg5eEpqempPcldmSGpzM2xNay9zYW5kYm94LzQzMmxSUEVxQlY5ZU5zM3BNNUY2NU5fMTc3ODYyNTY2MzU5Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDFCeWIzQmxjblI1VFdGNFgwaGxlVWRsYmw5VFkzSnBjSFEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQD2ot6Cc1eZ-gx0wnIF0h~L4OeBfRcooujmtCCoXaisnAIgJSsnt0~SfMMzHVfIxg60Qo0RwwzE35MACNkyZRbsyvc_",
+      "status": "archived",
+      "bytes": 4731,
+      "archive_path": "attachments/V1A5H9xJjzjOrWfHjs3lMk/17-assistant_message-0_25f918d4ac15252b_PropertyMax_HeyGen_Script.md"
+    },
+    {
+      "event_index": 22,
+      "type": "file",
+      "filename": "PropertyMax_HeyGen_Script_v2.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/V1A5H9xJjzjOrWfHjs3lMk/sandbox/nOM7RzPfvzmBH6lvooEy4U_1778626560252_na1fn_L2hvbWUvdWJ1bnR1L1Byb3BlcnR5TWF4X0hleUdlbl9TY3JpcHRfdjI.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVjFBNUg5eEpqempPcldmSGpzM2xNay9zYW5kYm94L25PTTdSelBmdnptQkg2bHZvb0V5NFVfMTc3ODYyNjU2MDI1Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDFCeWIzQmxjblI1VFdGNFgwaGxlVWRsYmw5VFkzSnBjSFJmZGpJLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQC5R8pF2El-tSkC7gn42Ox~ckg6xnH6zSecMdjsNsgJ8QIhAJH6oqH90O6r6GY4adooXffw8cUwmznhqpmR4BcnkptA",
+      "status": "archived",
+      "bytes": 5387,
+      "archive_path": "attachments/V1A5H9xJjzjOrWfHjs3lMk/22-assistant_message-0_e35066fe38aa0c05_PropertyMax_HeyGen_Script_v2.md"
+    }
+  ]
+}

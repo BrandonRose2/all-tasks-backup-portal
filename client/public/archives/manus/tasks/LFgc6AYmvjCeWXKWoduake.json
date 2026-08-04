@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:32.076412Z",
+  "task": {
+    "id": "LFgc6AYmvjCeWXKWoduake",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 78,
+    "created_at": "1784746076",
+    "updated_at": "1784747415",
+    "task_url": "https://manus.im/app/LFgc6AYmvjCeWXKWoduake",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "h6PQARZhPRqIxgMJjxR2PO",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746078521",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully researched Columbia Village Townhomes and gathered verified public flyer fields."
+      },
+      "id": "FFcxYTU8YIA0nJnaARFvF4",
+      "timestamp": "1784747415279",
+      "type": "assistant_message"
+    },
+    {
+      "id": "EYaCtF6QSTz5ZHn8SBzfJS",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784747415493",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

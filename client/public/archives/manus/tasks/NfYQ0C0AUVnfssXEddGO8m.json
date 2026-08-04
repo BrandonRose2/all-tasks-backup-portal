@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:28:49.237786Z",
+  "task": {
+    "id": "NfYQ0C0AUVnfssXEddGO8m",
+    "title": "Browser Connection Established",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 3,
+    "created_at": "1782782111",
+    "updated_at": "1782782116",
+    "task_url": "https://manus.im/app/NfYQ0C0AUVnfssXEddGO8m",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "5N0ZTTg3hL6kXdleJKpFH9",
+      "timestamp": "1782782111919",
+      "type": "user_message",
+      "user_message": {
+        "content": "i have you connected to the browser now",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "LXH5axq3VXuDFKq7AsDgbs-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1782782112470",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Great! Your browser is now connected. I can use it to browse the web, interact with pages, log into services, and perform tasks that require your real browser sessions.\n\nLet me know what you'd like me to do!"
+      },
+      "id": "7UvcV7wPQ38eJy0U5klvSX",
+      "timestamp": "1782782115819",
+      "type": "assistant_message"
+    },
+    {
+      "id": "lzQmDH8ugTvKBzTnhXz0Bb",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1782782116135",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

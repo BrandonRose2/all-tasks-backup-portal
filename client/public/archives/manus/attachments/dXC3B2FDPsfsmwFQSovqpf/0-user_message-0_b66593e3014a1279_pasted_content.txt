@@ -1,0 +1,233 @@
+Cost Segregation Study Evaluation for Property Depreciation - Manus
+/
+im starting to lose faith that you know what you're doing 
+I see the issue on 540 Freedom Ct. The PDF before table (left) shows Equipment row has Bonus Amt = 16,236.00 (the full cost, since it's 5yr fully depreciated), but my workbook (right, row 65) shows Bonus Amt = 0.00.
+Looking at the PDF before table columns: Tax Cost | Sec 179 Exp | Bonus Amt | Tax Prior Depreciation | Tax Current Depreciation | Tax End Depr | Net Book Value | Method | Period
+For the before table, Equipment (5yr, fully depreciated) has Bonus Amt = 16,236 in the PDF. My before table has Bonus Amt = 0 for all rows.
+This means the before table also uses the Bonus Amt column to show the full cost for 5yr assets that were fully depreciated via bonus depreciation — it's not always 0. I need to fix the before table data for all 10 properties to include the correct Bonus Amt values from the PDF.
+Now I can see it clearly. The before table for 540 Freedom Ct has:
+LI (15yr): Bonus Amt = 0.00
+Building (27.5yr): Bonus Amt = 0.00
+Equipment (5yr): Bonus Amt = 16,236.00 ← the full cost, taken as bonus depreciation
+So the Equipment row had 100% bonus depreciation in the before table. My workbook shows 0.00 for Equipment Bonus Amt — that's the bug. Let me now extract the correct Bonus Amt values for all 10 properties' before tables and fix them.
+Now I see the exact layout. The Bonus Amt values come AFTER all the column headers (Tax Method, Tax Period) — not immediately after "Bonus Amt". The values are grouped by column, not by row. So for prop 2: Bonus Amt values are 0.00, 0.00, 16,236.00 (one per asset row). Let me now extract all 10 properties' Bonus Amt values correctly.
+Now I see the exact layout. The "Tax Method" header comes BEFORE the values, and the Bonus Amt values appear at lines 7-9 (0.00, 0.00, 16,236.00). The "Tax Period" header comes AFTER all the values at the very end. Let me now read the correct line ranges for all 10 properties.
+Now I have all the correct values. I can see the issue clearly — the extraction was picking up the wrong values. Looking at prop 1 (530 Ames), the "bonus" values extracted are actually the Tax Cost values (121,057 / 1,573,731 / 322,816), which means the PDF layout is different from what I assumed.
+The actual Bonus Amt for prop 1 should be 0/0/0 (all zeros — no bonus depreciation), and for prop 2 it's 0/0/16,236. But the extraction is off by one group. Let me re-read the raw data to confirm the correct mapping.
+Now I see the exact layout for prop 1 (530 Ames) before table. After "Tax Method" header, the values are:
+Date In Service: 12/08/17, 12/08/17, 12/08/17
+Tax Cost: 121,057 / 1,573,731 / 322,816
+Sec 179 Exp: 0 / 0 / 0
+Bonus Amt: 0 / 0 / 0
+Tax Prior Depr: 57,319.39 / 345,745.14 / 322,816
+Tax Current Depr: 7,148.50 / 57,226.85 / 0
+Tax End Depr: 64,467.89 / 402,971.99 / 322,816
+NBV + Method: 56,589.11 150DB / 1,170,759.01 S/L / 0.00 S/L
+So for prop 1, Bonus Amt = 0/0/0 ✓
+For prop 2, the layout should be the same, with Bonus Amt = 0/0/16,236. My extraction was off because it was skipping the Date In Service values. Let me now fix the extraction to get the correct Bonus Amt for all 10 properties.
+The extraction is still misaligned for props 2-6, 8, 10. The issue is that the NBV values are on the same line as the Method (e.g., "2,845.89 150DB"), so the group splitting is wrong. Let me read the raw data for prop 2 more carefully to get the exact line numbers for each column group.
+Still misaligned. Looking at prop 2 — the PDF shows Bonus Amt = 0/0/16,236 but I'm getting 359.5/2878.15/0. The issue is the "NBV+Method" lines (like "2,845.89 150DB") are being skipped, which causes the group count to be off by one. Let me look at the raw data more carefully to count the exact groups.
+Now I see it exactly. The column headers come BEFORE the values — they are listed as: Bonus Amt, Tax Prior Depreciation, Tax Current Depreciation, Tax End Depr, Tax Net Book Value, Tax Method. Then the values follow in the same order:
+Bonus Amt: 0.00, 0.00, 16,236.00 (lines 24-26)
+Tax Prior Depr: 2,882.61, 17,388.86, 16,236.00 (lines 28-30)
+Tax Current Depr: 359.50, 2,878.15, 0.00 (lines 32-34)
+Tax End Depr: 3,242.11, 20,267.01, 16,236.00 (lines 36-38)
+NBV + Method: 2,845.89 150DB / 58,881.99 S/L / 0.00 200DB (lines 40-42)
+So the correct Bonus Amt values for prop 2 are 0.00, 0.00, 16,236.00. My extraction was finding the wrong group because it was looking after "Tax Method" but the values actually start after "Tax Method" header which is at line 22 — and the first group after that (lines 24-26) IS the Bonus Amt. Let me fix the extraction to start from the correct position.
+Now I have the correct Bonus Amt values for props 2-10. Props 1, 7, and 9 show empty — let me check those separately. For props 1, 7, 9 the "Tax Bonus Amt" header may use a different format. Let me check prop 1.
+Now I see the issue! For prop 1, the section layout is different. The "Tax Bonus Amt" header appears at line 28 (relative), but the actual values don't come right after the header — they come after "Tax Method" and dates. The value groups start at relative line 49 (absolute 1389+49). Let me trace the exact structure for prop 1.
+Now I can see the exact structure for prop 1. The values after the headers are:
+Lines 45-47: Dates (12/08/17, 12/08/17, 12/08/17)
+Lines 49-51: Tax Cost = 121,057.00 / 1,573,731.00 / 322,816.00
+Lines 53-55: Sec 179 Exp = 0.00 / 0.00 / 0.00
+Lines 57-59: Bonus Amt = 0.00 / 0.00 / 0.00
+Lines 61-63: Tax Prior Depr = 57,319.39 / 345,745.14 / 322,816.00
+Lines 65-67: Tax Current Depr = 7,148.50 / 57,226.85 / 0.00
+Lines 69-71: Tax End Depr = 64,467.89 / 402,971.99 / 322,816.00
+Lines 73-75: NBV + Method = 56,589.11 150DB / 1,170,759.01 S/L / 0.00 S/L
+So for prop 1, the Bonus Amt IS 0.00, 0.00, 0.00. The extraction was failing because after the "Bonus Amt" header there are more headers before the values start. The values start after the last header "Tax Method" + dates.
+The structure is: all column headers listed first, then dates, then values in column-order. My extraction script was looking for numbers immediately after "Bonus Amt" header, but there were more headers in between.
+Let me fix the extraction to find the correct value groups by counting groups after the dates section.
+Found the issue! For prop 7, the dates are in format 1/09/18 (single-digit month, no leading zero), while my regex was looking for \d{2}/\d{2}/\d{2}. I need to update the date pattern to handle single-digit months. Let me also check prop 8.
+Interesting! Prop 8 has a completely different layout — the dates appear BEFORE some column headers (at relative lines 27-29), and then the Tax Cost/Sec179 values follow, then "Grand Total", then the remaining column headers (Bonus Amt, Tax Prior Depr, etc.) appear AFTER the grand total, followed by the remaining value groups.
+This is a split-header layout. The values for Bonus Amt (0.00, 0.00, 37,682.00) appear at lines 63-65, after the second set of headers.
+Now I have all the data I need. Let me compile the correct Bonus Amt values for all 10 properties:
+Prop 1 (530 Ames): 0, 0, 0
+Prop 2 (540 Freedom): 0, 0, 16,236
+Prop 3 (1208 Smith): 0, 0, 116,885
+Prop 4 (1209 Smith): 0, 0, 23,736
+Prop 5 (Havenwood): 0, 0, 126,590
+Prop 6 (Barbwood): 0, 0, 20,398
+Prop 7 (6805 Sayres): 0, 0, 190,807
+Prop 8 (6800 Sayres): 0, 0, 37,682
+Prop 9 (Kayla Ct): 0, 0, 213,983
+Prop 10: 0, 0, 48,295
+Now let me read the current marrero_final.py to update the Before table Bonus Amt values.
+The before table tuple format is: (desc, tax_cost, bonus, prior_depr, curr_depr, end_depr, net_bv, method, period). The bonus column is the 3rd element (index 2). Looking at prop 1's data, the bonus values are already 0.00 for all 3 rows — which matches what the PDF shows (0, 0, 0).
+Now I need to check props 2-10 to see what bonus values are currently in the file and compare against the correct PDF values.
+Now I have a complete picture of the current state. Let me compare the current Bonus Amt values in the file against what the PDF shows:
+Current values in marrero_final.py vs PDF values:
+Prop
+Current Bonus Amt (LI, Bldg, Equip)
+PDF Correct Values
+1 (530 Ames)
+0, 0, 0
+0, 0, 0 ✓
+2 (540 Freedom)
+0, 0, 0
+0, 0, 16,236 ✗
+3 (1208 Smith)
+0, 0, 0
+0, 0, 116,885 ✗
+4 (1209 Smith)
+0, 0, 0
+0, 0, 23,736 ✗
+5 (Havenwood)
+0, 0, 0
+0, 0, 126,590 ✗
+6 (Barbwood)
+0, 0, 0
+0, 0, 20,398 ✗
+7 (6805 Sayres)
+0, 0, 0
+0, 0, 190,807 ✗
+8 (6800 Sayres)
+0, 0, 0
+0, 0, 37,682 ✗
+9 (7112 Kayla)
+0, 0, 0
+0, 0, 213,983 ✗
+10 (7141 Kayla)
+0, 0, 0
+0, 0, 48,295 ✗
+Wait — looking at the actual file data more carefully:
+Prop 2 line 200: ("19 - Equpiment - Ames", 16236.00, **0.00**, 16236.00, 0.00, 16236.00, 0.00, "200DB", 5.0) — Bonus is 0.00, should be 16,236.00
+Prop 3 line 271: ("14 - Equpiment - Smith Square", 116885.00, **0.00**, 116885.00, 0.00, 116885.00, 0.00, "200DB", 5.0) — Bonus is 0.00, should be 116,885.00
+But wait — for prop 7, line 571-573 shows:
+("22 - Land Improvements - Gentry", 40887.00, **0.00**, 40887.00, 0.00, 40887.00, 0.00, "150DB", 15.0) — Bonus is 0.00, should be 0.00 ✓
+("24 - Equipment - Gentry", 190807.00, **0.00**, 190807.00, 0.00, 190807.00, 0.00, "200DB", 5.0) — Bonus is 0.00, should be 190,807.00 ✗
+Now I need to update the Equipment row for props 2-10 (except prop 1 which is already correct). Let me make all the edits.
+All 9 edits applied successfully. Now I also need to check prop 7's Land Improvements row — the PDF showed the LI row for prop 7 has Bonus Amt = 0.00, but the current data shows 40887.00, 0.00, 40887.00 — meaning Prior Depr = 40,887.00 which is the same as the Tax Cost. That's because the 15-year LI was fully depreciated. But the Bonus Amt (index 2) is 0.00 which is correct per the PDF.
+Similarly for prop 8's LI row: 8075.00, 0.00, 8075.00 — Bonus Amt = 0.00, Prior Depr = 8,075.00. That's correct.
+Now let me rebuild the workbook.
+The verification script is finding formula cells (SUM rows) rather than the actual data rows. The data rows have asset descriptions, not formulas. Let me write a better verification that directly reads the specific rows by looking for the actual asset description text.
+I can see the issue! For prop 1 (530 Ames Blvd), row 63 shows:
+19 - Equpiment - Ames | 322816 | 0 | **0** | 322816 | 0
+The Bonus Amt (column D) is 0, but the PDF shows it should be 0 for prop 1 — so that's correct!
+But wait, looking at the data more carefully:
+Row 61: LI row — Bonus Amt = 0 ✓
+Row 62: Building row — Bonus Amt = 0 ✓
+Row 63: Equipment row — Bonus Amt = 0 ✓ (prop 1 Equipment bonus = 0 per PDF)
+So prop 1 is correct. Now let me check prop 2 (540 Freedom Ct) which should have Equipment Bonus Amt = 16,236.
+Prop 2 (540 Freedom Ct) row 65 shows:
+19 - Equpiment - Am | 16236 | 0 | **16236** | 16236 | 0 | 16236
+The Bonus Amt (column D) = 16,236 ✓ — this is correct!
+Let me now do a quick check on all 10 sheets to verify the Equipment row Bonus Amt values are correct.
+The regex isn't matching the rows. Let me debug to see what's actually in those rows.
+The inline Python is having issues with the complex filtering logic. Since I already directly verified the values for 530 Ames Blvd and 540 Freedom Ct by printing the raw rows, let me just directly check the specific equipment rows for all 10 sheets using the known row positions.
+The description filtering is too aggressive. Let me just directly print rows from each sheet to verify the values manually.
+All 10 properties now have the correct Bonus Amt values in the Before table:
+Property
+LI Bonus
+Building Bonus
+Equipment Bonus
+Expected
+530 Ames Blvd
+0
+0
+0
+0 ✓
+540 Freedom Ct
+0
+0
+16,236
+16,236 ✓
+1208 Smith Square
+0
+0
+116,885
+116,885 ✓
+1209 Smith Square
+0
+0
+23,736
+23,736 ✓
+3112 Havenwood Dr
+0
+0
+126,590
+126,590 ✓
+3117 Barbwood Dr
+0
+0
+20,398
+20,398 ✓
+6805 Sayres
+0
+0
+190,807
+190,807 ✓
+6800 Sayres
+0
+0
+37,682
+37,682 ✓
+7112 Kayla Ct
+0
+0
+213,983
+213,983 ✓
+7141 Kayla Ct
+0
+0
+48,295
+48,295 ✓
+All values match the PDF exactly. Now let me upload the workbook to the portal.
+The latest log entry shows a successful HMR update at 6:15:56 PM — the error was from an earlier timestamp (10:41:30 PM yesterday). The file is now compiling correctly. The error was from a previous version of the file that no longer exists.
+Now let me save a checkpoint and deliver the workbook to the user.
+The todo.md items are from a much earlier phase of the project (Grace Townhomes, etc.) that were already completed in previous sessions. The current task is specifically about fixing the Marrero 3 Before table Bonus Amt values, which is now done.
+The workbook is ready. Let me deliver it to you.
+11:17 AM
+The Marrero 3 workbook has been corrected and re-uploaded. Here is a summary of what was fixed:
+Before Table — Bonus Amt Column (all 10 properties)
+The Equipment row in each property's "As Previously Filed" table now correctly shows the bonus depreciation amount from the Form 3115 PDF:
+Property
+Equipment Bonus Amt
+530 Ames Blvd
+$0 (no bonus)
+540 Freedom Ct
+$16,236
+1208 Smith Square
+$116,885
+1209 Smith Square
+$23,736
+3112 Havenwood Dr
+$126,590
+3117 Barbwood Dr
+$20,398
+6805 Sayres
+$190,807
+6800 Sayres
+$37,682
+7112 Kayla Ct
+$213,983
+7141 Kayla Ct
+$48,295
+All values were verified directly against the Form 3115 Combined PDF. The portal download link has been updated to the new file. The workbook is attached below for your review.
+Cost Segregation Dashboard
+Not published
+11:17 AM
+Marrero3_CostSeg_3115_Format.xlsx
+Spreadsheet · 49.72 KB
+View all files in this task
+Task completed
+How was this result?
+
+
+
+
+Manus is an AI Agent and can make mistakes. Please double-check before use.
+
+/
+Edit
+

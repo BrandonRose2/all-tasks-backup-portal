@@ -1,0 +1,64 @@
+Last login: Mon Jul  6 12:20:21 on ttys001
+brandonrose@Mac ~ % date; ls /Volumes/ | grep -i ROSE; echo "--- LOG ---"; tail -12 ~/Library/Logs/rose_rec_watcher.log; echo "--- AGENT ---"; launchctl list | grep rose
+
+Mon Jul  6 12:21:03 PDT 2026
+ROSE-REC2
+--- LOG ---
+2026-07-06 08:12:35 Uploaded: /Volumes/ROSE-REC2/RECORD/V2026-07-02-23-14-57.WAV -> Drive Inbox/ROSE-REC2_V2026-07-02-23-14-57.WAV
+2026-07-06 08:13:27 Uploaded: /Volumes/ROSE-REC2/RECORD/V2026-07-03-00-19-04.WAV -> Drive Inbox/ROSE-REC2_V2026-07-03-00-19-04.WAV
+2026/07/06 08:14:16 ERROR : V2026-07-03-01-19-52.WAV: Failed to copy: Post "https://www.googleapis.com/upload/drive/v3/files?alt=json&fields=id%2Cname%2Csize%2Cmd5Checksum%2Csha1Checksum%2Csha256Checksum%2Ctrashed%2CexplicitlyTrashed%2CmodifiedTime%2CcreatedTime%2CmimeType%2Cparents%2CwebViewLink%2CshortcutDetails%2CexportLinks%2CresourceKey&supportsAllDrives=true&uploadType=resumable&upload_id=AJ5rDhGVpVPwr_uvOitztD__pV7b5PkN7qgNzTdOU3SUbQCgnmKgsgXnXcg4FGD0DRWDH8Ev0pPp7qsZpshLaQGMpGC9CDgNM3xHiX94YpDI4NQ&session_crd=AHSoBRU3irluBjL2gZArbUgzeZ8shAVDy5YFlIOYW2VlQ95l9o08gIth7Jh576vRaGaTLm_gB2tln14ttqQ": can't read status of source file while transferring: stat /Volumes/ROSE-REC2/RECORD/V2026-07-03-01-19-52.WAV: bad file descriptor
+2026/07/06 08:14:16 ERROR : Attempt 1/3 failed with 1 errors and: Post "https://www.googleapis.com/upload/drive/v3/files?alt=json&fields=id%2Cname%2Csize%2Cmd5Checksum%2Csha1Checksum%2Csha256Checksum%2Ctrashed%2CexplicitlyTrashed%2CmodifiedTime%2CcreatedTime%2CmimeType%2Cparents%2CwebViewLink%2CshortcutDetails%2CexportLinks%2CresourceKey&supportsAllDrives=true&uploadType=resumable&upload_id=AJ5rDhGVpVPwr_uvOitztD__pV7b5PkN7qgNzTdOU3SUbQCgnmKgsgXnXcg4FGD0DRWDH8Ev0pPp7qsZpshLaQGMpGC9CDgNM3xHiX94YpDI4NQ&session_crd=AHSoBRU3irluBjL2gZArbUgzeZ8shAVDy5YFlIOYW2VlQ95l9o08gIth7Jh576vRaGaTLm_gB2tln14ttqQ": can't read status of source file while transferring: stat /Volumes/ROSE-REC2/RECORD/V2026-07-03-01-19-52.WAV: bad file descriptor
+2026/07/06 08:14:16 ERROR : Attempt 2/3 failed with 1 errors and: object not found
+2026/07/06 08:14:16 ERROR : Attempt 3/3 failed with 1 errors and: object not found
+2026/07/06 08:14:16 NOTICE: Failed to copyto: object not found
+2026-07-06 08:14:16 ERROR uploading V2026-07-03-01-19-52.WAV (will retry on next plug-in)
+2026-07-06 08:14:17 ROSE-REC2: 45 new file(s) uploaded.
+2026-07-06 12:16:13 NOTE: ROSE-REC2 has no RECORD-style folder; scanning entire volume
+2026-07-06 12:16:13 Scanning ROSE-REC2 (/Volumes/ROSE-REC2)...
+2026-07-06 12:16:13 ROSE-REC2: 0 new file(s) uploaded.
+--- AGENT ---
+-	0	com.user.roserec.sync
+-	0	com.rose.recwatcher
+brandonrose@Mac ~ % bash ~/Scripts/rose_rec_watcher.sh; tail -6 ~/Library/Logs/rose_rec_watcher.log
+
+2026-07-06 12:47:32 Uploaded: /Volumes/ROSE-REC2/RECORD/V2026-07-04-22-58-43.WAV -> Drive Inbox/ROSE-REC2_V2026-07-04-22-58-43.WAV
+2026-07-06 12:52:34 Uploaded: /Volumes/ROSE-REC2/RECORD/V2026-07-04-23-50-49.WAV -> Drive Inbox/ROSE-REC2_V2026-07-04-23-50-49.WAV
+2026-07-06 12:53:32 Uploaded: /Volumes/ROSE-REC2/RECORD/V2026-07-06-09-00-33.WAV -> Drive Inbox/ROSE-REC2_V2026-07-06-09-00-33.WAV
+2026-07-06 12:54:30 Uploaded: /Volumes/ROSE-REC2/RECORD/V2026-07-06-10-00-33.WAV -> Drive Inbox/ROSE-REC2_V2026-07-06-10-00-33.WAV
+2026-07-06 12:55:27 Uploaded: /Volumes/ROSE-REC2/RECORD/V2026-07-06-11-00-36.WAV -> Drive Inbox/ROSE-REC2_V2026-07-06-11-00-36.WAV
+2026-07-06 12:55:27 ROSE-REC2: 27 new file(s) uploaded.
+brandonrose@Mac ~ % curl -sL "https://files.manuscdn.com/user_upload_by_module/session_file/310519663449376037/eWJysyxTANSPtIlp.command" -o /tmp/install_v5.sh && bash /tmp/install_v5.sh
+
+==============================================
+ ROSE-REC Automation Installer v5
+ (RECORD-only scan + day-folder grouping)
+==============================================
+Detected user: brandonrose
+rclone + gdrive remote: OK
+[1/4] Old/duplicate launch agents removed
+[2/4] Watcher v5 installed (RECORD-only + day grouping + verified delete)
+[3/4] Auto-run trigger refreshed
+[4/4] Auto-run trigger activated
+
+Device detected — running scan now. It will verify previously
+uploaded RECORD files and clean them off the device, plus
+upload anything new into day folders. May take a few minutes...
+
+Scan complete. Last log lines:
+2026-07-06 13:00:03 Verified + deleted from device: V2026-07-04-12-39-41.WAV (130712064 bytes)
+2026-07-06 13:00:04 Verified + deleted from device: V2026-07-04-18-24-42.WAV (130421248 bytes)
+2026-07-06 13:00:09 Verified + deleted from device: V2026-07-04-22-58-43.WAV (434688 bytes)
+2026-07-06 13:00:10 Verified + deleted from device: V2026-07-04-23-50-49.WAV (157155840 bytes)
+2026-07-06 13:00:21 Verified + deleted from device: V2026-07-06-09-00-33.WAV (230404608 bytes)
+2026-07-06 13:00:30 Verified + deleted from device: V2026-07-06-10-00-33.WAV (230400512 bytes)
+2026-07-06 13:00:31 Verified + deleted from device: V2026-07-06-11-00-36.WAV (221880832 bytes)
+2026-07-06 13:00:31 ROSE-REC2: 0 uploaded, 104 deleted, 0 errors.
+
+==============================================
+ DONE! v5 active: RECORD-only scan, day-folder
+ grouping in Drive Inbox, verified upload +
+ auto-delete, single launch agent.
+ Your root-level files are never touched.
+ Log: ~/Library/Logs/rose_rec_watcher.log
+==============================================
+brandonrose@Mac ~ % 

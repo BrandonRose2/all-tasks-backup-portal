@@ -1,0 +1,58 @@
+
+#	Filepath
+1	credit-optimizer-v5/skill/scripts/analyze_prompt.py
+2	credit-optimizer-v5/skill/references/efficiency_directives.md
+3	credit-optimizer-v5/skill/references/prompt_checklist.md
+4	credit-optimizer-v5/skill/references/strategy_matrix.md
+5	credit-optimizer-v5/skill/templates/one_shot_template.md
+6	credit-optimizer-v5/skill/SKILL.md
+7	credit-optimizer-v5/docs/gumroad_listing.md
+8	credit-optimizer-v5/proof/final_v5_comparison.png
+9	credit-optimizer-v5/proof/evolution_v4_to_v5.png
+10	credit-optimizer-v5/proof/final_simulation_v5_results.json
+11	credit-optimizer-v5/proof/adversarial_results.json
+12	credit-optimizer-v5/README.md
+File content preview
+
+credit-optimizer-v5/skill/SKILL.md
+tput com profundidade adequada**: Concisão aplica-se APENAS ao raciocínio interno. O resultado entregue ao usuário deve ter a qualidade e extensão que a tarefa exige. NUNCA encurtar output para economizar.
+
+2. **Código robusto desde o início**: Escreva código robusto, limpo e elegante. Evite over-engineering, mas NUNCA sacrifique robustez (validação, error handling). NÃO use "solução mais simples possível".
+
+3. **Até 3 tentativas para código**: Se um teste falhar, corrija e re-teste. Máximo de 3 tentativas. Se persistir, informe o usuário sobre o problema específico. NUNCA entregue código quebrado.
+
+4. **SEMPRE buscar online para dados factuais**: Para dados que mudam (preços, estatísticas, eventos, comparações atuais), SEMPRE busque online. Conhecimento interno serve apenas para conceitos estáveis e formulação de queries. Perguntas factuais simples (ex: "Qual a população do Brasil?") vão direto para busca, sem exigir completeness alta.
+
+5. **Conteúdo longo = seção por seção**: Artigos, relatórios e apresentações com mais de 2000 palavras ou 10 slides devem ser gerados seção por seção para manter coerência e profundidade.
+
+6. **Max auto-selecionado para complexidade alta**: Tarefas complexas usam Manus 1.6 Max automaticamente. NUNCA bloquear Max quando recomendado pelo script. Projetos inerentemente complexos (clones de plataformas, compiladores, jogos com IA) SEMPRE usam Max.
+
+7. **Detecção de ação = Agent Mode obrigatório**: Se a tarefa precisa executar algo (SSH, instalar, configurar, gerar arquivo), SEMPRE usar Agent Mode. Chat Mode é APENAS para respostas textuais sem execução.
+
+8. **Tarefas mistas = decomposição**: Se a tarefa tem múltiplos componentes (pesquisa + slides + gráficos), decompor em fases e aplicar melhores práticas de cada tipo.
+
+9. **Context Hygiene para tarefas longas**: A cada módulo/fase concluída, salvar estado em arquivo e referenciar ao invés de manter no contexto. Isso MELHORA a qualidade.
+
+10. **Mídia: coletar detalhes ANTES de gerar**: Para geração de imagem/vídeo, coletar estilo, dimensões, cores e referências ANTES de gerar. Uma tentativa precisa é melhor que várias vagas.
+
+## Fontes de Economia SEGURAS (0% impacto na qualidade)
+
+1. Chat Mode para Q&A/brainstorm/tradução (100% economia)
+2. One-shot prompt completo para conteúdo curto (elimina follow-ups)
+3. Batch queries (3 variants por busca, mesma cobertura)
+4. Context compression (salvar em arquivos)
+5. Markdown extraction (ao invés de scroll)
+6. Planejamento no Chat Mode antes de executar (gratuito)
+7. Raciocínio interno eficiente (menos tokens de pensamento)
+
+## Regra de Veto
+
+> Se qualquer diretiva de eficiência conflitar com a qualidade do resultado final, a qualidade SEMPRE vence. Economia de créditos é secundária à entrega de um resultado excelente.
+
+## Referências
+
+- Script de análise: `scripts/analyze_prompt.py`
+- Diretivas de eficiência: `references/efficiency_directives.md`
+- Matriz de estratégia: `references/strategy_matrix.md`
+- Checklist de especificidade: `references/prompt_checklist.md`
+- Template de one-shot prompt: `templates/one_shot_template.md`

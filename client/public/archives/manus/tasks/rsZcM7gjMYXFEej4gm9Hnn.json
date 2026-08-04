@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:27:30.085817Z",
+  "task": {
+    "id": "rsZcM7gjMYXFEej4gm9Hnn",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 51,
+    "created_at": "1784746076",
+    "updated_at": "1784746986",
+    "task_url": "https://manus.im/app/rsZcM7gjMYXFEej4gm9Hnn",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "4tP14vluhNLKMmmAoIvtgM",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1784746078536",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Successfully extracted property details for Marrero 3."
+      },
+      "id": "BCkVGZ3gknwnQCJvopFsLY",
+      "timestamp": "1784746985831",
+      "type": "assistant_message"
+    },
+    {
+      "id": "3ETOTTpqTzk11WdWW4yqG2",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1784746986046",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

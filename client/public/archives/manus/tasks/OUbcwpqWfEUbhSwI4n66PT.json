@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:42:52.969597Z",
+  "task": {
+    "id": "OUbcwpqWfEUbhSwI4n66PT",
+    "title": "How to Test and Use the ClickUp Connector",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 91,
+    "created_at": "1776296953",
+    "updated_at": "1776713552",
+    "task_url": "https://manus.im/app/OUbcwpqWfEUbhSwI4n66PT",
+    "message_count": 0
+  },
+  "event_count": 6,
+  "events": [
+    {
+      "id": "foyaxUFF0DsdUoqCKfI6i2",
+      "timestamp": "1776296953303",
+      "type": "user_message",
+      "user_message": {
+        "content": "Help me test the ClickUp connector and show me how to use its feature (e.g. show any data you fetched with it). Give me a brief about its capabilities.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "722T82VjsN8RXoIj12YPMC-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776296954020",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll explore the ClickUp connector, test its features by fetching real data, and put together a brief overview of its capabilities."
+      },
+      "id": "DKBDegzH53RHN42Qz9B6Mn",
+      "timestamp": "1776296957214",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Found 51 tools in the ClickUp connector. Now fetching live data — workspace hierarchy, tasks, members, chat channels, and more."
+      },
+      "id": "MsA6HIdcLV1BCoagBu9dV8",
+      "timestamp": "1776296979634",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "text/markdown",
+            "filename": "ClickUp_MCP_Report.md",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/OUbcwpqWfEUbhSwI4n66PT/sandbox/IQNi9TtVB82kZoeHNEgCXQ_1776297086768_na1fn_L2hvbWUvdWJ1bnR1L0NsaWNrVXBfTUNQX1JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1ViY3dwcVdmRVViaFN3STRuNjZQVC9zYW5kYm94L0lRTmk5VHRWQjgya1pvZUhORWdDWFFfMTc3NjI5NzA4Njc2OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBOc2FXTnJWWEJmVFVOUVgxSmxjRzl5ZEEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDY5srucgdkT9GbschFZV5-zOLQuMXq0vaBVkdpUP7rYQIhAJ6m61Drwu6PJpez1XG~UM9E~XWcuJl5MfKmoK5Kxc2Y"
+          }
+        ],
+        "content": "I have completed the testing of the ClickUp MCP connector. I explored its available tools, fetched live data from your workspace (including tasks, documents, and chat channels), and compiled a comprehensive brief of its capabilities. \n\nYou can review the detailed findings and live data samples in the attached report. Let me know if you'd like me to test any specific actions, like creating a task or updating a document!"
+      },
+      "id": "Bge7EHnwsEPQGTwKXMlMZm",
+      "timestamp": "1776297087009",
+      "type": "assistant_message"
+    },
+    {
+      "id": "V3QMn2lwzmRFwpaxslxxem",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776297087304",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 4,
+      "type": "file",
+      "filename": "ClickUp_MCP_Report.md",
+      "content_type": "text/markdown",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/OUbcwpqWfEUbhSwI4n66PT/sandbox/IQNi9TtVB82kZoeHNEgCXQ_1776297086768_na1fn_L2hvbWUvdWJ1bnR1L0NsaWNrVXBfTUNQX1JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1ViY3dwcVdmRVViaFN3STRuNjZQVC9zYW5kYm94L0lRTmk5VHRWQjgya1pvZUhORWdDWFFfMTc3NjI5NzA4Njc2OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDBOc2FXTnJWWEJmVFVOUVgxSmxjRzl5ZEEubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDY5srucgdkT9GbschFZV5-zOLQuMXq0vaBVkdpUP7rYQIhAJ6m61Drwu6PJpez1XG~UM9E~XWcuJl5MfKmoK5Kxc2Y",
+      "status": "archived",
+      "bytes": 4792,
+      "archive_path": "attachments/OUbcwpqWfEUbhSwI4n66PT/4-assistant_message-0_d5330617c74557b3_ClickUp_MCP_Report.md"
+    }
+  ]
+}

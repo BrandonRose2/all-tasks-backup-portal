@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:40:21.331617Z",
+  "task": {
+    "id": "amExcDdgqUfWCx91jUT8rt",
+    "title": "Cheapest State Sales Tax in the US",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 70,
+    "created_at": "1776714058",
+    "updated_at": "1780009036",
+    "task_url": "https://manus.im/app/amExcDdgqUfWCx91jUT8rt",
+    "message_count": 0
+  },
+  "event_count": 22,
+  "events": [
+    {
+      "id": "uR1bq2xQ7mC9x1tyw9tgDu",
+      "timestamp": "1776714058225",
+      "type": "user_message",
+      "user_message": {
+        "content": "What is the cheapest state sales tax in the us",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "V46ir9XoyVgg1I7RkaFR3E-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776714059322",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Let me look that up for you right away."
+      },
+      "id": "v3C0g65Bmu2jC2G61gM37k",
+      "timestamp": "1776714062443",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "## Cheapest State Sales Tax Rates in the US (2026)\n\n### States with Zero (0%) Sales Tax\n\nThe absolute cheapest sales tax is **0%**, found in **five states** — collectively known by the acronym **NOMAD**:\n\n| State | State Sales Tax Rate | Notes |\n|---|---|---|\n| **New Hampshire** | 0% | No local sales tax either |\n| **Oregon** | 0% | No local sales tax either |\n| **Montana** | 0% | Some local resort taxes may apply |\n| **Alaska** | 0% | Local jurisdictions may charge up to 7.5% |\n| **Delaware** | 0% | No local sales tax either |\n\n> **Note:** While these states charge **no state-level sales tax**, Alaska and Montana permit local governments to levy their own sales taxes. Delaware, New Hampshire, and Oregon have **no sales tax at any level**, making them the true lowest.\n\n---\n\n### Lowest Non-Zero State Sales Tax Rates\n\nFor states that **do** have a sales tax, the lowest rates are:\n\n| State | State Sales Tax Rate |\n|---|---|\n| **Colorado** | 2.9% |\n| **Alabama** | 4.0% |\n| **Georgia** | 4.0% |\n| **Hawaii** | 4.0% (General Excise Tax) |\n| **New York** | 4.0% |\n| **Wyoming** | 4.0% |\n\n---\n\n### Key Takeaway\n\n**Delaware, New Hampshire, and Oregon** are the cheapest states for sales tax — charging **0% at both the state and local level**. If you are looking for the lowest non-zero state rate, **Colorado at 2.9%** holds that distinction.\n\n> Keep in mind that **combined rates** (state + local) can differ significantly. For example, even in low-rate states like Alabama, local taxes can push the combined rate as high as **11%** in some jurisdictions.\n\n*Sources: [Tax Foundation (2026)](https://taxfoundation.org/data/all/state/sales-tax-rates/), [Avalara (2026)](https://www.avalara.com/taxrates/en/state-rates.html)*\n"
+      },
+      "id": "7eWLfNs92J5lUwN7emAC7F",
+      "timestamp": "1776714084932",
+      "type": "assistant_message"
+    },
+    {
+      "id": "qW1IKYDxPPN3CTMe9EMt1Y",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776714085240",
+      "type": "status_update"
+    },
+    {
+      "id": "jKCiRhsamBskjA5PBDVaM6",
+      "timestamp": "1776714110465",
+      "type": "user_message",
+      "user_message": {
+        "content": "Give top 10",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "EPKbjp4SKFdtEXFtKYHEEd",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776714110616",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Looking up the top 10 states with the lowest sales tax rates now."
+      },
+      "id": "bBZ8sfO8aD49qtB6et2Cj6",
+      "timestamp": "1776714113033",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "## Top 10 US States with the Lowest Sales Tax Rates (2026)\n\nHere are the 10 states with the lowest **state-level** sales tax rates, ranked from lowest to highest, based on [Tax Foundation data as of January 1, 2026](https://taxfoundation.org/data/all/state/sales-tax-rates/):\n\n| Rank | State | State Sales Tax Rate | Avg. Local Rate | Combined Rate |\n|---|---|---|---|---|\n| 1 | **Delaware** | 0.00% | 0.00% | **0.00%** |\n| 1 | **Montana** | 0.00% | 0.00% | **0.00%** |\n| 1 | **New Hampshire** | 0.00% | 0.00% | **0.00%** |\n| 1 | **Oregon** | 0.00% | 0.00% | **0.00%** |\n| 1 | **Alaska** | 0.00% | 1.82% | **1.82%** |\n| 6 | **Colorado** | 2.90% | 4.99% | **7.89%** |\n| 7 | **Alabama** | 4.00% | 5.46% | **9.46%** |\n| 7 | **Georgia** | 4.00% | 3.49% | **7.49%** |\n| 7 | **Hawaii** | 4.00% | 0.50% | **4.50%** |\n| 7 | **New York** | 4.00% | 4.54% | **8.54%** |\n| 7 | **Wyoming** | 4.00% | 1.56% | **5.56%** |\n\n> **Note:** There is a tie at rank 7, giving 11 states in the top 10 by state rate. The table includes all tied states for completeness.\n\n### Key Observations\n\n**Delaware, Montana, New Hampshire, and Oregon** charge absolutely **no sales tax** at either the state or local level, making them the clear winners for lowest overall tax burden on purchases.\n\n**Alaska** also has a 0% state rate, but local governments can levy up to **7.85%**, resulting in an average combined rate of 1.82%.\n\n**Colorado** holds the title of the **lowest non-zero state sales tax** at just **2.9%**, though its high average local rate of 4.99% pushes the combined rate to 7.89%.\n\n**Hawaii** is notable among the 4% states — its low average local rate of just 0.50% gives it the **lowest combined rate (4.50%)** among all states that actually levy a sales tax, making it the most affordable taxed state overall.\n\n*Source: [Tax Foundation — State and Local Sales Tax Rates, 2026](https://taxfoundation.org/data/all/state/sales-tax-rates/)*\n"
+      },
+      "id": "ODI8gKPs21HOxdx6Dacln7",
+      "timestamp": "1776714168011",
+      "type": "assistant_message"
+    },
+    {
+      "id": "e7CBvXBuJCb9DwEP4jw5CK",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776714168318",
+      "type": "status_update"
+    },
+    {
+      "id": "rtYk8W9VYBcoFC5JTg7B87",
+      "timestamp": "1776714199722",
+      "type": "user_message",
+      "user_message": {
+        "content": "Give in pdf",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "RAvSoLKclgMNG5t2xnUVXS",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776714199900",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Generating the PDF document now, please wait a moment."
+      },
+      "id": "5VxjHNYe8c43SqGAYLnocj",
+      "timestamp": "1776714202855",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "lowest_sales_tax_report.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/amExcDdgqUfWCx91jUT8rt/sandbox/hQLQdTDBtsJDyWeNP2ZT4M_1776714240976_na1fn_L2hvbWUvdWJ1bnR1L2xvd2VzdF9zYWxlc190YXhfcmVwb3J0.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvYW1FeGNEZGdxVWZXQ3g5MWpVVDhydC9zYW5kYm94L2hRTFFkVERCdHNKRHlXZU5QMlpUNE1fMTc3NjcxNDI0MDk3Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJ4dmQyVnpkRjl6WVd4bGMxOTBZWGhmY21Wd2IzSjAucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCICZGhZnTl-G4621zB2n5a4Dx2kVP1KIAYChYA58UUewIhAMFdP6esJdOybIACFAONSxtHyIT3TKMZBjjNB8I5AeM5"
+          }
+        ],
+        "content": "Your PDF report on the **Top 10 US States with the Lowest Sales Tax Rates (2026)** is ready. It includes the full ranked table, key findings, and important considerations about combined rates and tax base differences."
+      },
+      "id": "3hTkDUhDQBKhpPAmrpC3qk",
+      "timestamp": "1776714241204",
+      "type": "assistant_message"
+    },
+    {
+      "id": "2ZbUQiXj00K3xvXrK7Ru23",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776714241469",
+      "type": "status_update"
+    },
+    {
+      "id": "dLvMer5bkSp4LL9AUykJKs",
+      "timestamp": "1776714244150",
+      "type": "user_message",
+      "user_message": {
+        "content": "Email this to mam@22.bz",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "46HceQ3ktXvx1BRsxNU6uJ",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776714244314",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Sending the PDF report to mam@22.bz now..."
+      },
+      "id": "GzAnZNFX6zACfBL5ctqE3F",
+      "timestamp": "1776714248239",
+      "type": "assistant_message"
+    },
+    {
+      "id": "QqdHPYE1YJqssgT9nnO1eJ",
+      "status_update": {
+        "agent_status": "waiting",
+        "brief": "Manus is waiting for your reply",
+        "description": "Manus will continue working after your reply",
+        "status_detail": {
+          "confirm_input_schema": {
+            "properties": {
+              "accept": {
+                "type": "boolean"
+              },
+              "save_draft": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "accept"
+            ],
+            "type": "object"
+          },
+          "waiting_description": "Processing Gmail messages",
+          "waiting_for_event_id": "JsAgmxeC27J67mGzCNUhsu",
+          "waiting_for_event_type": "gmailSendAction"
+        }
+      },
+      "timestamp": "1776714270907",
+      "type": "status_update"
+    },
+    {
+      "id": "Nw0qrcgR2VSUgNUnzLtaEh",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1776714277100",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "The PDF report has been successfully emailed to **mam@22.bz**. Here is a summary of what was sent:\n\n- **Subject:** Top 10 US States with the Lowest Sales Tax Rates (2026)\n- **To:** mam@22.bz\n- **Attachment:** lowest_sales_tax_report.pdf\n- **Status:** Sent successfully (Message ID: 19dac6c69e573259)"
+      },
+      "id": "4YeIWzlC4w0hjtzXz8Pw82",
+      "timestamp": "1776714286514",
+      "type": "assistant_message"
+    },
+    {
+      "id": "RUGxobzjIl0hC0M7BabuQl",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1776714286778",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 13,
+      "type": "file",
+      "filename": "lowest_sales_tax_report.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/amExcDdgqUfWCx91jUT8rt/sandbox/hQLQdTDBtsJDyWeNP2ZT4M_1776714240976_na1fn_L2hvbWUvdWJ1bnR1L2xvd2VzdF9zYWxlc190YXhfcmVwb3J0.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvYW1FeGNEZGdxVWZXQ3g5MWpVVDhydC9zYW5kYm94L2hRTFFkVERCdHNKRHlXZU5QMlpUNE1fMTc3NjcxNDI0MDk3Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJ4dmQyVnpkRjl6WVd4bGMxOTBZWGhmY21Wd2IzSjAucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCICZGhZnTl-G4621zB2n5a4Dx2kVP1KIAYChYA58UUewIhAMFdP6esJdOybIACFAONSxtHyIT3TKMZBjjNB8I5AeM5",
+      "status": "archived",
+      "bytes": 79549,
+      "archive_path": "attachments/amExcDdgqUfWCx91jUT8rt/13-assistant_message-0_d896b721931904c7_lowest_sales_tax_report.pdf"
+    }
+  ]
+}

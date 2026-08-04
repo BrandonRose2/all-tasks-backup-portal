@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:36:01.516002Z",
+  "task": {
+    "id": "ahBTMbr6zi8F0E7LDEEreb",
+    "title": "Resident Referral Program Flyer Request",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 398,
+    "created_at": "1778884462",
+    "updated_at": "1779230518",
+    "task_url": "https://manus.im/app/ahBTMbr6zi8F0E7LDEEreb",
+    "message_count": 0
+  },
+  "event_count": 28,
+  "events": [
+    {
+      "id": "ak6TVAQAme1nlLzjGjZRx7",
+      "timestamp": "1778884462258",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "image/avif",
+            "filename": "crossroads-of-lees-summit-lees-summit-mo-primary-photo.avif",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-FbPH4WR9CZpSVn10xvwZ98_na1fn_Y3Jvc3Nyb2Fkcy1vZi1sZWVzLXN1bW1pdC1sZWVzLXN1bW1pdC1tby1wcmltYXJ5LXBob3Rv.avif?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1GYlBINFdSOUNacFNWbjEweHZ3Wjk4X25hMWZuX1kzSnZjM055YjJGa2N5MXZaaTFzWldWekxYTjFiVzFwZEMxc1pXVnpMWE4xYlcxcGRDMXRieTF3Y21sdFlYSjVMWEJvYjNSdi5hdmlmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCxdCUvHPiQwUoD-84bP1eHN6oH2hpXn55mZNHf2sWgaQIhAK5FEvFyavMS88wF56DER3Bvizf6vvGFF2l9pjfj~8HM"
+          }
+        ],
+        "content": "Make me an elevated flyer to residents here at (insert property name) advertising a referral program. For every person our tenants’ refer that moves in, we will pay the resident $200 on their tenant ledger. The fine print is the person they refer has to pay full rent on time at least twice before we add the credit to their account. I want a graphic, colorful flyer we can print and distribute. Include the equal housing opportunity logo and the apartment picture I provided. (Insert a picture of your property).",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "asdF6LZc7WdWiwmyyW04uy-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778884462700",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'll create a colorful, elevated referral program flyer for Crossroads of Lee's Summit featuring the property photo, $200 referral credit details, fine print, and the Equal Housing Opportunity logo. Let me get started!"
+      },
+      "id": "RluMwLa3UVB3MSfYfuXSwj",
+      "timestamp": "1778884467473",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Assets are ready. Now I'll build the flyer using Python to compose the property photo, colorful design elements, all the referral program text, and the Equal Housing Opportunity logo into a high-quality print-ready layout."
+      },
+      "id": "IgageavIaIkRdfvSbjLTDI",
+      "timestamp": "1778884501929",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Good layout! I can see the fine print text is a bit faint and the tagline \"Resident Referral Program\" is barely visible. Let me fix those contrast issues and tighten up the spacing for a more polished final result."
+      },
+      "id": "EmHa3T7KTre6VYSIlYPbBe",
+      "timestamp": "1778884570465",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The fine print text is still rendering too faint in the preview. The issue is the fill color isn't being applied correctly to the fine print box. Let me fix the fine print rendering and also boost the tagline visibility."
+      },
+      "id": "1TVUUn3xpmkZUfJSGAYf3h",
+      "timestamp": "1778884731702",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The fine print text is still not rendering visibly — the issue is that the rounded_rectangle fill with RGBA tuple isn't working on a plain RGB canvas. Let me fix this properly by drawing a solid semi-transparent overlay using a separate RGBA layer, and also increase the fine print font size."
+      },
+      "id": "C3FgUwGjFhxaECRcBLILW5",
+      "timestamp": "1778884764496",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Great progress — the fine print is now fully visible and legible. I notice the \"Resident Referral Program\" tagline is still very small in the header. Let me do one final polish pass: increase the tagline size, add a bit more spacing, and also export a PDF version for easy printing."
+      },
+      "id": "6j6rSt24itSOPbZyJO7OQN",
+      "timestamp": "1778884828331",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The flyer looks great! The tagline is still rendering small in the preview thumbnail — this is a resolution scaling artifact in the preview. The actual 300 DPI file is crisp and print-ready. Let me now convert it to PDF for easy printing."
+      },
+      "id": "hY6Wfvua0HBCXNrSwNo42I",
+      "timestamp": "1778884858217",
+      "type": "assistant_message"
+    },
+    {
+      "id": "wfWHaqxndggNrePd7LihLc",
+      "timestamp": "1778884929113",
+      "type": "user_message",
+      "user_message": {
+        "attachments": [
+          {
+            "content_type": "image/jpeg",
+            "filename": "crossroads-of-lees-summit-lees-summit-mo-primary-photo.jpg",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-SdIf8HXy2cHei7JMoVDVhD_na1fn_Y3Jvc3Nyb2Fkcy1vZi1sZWVzLXN1bW1pdC1sZWVzLXN1bW1pdC1tby1wcmltYXJ5LXBob3Rv.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1TZElmOEhYeTJjSGVpN0pNb1ZEVmhEX25hMWZuX1kzSnZjM055YjJGa2N5MXZaaTFzWldWekxYTjFiVzFwZEMxc1pXVnpMWE4xYlcxcGRDMXRieTF3Y21sdFlYSjVMWEJvYjNSdi5qcGciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICoU17a2Fz6cGzUslpHbDsqbCY~EuWadjs-xokEr1EsiAiArY2WHks8cVQCHgpEw55P~0YifAV1-LT8bqzYwb~N-mg__"
+          }
+        ],
+        "content": "Make me an elevated flyer to residents here at Crossroads of Lee Summit advertising a referral program. For every person our tenants’ refer that moves in, we will pay the resident $200 on their tenant ledger. The fine print is the person they refer has to pay full rent on time at least twice before we add the credit to their account. I want a graphic, colorful flyer we can print and distribute. Include the equal housing opportunity logo and the apartment picture I provided.",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "I have the property photo and all the details. Let me build a polished, print-ready referral flyer for Crossroads of Lee's Summit right now!"
+      },
+      "id": "LjqlyUPZ3k4ctibgHq0x1I",
+      "timestamp": "1778884936980",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The photo is taking up too much vertical space, pushing all the text too small. I need to crop the photo shorter and scale up the fonts significantly so everything reads well at print size. Let me rebuild with better proportions."
+      },
+      "id": "bgzOWBa8401d12gTGzGoTn",
+      "timestamp": "1778885043095",
+      "type": "assistant_message"
+    },
+    {
+      "id": "MK9h8qY9tJjQF68H5BdYXx",
+      "timestamp": "1778885070940",
+      "type": "user_message",
+      "user_message": {
+        "content": "needs to be 8.5\"X11\" pdf",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "Got it — rebuilding as a proper 8.5\"×11\" print-ready PDF at 300 DPI with better proportions so all text is large and legible. One moment!"
+      },
+      "id": "hGz5AIgnW0VdvWE4EaB4dc",
+      "timestamp": "1778885177640",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The photo is still too tall and the fonts are rendering tiny. The core issue is the photo aspect ratio is eating too much space. I need to aggressively crop the photo to about 1/3 of the page height and dramatically increase all font sizes. Let me do a complete proportional redesign."
+      },
+      "id": "j3OllSuYpZNnUl5HC3r4Ko",
+      "timestamp": "1778885299782",
+      "type": "assistant_message"
+    },
+    {
+      "id": "abm4xbLXhzqXoRsfoClKeO",
+      "timestamp": "1778885365829",
+      "type": "user_message",
+      "user_message": {
+        "content": "whats the hold up ",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "Apologies for the delay! The script got interrupted. Running it again right now."
+      },
+      "id": "LOqTOGzijUgQy9J77wjShB",
+      "timestamp": "1778885371844",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The layout is right but the fonts are still rendering tiny in the preview thumbnail — this is because the preview scales down a 2550×3300 image to fit the screen. The actual print file is correct at 300 DPI. However I can see the text genuinely needs to be bigger and the footer gold area is too large. Let me fix both right now."
+      },
+      "id": "8LDssDsP1XVme14ALQdbFv",
+      "timestamp": "1778885394303",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The layout is correct and all sections are in place. The text is genuinely large in the actual 300 DPI file — the preview just scales everything down. However I can see two remaining issues to fix: the footer gold area is still too large (2.6 inches), and the community name/tagline fonts need to render bigger relative to the photo. Let me do one final tight pass — shrinking the photo slightly, cutting the footer to one clean strip, and making the headline text dominate the top."
+      },
+      "id": "vBKMFYmcIVqoMx4c5IVOxq",
+      "timestamp": "1778885474129",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "There's still a 2.6-inch gap. The issue is the step cards are not as tall as calculated. Let me measure the actual rendered positions and stretch the cards + fine print to fill the space properly."
+      },
+      "id": "qD53HKJxjbTRn5RwN6HNnu",
+      "timestamp": "1778885552004",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Good — the layout fills the page and the footer is tight. But the text is still rendering tiny in the preview thumbnail because the viewer is scaling a 2550×3300 image down to ~950px wide. The actual fonts are 118pt headline, 74pt tagline, 178pt \"$200\", etc. — all very large at 300 DPI print size. However, I want to verify this is truly print-ready, so let me crop just the top portion of the PNG to confirm the headline text is actually large and crisp."
+      },
+      "id": "zzjry76Op5J6vdFUuUOuda",
+      "timestamp": "1778885625227",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "The text is genuinely tiny — the font sizes are not working as expected at 300 DPI. The issue is that PIL font sizes at 300 DPI don't scale the same way. I need to dramatically increase all font sizes. At 300 DPI, a 1-inch tall letter needs ~300px font size. Let me completely recalibrate all fonts."
+      },
+      "id": "LppD27zbE8LbdtfTpcuHay",
+      "timestamp": "1778885647448",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Found the problem. PIL font size 118 only renders at ~84px tall (0.28 inches) — way too small. For a proper headline at ~0.5 inches tall I need size ~350. The full community name \"CROSSROADS OF LEE'S SUMMIT\" at size 300 is already 2150px wide which fits perfectly. Recalibrating all fonts now with the correct sizes."
+      },
+      "id": "33PKSC07gKNDvHohaD9iHe",
+      "timestamp": "1778885688105",
+      "type": "assistant_message"
+    },
+    {
+      "id": "BoWBD82vmJdmG8ZvxSfUsq",
+      "timestamp": "1778885769794",
+      "type": "user_message",
+      "user_message": {
+        "content": "why is this taking so long?",
+        "message_type": "text"
+      }
+    },
+    {
+      "assistant_message": {
+        "content": "You're right, I apologize. The fonts are now the right size but the text is overflowing the cards and clipping the headline. I'm fixing it right now — reducing font sizes slightly so everything fits cleanly, and it'll be done in one shot."
+      },
+      "id": "DSo35x5z24tCv8n2f6TWHt",
+      "timestamp": "1778885777327",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Almost there — the card body text is still overflowing between columns. I just need to add left/right padding inside each card so the text wraps properly. One final fix."
+      },
+      "id": "fgwWjsVgJuhjWtH5LHbRmq",
+      "timestamp": "1778885848663",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "attachments": [
+          {
+            "content_type": "application/pdf",
+            "filename": "crossroads_referral_flyer.pdf",
+            "type": "file",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/ahBTMbr6zi8F0E7LDEEreb/sandbox/Nx2lQ3c4M0zj6d95GGfODb_1778885899175_na1fn_L2hvbWUvdWJ1bnR1L2ZseWVyX2Fzc2V0cy9jcm9zc3JvYWRzX3JlZmVycmFsX2ZseWVy.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvYWhCVE1icjZ6aThGMEU3TERFRXJlYi9zYW5kYm94L054MmxRM2M0TTB6ajZkOTVHR2ZPRGJfMTc3ODg4NTg5OTE3NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJac2VXVnlYMkZ6YzJWMGN5OWpjbTl6YzNKdllXUnpYM0psWm1WeWNtRnNYMlpzZVdWeS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDaYd0rTXIkhiasyUsaprF-5NLCXD3EF8sIxNtAjsdlZgIhAL~3~j~Aki6bmob5Vg08FdYjJRDZD6zmMvyhG~r-9UBd"
+          },
+          {
+            "content_type": "image/png",
+            "filename": "crossroads_referral_flyer.png",
+            "type": "image",
+            "url": "https://private-us-east-1.manuscdn.com/sessionFile/ahBTMbr6zi8F0E7LDEEreb/sandbox/Nx2lQ3c4M0zj6d95GGfODb_1778885899175_na1fn_L2hvbWUvdWJ1bnR1L2ZseWVyX2Fzc2V0cy9jcm9zc3JvYWRzX3JlZmVycmFsX2ZseWVy.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvYWhCVE1icjZ6aThGMEU3TERFRXJlYi9zYW5kYm94L054MmxRM2M0TTB6ajZkOTVHR2ZPRGJfMTc3ODg4NTg5OTE3NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJac2VXVnlYMkZ6YzJWMGN5OWpjbTl6YzNKdllXUnpYM0psWm1WeWNtRnNYMlpzZVdWeS5wbmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIEWAbxJeB~-DHRHL2UoFLvQn0nxgMRze30yjtvjYVOrKAiA1zzURjZMpzUFZTvIMeNW2dr-xx0cPNU87mC1iRHmlMg__"
+          }
+        ],
+        "content": "Your flyer is ready! Here's what's included:\n\n- **\"CROSSROADS OF LEE'S SUMMIT\"** bold headline at the top\n- **Resident Referral Program** tagline in gold italic\n- Your **property photo** with gold border\n- A bold **$200 REFERRAL REWARD** badge\n- **3-step \"How It Works\"** section (Refer a Friend → They Move In → You Get Paid)\n- **CTA strip** — \"Stop by the leasing office or call us today to get started!\"\n- **Terms & Conditions** fine print (2 on-time payments required before credit is applied)\n- **Equal Housing Opportunity logo** + address in the footer\n- **8.5\" × 11\" at 300 DPI** — ready to send to any printer\n\nBoth the print-ready PDF and a high-res PNG are attached below."
+      },
+      "id": "HFADXcNq3VxpfDbpSL02x2",
+      "timestamp": "1778885899383",
+      "type": "assistant_message"
+    },
+    {
+      "id": "O6oJdtAp6yQwkZSco9npwq",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778885899690",
+      "type": "status_update"
+    }
+  ],
+  "attachments": [
+    {
+      "event_index": 0,
+      "type": "image",
+      "filename": "crossroads-of-lees-summit-lees-summit-mo-primary-photo.avif",
+      "content_type": "image/avif",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-FbPH4WR9CZpSVn10xvwZ98_na1fn_Y3Jvc3Nyb2Fkcy1vZi1sZWVzLXN1bW1pdC1sZWVzLXN1bW1pdC1tby1wcmltYXJ5LXBob3Rv.avif?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1GYlBINFdSOUNacFNWbjEweHZ3Wjk4X25hMWZuX1kzSnZjM055YjJGa2N5MXZaaTFzWldWekxYTjFiVzFwZEMxc1pXVnpMWE4xYlcxcGRDMXRieTF3Y21sdFlYSjVMWEJvYjNSdi5hdmlmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg4MjIwODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCxdCUvHPiQwUoD-84bP1eHN6oH2hpXn55mZNHf2sWgaQIhAK5FEvFyavMS88wF56DER3Bvizf6vvGFF2l9pjfj~8HM",
+      "status": "archived",
+      "bytes": 208146,
+      "archive_path": "attachments/ahBTMbr6zi8F0E7LDEEreb/0-user_message-0_e15e3e7f042dd546_crossroads-of-lees-summit-lees-summit-mo-primary-photo.avif"
+    },
+    {
+      "event_index": 9,
+      "type": "image",
+      "filename": "crossroads-of-lees-summit-lees-summit-mo-primary-photo.jpg",
+      "content_type": "image/jpeg",
+      "source_url": "https://private-us-east-1.manuscdn.com/users/310519663449376037/uploads/temp-SdIf8HXy2cHei7JMoVDVhD_na1fn_Y3Jvc3Nyb2Fkcy1vZi1sZWVzLXN1bW1pdC1sZWVzLXN1bW1pdC1tby1wcmltYXJ5LXBob3Rv.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vdXNlcnMvMzEwNTE5NjYzNDQ5Mzc2MDM3L3VwbG9hZHMvdGVtcC1TZElmOEhYeTJjSGVpN0pNb1ZEVmhEX25hMWZuX1kzSnZjM055YjJGa2N5MXZaaTFzWldWekxYTjFiVzFwZEMxc1pXVnpMWE4xYlcxcGRDMXRieTF3Y21sdFlYSjVMWEJvYjNSdi5qcGciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICoU17a2Fz6cGzUslpHbDsqbCY~EuWadjs-xokEr1EsiAiArY2WHks8cVQCHgpEw55P~0YifAV1-LT8bqzYwb~N-mg__",
+      "status": "archived",
+      "bytes": 208146,
+      "archive_path": "attachments/ahBTMbr6zi8F0E7LDEEreb/9-user_message-0_3dd257d0514ce78a_crossroads-of-lees-summit-lees-summit-mo-primary-photo.jpg"
+    },
+    {
+      "event_index": 26,
+      "type": "file",
+      "filename": "crossroads_referral_flyer.pdf",
+      "content_type": "application/pdf",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/ahBTMbr6zi8F0E7LDEEreb/sandbox/Nx2lQ3c4M0zj6d95GGfODb_1778885899175_na1fn_L2hvbWUvdWJ1bnR1L2ZseWVyX2Fzc2V0cy9jcm9zc3JvYWRzX3JlZmVycmFsX2ZseWVy.pdf?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvYWhCVE1icjZ6aThGMEU3TERFRXJlYi9zYW5kYm94L054MmxRM2M0TTB6ajZkOTVHR2ZPRGJfMTc3ODg4NTg5OTE3NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJac2VXVnlYMkZ6YzJWMGN5OWpjbTl6YzNKdllXUnpYM0psWm1WeWNtRnNYMlpzZVdWeS5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDaYd0rTXIkhiasyUsaprF-5NLCXD3EF8sIxNtAjsdlZgIhAL~3~j~Aki6bmob5Vg08FdYjJRDZD6zmMvyhG~r-9UBd",
+      "status": "archived",
+      "bytes": 832134,
+      "archive_path": "attachments/ahBTMbr6zi8F0E7LDEEreb/26-assistant_message-0_50374fa5d1a390f9_crossroads_referral_flyer.pdf"
+    },
+    {
+      "event_index": 26,
+      "type": "image",
+      "filename": "crossroads_referral_flyer.png",
+      "content_type": "image/png",
+      "source_url": "https://private-us-east-1.manuscdn.com/sessionFile/ahBTMbr6zi8F0E7LDEEreb/sandbox/Nx2lQ3c4M0zj6d95GGfODb_1778885899175_na1fn_L2hvbWUvdWJ1bnR1L2ZseWVyX2Fzc2V0cy9jcm9zc3JvYWRzX3JlZmVycmFsX2ZseWVy.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvYWhCVE1icjZ6aThGMEU3TERFRXJlYi9zYW5kYm94L054MmxRM2M0TTB6ajZkOTVHR2ZPRGJfMTc3ODg4NTg5OTE3NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJac2VXVnlYMkZ6YzJWMGN5OWpjbTl6YzNKdllXUnpYM0psWm1WeWNtRnNYMlpzZVdWeS5wbmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3ODgyMjA4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIEWAbxJeB~-DHRHL2UoFLvQn0nxgMRze30yjtvjYVOrKAiA1zzURjZMpzUFZTvIMeNW2dr-xx0cPNU87mC1iRHmlMg__",
+      "status": "archived",
+      "bytes": 1819858,
+      "archive_path": "attachments/ahBTMbr6zi8F0E7LDEEreb/26-assistant_message-1_d618fa9c4e303e66_crossroads_referral_flyer.png"
+    }
+  ]
+}

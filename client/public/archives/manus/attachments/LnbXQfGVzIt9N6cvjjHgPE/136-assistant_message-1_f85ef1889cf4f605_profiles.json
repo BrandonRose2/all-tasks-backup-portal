@@ -1,0 +1,107 @@
+{
+  "description": "Voice/person profiles used to identify speakers and sort recordings. Add new profiles over time.",
+  "drive_root_folder_id": "1Gxg3gg06CVLO-F05kke5CXvdXgVXSPsP",
+  "folders": {
+    "Inbox": "1R8aP1YFqaiojFAqVBFDj-n0-rGhmAav9",
+    "Calls": "1Cx4xR5JV0kr8iyLCd3CdKAqPhPYGxWU3",
+    "Marc's Inappropriate Screaming": "1PKwWvR4NbUwucn_Wp6RYcP_oJV7HSmiP",
+    "Meetings": "1Kg98rGEhxKKdCUEAjiEadYeKdhkajPO_",
+    "Other": "1vIdE78TJrPDIb9tI7N1uotgfNH1T75sH",
+    "Personal Notes": "1Bw1F45StcpM8UPm6vMc14Q5pFZ_18oI7"
+  },
+  "profiles": [
+    {
+      "name": "Marc (Mark Menowitz)",
+      "role": "User's boss; principal at Apartment Corp (real-estate investment/property management); also driving the PropertyMax software venture",
+      "target_folder": "Marc's Inappropriate Screaming",
+      "sorting_rule": "Recordings where Marc is present and behaving inappropriately (yelling, screaming, berating staff) go to this folder.",
+      "voice_characteristics": {
+        "status": "strong",
+        "notes": "Older male voice; terse, gruff, impatient; asks rapid-fire questions ('What happened?', 'Why am I not getting it?'). CONFIRMED ON-TAPE VOICE REFERENCES: (1) Monday_V2026-01-01-21-07-46 at 21:46 he self-identifies on a voicemail: 'Uh, it's Mark. Give me a call...'; (2) same file 13:06-13:37 eviction-list demand to Brandon; (3) Monday_V2026-01-01-19-47-25 44:01-47:45 (deal/property talk); (4) Wednesday Bob Bell 09-04 at 22:34 phone call re: Sam's access ('regional one'). Reference yelling sample: 'Marc Screaming at Ethan - 2026-06-24.m4a' at ~9:05."
+      },
+      "temper_evidence": [
+        "Screamed at Ethan ~9:05 (reference recording 2026-06-24)",
+        "Ethan: 'you know how Mark is... he's got a short fuse' (Ethan Company Mail Error 13:17)",
+        "Robert: 'Mark came in here yesterday SCREAMING at me... he wanted them done today' (Tuesday 10-11 24:13, re: unit inspections, 6/29)",
+        "Robert: 'Mark came in here yelling at me yesterday' (Tuesday 10-11 29:19)",
+        "Marc phone-screamed at Nicole: 'Who the fuck do you think you are?' (reported Tuesday 10-11 40:45)",
+        "Office fear culture: 'I'm not gonna get yelled at for you... we're still both gonna get yelled at' (Robert, Tuesday 10-11 28:18-28:56); 'I'm just not in the mood to get yelled at for giving you over access or under access' + 'The thing we don't do is bother Mark in the morning' (Brandon, Wednesday 09-04 19:35-20:22)",
+        "'Working for Mark is probably great, bro' — Brandon: 'I don't know if that's the word' (Wednesday 09-04 23:39)"
+      ],
+      "known_interactions": [
+        {"with": "Ethan (co-worker)", "context": "Yelling at ~9:05 in reference recording (2026-06-24)"},
+        {"with": "Brandon (user)", "context": "Eviction email demands (Monday 21-07 13:06); deadline check-ins (Save.WAV 32:21); access-level calls (Wednesday 09-04 22:34)"},
+        {"with": "Robert Haley", "context": "Screamed at him in person 6/29 over unit inspections (Tuesday 10-11)"},
+        {"with": "Nicole (departing co-worker)", "context": "Phone-screamed 'Who the fuck do you think you are?' (~6/29, reported Tuesday 10-11 40:45); staff fear using cost-seg credits without his OK"},
+        {"with": "Heather Snyder (River Garden, x252)", "context": "Voicemails re: 4BR certificate/5BR free upgrade (Monday 21-07 21:46)"},
+        {"with": "Todd", "context": "Co-authority staff fear ('excuse to Mark and Todd'); Todd in Italy late June"}
+      ],
+      "reference_recordings": [
+        {"file": "Marc Screaming at Ethan - 2026-06-24.m4a", "drive_file_id": "11F2aQMYSk1KUuHcO_s0U7ipgtNb198Kq", "notable_moment": "Yelling at Ethan around 9:05", "summary_file_id": "16dWSHvkobrPzYidmHQf6LoskOm8O7bN2"},
+        {"file": "ROSE-REC2_Monday_V2026-01-01-21-07-46.WAV", "notable_moment": "Self-identified voicemail 21:46 ('it's Mark'); eviction demand 13:06"},
+        {"file": "ROSE-REC2_Monday_V2026-01-01-19-47-25.WAV", "notable_moment": "Extended Marc conversation 44:01-47:45"}
+      ]
+    },
+    {
+      "name": "Ethan",
+      "role": "User's co-worker (IT-adjacent: Exchange/Outlook, SpamTitan, Grid 3D; helping Robert with Apartment Fest); had Air Force mock physical (Jan)",
+      "target_folder": null,
+      "sorting_rule": "No dedicated folder yet. Tag his lines in dialogues.",
+      "voice_characteristics": {
+        "status": "strong",
+        "notes": "Young male voice; friendly, casual banter with Brandon. Main speaker in 'Ethan Company Mail Error.WAV' (47m54s, 2026-06-23). Backed Robert up during the Keturah/Ginger accusations. Wary of Marc ('short fuse')."
+      }
+    },
+    {
+      "name": "Robert Haley",
+      "role": "Co-worker; oversees property-manager inspections (My Loan Workers app); transitioning into Nicole's role while training Brandon on his own role; email robert@apartmentsgroup.com",
+      "target_folder": null,
+      "sorting_rule": "Proposed profile (dominant voice in Tuesday 6/30 recordings). His manager calls -> Calls.",
+      "voice_characteristics": {
+        "status": "building",
+        "notes": "Male, animated, heavy profanity, storyteller. Self-identifies on calls ('Hi Ashley, this is Robert Haley', Tuesday 10-11 23:35). Was screamed at by Marc 6/29; involved in Keturah/Asia/Ginger HR drama; talked to Blake and Miles (New York)."
+      }
+    },
+    {
+      "name": "Jeff Sadaka",
+      "role": "External accountant/CPA: cost segregation, 3115 forms, depreciation (Grace, Grove Park, Granite Ridge)",
+      "target_folder": null,
+      "sorting_rule": "Proposed profile (3+ appearances). Calls with Jeff -> Calls.",
+      "voice_characteristics": {
+        "status": "building",
+        "notes": "Older male; direct, repeats phrases ('freaking nightmare'). Save.WAV (02:37-27:09), Ethan Company Mail Error (42:46-45:24), V2025-12-26 (40:29+)."
+      }
+    },
+    {
+      "name": "Brandon",
+      "role": "User (recorder owner). Apartment Corp; ext 241; brandon@apartmentcorp.com. Built PropertyMax reporting, pitch deck, MVP, website; trains new managers",
+      "target_folder": null,
+      "sorting_rule": "Solo memos -> Personal Notes.",
+      "voice_characteristics": {"status": "building", "notes": "Primary voice on all recordings."}
+    }
+  ],
+  "observed_people_not_yet_profiled": [
+    "Nicole (departing; Marc screamed at her; interviews replacements with Robert/Leslie)",
+    "Leslie (former colleague, remote ~6 more months; reviews hiring, blunt; speakerphone call Tuesday 15-11)",
+    "Sam Elia (new go-to-market hire for PropertyMax software; onboarded Wednesday 7/1 'Bob Bell Visit')",
+    "Todd (executive; was in Italy late June; co-feared with Marc)",
+    "Ginger (HR/regional authority; must approve writeups/firings)",
+    "Blake & Miles (New York leadership)",
+    "Keturah (manager; wrote up Asia)",
+    "Asia (employee; quit 6/30 morning before writeup)",
+    "Jennifer Parks (Crossroads property manager)",
+    "Ashley (property manager; behind on inspections; starts 7/1)",
+    "Heather Snyder (River Garden, ext 252)",
+    "Matt (colleague; Kalamazoo, mother in hospital)",
+    "Kimberly, Susan, Beth, Sebastian, Mike, Jeremy (IT), Leon (warranty vendor), Gennady, Adrian (quit), David"
+  ],
+  "default_sorting_rules": [
+    "Phone calls (one side audible, phone-call context) -> Calls",
+    "Multi-person work discussions, standups, reviews -> Meetings",
+    "User speaking alone (memos) -> Personal Notes",
+    "Personal conversations (non-work) -> Personal Notes",
+    "Marc behaving inappropriately/yelling -> Marc's Inappropriate Screaming",
+    "Silent/ambient/music-only recordings -> Other (recommend deletion)",
+    "Anything unmatched -> Other"
+  ]
+}

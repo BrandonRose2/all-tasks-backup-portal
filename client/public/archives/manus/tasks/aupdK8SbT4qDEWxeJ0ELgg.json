@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:26:53.577498Z",
+  "task": {
+    "id": "aupdK8SbT4qDEWxeJ0ELgg",
+    "title": "Wide Research Subtask",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6-lite",
+    "credits_used": 26,
+    "created_at": "1785866777",
+    "updated_at": "1785867009",
+    "task_url": "https://manus.im/app/aupdK8SbT4qDEWxeJ0ELgg",
+    "message_count": 0
+  },
+  "event_count": 3,
+  "events": [
+    {
+      "id": "uEU2PyonCASnuXSUxVFHZD",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785866778014",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Here are the researched AI-assisted and AI-adjacent income opportunities, presented in a structured Markdown table, along with a concise assessment of evidence quality and quick-start recommendations."
+      },
+      "id": "0W6bf0ukbMYwSoAFyrCvGq",
+      "timestamp": "1785867008978",
+      "type": "assistant_message"
+    },
+    {
+      "id": "lr1ofLeyXP6F8C4Rb9rFBk",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785867009111",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:37:59.456017Z",
+  "task": {
+    "id": "2nltvb4eZ2Rchtq7Ae0coY",
+    "title": "Are There Recurring Charges When Buying a Domain?",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 15,
+    "created_at": "1778023032",
+    "updated_at": "1778023216",
+    "task_url": "https://manus.im/app/2nltvb4eZ2Rchtq7Ae0coY",
+    "message_count": 0
+  },
+  "event_count": 12,
+  "events": [
+    {
+      "id": "cbGAIcCTG0XfgxDwdBiTGa",
+      "timestamp": "1778023031827",
+      "type": "user_message",
+      "user_message": {
+        "content": "if i were to buy a domain for one of the websites that you create, are there reoccurring charges from manus or are they all charges from say godaddy if i used it to host the domain ?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "LBfZtlHUVzJguWqunYY8ra-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778023033239",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Great question! Here is a clear breakdown:\n\n**Manus does not charge any recurring fees for domains.** All domain-related costs are entirely between you and the domain registrar you choose (e.g., GoDaddy, Namecheap, Google Domains, etc.).\n\nHere is how it works in practice:\n\n| Component | Who Charges | Recurring? |\n|---|---|---|\n| Domain registration (e.g., `yoursite.com`) | Your registrar (GoDaddy, Namecheap, etc.) | Yes, typically annually |\n| Domain renewal | Your registrar | Yes, annually |\n| Website hosting (if you self-host) | Your hosting provider (e.g., Vercel, Netlify, AWS) | Depends on plan |\n| Manus usage (building the site) | Manus | Per your Manus subscription only |\n\n**What Manus does** is build and deploy the website for you. The websites Manus creates are hosted on Manus's infrastructure for preview and delivery purposes, but if you want a **custom domain** (e.g., `www.yourbusiness.com`), you would:\n\n1. Purchase the domain from a registrar like GoDaddy, Namecheap, etc.\n2. Point the domain's DNS settings to wherever the site is hosted.\n3. Pay the registrar their annual renewal fee — **no additional cut goes to Manus**.\n\nIf you have further questions about billing, credits, or Manus subscriptions specifically, I'd recommend submitting those at [https://help.manus.im](https://help.manus.im) where the support team can give you the most accurate and up-to-date information."
+      },
+      "id": "83BPeXqjvYQg2v7IKxb3wB",
+      "timestamp": "1778023045477",
+      "type": "assistant_message"
+    },
+    {
+      "id": "vsP3tmClOeRx2eBfqHMTZj",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778023045720",
+      "type": "status_update"
+    },
+    {
+      "id": "QYDOgHu3PWp5LBVbzhiLnq",
+      "timestamp": "1778023112916",
+      "type": "user_message",
+      "user_message": {
+        "content": "Detail the different Manus subscription plans and their associated costs.",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "HyAbxuZ1qwiX9nW1JSypv9",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778023113093",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Manus subscription pricing and plan details are not something I have reliable, up-to-date information on, and I would not want to provide figures that may be outdated or inaccurate.\n\nFor the most current and accurate information on Manus subscription plans and their associated costs, I recommend visiting:\n\n- **Manus Pricing Page**: [https://manus.im/pricing](https://manus.im/pricing)\n- **Manus Help & Support**: [https://help.manus.im](https://help.manus.im)\n\nThese sources will give you the definitive breakdown of available plans, included features, credit allocations, and pricing directly from the Manus team."
+      },
+      "id": "nKLZI3d3FeN4iCXzIAP04g",
+      "timestamp": "1778023118449",
+      "type": "assistant_message"
+    },
+    {
+      "id": "PZ1PY3Bcl9zL7yiZ1cQkFo",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778023118704",
+      "type": "status_update"
+    },
+    {
+      "id": "aKwq2v8jB5faILcDSB1dBO",
+      "timestamp": "1778023202307",
+      "type": "user_message",
+      "user_message": {
+        "content": "whenever we buy the domain from Godaddy, does it no longer have any association with Manus? ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "ZIFCQQtjcU6eiTWoGbKIAh",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1778023202463",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "That is a great clarifying question. Here is how it works:\n\n**The domain itself has no association with Manus** — it is entirely yours. When you purchase a domain from GoDaddy (or any registrar), you are the owner of that domain name. Manus has no claim over it, no access to it, and no involvement in its registration or renewal.\n\nHowever, it is important to understand the distinction between the **domain** and the **hosting**:\n\n| Concept | Explanation |\n|---|---|\n| **Domain name** (e.g., `yoursite.com`) | Purchased and owned by you via GoDaddy. Fully independent of Manus. |\n| **Website hosting** | Where the actual website files live and are served from. This *may* still involve Manus infrastructure depending on your setup. |\n\n**The key point** is that a domain name is just an address — it points to wherever your website is hosted. You configure this by setting DNS records in GoDaddy to direct traffic to your hosting provider.\n\nSo in practice:\n\n- If your site is **hosted on Manus's infrastructure**, your GoDaddy domain would point to Manus, meaning there is still a functional dependency on Manus for the site to be live.\n- If you **export the website code** that Manus built and host it independently (e.g., on Vercel, Netlify, or your own server), then neither the domain nor the hosting has any association with Manus whatsoever.\n\nIn short, **the domain is always 100% yours**, but whether the *site itself* remains tied to Manus depends on where you choose to host it. If you want complete independence from Manus, self-hosting the exported code is the way to go.\n\nFor specifics on exporting your site or configuring a custom domain, [https://help.manus.im](https://help.manus.im) would be the best place to get guidance from the Manus team."
+      },
+      "id": "MfSkfJXSUH9zhByrhw1POD",
+      "timestamp": "1778023214217",
+      "type": "assistant_message"
+    },
+    {
+      "id": "3vWnUi07MDbuOrlBR0JmKp",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1778023214525",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

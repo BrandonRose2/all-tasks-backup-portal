@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDD Audit Preparation Checklist</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --card: #ffffff;
+      --primary: #1a3a5c;
+      --accent: #2e7d32;
+      --accent-light: #e8f5e9;
+      --warn: #b71c1c;
+      --warn-light: #ffebee;
+      --border: #dde3ec;
+      --text: #1e2a38;
+      --muted: #5a6a7a;
+      --phase-colors: #1a3a5c, #1565c0, #6a1b9a, #e65100, #00695c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a3a5c 0%, #0d2137 100%);
+      color: #fff;
+      padding: 28px 32px 22px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    header p.subtitle {
+      font-size: .85rem;
+      opacity: .75;
+      margin-top: 4px;
+    }
+
+    /* ── Overall Progress Bar ── */
+    .overall-progress-wrap {
+      background: #0d2137;
+      padding: 14px 32px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .overall-label {
+      display: flex;
+      justify-content: space-between;
+      color: #cfd8e3;
+      font-size: .82rem;
+      margin-bottom: 7px;
+    }
+    .overall-label span:last-child {
+      font-weight: 700;
+      color: #81c784;
+      font-size: .95rem;
+    }
+    .bar-track {
+      background: rgba(255,255,255,.15);
+      border-radius: 999px;
+      height: 12px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #43a047, #81c784);
+      transition: width .4s ease;
+    }
+
+    /* ── Controls ── */
+    .controls {
+      display: flex;
+      gap: 10px;
+      padding: 16px 32px;
+      flex-wrap: wrap;
+      align-items: center;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+    }
+    .controls button {
+      padding: 7px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: .83rem;
+      font-weight: 600;
+      transition: opacity .15s;
+    }
+    .controls button:hover { opacity: .85; }
+    .btn-expand { background: #e3eaf4; color: #1a3a5c; }
+    .btn-collapse { background: #e3eaf4; color: #1a3a5c; }
+    .btn-reset { background: #fdecea; color: #b71c1c; margin-left: auto; }
+    .controls .note {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    /* ── Main Layout ── */
+    main {
+      max-width: 900px;
+      margin: 28px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* ── Phase Card ── */
+    .phase-card {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+    .phase-header:hover { filter: brightness(.97); }
+
+    .phase-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .phase-title-block { flex: 1; }
+    .phase-title-block h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .phase-title-block .phase-sub {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .phase-progress-mini {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      min-width: 90px;
+    }
+    .phase-progress-mini .count {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .mini-bar-track {
+      width: 90px;
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .mini-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width .4s ease;
+    }
+
+    .chevron {
+      font-size: 1.1rem;
+      color: var(--muted);
+      transition: transform .25s;
+      margin-left: 8px;
+    }
+    .phase-card.open .chevron { transform: rotate(180deg); }
+
+    /* ── Phase Body ── */
+    .phase-body {
+      display: none;
+      padding: 0 20px 18px;
+      border-top: 1px solid var(--border);
+    }
+    .phase-card.open .phase-body { display: block; }
+
+    /* ── Section (sub-group) ── */
+    .section-title {
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--muted);
+      margin: 18px 0 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    /* ── Checklist Items ── */
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      transition: background .15s;
+      cursor: pointer;
+    }
+    .item:hover { background: #f0f4f8; }
+    .item.checked { background: var(--accent-light); }
+    .item.warn { background: var(--warn-light); }
+
+    .item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .item-label {
+      font-size: .9rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .item.checked .item-label {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .item-label .tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tag-critical { background: #b71c1c; color: #fff; }
+    .tag-cease { background: #e65100; color: #fff; }
+
+    /* ── Note blocks ── */
+    .note-block {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: .83rem;
+      color: #4e3b00;
+      margin: 10px 0 4px;
+      line-height: 1.55;
+    }
+
+    /* ── Phase complete banner ── */
+    .phase-complete-banner {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      border: 1px solid #a5d6a7;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 14px;
+    }
+    .phase-complete-banner.visible { display: flex; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: 30px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      header { padding: 18px 16px 14px; }
+      .overall-progress-wrap { padding: 10px 16px 14px; }
+      .controls { padding: 12px 16px; }
+      main { padding: 0 12px; }
+      .phase-header { padding: 14px 14px; }
+      .phase-body { padding: 0 14px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>&#128196; EDD Audit Preparation Checklist</h1>
+  <p class="subtitle">California Employment Development Department — Audit Defense Roadmap</p>
+</header>
+
+<div class="overall-progress-wrap">
+  <div class="overall-label">
+    <span>Overall Progress</span>
+    <span id="overall-pct">0%</span>
+  </div>
+  <div class="bar-track">
+    <div class="bar-fill" id="overall-bar" style="width:0%"></div>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="btn-expand" onclick="expandAll()">&#9660; Expand All</button>
+  <button class="btn-collapse" onclick="collapseAll()">&#9650; Collapse All</button>
+  <span class="note">Progress is saved automatically in your browser.</span>
+  <button class="btn-reset" onclick="resetAll()">&#8635; Reset All</button>
+</div>
+
+<main id="checklist-root"></main>
+
+<footer>
+  <p>Progress saved to browser local storage &mdash; last updated: <span id="last-saved">never</span></p>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────
+//  DATA
+// ─────────────────────────────────────────────
+const PHASES = [
+  {
+    id: "p1",
+    color: "#1a3a5c",
+    number: "1",
+    title: "Phase 1: Immediate Actions & Professional Representation",
+    sub: "Do This First — Damage control and expert guidance",
+    sections: [
+      {
+        title: null,
+        items: [
+          {
+            id: "1.1",
+            label: "1.1. Engage a Tax Professional: Immediately hire a CPA or tax attorney who specializes in California employment tax and EDD audits. Do not use a generalist. They will be your representative, buffer, and strategist."
+          },
+          {
+            id: "1.2",
+            label: "1.2. Do Not Contact the EDD: Once you have professional representation, direct all communication from the EDD to them. Do not answer questions or provide additional information without your advisor's approval."
+          },
+          {
+            id: "1.3",
+            label: "1.3. Stop All Potentially Problematic Practices — review all three items below.",
+            note: "This item covers three mandatory CEASE actions listed below."
+          },
+          {
+            id: "1.3a",
+            label: "CEASE creating invoices retroactively. Do not alter, backdate, or generate any new documentation for past work. This will be seen as fraudulent.",
+            tag: { text: "CEASE", cls: "tag-cease" }
+          },
+          {
+            id: "1.3b",
+            label: "CEASE paying contractors in cash. All payments must have a paper trail (check or bank transfer to a business account).",
+            tag: { text: "CEASE", cls: "tag-cease" }
+          },
+          {
+            id: "1.3c",
+            label: "CEASE giving contractors company uniforms, business cards with your company logo, or company email addresses. This blurs the line between employee and contractor.",
+            tag: { text: "CEASE", cls: "tag-cease" }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "p2",
+    color: "#1565c0",
+    number: "2",
+    title: "Phase 2: Document Organization & Internal Review",
+    sub: "Core preparation — organize by year, then by individual contractor",
+    sections: [
+      {
+        title: null,
+        items: [
+          {
+            id: "2.1",
+            label: "2.1. Establish a Master Audit File: Create a physical or digital folder system. Top level: \"EDD Audit [Start Year] – [End Year]\". Subfolders: \"General Business Records\" and one folder per contractor (e.g., \"Smith Painting,\" \"ABC Cleaning\")."
+          }
+        ]
+      },
+      {
+        title: "2.2 — General Business Records (entire audit period, typically 3–8 years)",
+        items: [
+          { id: "2.2a", label: "Federal Payroll Returns: Form 941s (quarterly) and Form 940 (annual)." },
+          { id: "2.2b", label: "State Payroll Returns: DE 9 and DE 9C forms (quarterly)." },
+          { id: "2.2c", label: "State Corporate Returns: Form 100 (corporations) or Form 565 (partnerships)." },
+          { id: "2.2d", label: "Business Bank Statements: All statements for every business account." },
+          { id: "2.2e", label: "General Ledger: Detailed accounting records showing how payments to contractors were coded." },
+          { id: "2.2f", label: "Copies of all W-2s and 1099-NECs issued." }
+        ]
+      },
+      {
+        title: null,
+        items: [
+          {
+            id: "2.3",
+            label: "2.3. Create a Contractor Master List: Spreadsheet listing every individual or company paid as a contractor. Include name, address, Tax ID, total amount paid, and services performed. This is your index."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "p3",
+    color: "#6a1b9a",
+    number: "3",
+    title: "Phase 3: Contractor-Specific Defense File",
+    sub: "Build a complete file for every contractor on your Master List",
+    sections: [
+      {
+        title: "3.1 — The Written Agreement",
+        items: [
+          { id: "3.1a", label: "Signed Contract: Locate the original, signed contract for each contractor. If one doesn't exist, this is a major red flag." },
+          { id: "3.1b", label: "Contract Review: Ensure the contract clearly defines the worker as an \"Independent Contractor,\" outlines a specific project with a flat fee, and states they are responsible for their own tools, insurance, and labor." }
+        ]
+      },
+      {
+        title: "3.2 — Proof of a Separate Business Entity (\"B\" Prong Defense)",
+        items: [
+          { id: "3.2a", label: "Business License: A copy of their city/county business license or Fictitious Name Statement (DBA)." },
+          { id: "3.2b", label: "Professional Trade License: For painters, a C-33 license from the CSLB. For other trades, their relevant license." },
+          { id: "3.2c", label: "General Liability Insurance certificate (at least $1M coverage)." },
+          { id: "3.2d", label: "Workers' Compensation Insurance certificate (or Certificate of Self-Insurance)." },
+          {
+            id: "3.2e",
+            label: "Verify your company is listed as \"Additionally Insured\" on their policy.",
+            tag: { text: "CRITICAL", cls: "tag-critical" }
+          },
+          { id: "3.2f", label: "Proof of Marketing/Public Presence: Screenshot of their website, Yelp/Google Business Profile, or copy of their business card/ad." },
+          { id: "3.2g", label: "List of Other Clients: Examples of other clients they serve, proving they are not economically dependent on you." }
+        ]
+      },
+      {
+        title: "3.3 — The Financial Trail (\"C\" Prong Defense)",
+        items: [
+          { id: "3.3a", label: "Original Invoices: Every invoice from the contractor, on their professional letterhead, itemized, showing their business address and Tax ID." },
+          { id: "3.3b", label: "Proof of Payment: Match every invoice to a canceled check or bank transfer record. Payment must be to the business name/account, not a personal account." },
+          { id: "3.3c", label: "Expense Records: If they submitted receipts for materials, keep them. This shows they manage their own business expenses." }
+        ]
+      },
+      {
+        title: "3.4 — Evidence of Lack of Control (\"A\" Prong Defense)",
+        items: [
+          { id: "3.4a", label: "Bid Documentation: If you got multiple bids for a job, keep them all. This shows a competitive bidding process, not a hire." },
+          { id: "3.4b", label: "Communication Records: Print and organize key emails or texts showing you discussed the outcome (not the method). \"The fence needs to be 6ft tall and white\" is good. \"Be here at 8 AM, use these specific brushes\" is bad." },
+          { id: "3.4c", label: "No-Control Evidence: A signed statement or notes indicating they used their own tools, set their own schedule, and were not required to attend company meetings." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "p4",
+    color: "#e65100",
+    number: "4",
+    title: "Phase 4: Interview Preparation",
+    sub: "The auditor will interview you and/or your coworker — do not go in unprepared",
+    sections: [
+      {
+        title: null,
+        items: [
+          { id: "4.1", label: "4.1. Prepare with Your Representative: Review all documents with your CPA/attorney. They will conduct a mock interview with you." },
+          { id: "4.2", label: "4.2. Know Your Story: Be prepared to explain your business model. Consistent narrative: \"Our company manages properties. We hire licensed, insured, independent businesses to perform specialized construction and maintenance tasks on behalf of the property owners we represent.\"" },
+          { id: "4.3", label: "4.3. Answer Only What is Asked: Do not volunteer information. Do not guess. If you don't know, say \"I'll have to look that up and get back to you.\" Refer complex questions to your representative." },
+          { id: "4.4", label: "4.4. Be Professional and Cooperative: The auditor is a person doing their job. Being difficult or defensive will not help. Be polite, organized, and provide requested documents in a timely manner through your representative." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "p5",
+    color: "#00695c",
+    number: "5",
+    title: "Phase 5: Post-Audit Actions",
+    sub: "After the auditor completes their examination",
+    sections: [
+      {
+        title: null,
+        items: [
+          { id: "5.1", label: "5.1. Review the EDD's Findings: Once the auditor completes their examination, they will issue a \"Notice of Determination.\" Review this carefully with your representative." },
+          { id: "5.2", label: "5.2. Plan for Appeal: If the assessment is unfavorable — and it very well might be — your representative will guide you through the appeals process. This is a formal legal proceeding." }
+        ]
+      }
+    ]
+  }
+];
+
+// ─────────────────────────────────────────────
+//  STATE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = "edd_audit_checklist_v1";
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+
+function saveState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  const now = new Date();
+  document.getElementById("last-saved").textContent =
+    now.toLocaleDateString() + " " + now.toLocaleTimeString();
+}
+
+// ─────────────────────────────────────────────
+//  RENDER
+// ─────────────────────────────────────────────
+function buildChecklist() {
+  const state = loadState();
+  const root = document.getElementById("checklist-root");
+  root.innerHTML = "";
+
+  PHASES.forEach(phase => {
+    const card = document.createElement("div");
+    card.className = "phase-card open";
+    card.id = "card-" + phase.id;
+
+    // Collect all items in this phase
+    const allItems = phase.sections.flatMap(s => s.items);
+    const total = allItems.length;
+    const done = allItems.filter(it => state[it.id]).length;
+
+    // Header
+    const header = document.createElement("div");
+    header.className = "phase-header";
+    header.style.background = hexToRgba(phase.color, .07);
+    header.innerHTML = `
+      <div class="phase-badge" style="background:${phase.color}">${phase.number}</div>
+      <div class="phase-title-block">
+        <h2>${phase.title}</h2>
+        <div class="phase-sub">${phase.sub}</div>
+      </div>
+      <div class="phase-progress-mini">
+        <span class="count" id="count-${phase.id}">${done}/${total}</span>
+        <div class="mini-bar-track">
+          <div class="mini-bar-fill" id="mini-bar-${phase.id}"
+               style="width:${pct(done,total)}%;background:${phase.color}"></div>
+        </div>
+      </div>
+      <span class="chevron">&#9660;</span>
+    `;
+    header.addEventListener("click", () => togglePhase(card));
+    card.appendChild(header);
+
+    // Body
+    const body = document.createElement("div");
+    body.className = "phase-body";
+
+    phase.sections.forEach(section => {
+      if (section.title) {
+        const st = document.createElement("div");
+        st.className = "section-title";
+        st.textContent = section.title;
+        body.appendChild(st);
+      }
+
+      section.items.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "item" + (state[item.id] ? " checked" : "");
+        row.id = "row-" + item.id;
+
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.id = "cb-" + item.id;
+        cb.checked = !!state[item.id];
+        cb.addEventListener("change", () => toggleItem(item.id, phase.id, total));
+
+        const lbl = document.createElement("label");
+        lbl.className = "item-label";
+        lbl.htmlFor = "cb-" + item.id;
+
+        let labelHTML = escapeHtml(item.label);
+        if (item.tag) {
+          labelHTML += ` <span class="tag ${item.tag.cls}">${item.tag.text}</span>`;
+        }
+        lbl.innerHTML = labelHTML;
+
+        row.appendChild(cb);
+        row.appendChild(lbl);
+        body.appendChild(row);
+
+        if (item.note) {
+          const nb = document.createElement("div");
+          nb.className = "note-block";
+          nb.textContent = "Note: " + item.note;
+          body.appendChild(nb);
+        }
+      });
+    });
+
+    // Phase complete banner
+    const banner = document.createElement("div");
+    banner.className = "phase-complete-banner" + (done === total ? " visible" : "");
+    banner.id = "banner-" + phase.id;
+    banner.innerHTML = `&#10003; Phase ${phase.number} Complete!`;
+    body.appendChild(banner);
+
+    card.appendChild(body);
+    root.appendChild(card);
+  });
+
+  updateOverall(state);
+}
+
+// ─────────────────────────────────────────────
+//  INTERACTIONS
+// ─────────────────────────────────────────────
+function toggleItem(itemId, phaseId, total) {
+  const state = loadState();
+  const cb = document.getElementById("cb-" + itemId);
+  state[itemId] = cb.checked;
+  saveState(state);
+
+  const row = document.getElementById("row-" + itemId);
+  if (cb.checked) row.classList.add("checked");
+  else row.classList.remove("checked");
+
+  // Update phase mini-bar
+  const phase = PHASES.find(p => p.id === phaseId);
+  const allItems = phase.sections.flatMap(s => s.items);
+  const done = allItems.filter(it => state[it.id]).length;
+
+  document.getElementById("count-" + phaseId).textContent = `${done}/${total}`;
+  document.getElementById("mini-bar-" + phaseId).style.width = pct(done, total) + "%";
+
+  const banner = document.getElementById("banner-" + phaseId);
+  if (done === total) banner.classList.add("visible");
+  else banner.classList.remove("visible");
+
+  updateOverall(state);
+}
+
+function updateOverall(state) {
+  const allItems = PHASES.flatMap(p => p.sections.flatMap(s => s.items));
+  const total = allItems.length;
+  const done = allItems.filter(it => state[it.id]).length;
+  const p = pct(done, total);
+  document.getElementById("overall-bar").style.width = p + "%";
+  document.getElementById("overall-pct").textContent = p + "% (" + done + "/" + total + ")";
+}
+
+function togglePhase(card) {
+  card.classList.toggle("open");
+}
+
+function expandAll() {
+  document.querySelectorAll(".phase-card").forEach(c => c.classList.add("open"));
+}
+
+function collapseAll() {
+  document.querySelectorAll(".phase-card").forEach(c => c.classList.remove("open"));
+}
+
+function resetAll() {
+  if (!confirm("Reset ALL checklist progress? This cannot be undone.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  buildChecklist();
+}
+
+// ─────────────────────────────────────────────
+//  UTILS
+// ─────────────────────────────────────────────
+function pct(done, total) {
+  return total === 0 ? 0 : Math.round((done / total) * 100);
+}
+
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+// ─────────────────────────────────────────────
+//  INIT
+// ─────────────────────────────────────────────
+buildChecklist();
+
+// Show last-saved time if state exists
+const existing = loadState();
+if (Object.keys(existing).length > 0) {
+  document.getElementById("last-saved").textContent = "previously saved (reload to refresh timestamp)";
+}
+</script>
+</body>
+</html>

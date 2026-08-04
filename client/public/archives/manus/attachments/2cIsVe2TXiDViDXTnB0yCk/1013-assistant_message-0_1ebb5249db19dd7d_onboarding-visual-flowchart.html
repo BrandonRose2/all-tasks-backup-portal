@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApartmentCorp — New Hire Onboarding Flowchart</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d5986 100%);
+    color: white;
+    padding: 28px 40px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .header h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: 0.5px; }
+  .header p { font-size: 0.95rem; opacity: 0.85; margin-top: 6px; }
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    margin-top: 14px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.8rem; opacity: 0.9;
+  }
+  .legend-dot {
+    width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0;
+  }
+
+  /* ── MAIN FLOW ── */
+  .flow-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── CONNECTOR ARROWS ── */
+  .arrow {
+    width: 2px; height: 36px;
+    background: #4a6fa5;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .arrow::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; left: -5px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid #4a6fa5;
+  }
+  .arrow-long { height: 52px; }
+  .arrow-red { background: #dc3545; }
+  .arrow-red::after { border-top-color: #dc3545; }
+  .arrow-green { background: #28a745; }
+  .arrow-green::after { border-top-color: #28a745; }
+
+  /* ── PHASE HEADER BOXES ── */
+  .phase-header {
+    width: 100%;
+    border-radius: 12px;
+    padding: 18px 28px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    position: relative;
+  }
+  .phase-header .phase-num {
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 800; flex-shrink: 0;
+  }
+  .phase-header .phase-owner {
+    font-size: 0.8rem; font-weight: 400; opacity: 0.85; margin-top: 2px;
+  }
+
+  .ph-intake   { background: linear-gradient(135deg, #1e3a5f, #2d5986); }
+  .ph-forms    { background: linear-gradient(135deg, #0d6e6e, #1a9e9e); }
+  .ph-approval { background: linear-gradient(135deg, #5b2d8e, #8b4fc8); }
+  .ph-it       { background: linear-gradient(135deg, #b45309, #d97706); }
+  .ph-payroll  { background: linear-gradient(135deg, #065f46, #059669); }
+  .ph-training { background: linear-gradient(135deg, #be185d, #ec4899); }
+  .ph-dochub   { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+  .ph-orient   { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+  .ph-complete { background: linear-gradient(135deg, #14532d, #16a34a); }
+  .ph-archive  { background: linear-gradient(135deg, #374151, #6b7280); }
+
+  /* ── STEP CARDS ── */
+  .steps-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 0 0;
+  }
+  .step-card {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 20px;
+    border-left: 5px solid #4a6fa5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .step-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .step-icon {
+    font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-title {
+    font-weight: 600; font-size: 1rem; color: #1a1a2e;
+  }
+  .step-desc {
+    font-size: 0.85rem; color: #555; margin-top: 4px; line-height: 1.5;
+  }
+  .step-tag {
+    display: inline-block;
+    font-size: 0.72rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 20px;
+    margin-top: 6px; margin-right: 4px;
+  }
+  .tag-person { background: #dbeafe; color: #1e40af; }
+  .tag-system { background: #fef3c7; color: #92400e; }
+  .tag-auto   { background: #d1fae5; color: #065f46; }
+  .tag-email  { background: #ede9fe; color: #5b21b6; }
+  .tag-alert  { background: #fee2e2; color: #991b1b; }
+
+  /* border accent colors per phase */
+  .bc-intake   { border-left-color: #2d5986; }
+  .bc-forms    { border-left-color: #0d9e9e; }
+  .bc-approval { border-left-color: #8b4fc8; }
+  .bc-it       { border-left-color: #d97706; }
+  .bc-payroll  { border-left-color: #059669; }
+  .bc-training { border-left-color: #ec4899; }
+  .bc-dochub   { border-left-color: #3b82f6; }
+  .bc-orient   { border-left-color: #a78bfa; }
+  .bc-complete { border-left-color: #16a34a; }
+  .bc-archive  { border-left-color: #6b7280; }
+
+  /* ── DECISION BOXES ── */
+  .decision-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px 0;
+  }
+  .decision-box {
+    background: #fffbeb;
+    border: 2.5px solid #f59e0b;
+    border-radius: 8px;
+    padding: 14px 28px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #78350f;
+    min-width: 280px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(245,158,11,0.2);
+  }
+  .decision-box::before {
+    content: '◆';
+    position: absolute;
+    top: -14px; left: 50%; transform: translateX(-50%);
+    font-size: 1.4rem; color: #f59e0b;
+  }
+  .decision-outcomes {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .outcome {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .outcome-label {
+    font-size: 0.78rem; font-weight: 700;
+    padding: 3px 12px; border-radius: 20px;
+  }
+  .outcome-yes { background: #d1fae5; color: #065f46; }
+  .outcome-no  { background: #fee2e2; color: #991b1b; }
+
+  /* ── APPROVAL CHAIN ── */
+  .approval-chain {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border: 2px solid #e9d5ff;
+  }
+  .approval-chain h3 {
+    font-size: 0.85rem; font-weight: 700; color: #6b21a8;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .chain-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .chain-person {
+    background: linear-gradient(135deg, #5b2d8e, #8b4fc8);
+    color: white;
+    border-radius: 10px;
+    padding: 12px 18px;
+    text-align: center;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .chain-person .cp-name { font-weight: 700; font-size: 0.95rem; }
+  .chain-person .cp-role { font-size: 0.75rem; opacity: 0.85; margin-top: 2px; }
+  .chain-arrow {
+    font-size: 1.5rem; color: #8b4fc8; padding: 0 8px; flex-shrink: 0;
+  }
+  .chain-note {
+    font-size: 0.78rem; color: #6b7280; margin-top: 12px; font-style: italic;
+  }
+
+  /* ── PLATFORM GRID ── */
+  .platform-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .platform-card {
+    background: white;
+    border-radius: 8px;
+    padding: 12px 16px;
+    border-left: 4px solid #d97706;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  }
+  .platform-card .pc-name { font-weight: 600; font-size: 0.9rem; }
+  .platform-card .pc-cat  { font-size: 0.75rem; color: #888; margin-top: 2px; }
+
+  /* ── FORMS GRID ── */
+  .forms-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .form-card {
+    background: white;
+    border-radius: 8px;
+    padding: 12px 16px;
+    border-left: 4px solid #0d9e9e;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .form-card .fc-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .form-card .fc-name { font-weight: 600; font-size: 0.88rem; }
+
+  /* ── ALERT BOX ── */
+  .alert-box {
+    width: 100%;
+    background: #fff5f5;
+    border: 2px solid #fc8181;
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex; align-items: flex-start; gap: 14px;
+    box-shadow: 0 2px 10px rgba(220,53,69,0.15);
+  }
+  .alert-icon { font-size: 2rem; flex-shrink: 0; }
+  .alert-title { font-weight: 700; font-size: 1rem; color: #c53030; }
+  .alert-desc  { font-size: 0.85rem; color: #744210; margin-top: 4px; line-height: 1.5; }
+
+  /* ── COMPLETE BOX ── */
+  .complete-box {
+    width: 100%;
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    border: 2px solid #34d399;
+    border-radius: 12px;
+    padding: 24px 28px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(52,211,153,0.3);
+  }
+  .complete-box .cb-icon { font-size: 3rem; }
+  .complete-box .cb-title { font-size: 1.4rem; font-weight: 800; color: #065f46; margin-top: 8px; }
+  .complete-box .cb-desc  { font-size: 0.9rem; color: #047857; margin-top: 6px; }
+
+  /* ── SECTION SPACER ── */
+  .spacer { height: 24px; }
+
+  /* ── PRINT / ZOOM CONTROLS ── */
+  .controls {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    display: flex; flex-direction: column; gap: 8px;
+    z-index: 200;
+  }
+  .ctrl-btn {
+    background: #1e3a5f; color: white;
+    border: none; border-radius: 8px;
+    padding: 10px 16px; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: background 0.2s;
+  }
+  .ctrl-btn:hover { background: #2d5986; }
+
+  @media print {
+    .controls, .header { display: none; }
+    body { background: white; }
+    .flow-container { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏢 ApartmentCorp — New Hire Onboarding Flowchart</h1>
+  <p>Complete process from candidate intake through server file archiving · All 10 phases</p>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#2d5986"></div> Phase Header</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f0f4ff;border:1px solid #4a6fa5"></div> Action Step</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fffbeb;border:1px solid #f59e0b"></div> Decision Point</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ede9fe"></div> Email / Notification</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fee2e2"></div> Automated Alert</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#d1fae5"></div> Complete</div>
+  </div>
+</div>
+
+<div class="flow-container">
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 1 — CANDIDATE INTAKE                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-intake" style="width:100%">
+    <div class="phase-num">1</div>
+    <div>
+      <div>Candidate Intake &amp; Registration</div>
+      <div class="phase-owner">Owner: Brandon (HR Administration)</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card bc-intake">
+      <div class="step-icon">📋</div>
+      <div>
+        <div class="step-title">HR Creates New Hire Record</div>
+        <div class="step-desc">Brandon enters the new hire's email address, assigns their position and property/location from dropdown menus. System generates a unique 4-digit PIN for the new hire.</div>
+        <span class="step-tag tag-person">Brandon</span>
+        <span class="step-tag tag-system">HR Admin Portal</span>
+      </div>
+    </div>
+    <div class="step-card bc-intake">
+      <div class="step-icon">📧</div>
+      <div>
+        <div class="step-title">Welcome Email Automatically Sent</div>
+        <div class="step-desc">System sends a welcome email to the new hire containing a direct link to the Employee Onboarding Portal, their 4-digit PIN, and instructions for getting started.</div>
+        <span class="step-tag tag-auto">Automated</span>
+        <span class="step-tag tag-email">Email Trigger</span>
+      </div>
+    </div>
+    <div class="step-card bc-intake">
+      <div class="step-icon">🔐</div>
+      <div>
+        <div class="step-title">New Hire Registers on the Portal</div>
+        <div class="step-desc">New hire navigates to the Employee Onboarding Portal, enters their email and 4-digit PIN to create their account. <strong>This PIN is important</strong> — it becomes the password for their credentials PDF later.</div>
+        <span class="step-tag tag-person">New Hire</span>
+        <span class="step-tag tag-system">Employee Portal</span>
+      </div>
+    </div>
+    <div class="step-card bc-intake" style="background:#fdf4ff; border-left-color:#8b4fc8;">
+      <div class="step-icon">🔔</div>
+      <div>
+        <div class="step-title">First-Login Notification Sent to Ethan</div>
+        <div class="step-desc">When the new hire logs in for the first time, an automated email is sent to Ethan Cowles (IT), CC'd to Brandon, alerting them that IT credential provisioning will be needed once forms are approved.</div>
+        <span class="step-tag tag-auto">Automated</span>
+        <span class="step-tag tag-email">To: Ethan · CC: Brandon</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 2 — APPLICATION FORMS                            -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-forms" style="width:100%">
+    <div class="phase-num">2</div>
+    <div>
+      <div>Application Forms</div>
+      <div class="phase-owner">Owner: New Hire — 9 required forms</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card bc-forms" style="background:#f0fdfa">
+      <div class="step-icon">ℹ️</div>
+      <div>
+        <div class="step-title">Form Completion Standards</div>
+        <div class="step-desc">All required fields are outlined in <strong style="color:#f97316">neon orange</strong>. Upon completion, each field turns <strong style="color:#22c55e">neon green</strong> with a checkmark. All forms must be submitted before the approval process begins.</div>
+      </div>
+    </div>
+  </div>
+  <div class="forms-grid" style="margin-top:10px">
+    <div class="form-card"><div class="fc-icon">👤</div><div><div class="fc-name">Employment Application</div><div style="font-size:0.75rem;color:#888">Name, contact, position, employment history</div></div></div>
+    <div class="form-card"><div class="fc-icon">🏛️</div><div><div class="fc-name">Federal W-4</div><div style="font-size:0.75rem;color:#888">Tax withholding elections</div></div></div>
+    <div class="form-card"><div class="fc-icon">🗽</div><div><div class="fc-name">NY IT-2104</div><div style="font-size:0.75rem;color:#888">New York State tax withholding</div></div></div>
+    <div class="form-card"><div class="fc-icon">🏦</div><div><div class="fc-name">Direct Deposit Authorization</div><div style="font-size:0.75rem;color:#888">Bank routing + account number</div></div></div>
+    <div class="form-card"><div class="fc-icon">🪪</div><div><div class="fc-name">I-9 Employment Eligibility</div><div style="font-size:0.75rem;color:#888">Identity + work authorization</div></div></div>
+    <div class="form-card"><div class="fc-icon">🔒</div><div><div class="fc-name">Confidentiality Agreement</div><div style="font-size:0.75rem;color:#888">NDA — company &amp; resident data</div></div></div>
+    <div class="form-card"><div class="fc-icon">📍</div><div><div class="fc-name">GPS / Tracking Policy</div><div style="font-size:0.75rem;color:#888">Location monitoring acknowledgment</div></div></div>
+    <div class="form-card"><div class="fc-icon">📜</div><div><div class="fc-name">Employee Policies Acknowledgment</div><div style="font-size:0.75rem;color:#888">Code of conduct, attendance, procedures</div></div></div>
+    <div class="form-card"><div class="fc-icon">🔧</div><div><div class="fc-name">Maintenance Skills Assessment</div><div style="font-size:0.75rem;color:#888">If applicable — maintenance track only</div></div></div>
+  </div>
+  <div class="decision-wrap" style="margin-top:18px">
+    <div class="decision-box">All 9 Forms Submitted?</div>
+    <div class="decision-outcomes">
+      <div class="outcome">
+        <span class="outcome-label outcome-no">✗ No</span>
+        <div style="font-size:0.78rem;color:#888;text-align:center">New hire returns<br>to complete remaining forms</div>
+      </div>
+      <div class="outcome">
+        <span class="outcome-label outcome-yes">✓ Yes</span>
+        <div style="font-size:0.78rem;color:#888;text-align:center">Approval chain<br>triggered automatically</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 3 — APPROVAL CHAIN                               -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-approval" style="width:100%">
+    <div class="phase-num">3</div>
+    <div>
+      <div>Approval Chain</div>
+      <div class="phase-owner">Sequential sign-off — each approver notified by email when it's their turn</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="approval-chain">
+      <h3>Approval Sequence</h3>
+      <div class="chain-row">
+        <div class="chain-person"><div class="cp-name">Brandon</div><div class="cp-role">HR Administration</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-person"><div class="cp-name">Regional Manager</div><div class="cp-role">Property Operations</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-person"><div class="cp-name">Robert</div><div class="cp-role">Property Manager</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-person"><div class="cp-name">Ethan Cowles</div><div class="cp-role">IT Department</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-person"><div class="cp-name">Nicole</div><div class="cp-role">COO</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-person"><div class="cp-name">Marc</div><div class="cp-role">CEO</div></div>
+      </div>
+      <div class="chain-note">⚠️ If any approver rejects a form, the new hire is notified to correct and resubmit. The chain restarts from Brandon.</div>
+    </div>
+    <div class="step-card bc-approval">
+      <div class="step-icon">✅</div>
+      <div>
+        <div class="step-title">Brandon — HR Review</div>
+        <div class="step-desc">Reviews all submitted forms for completeness and accuracy. Verifies employment application, tax forms, and signed agreements. Can approve individual forms or reject with correction notes.</div>
+        <span class="step-tag tag-person">Brandon</span>
+      </div>
+    </div>
+    <div class="step-card bc-approval">
+      <div class="step-icon">✅</div>
+      <div>
+        <div class="step-title">Regional Manager — Operations Review</div>
+        <div class="step-desc">Confirms position, property assignment, and start date. Reviews maintenance assessment results if applicable. Verifies hire aligns with property staffing needs.</div>
+        <span class="step-tag tag-person">Regional Manager</span>
+      </div>
+    </div>
+    <div class="step-card bc-approval">
+      <div class="step-icon">✅</div>
+      <div>
+        <div class="step-title">Robert — Property Manager Review</div>
+        <div class="step-desc">Reviews from a property operations perspective. Confirms the hire aligns with property staffing needs and all required documentation is in order.</div>
+        <span class="step-tag tag-person">Robert</span>
+      </div>
+    </div>
+    <div class="step-card bc-approval">
+      <div class="step-icon">✅</div>
+      <div>
+        <div class="step-title">Ethan Cowles — IT Review</div>
+        <div class="step-desc">Reviews the submission to confirm he has the information needed to provision IT credentials. Approves and then proceeds to Phase 4.</div>
+        <span class="step-tag tag-person">Ethan Cowles</span>
+      </div>
+    </div>
+    <div class="step-card bc-approval">
+      <div class="step-icon">✅</div>
+      <div>
+        <div class="step-title">Nicole — COO Executive Review</div>
+        <div class="step-desc">Reviews the hire from an executive operations standpoint. Confirms position and compensation align with company strategy and budget.</div>
+        <span class="step-tag tag-person">Nicole (COO)</span>
+      </div>
+    </div>
+    <div class="step-card bc-approval">
+      <div class="step-icon">✅</div>
+      <div>
+        <div class="step-title">Marc — CEO Final Approval</div>
+        <div class="step-desc">Final executive sign-off. Once Marc approves, the system marks the approval process complete and triggers IT provisioning, payroll setup, and training phases.</div>
+        <span class="step-tag tag-person">Marc (CEO)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 4 — IT CREDENTIAL PROVISIONING                   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-it" style="width:100%">
+    <div class="phase-num">4</div>
+    <div>
+      <div>IT Credential Provisioning</div>
+      <div class="phase-owner">Owner: Ethan Cowles (IT Department)</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card bc-it">
+      <div class="step-icon">💻</div>
+      <div>
+        <div class="step-title">Ethan Opens New Hire's Provisioning Card</div>
+        <div class="step-desc">In the HR Admin Portal under the Technology Onboarding tab, Ethan sees a card for every registered new hire showing their name, email, building, approval status, and a progress bar for credential completion.</div>
+        <span class="step-tag tag-person">Ethan Cowles</span>
+        <span class="step-tag tag-system">HR Admin Portal</span>
+      </div>
+    </div>
+  </div>
+  <div class="platform-grid" style="margin-top:10px">
+    <div class="platform-card"><div class="pc-name">PropertyMAX.ai</div><div class="pc-cat">Property Management</div></div>
+    <div class="platform-card"><div class="pc-name">AppWorks</div><div class="pc-cat">Property Management</div></div>
+    <div class="platform-card"><div class="pc-name">OneSite</div><div class="pc-cat">Leasing &amp; Residents</div></div>
+    <div class="platform-card"><div class="pc-name">Yardi</div><div class="pc-cat">Accounting &amp; Maintenance</div></div>
+    <div class="platform-card"><div class="pc-name">Connecteam</div><div class="pc-cat">Scheduling &amp; Operations</div></div>
+    <div class="platform-card"><div class="pc-name">MyLoneWorkers.com</div><div class="pc-cat">Inspections Management</div></div>
+    <div class="platform-card"><div class="pc-name">Phone Portal</div><div class="pc-cat">Communications</div></div>
+    <div class="platform-card"><div class="pc-name">ConnectUC</div><div class="pc-cat">Unified Communications</div></div>
+    <div class="platform-card"><div class="pc-name">SamePage</div><div class="pc-cat">Team Collaboration</div></div>
+    <div class="platform-card"><div class="pc-name">VMware Horizon</div><div class="pc-cat">Remote Desktop</div></div>
+    <div class="platform-card"><div class="pc-name">Paychex</div><div class="pc-cat">HR &amp; Payroll (Accounting)</div></div>
+    <div class="platform-card"><div class="pc-name">Additional Systems</div><div class="pc-cat">As applicable</div></div>
+  </div>
+  <div class="steps-grid" style="margin-top:10px">
+    <div class="step-card bc-it">
+      <div class="step-icon">📊</div>
+      <div>
+        <div class="step-title">Progress Bar Tracks Completion</div>
+        <div class="step-desc">As Ethan saves credentials for each platform, the progress bar on the new hire's card updates in real time. Amber = in progress, Green = 100% complete. Credentials are immediately visible to the new hire in their portal.</div>
+        <span class="step-tag tag-system">HR Admin Portal</span>
+        <span class="step-tag tag-auto">Live DB Sync</span>
+      </div>
+    </div>
+    <div class="step-card bc-it" style="background:#fdf4ff; border-left-color:#8b4fc8;">
+      <div class="step-icon">🔒</div>
+      <div>
+        <div class="step-title">Password-Protected Credentials PDF Generated &amp; Emailed</div>
+        <div class="step-desc">Upon saving credentials, the system generates a PDF of all login credentials, password-protected with the new hire's <strong>4-digit PIN</strong>. The PDF is emailed directly to the new hire and CC'd to Brandon for records.</div>
+        <span class="step-tag tag-auto">Automated</span>
+        <span class="step-tag tag-email">To: New Hire · CC: Brandon</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 5 — PAYROLL & ACCOUNTING                         -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-payroll" style="width:100%">
+    <div class="phase-num">5</div>
+    <div>
+      <div>Payroll &amp; Accounting Setup</div>
+      <div class="phase-owner">Owner: Accounting Team</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card bc-payroll">
+      <div class="step-icon">💰</div>
+      <div>
+        <div class="step-title">Create New Hire Profile in Paychex</div>
+        <div class="step-desc">Accounting uses the W-4, IT-2104, and Direct Deposit Authorization forms to create the payroll profile in Paychex. Assigns pay schedule, department code, pay rate, and tax withholding settings.</div>
+        <span class="step-tag tag-person">Accounting</span>
+        <span class="step-tag tag-system">Paychex</span>
+      </div>
+    </div>
+    <div class="step-card bc-payroll">
+      <div class="step-icon">🏦</div>
+      <div>
+        <div class="step-title">Configure Direct Deposit</div>
+        <div class="step-desc">Accounting enters the new hire's bank account information into Paychex to activate direct deposit. First paycheck will be issued via direct deposit on the next scheduled pay date.</div>
+        <span class="step-tag tag-person">Accounting</span>
+        <span class="step-tag tag-system">Paychex</span>
+      </div>
+    </div>
+    <div class="step-card bc-payroll" style="background:#f0fdf4; border-left-color:#16a34a;">
+      <div class="step-icon">📧</div>
+      <div>
+        <div class="step-title">Paychex Welcome Email Sent to New Hire</div>
+        <div class="step-desc">Paychex automatically sends the new hire a welcome email with a link to set up their employee self-service account for viewing pay stubs, requesting PTO, and managing benefits.</div>
+        <span class="step-tag tag-auto">Automated by Paychex</span>
+        <span class="step-tag tag-email">To: New Hire</span>
+      </div>
+    </div>
+    <div class="step-card bc-payroll">
+      <div class="step-icon">🏥</div>
+      <div>
+        <div class="step-title">Benefits Enrollment Window Opened</div>
+        <div class="step-desc">Accounting opens the benefits enrollment window in Paychex. New hire has 30 days to select health insurance, dental, vision, and other available benefits. Accounting confirms enrollment before closing the window.</div>
+        <span class="step-tag tag-person">Accounting</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 6 — TRAINING VIDEOS                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-training" style="width:100%">
+    <div class="phase-num">6</div>
+    <div>
+      <div>Training Videos</div>
+      <div class="phase-owner">Owner: New Hire — accessed via Employee Portal</div>
+    </div>
+  </div>
+  <div class="forms-grid" style="margin-top:12px">
+    <div class="form-card" style="border-left-color:#ec4899"><div class="fc-icon">🏠</div><div><div class="fc-name">PropertyMAX.ai</div><div style="font-size:0.75rem;color:#888">Property management workflows</div></div></div>
+    <div class="form-card" style="border-left-color:#ec4899"><div class="fc-icon">🏢</div><div><div class="fc-name">OneSite</div><div style="font-size:0.75rem;color:#888">Leasing &amp; resident management</div></div></div>
+    <div class="form-card" style="border-left-color:#ec4899"><div class="fc-icon">📅</div><div><div class="fc-name">Connecteam</div><div style="font-size:0.75rem;color:#888">Scheduling &amp; team comms</div></div></div>
+    <div class="form-card" style="border-left-color:#ec4899"><div class="fc-icon">🔍</div><div><div class="fc-name">MyLoneWorkers</div><div style="font-size:0.75rem;color:#888">Property inspections</div></div></div>
+    <div class="form-card" style="border-left-color:#ec4899"><div class="fc-icon">📊</div><div><div class="fc-name">Yardi</div><div style="font-size:0.75rem;color:#888">Accounting &amp; maintenance</div></div></div>
+    <div class="form-card" style="border-left-color:#ec4899"><div class="fc-icon">📞</div><div><div class="fc-name">ConnectUC</div><div style="font-size:0.75rem;color:#888">Unified communications</div></div></div>
+    <div class="form-card" style="border-left-color:#ec4899"><div class="fc-icon">🤝</div><div><div class="fc-name">SamePage</div><div style="font-size:0.75rem;color:#888">Team collaboration</div></div></div>
+  </div>
+  <div class="steps-grid" style="margin-top:10px">
+    <div class="step-card bc-training">
+      <div class="step-icon">✔️</div>
+      <div>
+        <div class="step-title">Training Completion Acknowledged</div>
+        <div class="step-desc">After completing all training videos, the new hire acknowledges completion in the portal. This acknowledgment is recorded in the Document Hub under "Software Training Completion."</div>
+        <span class="step-tag tag-auto">Recorded in Document Hub</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 7 — DOCUMENT HUB                                 -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-dochub" style="width:100%">
+    <div class="phase-num">7</div>
+    <div>
+      <div>Document Hub &amp; Records Review</div>
+      <div class="phase-owner">Owner: Brandon / HR Administration</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card bc-dochub">
+      <div class="step-icon">📁</div>
+      <div>
+        <div class="step-title">Brandon Selects New Hire in Document Hub</div>
+        <div class="step-desc">Brandon opens the Document Hub in the HR Admin Dashboard and selects the new hire from the dropdown. A visual status badge next to each name shows whether all forms are approved, pending, or need action.</div>
+        <span class="step-tag tag-person">Brandon</span>
+        <span class="step-tag tag-system">HR Admin Portal</span>
+      </div>
+    </div>
+    <div class="step-card bc-dochub">
+      <div class="step-icon">🗂️</div>
+      <div>
+        <div class="step-title">All Submitted Forms Appear in Category Cards</div>
+        <div class="step-desc">Every form the new hire submitted automatically appears in its corresponding category card with a color-coded status badge: Approved (green), Submitted (blue), Rejected (red). PDF attachments can be opened directly.</div>
+        <span class="step-tag tag-auto">Auto-populated from DB</span>
+      </div>
+    </div>
+    <div class="step-card bc-dochub">
+      <div class="step-icon">⚡</div>
+      <div>
+        <div class="step-title">Bulk Approve / Reject All Forms</div>
+        <div class="step-desc">Brandon can use the Bulk Approve or Bulk Reject action bar to process all pending forms at once. A confirmation dialog prevents accidental bulk actions. Individual review is also available per form.</div>
+        <span class="step-tag tag-person">Brandon</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 8 — DAY 1 ORIENTATION                            -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-orient" style="width:100%">
+    <div class="phase-num">8</div>
+    <div>
+      <div>Day 1 Onsite Orientation</div>
+      <div class="phase-owner">Owner: Regional Manager &amp; New Hire</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card bc-orient">
+      <div class="step-icon">🏠</div>
+      <div>
+        <div class="step-title">Property Tour &amp; Team Introduction</div>
+        <div class="step-desc">Regional Manager meets the new hire at the property on Day 1. Conducts a full orientation tour, introduces the team, identifies maintenance areas, and reviews emergency procedures and safety protocols.</div>
+        <span class="step-tag tag-person">Regional Manager</span>
+      </div>
+    </div>
+    <div class="step-card bc-orient">
+      <div class="step-icon">🗝️</div>
+      <div>
+        <div class="step-title">Keys, Access Cards &amp; Equipment Issued</div>
+        <div class="step-desc">Regional Manager issues all physical access items: property keys, access cards/fobs, company-issued devices, uniforms, and PPE as applicable to the role.</div>
+        <span class="step-tag tag-person">Regional Manager</span>
+      </div>
+    </div>
+    <div class="step-card bc-orient">
+      <div class="step-icon">💻</div>
+      <div>
+        <div class="step-title">New Hire Logs Into All Provisioned Systems</div>
+        <div class="step-desc">New hire logs into each platform using the credentials provided by Ethan (visible in their Company Websites &amp; Logins tab). Regional Manager confirms all logins are working and assists with any access issues.</div>
+        <span class="step-tag tag-person">New Hire</span>
+        <span class="step-tag tag-person">Regional Manager</span>
+      </div>
+    </div>
+    <div class="step-card bc-orient">
+      <div class="step-icon">✅</div>
+      <div>
+        <div class="step-title">Orientation Checklist Marked Complete</div>
+        <div class="step-desc">Regional Manager logs into the HR Portal and marks the Day 1 orientation checklist as complete, confirming the new hire has been introduced to the team, toured the property, and has working system access.</div>
+        <span class="step-tag tag-person">Regional Manager</span>
+        <span class="step-tag tag-system">HR Admin Portal</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 9 — ONBOARDING COMPLETE                          -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-complete" style="width:100%">
+    <div class="phase-num">9</div>
+    <div>
+      <div>Onboarding Complete</div>
+      <div class="phase-owner">Owner: Brandon (HR) &amp; Marc (CEO)</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card bc-complete">
+      <div class="step-icon">✍️</div>
+      <div>
+        <div class="step-title">Brandon Provides Final HR Sign-Off</div>
+        <div class="step-desc">Brandon reviews the completed onboarding record, confirms all phases are done, and provides final HR sign-off in the portal.</div>
+        <span class="step-tag tag-person">Brandon</span>
+      </div>
+    </div>
+    <div class="step-card bc-complete">
+      <div class="step-icon">👔</div>
+      <div>
+        <div class="step-title">Marc Provides CEO Final Confirmation</div>
+        <div class="step-desc">Marc provides executive confirmation that the new hire is officially onboarded and active. The system marks the onboarding as fully complete.</div>
+        <span class="step-tag tag-person">Marc (CEO)</span>
+      </div>
+    </div>
+    <div class="step-card bc-complete" style="background:#f0fdf4; border-left-color:#16a34a;">
+      <div class="step-icon">🎉</div>
+      <div>
+        <div class="step-title">Completion Email Sent to New Hire</div>
+        <div class="step-desc">System sends an official welcome email to the new hire confirming they are fully onboarded. A summary notification is also sent to Brandon and Marc.</div>
+        <span class="step-tag tag-auto">Automated</span>
+        <span class="step-tag tag-email">To: New Hire · CC: Brandon · Marc</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-HOUR ALERT -->
+  <div class="spacer"></div>
+  <div class="alert-box">
+    <div class="alert-icon">⏱️</div>
+    <div>
+      <div class="alert-title">Automated 3-Hour Onboarding Alert</div>
+      <div class="alert-desc">
+        If the onboarding process has been <strong>in progress for more than 3 hours</strong> without reaching completion, the system automatically sends an alert email to <strong>Brandon</strong>. The alert includes the new hire's name, email address, how long they have been in the process, and a list of which steps are still incomplete — allowing HR to follow up proactively and keep the process on track.
+        <br><br>
+        <span class="step-tag tag-alert">Automated · Runs every 30 minutes</span>
+        <span class="step-tag tag-email">To: Brandon</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 10 — SERVER FILE ARCHIVING                       -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="phase-header ph-archive" style="width:100%">
+    <div class="phase-num">10</div>
+    <div>
+      <div>Server File Archiving</div>
+      <div class="phase-owner">Owner: System — automated upon completion</div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card bc-archive">
+      <div class="step-icon">🗄️</div>
+      <div>
+        <div class="step-title">All Files Archived to Service Server</div>
+        <div class="step-desc">Upon completion of the onboarding process, all submitted forms, signed documents, training acknowledgments, and the credentials PDF are archived to the ApartmentCorp service server.</div>
+        <span class="step-tag tag-auto">Automated</span>
+        <span class="step-tag tag-system">Service Server</span>
+      </div>
+    </div>
+    <div class="step-card bc-archive" style="background:#f8fafc;">
+      <div class="step-icon">📂</div>
+      <div>
+        <div class="step-title">File Path</div>
+        <div class="step-desc" style="font-family:monospace; font-size:0.9rem; background:#f1f5f9; padding:10px 14px; border-radius:6px; margin-top:6px; color:#1e293b;">
+          Source → Server → Core Data → New Hire Onboarding Folders
+        </div>
+        <div class="step-desc" style="margin-top:8px">Each new hire has their own dedicated folder organized by name and hire date. Records are retained indefinitely for compliance, auditing, and future reference.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow arrow-long"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- COMPLETE                                               -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="complete-box">
+    <div class="cb-icon">✅</div>
+    <div class="cb-title">New Hire is Fully Onboarded &amp; Active</div>
+    <div class="cb-desc">All forms approved · IT credentials provisioned · Payroll configured · Training complete · Files archived · Day 1 orientation done</div>
+  </div>
+
+</div><!-- end flow-container -->
+
+<!-- CONTROLS -->
+<div class="controls">
+  <button class="ctrl-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+  <button class="ctrl-btn" onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)+1)+'px'">🔍 Zoom In</button>
+  <button class="ctrl-btn" onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)-1)+'px'">🔎 Zoom Out</button>
+</div>
+
+</body>
+</html>

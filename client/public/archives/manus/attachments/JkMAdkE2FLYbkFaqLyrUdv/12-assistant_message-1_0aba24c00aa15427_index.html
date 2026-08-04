@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <!-- Concert Program Folio: a standalone, archival-style reader that keeps the supplied score pages primary. -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#eee7da" />
+    <meta name="description" content="Idea 10 by Gibran Alcocer — three-page piano score." />
+    <title>Idea 10 — Gibran Alcocer</title>
+    <style>
+      :root {
+        --ink: #302a24;
+        --quiet: #766b60;
+        --paper: #f4eee3;
+        --paper-deep: #e6dccd;
+        --rail: #26221e;
+        --accent: #b35234;
+        --line: rgba(74, 59, 45, 0.2);
+        --serif: Georgia, "Times New Roman", serif;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        --ease: cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; background: var(--paper-deep); }
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--ink);
+        background:
+          repeating-linear-gradient(0deg, rgba(84, 63, 38, 0.016) 0, rgba(84, 63, 38, 0.016) 1px, transparent 1px, transparent 4px),
+          var(--paper);
+        font-family: var(--mono);
+      }
+
+      button, a { font: inherit; }
+      button { cursor: pointer; }
+      button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+      .rail {
+        position: fixed;
+        z-index: 10;
+        inset: 0 auto 0 0;
+        display: flex;
+        width: 286px;
+        min-height: 580px;
+        flex-direction: column;
+        padding: 34px 32px 26px;
+        color: #f9f1e5;
+        background:
+          linear-gradient(180deg, rgba(28, 25, 22, 0.86), rgba(28, 25, 22, 0.98)),
+          radial-gradient(circle at 78% 12%, rgba(179, 82, 52, 0.34), transparent 18rem),
+          #26221e;
+      }
+
+      .logo { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; }
+      .logo-mark {
+        position: relative;
+        display: inline-block;
+        width: 31px;
+        height: 31px;
+        border: 2px solid #f9f1e5;
+        border-radius: 50%;
+      }
+      .logo-mark::before {
+        position: absolute;
+        top: 6px;
+        left: 13px;
+        width: 2px;
+        height: 15px;
+        background: #f9f1e5;
+        content: "";
+      }
+      .logo-mark::after {
+        position: absolute;
+        right: 4px;
+        bottom: 5px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        content: "";
+      }
+      .logo span { font: 600 30px/1 var(--serif); letter-spacing: -0.06em; }
+
+      .rail-rule { height: 1px; margin: 42px 0 29px; background: linear-gradient(90deg, var(--accent) 0 42px, rgba(249, 241, 229, 0.25) 42px); }
+      .eyebrow { color: rgba(249, 241, 229, 0.52); font-size: 10px; letter-spacing: 0.17em; text-transform: uppercase; }
+      .page-nav { display: grid; gap: 5px; margin-top: 13px; }
+      .page-nav button {
+        display: grid;
+        grid-template-columns: 37px 1fr;
+        align-items: baseline;
+        width: 100%;
+        padding: 11px 0 11px 9px;
+        border: 0;
+        border-left: 2px solid transparent;
+        color: rgba(249, 241, 229, 0.58);
+        background: transparent;
+        text-align: left;
+        transition: color 180ms var(--ease), border-color 180ms var(--ease), transform 180ms var(--ease);
+      }
+      .page-nav button:hover { color: #fffaf2; transform: translateX(3px); }
+      .page-nav button.active { border-left-color: var(--accent); color: #fffaf2; }
+      .page-no { color: #d7a28f; font-size: 10px; }
+      .page-label { font: 500 17px/1.1 var(--serif); }
+
+      .rail-actions { display: grid; gap: 7px; margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(249, 241, 229, 0.16); }
+      .rail-actions button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        width: fit-content;
+        padding: 7px 0;
+        border: 0;
+        color: rgba(249, 241, 229, 0.71);
+        background: transparent;
+        font-size: 10px;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        transition: color 160ms var(--ease), transform 160ms var(--ease);
+      }
+      .rail-actions button:hover { color: #fffaf2; }
+      .rail-actions button:active, .reader-control button:active, .start-reading:active, .mobile-actions button:active { transform: scale(0.97); }
+      .icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+      main { min-height: 100vh; margin-left: 286px; }
+      .mobile-bar { display: none; }
+
+      .hero {
+        position: relative;
+        display: flex;
+        min-height: 468px;
+        align-items: stretch;
+        padding: 76px clamp(38px, 8vw, 118px) 48px;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(244, 235, 222, 0.98), rgba(244, 235, 222, 0.89) 48%, rgba(244, 235, 222, 0.44) 70%, rgba(244, 235, 222, 0.16)),
+          radial-gradient(ellipse at 88% 42%, rgba(73, 55, 40, 0.78), transparent 37%),
+          linear-gradient(140deg, #ded0bf, #b79b7d 58%, #493f36);
+      }
+      .register { width: 5px; min-height: 207px; margin-right: clamp(18px, 4vw, 61px); background: var(--accent); }
+      .hero-copy { max-width: 490px; }
+      .hero-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 23px; color: #80503f; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+      .hero-meta::before { width: 12px; height: 12px; border: 1px solid currentColor; border-radius: 50%; content: ""; }
+      h1, h2 { margin: 0; font-family: var(--serif); letter-spacing: -0.06em; }
+      h1 { font-size: clamp(76px, 10vw, 138px); line-height: 0.74; font-weight: 600; }
+      .composer { margin: 27px 0 0; font: 500 clamp(22px, 2.4vw, 29px)/1.1 var(--serif); }
+      .hero-description { max-width: 410px; margin: 21px 0 0; color: #675d53; font-size: 11px; line-height: 1.9; }
+      .start-reading { display: inline-flex; align-items: center; gap: 10px; margin-top: 32px; padding: 0; border: 0; color: #7f3e2c; background: transparent; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; transition: color 160ms var(--ease), transform 160ms var(--ease); }
+      .start-reading:hover { color: var(--accent); }
+      .edition { display: grid; align-content: end; gap: 5px; margin-left: auto; text-align: right; }
+      .edition span { color: rgba(43, 39, 35, 0.54); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+      .edition strong { font-size: 11px; font-weight: 500; }
+
+      .score-section { padding: clamp(55px, 8vw, 96px) clamp(16px, 8vw, 118px) 52px; }
+      .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; max-width: 864px; margin: 0 auto 37px; padding-bottom: 19px; border-bottom: 1px solid var(--line); }
+      .section-heading .eyebrow { color: #9d553d; }
+      h2 { margin-top: 9px; font-size: clamp(40px, 4.6vw, 64px); line-height: 0.88; font-weight: 600; }
+      .keyboard-hint { margin: 0; color: var(--quiet); font-size: 10px; letter-spacing: 0.04em; white-space: nowrap; }
+      kbd { display: inline-grid; width: 21px; height: 20px; place-items: center; margin-right: 3px; border: 1px solid rgba(74, 59, 45, 0.3); border-bottom-color: rgba(74, 59, 45, 0.5); border-radius: 3px; background: rgba(255, 253, 247, 0.68); color: #4d463f; font: 10px/1 var(--mono); }
+
+      .pages { display: grid; gap: clamp(58px, 8vw, 123px); max-width: 864px; margin: 0 auto; }
+      figure { margin: 0; scroll-margin-top: 24px; }
+      figcaption { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 10px; color: #8a7868; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; }
+      .score-sheet { position: relative; padding: clamp(6px, 1.2vw, 15px); background: #fbfaf5; box-shadow: 0 17px 35px rgba(63, 48, 34, 0.14), 0 3px 5px rgba(63, 48, 34, 0.12); }
+      .score-sheet::before { position: absolute; inset: 6px; border: 1px solid rgba(75, 66, 56, 0.1); content: ""; pointer-events: none; }
+      .score-sheet img { display: block; width: 100%; height: auto; background: #fff; }
+
+      footer { display: flex; justify-content: space-between; gap: 16px; max-width: 864px; margin: clamp(58px, 8vw, 123px) auto 0; padding-top: 19px; border-top: 1px solid var(--line); color: #877969; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; }
+      footer p { margin: 0; }
+
+      .reader-control { position: fixed; z-index: 9; right: 28px; bottom: 26px; display: inline-flex; align-items: center; gap: 6px; padding: 5px; border: 1px solid rgba(66, 52, 38, 0.15); border-radius: 5px; background: rgba(255, 252, 244, 0.92); box-shadow: 0 6px 17px rgba(55, 43, 32, 0.1); backdrop-filter: blur(10px); }
+      .reader-control button, .mobile-actions button { display: grid; width: 34px; height: 34px; place-items: center; border: 0; border-radius: 3px; color: #473e36; background: transparent; transition: color 160ms var(--ease), background 160ms var(--ease), transform 160ms var(--ease); }
+      .reader-control button:hover:not(:disabled), .mobile-actions button:hover { color: #7f3e2c; background: #f3e8dc; }
+      .reader-control button:disabled { cursor: not-allowed; opacity: 0.35; }
+      .reader-control span { min-width: 52px; color: #62574c; font-size: 10px; letter-spacing: 0.08em; text-align: center; }
+
+      @media (max-width: 900px) {
+        .rail { display: none; }
+        main { margin-left: 0; }
+        .mobile-bar { position: sticky; z-index: 10; top: 0; display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid rgba(66, 52, 38, 0.13); background: rgba(249, 245, 236, 0.94); box-shadow: 0 4px 14px rgba(60, 46, 32, 0.06); backdrop-filter: blur(12px); }
+        .mobile-logo { display: flex; align-items: center; gap: 8px; color: var(--ink); font: 600 24px/1 var(--serif); letter-spacing: -0.05em; text-decoration: none; }
+        .mobile-logo .logo-mark { width: 24px; height: 24px; border-color: var(--ink); }
+        .mobile-logo .logo-mark::before { top: 4px; left: 10px; height: 12px; background: var(--ink); }
+        .mobile-logo .logo-mark::after { right: 3px; bottom: 3px; width: 6px; height: 6px; }
+        .mobile-actions { display: flex; gap: 4px; }
+      }
+
+      @media (max-width: 600px) {
+        .hero { min-height: 480px; padding: 51px 19px 31px; background-position: 59% center; }
+        .register { width: 4px; min-height: 196px; margin-right: 16px; }
+        .hero-copy { max-width: 270px; }
+        h1 { font-size: clamp(67px, 20vw, 90px); }
+        .hero-description { font-size: 10px; }
+        .edition { position: absolute; right: 20px; bottom: 21px; }
+        .score-section { padding: 52px 12px 36px; }
+        .section-heading { margin-bottom: 25px; padding: 0 7px 16px; }
+        .keyboard-hint { display: none; }
+        figcaption { padding: 0 7px; font-size: 8px; }
+        .score-sheet { padding: 5px; }
+        footer { margin-top: 57px; padding: 16px 7px 0; font-size: 8px; }
+        footer p:first-child { max-width: 145px; }
+        .reader-control { right: 50%; bottom: 16px; transform: translateX(50%); }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .hero, figure { animation: rise 500ms var(--ease) both; }
+        figure:nth-child(2) { animation-delay: 70ms; }
+        figure:nth-child(3) { animation-delay: 130ms; }
+      }
+      @keyframes rise { from { opacity: 0; transform: translateY(11px); } to { opacity: 1; transform: translateY(0); } }
+
+      @media print {
+        @page { size: A4 portrait; margin: 0; }
+        html, body { background: #fff !important; }
+        .rail, .mobile-bar, .hero, .section-heading, figcaption, footer, .reader-control { display: none !important; }
+        main { margin: 0; }
+        .score-section { padding: 0; }
+        .pages { display: block; max-width: none; }
+        figure { break-after: page; page-break-after: always; }
+        figure:last-child { break-after: auto; page-break-after: auto; }
+        .score-sheet { padding: 0; box-shadow: none; }
+        .score-sheet::before { display: none; }
+        .score-sheet img { width: 100%; height: 100vh; object-fit: contain; }
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="rail">
+      <a class="logo" href="#top" aria-label="Return to score introduction"><i class="logo-mark" aria-hidden="true"></i><span>Idea 10</span></a>
+      <div class="rail-rule"></div>
+      <nav aria-label="Score page navigation">
+        <span class="eyebrow">Contents</span>
+        <div class="page-nav">
+          <button type="button" data-page="1" class="active"><span class="page-no">01</span><span class="page-label">Opening</span></button>
+          <button type="button" data-page="2"><span class="page-no">02</span><span class="page-label">Development</span></button>
+          <button type="button" data-page="3"><span class="page-no">03</span><span class="page-label">Coda</span></button>
+        </div>
+      </nav>
+      <div class="rail-actions">
+        <button type="button" id="print-button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg>Print score</button>
+        <button type="button" id="fullscreen-button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"/></svg><span id="fullscreen-label">Full screen</span></button>
+      </div>
+    </aside>
+
+    <main id="top">
+      <header class="mobile-bar">
+        <a class="mobile-logo" href="#top"><i class="logo-mark" aria-hidden="true"></i><span>Idea 10</span></a>
+        <div class="mobile-actions">
+          <button type="button" id="mobile-print" aria-label="Print score"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg></button>
+          <button type="button" id="mobile-fullscreen" aria-label="Toggle full screen"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"/></svg></button>
+        </div>
+      </header>
+
+      <section class="hero" aria-labelledby="score-title">
+        <div class="register" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <div class="hero-meta">Piano solo · Digital folio</div>
+          <h1 id="score-title">Idea 10</h1>
+          <p class="composer">Gibran Alcocer</p>
+          <p class="hero-description">A three-page score presented in a quiet reading edition, preserving the original notation and page order.</p>
+          <button class="start-reading" type="button" data-page="1">Read the score <span aria-hidden="true">↓</span></button>
+        </div>
+        <div class="edition"><span>Edition</span><strong>01 · 03</strong></div>
+      </section>
+
+      <section class="score-section" aria-labelledby="complete-score-heading">
+        <div class="section-heading">
+          <div><p class="eyebrow">Reading copy</p><h2 id="complete-score-heading">The complete score</h2></div>
+          <p class="keyboard-hint"><kbd>←</kbd><kbd>→</kbd> to turn pages</p>
+        </div>
+        <div class="pages">
+          <figure id="page-1"><figcaption><span>Idea 10 / Opening</span><span>Page 01 of 03</span></figcaption><div class="score-sheet"><img src="assets/page-1.png" alt="Idea 10 piano score, page 1 of 3" /></div></figure>
+          <figure id="page-2"><figcaption><span>Idea 10 / Development</span><span>Page 02 of 03</span></figcaption><div class="score-sheet"><img src="assets/page-2.png" alt="Idea 10 piano score, page 2 of 3" loading="lazy" /></div></figure>
+          <figure id="page-3"><figcaption><span>Idea 10 / Coda</span><span>Page 03 of 03</span></figcaption><div class="score-sheet"><img src="assets/page-3.png" alt="Idea 10 piano score, page 3 of 3" loading="lazy" /></div></figure>
+        </div>
+      </section>
+      <footer><p>Original score pages retained as supplied.</p><p id="page-status" aria-live="polite">Viewing page 01 of 03</p></footer>
+      <div class="reader-control" aria-label="Page controls">
+        <button type="button" id="previous-page" aria-label="Previous page"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <span id="page-indicator">01 / 03</span>
+        <button type="button" id="next-page" aria-label="Next page"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </main>
+
+    <script>
+      (() => {
+        const totalPages = 3;
+        let activePage = 1;
+        const pageButtons = [...document.querySelectorAll('[data-page]')];
+        const pageIndicator = document.getElementById('page-indicator');
+        const pageStatus = document.getElementById('page-status');
+        const previousButton = document.getElementById('previous-page');
+        const nextButton = document.getElementById('next-page');
+        const fullScreenLabel = document.getElementById('fullscreen-label');
+
+        const pageText = (page) => String(page).padStart(2, '0');
+        const updateNavigation = (page) => {
+          activePage = page;
+          pageButtons.forEach((button) => button.classList.toggle('active', Number(button.dataset.page) === page));
+          pageIndicator.textContent = `${pageText(page)} / 03`;
+          pageStatus.textContent = `Viewing page ${pageText(page)} of 03`;
+          previousButton.disabled = page === 1;
+          nextButton.disabled = page === totalPages;
+        };
+        const goToPage = (page) => {
+          const safePage = Math.min(Math.max(page, 1), totalPages);
+          document.getElementById(`page-${safePage}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+          updateNavigation(safePage);
+        };
+        pageButtons.forEach((button) => button.addEventListener('click', () => goToPage(Number(button.dataset.page))));
+        previousButton.addEventListener('click', () => goToPage(activePage - 1));
+        nextButton.addEventListener('click', () => goToPage(activePage + 1));
+        document.addEventListener('keydown', (event) => {
+          if (event.target.matches('input, textarea, select, [contenteditable="true"]')) return;
+          if (event.key === 'ArrowRight') goToPage(activePage + 1);
+          if (event.key === 'ArrowLeft') goToPage(activePage - 1);
+        });
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) updateNavigation(Number(entry.target.id.replace('page-', '')));
+          });
+        }, { rootMargin: '-36% 0px -48% 0px', threshold: 0.02 });
+        [1, 2, 3].forEach((page) => observer.observe(document.getElementById(`page-${page}`)));
+        const print = () => window.print();
+        document.getElementById('print-button').addEventListener('click', print);
+        document.getElementById('mobile-print').addEventListener('click', print);
+        const toggleFullscreen = async () => {
+          try {
+            if (document.fullscreenElement) await document.exitFullscreen();
+            else await document.documentElement.requestFullscreen();
+          } catch (_) { /* Fullscreen remains optional. */ }
+        };
+        document.getElementById('fullscreen-button').addEventListener('click', toggleFullscreen);
+        document.getElementById('mobile-fullscreen').addEventListener('click', toggleFullscreen);
+        document.addEventListener('fullscreenchange', () => {
+          fullScreenLabel.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+        });
+        updateNavigation(1);
+      })();
+    </script>
+  </body>
+</html>

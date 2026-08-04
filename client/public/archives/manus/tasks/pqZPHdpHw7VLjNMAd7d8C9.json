@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:34:02.528209Z",
+  "task": {
+    "id": "pqZPHdpHw7VLjNMAd7d8C9",
+    "title": "How to Help Robert Regain Access to His Account",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 3,
+    "created_at": "1781028390",
+    "updated_at": "1781028397",
+    "task_url": "https://manus.im/app/pqZPHdpHw7VLjNMAd7d8C9",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "xdDDKJUanuWXRwKyGYgbha",
+      "timestamp": "1781028389987",
+      "type": "user_message",
+      "user_message": {
+        "content": "Robert (owner of our account) is locked out and cannot get back in, what does he need to do to resolve this?",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "zGMRIHHpooDyUA4zrzfNNz-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1781028390744",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "I'm sorry to hear Robert is having trouble accessing the account! However, account access issues, lockouts, and account recovery fall under **Manus account support** — this is something I'm not able to assist with directly.\n\nRobert (or you on his behalf) should reach out to the Manus support team for help resolving this:\n\n👉 **Submit a support request at: [https://help.manus.im](https://help.manus.im)**\n\nThe support team will be able to verify ownership and guide Robert through the account recovery process. I'd recommend including as much identifying information as possible (e.g., registered email address, account name) to help them resolve it quickly."
+      },
+      "id": "hwiVmBiaHinvzUNf6G2mYD",
+      "timestamp": "1781028396592",
+      "type": "assistant_message"
+    },
+    {
+      "id": "lttJC4RQGK7NkCEOR7eDGx",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1781028397583",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

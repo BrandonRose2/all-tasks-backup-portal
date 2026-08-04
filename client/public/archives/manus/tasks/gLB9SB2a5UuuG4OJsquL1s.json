@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-04T18:29:22.901327Z",
+  "task": {
+    "id": "gLB9SB2a5UuuG4OJsquL1s",
+    "title": "Sandbox Restart Needed to Resolve Node.js Deadlock Issue",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 50,
+    "created_at": "1782181041",
+    "updated_at": "1782181325",
+    "task_url": "https://manus.im/app/gLB9SB2a5UuuG4OJsquL1s",
+    "message_count": 0
+  },
+  "event_count": 6,
+  "events": [
+    {
+      "id": "7UxI7WTKe0B3wKsJ9v9Af5",
+      "timestamp": "1782181041734",
+      "type": "user_message",
+      "user_message": {
+        "content": "starting a new task here due to your errors : \nMonthly Inspections Checklist Web App - Manus\n\nShare\nwhats the hold up here?\n19:14\nThe sandbox has a kernel-level filesystem I/O deadlock that's blocking Node.js entirely. Every time node starts, it gets stuck in an uninterruptible sleep (D-state) trying to load a system library — even a node -e \"console.log('hello')\" hangs. This is not something I can fix from inside the sandbox; it requires a full sandbox restart from the Manus platform side.\nHere's the situation in plain terms:\nWhat's broken\nWhy\nDev server (port 3000)\nNode.js hangs on startup — every node process enters D-state\nwebdev_restart_server\nFails with \"fetch failed\" — the webdev service can't reach the dev server\nwebdev_save_checkpoint\nAlso fails — depends on git, which is also stuck in D-state\nGitHub push\nTLS to GitHub is blocked at the network level from this sandbox\nThe good news: All the code changes are already written and saved to disk. The tasks_data.json with 142 top-level tasks is in place. Everything is ready — the sandbox just can't run Node or git right now.\nWhat would fix this immediately:\nA full sandbox restart/reset from the Manus platform (not just a page refresh)\nCan you try one of these?\nClose this task session and start a new one — the sandbox should get a fresh environment\nLook for a \"Reset Sandbox\" or \"Restart Environment\" option in the Manus UI\nLet me know if there's a way to trigger a hard restart from your end\nOnce the sandbox is healthy, I can save the checkpoint and get the dev server running in under a minute.\nManus will continue working after your reply\n\n\nNotion\n\n\nManus is an AI Agent and can make mistakes. Please double-check before use.\n",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "FBW7QmmKpEYn4sWnFo0NQu-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1782181042170",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Got it! I'm starting fresh in a new sandbox. Let me check the current state and get the Monthly Inspections Checklist Web App up and running."
+      },
+      "id": "SeLZ3T6r6FREYJtQx0cGEt",
+      "timestamp": "1782181044913",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Skill loaded. Initializing the Monthly Inspections Checklist Web App project now..."
+      },
+      "id": "X6nOmFUoxzMgtMkpe9KV95",
+      "timestamp": "1782181063855",
+      "type": "assistant_message"
+    },
+    {
+      "assistant_message": {
+        "content": "Project initialized successfully. Now writing the design plan and building the full app..."
+      },
+      "id": "uqCKOU8OnAi2BTb1vUekgY",
+      "timestamp": "1782181100506",
+      "type": "assistant_message"
+    },
+    {
+      "id": "SqtHft9QTGAohK852pqDml",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1782181325478",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}
