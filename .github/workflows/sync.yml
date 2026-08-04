@@ -5,7 +5,31 @@ on:
     # Runs every Friday at 4:00 AM PST (12:00 UTC)
     - cron: "0 12 * * 5"
   workflow_dispatch:
-    # Also allows manual trigger from GitHub Actions UI
+    inputs:
+      archive_mode:
+        description: "Archive selection: updated only, missing only, or every task"
+        required: false
+        default: "updated"
+        type: choice
+        options:
+          - updated
+          - missing
+          - full
+      max_tasks:
+        description: "Maximum task archives to process (0 means no limit)"
+        required: false
+        default: "0"
+        type: string
+      download_artifacts:
+        description: "Download task attachments into the public archive when possible"
+        required: false
+        default: true
+        type: boolean
+      notify_email:
+        description: "Send the configured completion email for this manual run"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -15,44 +39,72 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Run sync script
+      - name: Refresh Manus task index
         env:
           MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
         run: python scripts/sync_tasks.py
 
+      - name: Archive Manus conversations and attachments
+        id: archive
+        continue-on-error: true
+        env:
+          MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
+        run: |
+          MODE="${{ inputs.archive_mode || 'updated' }}"
+          MAX_TASKS="${{ inputs.max_tasks || '0' }}"
+          ARGS=(--mode "$MODE" --max-tasks "$MAX_TASKS")
+          if [[ "${{ inputs.download_artifacts }}" == "false" ]]; then
+            ARGS+=(--skip-artifacts)
+          fi
+          python scripts/archive_task_materials.py "${ARGS[@]}"
+
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet client/public/tasks_data.json || echo "changed=true" >> $GITHUB_OUTPUT
+          if [[ -n "$(git status --porcelain -- client/public/tasks_data.json client/public/archives/manus)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
-      - name: Get task count
-        id: taskcount
+      - name: Get archive summary
+        id: summary
         run: |
-          TASK_COUNT=$(python3 -c "import json; d=json.load(open('client/public/tasks_data.json')); print(d['meta']['total'])")
-          echo "count=${TASK_COUNT}" >> $GITHUB_OUTPUT
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
 
-      - name: Commit and push updated task data
+          tasks = json.loads(Path("client/public/tasks_data.json").read_text())
+          manifest_path = Path("client/public/archives/manus/manifest.json")
+          manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"tasks={tasks.get('meta', {}).get('total', len(tasks.get('tasks', [])))}\n")
+              output.write(f"archived={manifest.get('complete_task_count', 0)}\n")
+              output.write(f"partial={manifest.get('partial_artifact_task_count', 0)}\n")
+              output.write(f"failed={manifest.get('failed_task_count', 0)}\n")
+          PY
+
+      - name: Commit and push refreshed archive
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "Manus Sync Bot"
           git config user.email "sync-bot@manus-dashboard.local"
-          git add client/public/tasks_data.json
-          git commit -m "chore: sync tasks from Manus API — ${{ steps.taskcount.outputs.count }} tasks [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
+          git add client/public/tasks_data.json client/public/archives/manus
+          git commit -m "chore: archive Manus tasks — ${{ steps.summary.outputs.tasks }} indexed / ${{ steps.summary.outputs.archived }} complete [$(TZ='America/Los_Angeles' date '+%Y-%m-%d %H:%M PST')]"
           git push
 
       - name: No changes detected
         if: steps.changes.outputs.changed != 'true'
-        run: echo "No task changes detected. Dashboard is already up to date."
+        run: echo "No Manus task or archive changes detected."
 
       - name: Send email notification
-        if: always()
+        if: always() && (github.event_name == 'schedule' || inputs.notify_email == true)
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -60,16 +112,18 @@ jobs:
           secure: true
           username: brandonrose2@gmail.com
           password: ${{ secrets.GMAIL_APP_PASSWORD }}
-          subject: "Manus Task Sync — ${{ steps.taskcount.outputs.count }} tasks [${{ job.status }}]"
+          subject: "Manus Task Archive — ${{ steps.summary.outputs.tasks || 'unknown' }} tasks [${{ job.status }}]"
           to: brandon@apartmentcorp.com,brandonrose2@gmail.com
           from: "Manus Sync Bot <brandonrose2@gmail.com>"
           body: |
-            Weekly Manus task sync completed.
+            Manus task archive synchronization completed.
 
             Status: ${{ job.status }}
-            Total tasks: ${{ steps.taskcount.outputs.count }}
-            Changes detected: ${{ steps.changes.outputs.changed == 'true' && 'Yes — portal updated and redeployed' || 'No — portal already up to date' }}
-            Run date: $(TZ='America/Los_Angeles' date '+%A, %B %d %Y at %I:%M %p PST')
+            Indexed tasks: ${{ steps.summary.outputs.tasks || 'unknown' }}
+            Complete task archives: ${{ steps.summary.outputs.archived || '0' }}
+            Archives with referenced-only attachments: ${{ steps.summary.outputs.partial || '0' }}
+            Failed task archives: ${{ steps.summary.outputs.failed || '0' }}
+            Archive mode: ${{ inputs.archive_mode || 'updated' }}
 
-            View your portal: https://brandonrose2.github.io/all-tasks-backup-portal/
-            View workflow run: https://github.com/BrandonRose2/all-tasks-backup-portal/actions
+            Portal: https://brandonrose2.github.io/all-tasks-backup-portal/
+            Workflow run: https://github.com/BrandonRose2/all-tasks-backup-portal/actions
