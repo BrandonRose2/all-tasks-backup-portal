@@ -111,6 +111,7 @@ jobs:
           cp client/public/tasks_data.json _site/client/public/tasks_data.json
           cp client/public/archives/manus/manifest.json _site/client/public/archives/manus/manifest.json
           cp -R client/public/archives/manus/tasks _site/client/public/archives/manus/tasks
+          cp -R previews _site/previews
 
           for file in \
             case-notes-and-strategy.md \
