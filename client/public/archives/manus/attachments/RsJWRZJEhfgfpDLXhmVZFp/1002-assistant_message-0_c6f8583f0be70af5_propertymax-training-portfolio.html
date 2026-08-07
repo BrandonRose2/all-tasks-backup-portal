@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropertyMax.ai Training Hub</title>
+  <style>
+    /* 
+      PropertyMax.ai Training Guide - Portfolio Edition
+      Design: Dark, cinematic, accessible, and self-contained
+    */
+
+    :root {
+      /* Palette */
+      --color-bg-base: #0B111A;
+      --color-bg-surface: #131A26;
+      --color-bg-elevated: #1C2638;
+      
+      --color-text-primary: #F0F4F8;
+      --color-text-secondary: #94A3B8;
+      --color-text-tertiary: #64748B;
+      
+      --color-accent-gold: #EAB308;
+      --color-accent-gold-glow: rgba(234, 179, 8, 0.15);
+      
+      --color-accent-cyan: #06B6D4;
+      --color-accent-blue: #3B82F6;
+      --color-accent-red: #EF4444;
+      --color-accent-green: #10B981;
+
+      /* Typography */
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      
+      /* Spacing & Layout */
+      --spacing-base: 1rem;
+      --spacing-section: 6rem;
+      --max-width-content: 1000px;
+      --border-radius-sm: 4px;
+      --border-radius-md: 8px;
+      --border-radius-lg: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-bg-base);
+      color: var(--color-text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Layout */
+    .container {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: var(--spacing-section) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-text-primary);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: var(--color-accent-gold);
+    }
+
+    p {
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+      max-width: 70ch;
+    }
+
+    /* Utilities */
+    .text-gold { color: var(--color-accent-gold); }
+    .text-cyan { color: var(--color-accent-cyan); }
+    .text-red { color: var(--color-accent-red); }
+    .text-green { color: var(--color-accent-green); }
+    
+    .uppercase-label {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Components */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-accent-gold), transparent);
+      opacity: 0.5;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--color-bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .module-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .module-number {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--color-accent-gold);
+      line-height: 1;
+      opacity: 0.8;
+    }
+
+    .workflow-step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .workflow-number {
+      flex-shrink: 0;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: var(--color-bg-elevated);
+      color: var(--color-accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+    }
+
+    .workflow-content h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .workflow-content p {
+      margin-bottom: 0;
+    }
+
+    .alert-box {
+      background-color: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid var(--color-accent-red);
+      padding: 1.5rem;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      margin: 2rem 0;
+    }
+
+    .alert-box.info {
+      background-color: rgba(6, 182, 212, 0.1);
+      border-left-color: var(--color-accent-cyan);
+    }
+
+    .alert-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(11, 17, 26, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      z-index: 100;
+      padding: 1rem 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    /* Table styles */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background-color: var(--color-bg-surface);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+    }
+
+    .data-table th, .data-table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .data-table th {
+      background-color: var(--color-bg-elevated);
+      color: var(--color-text-primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 60vh;
+      }
+      
+      .module-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .workflow-step {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav-bar">
+    <div class="container nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#module-1">1. Dashboard</a>
+      <a href="#module-2">2. Phone Excellence</a>
+      <a href="#module-3">3. Marketing Training</a>
+      <a href="#requirements">Requirements</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Content will be built in the next phase -->
+  </main>
+  <main>
+    <section id="overview" class="hero container">
+      <span class="uppercase-label text-gold">ApartmentCorp Management Training</span>
+      <h1>PropertyMax.ai<br>Training Hub</h1>
+      <p style="font-size: 1.25rem; color: var(--color-text-primary); margin-bottom: 2rem;">Live Team Training Session</p>
+      
+      <div class="grid-3" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div>
+          <span class="uppercase-label">Facilitated By</span>
+          <p style="color: var(--color-text-primary); font-weight: 500;">Brandon Rose</p>
+        </div>
+        <div>
+          <span class="uppercase-label">Modules</span>
+          <p style="color: var(--color-text-primary); font-weight: 500;">3 Modules · 11 Sections</p>
+        </div>
+        <div>
+          <span class="uppercase-label">Format</span>
+          <p style="color: var(--color-text-primary); font-weight: 500;">Live Zoom Training</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="module-header">
+        <h2>Getting Started: How to Use the Training Hub</h2>
+      </div>
+      
+      <p>The PropertyMax.ai Training Hub is your permanent reference library. Every section includes an AI-narrated PIP training video, a step-by-step workflow guide, and a knowledge-check quiz. Progress is tracked automatically—your completion certificate is issued once all quizzes and acknowledgments are done.</p>
+
+      <div class="grid-3" style="margin-top: 3rem;">
+        <div class="card">
+          <span class="uppercase-label">Step 01</span>
+          <h3>Watch the Video</h3>
+          <p style="margin-top: 1rem;">Each section opens with an AI-narrated PIP training video. Watch it fully before moving on—the quiz questions are based on what you see and hear.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label">Step 02</span>
+          <h3>Follow the Workflow</h3>
+          <p style="margin-top: 1rem;">Below each video is a step-by-step workflow guide. Use it as a reference when applying the process in PropertyMax.ai. It is always available—bookmark it.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label">Step 03</span>
+          <h3>Take the Quiz</h3>
+          <p style="margin-top: 1rem;">Each section ends with a knowledge-check quiz. Your score is recorded automatically. You can re-take any quiz at any time to improve your score.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="module-1" class="section container">
+      <div class="module-header">
+        <div class="module-number">01</div>
+        <div>
+          <span class="uppercase-label">Module 01</span>
+          <h2>Dashboard Training</h2>
+          <p style="margin-bottom: 0;">Your Command Center for Property Management.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <h3>11 Areas You Must Know</h3>
+          <p>The Dashboard Overview video walks through every key section of PropertyMax.ai. These are not optional features—they are the daily tools of every property manager.</p>
+          
+          <div class="alert-box info">
+            <p><strong>Quiz Prep: 7 Key Facts</strong></p>
+            <p>Review these facts before taking the Dashboard Overview quiz in the Training Hub:</p>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; color: var(--color-text-secondary);">
+              <li><strong>Call Recordings Tabs:</strong> Marketing, Urgent, Rent, Maintenance, Voicemail</li>
+              <li><strong>Golden Score:</strong> Performance metric (call quality + data accuracy combined)</li>
+              <li><strong>CRM Directory Tabs:</strong> PRO, TEN, VEN, DIR, EMP</li>
+              <li><strong>Calendar Blue:</strong> Appointments (showings, key pickups, tours)</li>
+              <li><strong>Calendar Orange:</strong> Maintenance events and work orders</li>
+              <li><strong>Calendar Teal:</strong> Section 8 HUD Inspections</li>
+              <li><strong>Calendar Yellow:</strong> Today's date highlight</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">01. Navigation Bar</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Primary menu and module access</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">02. Collections Overview</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Gates, Billed, Collected, Difference</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">03. Call Recordings</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">5 tabs — daily review required</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">04. Section 8 Inspections</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Pending, Scheduled, Completed</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">05. Text Messages</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">All tenant and prospect texts</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">06. Tickets</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Internal communications channel</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">07. Maintenance Requests</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Unassigned, Overdue, Assigned</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">08. Appointments</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Showings, key pickups, tours</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">09. Calendar</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Color-coded by event type</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">10. CRM Directory</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">PRO, TEN, VEN, DIR, EMP tabs</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">11. To-Do's</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Rent, Sales, Maintenance tasks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="module-2" class="section container">
+      <div class="module-header">
+        <div class="module-number">02</div>
+        <div>
+          <span class="uppercase-label">Module 02</span>
+          <h2>Phone Excellence</h2>
+          <p style="margin-bottom: 0;">Phone Excellence is not a suggestion. It is the minimum standard for every call, every time, with every caller.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: 1.5rem;">The Four Pillars of Phone Excellence</h3>
+      <p>Every call must reflect all four pillars—no exceptions. These standards apply equally to a frustrated tenant and an excited prospect. There is no call too short or too routine to skip them.</p>
+
+      <div class="grid-4" style="margin-top: 2rem;">
+        <div class="card">
+          <span class="uppercase-label text-cyan">Pillar 01</span>
+          <h4>Professionalism</h4>
+          <p style="font-size: 0.875rem;">Clear, composed, timely communication. Every commitment made on a call must be followed through. You represent ApartmentCorp on every call.</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Answer within 3 rings.</li>
+            <li>Introduce yourself by name.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-cyan">Pillar 02</span>
+          <h4>Warmth</h4>
+          <p style="font-size: 0.875rem;">Callers must feel genuinely welcomed and valued. Active listening and empathetic responses are non-negotiable. Warmth is demonstrated through action.</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Use the caller's name.</li>
+            <li>Acknowledge before answering.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-cyan">Pillar 03</span>
+          <h4>Consistency</h4>
+          <p style="font-size: 0.875rem;">Every caller receives the same high-quality experience regardless of time, call type, or which staff member answers. Consistency builds trust at scale.</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Same standard every call.</li>
+            <li>No exceptions for "easy" calls.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-cyan">Pillar 04</span>
+          <h4>Accuracy</h4>
+          <p style="font-size: 0.875rem;">Information captured correctly and completely on the first attempt. Accurate data powers PropertyMax.ai's AI systems. Wrong data breaks the workflow.</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Verify every data point.</li>
+            <li>Accuracy is a system requirement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Professionalism in Practice</h3>
+        <p>Professionalism is not about formality—it is about reliability. When you answer a call, you represent ApartmentCorp.</p>
+        
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Do</th>
+              <th>Don't</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong class="text-green">Answer within 3 rings</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Prompt answers signal that callers are a priority.</span>
+              </td>
+              <td>
+                <strong class="text-red">Let calls go to voicemail during business hours</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Missed calls = missed prospects and frustrated tenants.</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="text-green">Introduce yourself by name and property</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">"Thank you for calling [Property], this is [Name]"</span>
+              </td>
+              <td>
+                <strong class="text-red">Answer with just "hello" or "yeah?"</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Callers don't know who they reached or if they called the right place.</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="text-green">Follow through on every commitment made</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">If you say you'll call back by 3pm, call back by 3pm.</span>
+              </td>
+              <td>
+                <strong class="text-red">Promise a callback and forget</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Broken commitments destroy trust and generate complaint calls.</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="text-green">Stay composed and solution-focused</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Calm, clear responses de-escalate difficult callers.</span>
+              </td>
+              <td>
+                <strong class="text-red">Match the caller's frustration or become defensive</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Emotional reactions escalate situations and reflect poorly on the property.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Warmth: Active Listening Is a Skill</h3>
+        <p>Warmth means making the caller feel heard. This requires active listening—repeating back key information, acknowledging concerns before jumping to solutions, and using the caller's name throughout the conversation.</p>
+        
+        <div class="grid-3" style="margin-top: 2rem;">
+          <div class="card">
+            <h4>Acknowledge First</h4>
+            <p style="font-size: 0.875rem;">Before offering any solution or information, acknowledge what the caller has said. This signals that you are listening.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Say This</span>
+              <p style="font-size: 0.875rem; font-style: italic; margin-bottom: 0;">"I understand — let me make sure I have this right before we move forward…"</p>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Use Their Name</h4>
+            <p style="font-size: 0.875rem;">Personalization signals that this is not a scripted, transactional interaction. Using the caller's name makes the conversation feel individual.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Say This</span>
+              <p style="font-size: 0.875rem; font-style: italic; margin-bottom: 0;">"Absolutely, Maria — let me pull that up for you right now."</p>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Confirm Understanding</h4>
+            <p style="font-size: 0.875rem;">Before answering or transferring, confirm that you have understood the caller's need correctly. This prevents miscommunication.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Say This</span>
+              <p style="font-size: 0.875rem; font-style: italic; margin-bottom: 0;">"So what you're looking for is a 2-bedroom available in March — is that right?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Accuracy Drives the AI: Garbage In, Garbage Out</h3>
+        <p>PropertyMax.ai's AI features—automatic prospect records, AI-generated To-Do's, call summaries, and follow-up suggestions—are only as good as the data that feeds them.</p>
+        
+        <div class="alert-box">
+          <p><strong>The Accuracy Rule:</strong> Accuracy is not just good practice—it is a system requirement. Every field you fill in correctly is a step in the AI chain. Every field you skip or get wrong breaks the chain—and costs a lease.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>The 5 Golden Questions</h3>
+        <p>These five questions are the minimum information required from every prospect on every call. Missing even one creates a gap in the prospect record that the AI cannot fill. These are not a script—they are a checklist.</p>
+        
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Question to Ask</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-gold font-bold">01</td>
+              <td><strong>What is your full name?</strong></td>
+              <td>Personalized communication + accurate prospect record creation in PropertyMax.ai.</td>
+            </tr>
+            <tr>
+              <td class="text-gold font-bold">02</td>
+              <td><strong>What is the best phone number to reach you?</strong></td>
+              <td>Primary follow-up contact method—required for AI-generated To-Do's and callbacks.</td>
+            </tr>
+            <tr>
+              <td class="text-gold font-bold">03</td>
+              <td><strong>What is your email address?</strong></td>
+              <td>Tour confirmations, property brochures, lease application links, and follow-up communications.</td>
+            </tr>
+            <tr>
+              <td class="text-gold font-bold">04</td>
+              <td><strong>What is your reason for calling today?</strong></td>
+              <td>Understand needs, tailor the conversation, and populate the AI-generated call summary correctly.</td>
+            </tr>
+            <tr>
+              <td class="text-gold font-bold">05</td>
+              <td><strong>How did you hear about us?</strong></td>
+              <td>Marketing channel effectiveness data—directly informs where advertising dollars are spent.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="alert-box">
+          <p><strong>Critical Rule:</strong> All 5 questions must be asked on every prospect call—even if the call is short, even if the prospect seems impatient, even if you already know their name.</p>
+        </div>
+      </div>
+    </section>
+    <section id="module-3" class="section container">
+      <div class="module-header">
+        <div class="module-number">03</div>
+        <div>
+          <span class="uppercase-label">Module 03</span>
+          <h2>Marketing Training</h2>
+          <p style="margin-bottom: 0;">9 Sections — 9 Daily Workflows.</p>
+        </div>
+      </div>
+
+      <p>Marketing Training covers every workflow in the Marketing tab and dashboard. Each section maps directly to a daily operational responsibility—from reviewing call recordings to managing maintenance requests and tracking tickets.</p>
+
+      <div class="grid-3" style="margin-top: 3rem;">
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 01</span>
+          <h4>Recent Call Recordings</h4>
+          <p style="font-size: 0.875rem;">Review, action, and close out every call recording daily across 5 tabs.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 02</span>
+          <h4>Collections</h4>
+          <p style="font-size: 0.875rem;">Monitor Gates, Billed, Collected, and Difference—act on any gap immediately.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 03</span>
+          <h4>To-Do's</h4>
+          <p style="font-size: 0.875rem;">Four tabs: My To-Do's, Rent, Sales, Maintenance—your daily task engine.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 04</span>
+          <h4>Appointments</h4>
+          <p style="font-size: 0.875rem;">Schedule, confirm, and complete every appointment—use the Complete Checklist button.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 05</span>
+          <h4>Text Messages</h4>
+          <p style="font-size: 0.875rem;">All tenant and prospect communications must go through PropertyMax.ai—not personal phones.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 06</span>
+          <h4>Section 8 Inspections</h4>
+          <p style="font-size: 0.875rem;">HUD compliance tracking—Pending, Scheduled, Completed. Every unscheduled day is a risk.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 07</span>
+          <h4>CRM Directory</h4>
+          <p style="font-size: 0.875rem;">Five tabs: PRO, TEN, VEN, DIR, EMP—post-call workflow lives here.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 08</span>
+          <h4>Maintenance Requests</h4>
+          <p style="font-size: 0.875rem;">Priority order: Unassigned → Overdue → Assigned → Completed. Red X to close.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 09</span>
+          <h4>Tickets</h4>
+          <p style="font-size: 0.875rem;">Internal communication channel—Received, Sent, Completed. Follow up, don't forget.</p>
+        </div>
+      </div>
+
+      <div class="alert-box info" style="margin-top: 3rem;">
+        <p><strong>Daily Standard:</strong> Every section must be reviewed every shift—not weekly, not when you remember. Every shift.</p>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Section 1: Managing Call Recordings</h3>
+        <p>Call Recordings are your daily audit of every inbound call. This six-step workflow ensures every recording is reviewed, every action item is addressed, and every completed item is closed out correctly.</p>
+        
+        <div class="grid-2" style="margin-top: 2rem;">
+          <div class="workflow-step">
+            <div class="workflow-number">01</div>
+            <div class="workflow-content">
+              <h4>Open the Dashboard</h4>
+              <p style="font-size: 0.875rem;">Log in to PropertyMax.ai and navigate to the main Dashboard.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">02</div>
+            <div class="workflow-content">
+              <h4>Scroll to Call Recordings</h4>
+              <p style="font-size: 0.875rem;">Locate the Recent Call Recordings section—check all 5 tabs: Marketing, Urgent, Rent, Maintenance, Voicemail.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">03</div>
+            <div class="workflow-content">
+              <h4>Play the Recording</h4>
+              <p style="font-size: 0.875rem;">Listen to the full call—do not skip or skim.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">04</div>
+            <div class="workflow-content">
+              <h4>Check All Action Items</h4>
+              <p style="font-size: 0.875rem;">Review every AI-generated action item listed below the recording—confirm each is addressed.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">05</div>
+            <div class="workflow-content">
+              <h4>Click the Red X</h4>
+              <p style="font-size: 0.875rem;">Only after all action items are confirmed—click the Red X to close the recording.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">06</div>
+            <div class="workflow-content">
+              <h4>Refresh & Repeat</h4>
+              <p style="font-size: 0.875rem;">Move to the next recording—repeat for all tabs, every day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>The Red X Rule: Close It Out — Every Time</h3>
+        <p>Pressing the red X is how you close out completed items and keep the dashboard clean. It appears in three places. If it's not closed, it's still your responsibility.</p>
+        
+        <div class="grid-3" style="margin-top: 2rem;">
+          <div class="card">
+            <span class="uppercase-label text-red">Location 01</span>
+            <h4>Call Recordings</h4>
+            <p style="font-size: 0.875rem; margin-bottom: 1rem;">Press the Red X only after you have:</p>
+            <ul style="font-size: 0.875rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Listened to the full recording.</li>
+              <li>Verified the AI-generated To-Do's are accurate and assigned.</li>
+              <li>Confirmed the prospect record in the CRM is complete.</li>
+              <li>Sent any required follow-up text or email through the platform.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-red">Location 02</span>
+            <h4>Maintenance Requests</h4>
+            <p style="font-size: 0.875rem; margin-bottom: 1rem;">Press the Red X only after you have:</p>
+            <ul style="font-size: 0.875rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Confirmed the work is physically done.</li>
+              <li>Called or texted the tenant to verify they are satisfied with the repair.</li>
+              <li>Logged any follow-up actions if the repair was incomplete.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-red">Location 03</span>
+            <h4>Tickets</h4>
+            <p style="font-size: 0.875rem; margin-bottom: 1rem;">Press the Red X only after you have:</p>
+            <ul style="font-size: 0.875rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Read the full ticket.</li>
+              <li>Taken the required action.</li>
+              <li>Followed up on sent tickets open for more than 24 hours.</li>
+              <li>Escalated to regional manager if open for 2+ days.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>The Daily Morning Routine</h3>
+        <p>Every reactive day starts with a skipped morning routine. These six steps in order ensure nothing falls through the cracks—every tenant is heard, every request is assigned, every follow-up is sent before the phones start ringing.</p>
+        
+        <div class="grid-3" style="margin-top: 2rem;">
+          <div class="card">
+            <span class="uppercase-label text-gold">01. Collections</span>
+            <p style="font-size: 0.875rem;">Review all outstanding rent balances. Flag accounts that are 3+ days past due. Send a reminder text through the platform. Log every action in the record.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">02. Call Recordings</span>
+            <p style="font-size: 0.875rem;">Open the 5 tabs. Review every unreviewed call. Complete all action items. Press the Red X on each reviewed recording.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">03. To-Do's</span>
+            <p style="font-size: 0.875rem;">Work through all open To-Do's. Complete each task, add notes, and close completed items. Do not carry yesterday's To-Do's into tomorrow.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">04. Maintenance</span>
+            <p style="font-size: 0.875rem;">Check Unassigned first—assign every one before moving on. Then check Overdue. Zero unassigned requests by end of morning routine.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">05. Tickets</span>
+            <p style="font-size: 0.875rem;">Check Tickets Received—read and action each one. Check Sent Tickets—follow up on anything older than 24 hours with no response.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">06. Text Messages</span>
+            <p style="font-size: 0.875rem;">Reply to every unanswered text from tenants and prospects. No message should go unanswered past the start of your shift.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="requirements" class="section container">
+      <div class="module-header">
+        <h2>Completion Requirements</h2>
+      </div>
+      
+      <p>Complete all quizzes and acknowledgments in each module to unlock your PropertyMax.ai Training Certificate.</p>
+
+      <div class="grid-3" style="margin-top: 2rem;">
+        <div class="card">
+          <h4>Module 01</h4>
+          <p style="font-size: 0.875rem;">Dashboard Training</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>1 Quiz — Dashboard Overview</li>
+            <li>1 Acknowledgment — Module completion sign-off</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Module 02</h4>
+          <p style="font-size: 0.875rem;">Phone Excellence</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Quiz 1 — Four Pillars of Excellence</li>
+            <li>Quiz 2 — 5 Golden Questions</li>
+            <li>No module acknowledgment required</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Module 03</h4>
+          <p style="font-size: 0.875rem;">Marketing Training</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>9 Quizzes — Call Recordings, Collections, To-Do's, Appointments, Text Messages, Section 8, CRM Directory, Maintenance Requests, Tickets</li>
+            <li>1 Acknowledgment — Module completion sign-off</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert-box info" style="margin-top: 3rem;">
+        <p><strong>Total Requirement:</strong> 12 Quizzes + 2 Acknowledgments = Your Certificate. Passing score is 70% or higher per quiz.</p>
+      </div>
+    </section>
+    
+    <footer class="container" style="padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+      <p style="margin: 0 auto; font-size: 0.875rem;">
+        <strong>PropertyMax.ai Training Hub</strong><br>
+        Your commitment to professionalism, warmth, accuracy, and consistency is what sets ApartmentCorp apart—and what makes every resident feel at home.
+  <main>
+    <section id="overview" class="hero container">
+      <span class="uppercase-label text-gold">ApartmentCorp Management Training</span>
+      <h1>PropertyMax.ai<br>Training Hub</h1>
+      <p style="font-size: 1.25rem; color: var(--color-text-primary); margin-bottom: 2rem;">Live Team Training Session</p>
+      
+      <div class="grid-3" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div>
+          <span class="uppercase-label">Facilitated By</span>
+          <p style="color: var(--color-text-primary); font-weight: 500;">Brandon Rose</p>
+        </div>
+        <div>
+          <span class="uppercase-label">Modules</span>
+          <p style="color: var(--color-text-primary); font-weight: 500;">3 Modules · 11 Sections</p>
+        </div>
+        <div>
+          <span class="uppercase-label">Format</span>
+          <p style="color: var(--color-text-primary); font-weight: 500;">Live Zoom Training</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="module-header">
+        <h2>Getting Started: How to Use the Training Hub</h2>
+      </div>
+      
+      <p>The PropertyMax.ai Training Hub is your permanent reference library. Every section includes an AI-narrated PIP training video, a step-by-step workflow guide, and a knowledge-check quiz. Progress is tracked automatically—your completion certificate is issued once all quizzes and acknowledgments are done.</p>
+
+      <div class="grid-3" style="margin-top: 3rem;">
+        <div class="card">
+          <span class="uppercase-label">Step 01</span>
+          <h3>Watch the Video</h3>
+          <p style="margin-top: 1rem;">Each section opens with an AI-narrated PIP training video. Watch it fully before moving on—the quiz questions are based on what you see and hear.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label">Step 02</span>
+          <h3>Follow the Workflow</h3>
+          <p style="margin-top: 1rem;">Below each video is a step-by-step workflow guide. Use it as a reference when applying the process in PropertyMax.ai. It is always available—bookmark it.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label">Step 03</span>
+          <h3>Take the Quiz</h3>
+          <p style="margin-top: 1rem;">Each section ends with a knowledge-check quiz. Your score is recorded automatically. You can re-take any quiz at any time to improve your score.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="module-1" class="section container">
+      <div class="module-header">
+        <div class="module-number">01</div>
+        <div>
+          <span class="uppercase-label">Module 01</span>
+          <h2>Dashboard Training</h2>
+          <p style="margin-bottom: 0;">Your Command Center for Property Management.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <h3>11 Areas You Must Know</h3>
+          <p>The Dashboard Overview video walks through every key section of PropertyMax.ai. These are not optional features—they are the daily tools of every property manager.</p>
+          
+          <div class="alert-box info">
+            <p><strong>Quiz Prep: 7 Key Facts</strong></p>
+            <p>Review these facts before taking the Dashboard Overview quiz in the Training Hub:</p>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; color: var(--color-text-secondary);">
+              <li><strong>Call Recordings Tabs:</strong> Marketing, Urgent, Rent, Maintenance, Voicemail</li>
+              <li><strong>Golden Score:</strong> Performance metric (call quality + data accuracy combined)</li>
+              <li><strong>CRM Directory Tabs:</strong> PRO, TEN, VEN, DIR, EMP</li>
+              <li><strong>Calendar Blue:</strong> Appointments (showings, key pickups, tours)</li>
+              <li><strong>Calendar Orange:</strong> Maintenance events and work orders</li>
+              <li><strong>Calendar Teal:</strong> Section 8 HUD Inspections</li>
+              <li><strong>Calendar Yellow:</strong> Today's date highlight</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">01. Navigation Bar</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Primary menu and module access</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">02. Collections Overview</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Gates, Billed, Collected, Difference</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">03. Call Recordings</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">5 tabs — daily review required</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">04. Section 8 Inspections</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Pending, Scheduled, Completed</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">05. Text Messages</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">All tenant and prospect texts</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">06. Tickets</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Internal communications channel</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">07. Maintenance Requests</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Unassigned, Overdue, Assigned</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">08. Appointments</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Showings, key pickups, tours</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">09. Calendar</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Color-coded by event type</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">10. CRM Directory</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">PRO, TEN, VEN, DIR, EMP tabs</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">11. To-Do's</h4>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Rent, Sales, Maintenance tasks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="module-2" class="section container">
+      <div class="module-header">
+        <div class="module-number">02</div>
+        <div>
+          <span class="uppercase-label">Module 02</span>
+          <h2>Phone Excellence</h2>
+          <p style="margin-bottom: 0;">Phone Excellence is not a suggestion. It is the minimum standard for every call, every time, with every caller.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: 1.5rem;">The Four Pillars of Phone Excellence</h3>
+      <p>Every call must reflect all four pillars—no exceptions. These standards apply equally to a frustrated tenant and an excited prospect. There is no call too short or too routine to skip them.</p>
+
+      <div class="grid-4" style="margin-top: 2rem;">
+        <div class="card">
+          <span class="uppercase-label text-cyan">Pillar 01</span>
+          <h4>Professionalism</h4>
+          <p style="font-size: 0.875rem;">Clear, composed, timely communication. Every commitment made on a call must be followed through. You represent ApartmentCorp on every call.</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Answer within 3 rings.</li>
+            <li>Introduce yourself by name.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-cyan">Pillar 02</span>
+          <h4>Warmth</h4>
+          <p style="font-size: 0.875rem;">Callers must feel genuinely welcomed and valued. Active listening and empathetic responses are non-negotiable. Warmth is demonstrated through action.</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Use the caller's name.</li>
+            <li>Acknowledge before answering.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-cyan">Pillar 03</span>
+          <h4>Consistency</h4>
+          <p style="font-size: 0.875rem;">Every caller receives the same high-quality experience regardless of time, call type, or which staff member answers. Consistency builds trust at scale.</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Same standard every call.</li>
+            <li>No exceptions for "easy" calls.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-cyan">Pillar 04</span>
+          <h4>Accuracy</h4>
+          <p style="font-size: 0.875rem;">Information captured correctly and completely on the first attempt. Accurate data powers PropertyMax.ai's AI systems. Wrong data breaks the workflow.</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Verify every data point.</li>
+            <li>Accuracy is a system requirement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Professionalism in Practice</h3>
+        <p>Professionalism is not about formality—it is about reliability. When you answer a call, you represent ApartmentCorp.</p>
+        
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Do</th>
+              <th>Don't</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong class="text-green">Answer within 3 rings</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Prompt answers signal that callers are a priority.</span>
+              </td>
+              <td>
+                <strong class="text-red">Let calls go to voicemail during business hours</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Missed calls = missed prospects and frustrated tenants.</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="text-green">Introduce yourself by name and property</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">"Thank you for calling [Property], this is [Name]"</span>
+              </td>
+              <td>
+                <strong class="text-red">Answer with just "hello" or "yeah?"</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Callers don't know who they reached or if they called the right place.</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="text-green">Follow through on every commitment made</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">If you say you'll call back by 3pm, call back by 3pm.</span>
+              </td>
+              <td>
+                <strong class="text-red">Promise a callback and forget</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Broken commitments destroy trust and generate complaint calls.</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="text-green">Stay composed and solution-focused</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Calm, clear responses de-escalate difficult callers.</span>
+              </td>
+              <td>
+                <strong class="text-red">Match the caller's frustration or become defensive</strong><br>
+                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Emotional reactions escalate situations and reflect poorly on the property.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Warmth: Active Listening Is a Skill</h3>
+        <p>Warmth means making the caller feel heard. This requires active listening—repeating back key information, acknowledging concerns before jumping to solutions, and using the caller's name throughout the conversation.</p>
+        
+        <div class="grid-3" style="margin-top: 2rem;">
+          <div class="card">
+            <h4>Acknowledge First</h4>
+            <p style="font-size: 0.875rem;">Before offering any solution or information, acknowledge what the caller has said. This signals that you are listening.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Say This</span>
+              <p style="font-size: 0.875rem; font-style: italic; margin-bottom: 0;">"I understand — let me make sure I have this right before we move forward…"</p>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Use Their Name</h4>
+            <p style="font-size: 0.875rem;">Personalization signals that this is not a scripted, transactional interaction. Using the caller's name makes the conversation feel individual.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Say This</span>
+              <p style="font-size: 0.875rem; font-style: italic; margin-bottom: 0;">"Absolutely, Maria — let me pull that up for you right now."</p>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Confirm Understanding</h4>
+            <p style="font-size: 0.875rem;">Before answering or transferring, confirm that you have understood the caller's need correctly. This prevents miscommunication.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Say This</span>
+              <p style="font-size: 0.875rem; font-style: italic; margin-bottom: 0;">"So what you're looking for is a 2-bedroom available in March — is that right?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Accuracy Drives the AI: Garbage In, Garbage Out</h3>
+        <p>PropertyMax.ai's AI features—automatic prospect records, AI-generated To-Do's, call summaries, and follow-up suggestions—are only as good as the data that feeds them.</p>
+        
+        <div class="alert-box">
+          <p><strong>The Accuracy Rule:</strong> Accuracy is not just good practice—it is a system requirement. Every field you fill in correctly is a step in the AI chain. Every field you skip or get wrong breaks the chain—and costs a lease.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>The 5 Golden Questions</h3>
+        <p>These five questions are the minimum information required from every prospect on every call. Missing even one creates a gap in the prospect record that the AI cannot fill. These are not a script—they are a checklist.</p>
+        
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Question to Ask</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-gold font-bold">01</td>
+              <td><strong>What is your full name?</strong></td>
+              <td>Personalized communication + accurate prospect record creation in PropertyMax.ai.</td>
+            </tr>
+            <tr>
+              <td class="text-gold font-bold">02</td>
+              <td><strong>What is the best phone number to reach you?</strong></td>
+              <td>Primary follow-up contact method—required for AI-generated To-Do's and callbacks.</td>
+            </tr>
+            <tr>
+              <td class="text-gold font-bold">03</td>
+              <td><strong>What is your email address?</strong></td>
+              <td>Tour confirmations, property brochures, lease application links, and follow-up communications.</td>
+            </tr>
+            <tr>
+              <td class="text-gold font-bold">04</td>
+              <td><strong>What is your reason for calling today?</strong></td>
+              <td>Understand needs, tailor the conversation, and populate the AI-generated call summary correctly.</td>
+            </tr>
+            <tr>
+              <td class="text-gold font-bold">05</td>
+              <td><strong>How did you hear about us?</strong></td>
+              <td>Marketing channel effectiveness data—directly informs where advertising dollars are spent.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="alert-box">
+          <p><strong>Critical Rule:</strong> All 5 questions must be asked on every prospect call—even if the call is short, even if the prospect seems impatient, even if you already know their name.</p>
+        </div>
+      </div>
+    </section>
+    <section id="module-3" class="section container">
+      <div class="module-header">
+        <div class="module-number">03</div>
+        <div>
+          <span class="uppercase-label">Module 03</span>
+          <h2>Marketing Training</h2>
+          <p style="margin-bottom: 0;">9 Sections — 9 Daily Workflows.</p>
+        </div>
+      </div>
+
+      <p>Marketing Training covers every workflow in the Marketing tab and dashboard. Each section maps directly to a daily operational responsibility—from reviewing call recordings to managing maintenance requests and tracking tickets.</p>
+
+      <div class="grid-3" style="margin-top: 3rem;">
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 01</span>
+          <h4>Recent Call Recordings</h4>
+          <p style="font-size: 0.875rem;">Review, action, and close out every call recording daily across 5 tabs.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 02</span>
+          <h4>Collections</h4>
+          <p style="font-size: 0.875rem;">Monitor Gates, Billed, Collected, and Difference—act on any gap immediately.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 03</span>
+          <h4>To-Do's</h4>
+          <p style="font-size: 0.875rem;">Four tabs: My To-Do's, Rent, Sales, Maintenance—your daily task engine.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 04</span>
+          <h4>Appointments</h4>
+          <p style="font-size: 0.875rem;">Schedule, confirm, and complete every appointment—use the Complete Checklist button.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 05</span>
+          <h4>Text Messages</h4>
+          <p style="font-size: 0.875rem;">All tenant and prospect communications must go through PropertyMax.ai—not personal phones.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 06</span>
+          <h4>Section 8 Inspections</h4>
+          <p style="font-size: 0.875rem;">HUD compliance tracking—Pending, Scheduled, Completed. Every unscheduled day is a risk.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 07</span>
+          <h4>CRM Directory</h4>
+          <p style="font-size: 0.875rem;">Five tabs: PRO, TEN, VEN, DIR, EMP—post-call workflow lives here.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 08</span>
+          <h4>Maintenance Requests</h4>
+          <p style="font-size: 0.875rem;">Priority order: Unassigned → Overdue → Assigned → Completed. Red X to close.</p>
+        </div>
+        <div class="card">
+          <span class="uppercase-label text-gold">Section 09</span>
+          <h4>Tickets</h4>
+          <p style="font-size: 0.875rem;">Internal communication channel—Received, Sent, Completed. Follow up, don't forget.</p>
+        </div>
+      </div>
+
+      <div class="alert-box info" style="margin-top: 3rem;">
+        <p><strong>Daily Standard:</strong> Every section must be reviewed every shift—not weekly, not when you remember. Every shift.</p>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Section 1: Managing Call Recordings</h3>
+        <p>Call Recordings are your daily audit of every inbound call. This six-step workflow ensures every recording is reviewed, every action item is addressed, and every completed item is closed out correctly.</p>
+        
+        <div class="grid-2" style="margin-top: 2rem;">
+          <div class="workflow-step">
+            <div class="workflow-number">01</div>
+            <div class="workflow-content">
+              <h4>Open the Dashboard</h4>
+              <p style="font-size: 0.875rem;">Log in to PropertyMax.ai and navigate to the main Dashboard.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">02</div>
+            <div class="workflow-content">
+              <h4>Scroll to Call Recordings</h4>
+              <p style="font-size: 0.875rem;">Locate the Recent Call Recordings section—check all 5 tabs: Marketing, Urgent, Rent, Maintenance, Voicemail.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">03</div>
+            <div class="workflow-content">
+              <h4>Play the Recording</h4>
+              <p style="font-size: 0.875rem;">Listen to the full call—do not skip or skim.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">04</div>
+            <div class="workflow-content">
+              <h4>Check All Action Items</h4>
+              <p style="font-size: 0.875rem;">Review every AI-generated action item listed below the recording—confirm each is addressed.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">05</div>
+            <div class="workflow-content">
+              <h4>Click the Red X</h4>
+              <p style="font-size: 0.875rem;">Only after all action items are confirmed—click the Red X to close the recording.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">06</div>
+            <div class="workflow-content">
+              <h4>Refresh & Repeat</h4>
+              <p style="font-size: 0.875rem;">Move to the next recording—repeat for all tabs, every day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>The Red X Rule: Close It Out — Every Time</h3>
+        <p>Pressing the red X is how you close out completed items and keep the dashboard clean. It appears in three places. If it's not closed, it's still your responsibility.</p>
+        
+        <div class="grid-3" style="margin-top: 2rem;">
+          <div class="card">
+            <span class="uppercase-label text-red">Location 01</span>
+            <h4>Call Recordings</h4>
+            <p style="font-size: 0.875rem; margin-bottom: 1rem;">Press the Red X only after you have:</p>
+            <ul style="font-size: 0.875rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Listened to the full recording.</li>
+              <li>Verified the AI-generated To-Do's are accurate and assigned.</li>
+              <li>Confirmed the prospect record in the CRM is complete.</li>
+              <li>Sent any required follow-up text or email through the platform.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-red">Location 02</span>
+            <h4>Maintenance Requests</h4>
+            <p style="font-size: 0.875rem; margin-bottom: 1rem;">Press the Red X only after you have:</p>
+            <ul style="font-size: 0.875rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Confirmed the work is physically done.</li>
+              <li>Called or texted the tenant to verify they are satisfied with the repair.</li>
+              <li>Logged any follow-up actions if the repair was incomplete.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-red">Location 03</span>
+            <h4>Tickets</h4>
+            <p style="font-size: 0.875rem; margin-bottom: 1rem;">Press the Red X only after you have:</p>
+            <ul style="font-size: 0.875rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Read the full ticket.</li>
+              <li>Taken the required action.</li>
+              <li>Followed up on sent tickets open for more than 24 hours.</li>
+              <li>Escalated to regional manager if open for 2+ days.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>The Daily Morning Routine</h3>
+        <p>Every reactive day starts with a skipped morning routine. These six steps in order ensure nothing falls through the cracks—every tenant is heard, every request is assigned, every follow-up is sent before the phones start ringing.</p>
+        
+        <div class="grid-3" style="margin-top: 2rem;">
+          <div class="card">
+            <span class="uppercase-label text-gold">01. Collections</span>
+            <p style="font-size: 0.875rem;">Review all outstanding rent balances. Flag accounts that are 3+ days past due. Send a reminder text through the platform. Log every action in the record.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">02. Call Recordings</span>
+            <p style="font-size: 0.875rem;">Open the 5 tabs. Review every unreviewed call. Complete all action items. Press the Red X on each reviewed recording.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">03. To-Do's</span>
+            <p style="font-size: 0.875rem;">Work through all open To-Do's. Complete each task, add notes, and close completed items. Do not carry yesterday's To-Do's into tomorrow.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">04. Maintenance</span>
+            <p style="font-size: 0.875rem;">Check Unassigned first—assign every one before moving on. Then check Overdue. Zero unassigned requests by end of morning routine.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">05. Tickets</span>
+            <p style="font-size: 0.875rem;">Check Tickets Received—read and action each one. Check Sent Tickets—follow up on anything older than 24 hours with no response.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">06. Text Messages</span>
+            <p style="font-size: 0.875rem;">Reply to every unanswered text from tenants and prospects. No message should go unanswered past the start of your shift.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Section 2: Collections Overview</h3>
+        <p>The Collections section gives you a real-time financial snapshot of your property. It shows four key numbers—and the relationship between them tells you exactly where your attention is needed today.</p>
+        
+        <div class="grid-4" style="margin-top: 2rem;">
+          <div class="card">
+            <h4>Gates</h4>
+            <p style="font-size: 0.875rem;">Expected total rent for the property. This is your baseline.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Watch For</span>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Sudden drops may indicate a lease expiration or vacancy that wasn't updated.</p>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Billed</h4>
+            <p style="font-size: 0.875rem;">Amount actually charged to tenants. It should match Gates closely.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Watch For</span>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Billed significantly lower than Gates = missed charges or posting errors.</p>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Collected</h4>
+            <p style="font-size: 0.875rem;">Amount actually received from tenants. This is your actual revenue.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label">Watch For</span>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Low Collected relative to Billed = active delinquency requiring follow-up calls.</p>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Difference</h4>
+            <p style="font-size: 0.875rem;">The gap between Billed and Collected. A large Difference is a list of tenants who need to be contacted today.</p>
+            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--border-radius-sm); margin-top: 1rem;">
+              <span class="uppercase-label text-red">Action Required</span>
+              <p style="font-size: 0.875rem; margin-bottom: 0;">Any significant Difference triggers immediate follow-up—calls, texts, and To-Do's.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Section 3: To-Do's — Your Task Management Center</h3>
+        <p>The To-Do's section is your daily task engine. It has four tabs—each representing a different category of follow-up work. Review all four every shift, address overdue items first, and never let a task live only in your head.</p>
+        
+        <div class="grid-2" style="margin-top: 2rem;">
+          <div class="card">
+            <span class="uppercase-label text-cyan">Tab 01</span>
+            <h4>My To-Do's</h4>
+            <p style="font-size: 0.875rem;">Your personal task list—everything assigned directly to you. This is your starting point every shift. Overdue items appear at the top and must be addressed before anything else.</p>
+            <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Overdue first—any item past its due date is a priority.</li>
+              <li>AI-generated tasks from call recordings appear here automatically.</li>
+              <li>Mark complete immediately after action—do not leave tasks open.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-cyan">Tab 02</span>
+            <h4>Rent</h4>
+            <p style="font-size: 0.875rem;">Your collections follow-up engine. Every item in the Rent tab represents a direct revenue impact. Missing a Rent To-Do is not just a task failure—it is a financial failure.</p>
+            <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Cross-reference with the Collections section Difference number.</li>
+              <li>Every delinquent tenant should have an active Rent To-Do.</li>
+              <li>Log outcome of every follow-up call or text in the record.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-cyan">Tab 03</span>
+            <h4>Sales</h4>
+            <p style="font-size: 0.875rem;">Your leasing pipeline management tool. Every prospect, tour, and application should generate a Sales To-Do. This tab keeps the leasing funnel moving from first call to signed lease.</p>
+            <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Follow up with prospects within 24 hours of their call.</li>
+              <li>Tour confirmation and post-tour follow-up tasks appear here.</li>
+              <li>Application status updates and approval follow-ups tracked here.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-cyan">Tab 04</span>
+            <h4>Maintenance</h4>
+            <p style="font-size: 0.875rem;">Work order follow-up tasks that directly affect resident retention. A maintenance request that goes unacknowledged is one of the top reasons tenants choose not to renew their lease.</p>
+            <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+              <li>Cross-reference with the Maintenance Requests section daily.</li>
+              <li>Every Unassigned request should generate a Maintenance To-Do.</li>
+              <li>Update tenant on status—even a "still working on it" call matters.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Section 4: Appointments</h3>
+        <p>The Complete Checklist button does more than mark the appointment done—it triggers the AI to generate follow-up To-Do's, update the prospect record, and log the outcome in the system.</p>
+        
+        <table class="data-table" style="margin-top: 2rem;">
+          <thead>
+            <tr>
+              <th>Color</th>
+              <th>Appointment Type</th>
+              <th>What to Expect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: #3B82F6;">Blue</strong></td>
+              <td>Leasing Appointments</td>
+              <td>Tours, move-ins, renewals, and prospect meetings.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #F97316;">Orange</strong></td>
+              <td>Maintenance Appointments</td>
+              <td>Scheduled repairs, vendor visits, and work orders.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #14B8A6;">Teal</strong></td>
+              <td>Section 8 Inspections</td>
+              <td>HUD-required inspections—compliance-critical.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Section 6: Section 8 Inspections</h3>
+        <p>Section 8 inspections are HUD-mandated—missing or delaying one puts the property's housing assistance contract at risk. Every inspection moves through three statuses: Pending, Scheduled, and Completed.</p>
+        
+        <div class="grid-3" style="margin-top: 2rem;">
+          <div class="card">
+            <span class="uppercase-label text-red">Status 01</span>
+            <h4>Pending</h4>
+            <p style="font-size: 0.875rem;">Every unscheduled inspection in the Pending column is a compliance risk. Check it before anything else in your morning routine.</p>
+            <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 1rem; margin-bottom: 0;">Call or text the tenant to schedule access immediately.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">Status 02</span>
+            <h4>Scheduled</h4>
+            <p style="font-size: 0.875rem;">Send a confirmation text and call the tenant the day before the inspection. No-shows are almost always a failure to confirm.</p>
+            <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 1rem; margin-bottom: 0;">Have the inspection checklist and unit history ready.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-green">Status 03</span>
+            <h4>Completed</h4>
+            <p style="font-size: 0.875rem;">After the inspection, open the record and click Complete Checklist. This updates the status and triggers follow-up actions.</p>
+            <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 1rem; margin-bottom: 0;">Record whether the inspection passed, required repairs, or failed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Section 7: CRM Directory</h3>
+        <p>Every prospect who calls gets a record in the PRO tab. The AI auto-populates fields from the call recording—your job is to review, complete, and act on every record before end of shift.</p>
+        
+        <div class="grid-2" style="margin-top: 2rem;">
+          <div class="workflow-step">
+            <div class="workflow-number">01</div>
+            <div class="workflow-content">
+              <h4>Open the PRO Tab</h4>
+              <p style="font-size: 0.875rem;">Navigate to CRM Directory → PRO tab. This is your starting point for every post-call workflow.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">02</div>
+            <div class="workflow-content">
+              <h4>Find the Prospect Record</h4>
+              <p style="font-size: 0.875rem;">Search by name or phone number. The AI creates the record automatically.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">03</div>
+            <div class="workflow-content">
+              <h4>Open the Edit Form</h4>
+              <p style="font-size: 0.875rem;">Click the Edit button to open the full record. Do not just view—you need to be in edit mode to verify.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">04</div>
+            <div class="workflow-content">
+              <h4>Review AI-Generated Fields</h4>
+              <p style="font-size: 0.875rem;">Verify: name, phone, unit size, move-in date, budget, and contact preference. Correct any errors.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">05</div>
+            <div class="workflow-content">
+              <h4>Check Auto-Generated To-Do's</h4>
+              <p style="font-size: 0.875rem;">Confirm all AI-generated tasks are assigned, dated, and ready to action. Add any the AI missed.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">06</div>
+            <div class="workflow-content">
+              <h4>Review the AI Call Summary</h4>
+              <p style="font-size: 0.875rem;">Confirm it accurately captures the conversation—add notes for anything important that was missed.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">07</div>
+            <div class="workflow-content">
+              <h4>Send Follow-Up Text</h4>
+              <p style="font-size: 0.875rem;">Use the Send Message button inside the record—never a personal phone. This triggers AI tracking.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">08</div>
+            <div class="workflow-content">
+              <h4>Archive Closed Prospects</h4>
+              <p style="font-size: 0.875rem;">When a prospect moves in, declines, or goes unresponsive after 30 days—move to Archive.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Section 8: Maintenance Requests</h3>
+        <p>Maintenance Requests must be worked in priority order—Unassigned first, then Overdue, then Assigned. Every request that goes unacknowledged is a resident who feels ignored and a lease renewal at risk.</p>
+        
+        <div class="grid-4" style="margin-top: 2rem;">
+          <div class="card">
+            <span class="uppercase-label text-red">01. Unassigned</span>
+            <p style="font-size: 0.875rem; margin-bottom: 0;">Unassigned requests mean a resident has no one working their issue. Assign to a vendor or tech before moving on.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-gold">02. Overdue</span>
+            <p style="font-size: 0.875rem; margin-bottom: 0;">Past expected completion—contact the vendor or tech immediately and update the tenant with a new date.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-cyan">03. Assigned</span>
+            <p style="font-size: 0.875rem; margin-bottom: 0;">Work is in progress. Check in with the vendor if the date is near and proactively update the tenant.</p>
+          </div>
+          <div class="card">
+            <span class="uppercase-label text-green">04. Completed</span>
+            <p style="font-size: 0.875rem; margin-bottom: 0;">Confirm the work is done before closing. Call or text the tenant to verify satisfaction, then close the record.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem; padding-bottom: 4rem;">
+        <h3>Section 9: Tickets</h3>
+        <p>Tickets are your internal communication channel with leadership and the regional team—not a tool for tenant issues. Use Tickets when you need a decision, a reimbursement, tech support, or to escalate a staffing matter.</p>
+        
+        <div class="alert-box">
+          <p><strong>Accountability Rule:</strong> Every ticket you submit is your responsibility until it is resolved and closed. "I submitted it" is not the same as "it was handled." Check Sent Tickets every day. If a ticket has no response after 24 hours, follow up. After 48 hours, contact the regional manager directly.</p>
+        </div>
+      </div>
+    </section>
+    <section id="requirements" class="section container">
+      <div class="module-header">
+        <h2>Completion Requirements</h2>
+      </div>
+      
+      <p>Complete all quizzes and acknowledgments in each module to unlock your PropertyMax.ai Training Certificate.</p>
+
+      <div class="grid-3" style="margin-top: 2rem;">
+        <div class="card">
+          <h4>Module 01</h4>
+          <p style="font-size: 0.875rem;">Dashboard Training</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>1 Quiz — Dashboard Overview</li>
+            <li>1 Acknowledgment — Module completion sign-off</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Module 02</h4>
+          <p style="font-size: 0.875rem;">Phone Excellence</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>Quiz 1 — Four Pillars of Excellence</li>
+            <li>Quiz 2 — 5 Golden Questions</li>
+            <li>No module acknowledgment required</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Module 03</h4>
+          <p style="font-size: 0.875rem;">Marketing Training</p>
+          <ul style="font-size: 0.875rem; margin-top: 1rem; padding-left: 1rem; color: var(--color-text-secondary);">
+            <li>9 Quizzes — Call Recordings, Collections, To-Do's, Appointments, Text Messages, Section 8, CRM Directory, Maintenance Requests, Tickets</li>
+            <li>1 Acknowledgment — Module completion sign-off</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert-box info" style="margin-top: 3rem;">
+        <p><strong>Total Requirement:</strong> 12 Quizzes + 2 Acknowledgments = Your Certificate. Passing score is 70% or higher per quiz.</p>
+      </div>
+    </section>
+    
+    <footer class="container" style="padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+      <p style="margin: 0 auto; font-size: 0.875rem;">
+        <strong>PropertyMax.ai Training Hub</strong><br>
+        Your commitment to professionalism, warmth, accuracy, and consistency is what sets ApartmentCorp apart—and what makes every resident feel at home.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

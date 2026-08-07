@@ -1,0 +1,947 @@
+
+Cloud
+Claude finished the response
+
+Ran 2 commands, used 2 tools, read a file
+Ran 2 commands, used 2 tools, read a file
+Found it — the :text-is("Generate") selector was matching a different, entirely legitimate "Generate" text elsewhere on the page (likely inside "Generate Now" or a tooltip), not the actual submit button, and that click got blocked by the panel's own backdrop. The error log gave me the exact component tag for the whole side panel (<app-generate-report>), so let me scope everything inside it instead of searching the whole page.
+
+
+Read a file, edited a file
+Read a file, edited a file
+Now adding a panel-scoped helper and updating the call sites:
+
+
+Read 2 files, ran a command, edited a file
+Read 2 files, ran a command, edited a file
+Now updating the call sites — panelHeading, setFormatIfNeeded, and generateButton:
+
+
+Ran a command, read a file, edited a file
+Ran a command, read a file, edited a file
+Now the panelHeading and generateButton in generateAndDownloadAllProperties:
+
+
+Read a file, edited a file, ran a command
+Read a file, edited a file, ran a command
+Clean. Let me also check the availability "completed-reports-never-appeared" screenshot from this run before pushing, since it got further and might reveal something else.
+
+
+Read a file
+Read a file
+This confirms it's the same root bug hitting both report types — for Availability, the ambiguous "Generate" text click apparently landed on something clickable but non-functional (likely the "Generate Now" radio, already selected by default), so it didn't throw but also never actually submitted. The panel-scoping fix should resolve both. Pushing now.
+
+
+Used 2 tools
+Used 2 tools
+Got a precise root cause this time from the error log: clicking "the visible text 'Generate'" was ambiguous — that exact word also legitimately appears elsewhere on the panel (almost certainly as part of "Generate Now"), so the click sometimes landed on the wrong thing entirely. For Delinquent-and-Prepaid it hit an element blocked by the panel's backdrop and threw outright; for Availability it apparently clicked something harmless-but-useless (probably that same "Generate Now" radio, which was already selected), so nothing threw but nothing got submitted either — matching the empty Completed tab in both cases.
+
+Fixed by scoping every lookup inside the Generate panel (Format, Select Property, and the Generate button itself) to that panel's own container instead of searching the whole page. This should be more robust than the previous fixes since it rules out this entire category of "which visible match did I actually click" ambiguity in one place, rather than special-casing each element as it comes up.
+
+Run it again — we should be very close now.
+
+Traced this to a genuine ambiguity — "Generate" as text legitimately appears twice in the panel (the real button and, most likely, "Generate Now"), and the unscoped lookup was inconsistently hitting the wrong one. Fixed by scoping every lookup inside the panel to its own container element rather than the whole page, which should close out this whole category of bug at once. Ready for another run.
+
+
+Realpageclient
+TS 
+
+
+
+
+
+Message collapsed
+
+Used 3 tools, loaded tools, ran 2 commands
+Used 3 tools, loaded tools, ran 2 commands
+Good, the folder exists directly under Downloads. Now let's query the SQLite DB for runs 27/28 and check debug artifacts.
+
+
+Used 8 tools
+Used 8 tools
+Let's stage the run-28 screenshots and HTML into the cloud workspace to look at them.
+
+
+Ran 8 commands, read 5 files, searched 2 patterns
+Ran 8 commands, read 5 files, searched 2 patterns
+Now let's implement the fix — add a container-loader selector and wait for it to clear before checking rows, plus close via the explicit Close button.
+
+
+Edited a file
+Edited a file
+Now let's rewrite waitForCompletedRows to wait for the loader to clear before checking, and close via the explicit button.
+
+
+Edited a file
+Edited a file
+Now let's type-check and push this fix.
+
+
+Ran a command
+Ran a command
+Type-checks clean. Now push to Brandon's machine.
+
+
+Used 2 tools
+Used 2 tools
+Pushed to your machine.
+
+Found the real bug via the SQLite error log + the saved HTML dump for run 28 — it wasn't a selector mismatch this time. The "View Completed" panel re-fetches its data from an API every single time it's opened, and shows a loading spinner with an empty grid while that fetch is in flight. My polling code was closing and reopening the panel every 10 seconds but checking the row count immediately after opening — with zero wait for that fetch to finish. The saved HTML for run 28's final failed attempt actually shows the spinner still spinning with 0 rows, which is the smoking gun: it was racing the fetch on every one of the 12 attempts, not necessarily reflecting whether your reports had actually finished generating.
+
+Fixed by explicitly waiting for that spinner to clear before trusting the row count, and closing via the panel's real "Close" button instead of Escape (since Escape has already burned us once on a different panel that treats it as Cancel). Also bumped the polling window a bit since each attempt now has to wait out the loader too.
+
+Can you run npm run scrape:test -- 1181003 one more time? If the reports were genuinely completing all along, this should get us all the way to actual downloads now.
+
+
+Realpageclient
+TS 
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Realpageclient · TS
+/**
+ * RealPage / OneSite browser automation.
+ *
+ * LOGIN FLOW — confirmed against your real RealPage tenant (2026-08-06):
+ * This is a genuine two-page flow, not a single-page async step:
+ *   1. https://www.realpage.com/login/identity/Account/SignIn — a Username field
+ *      (`id="Username"`, `type="text"`) and a "Next" button. Clicking Next submits
+ *      the form and navigates to step 2 (real page load, not an AJAX swap).
+ *   2. https://www.realpage.com/login/identity/Account/Local — a Password field
+ *      (`id="Password"`, following the same ASP.NET Identity naming convention as
+ *      Username) and a "Login" button.
+ *   2.5. (conditional) A 2FA challenge — "Choose how you want to sign in"
+ *      (Text/Email/Authenticator). Confirmed via a saved debug screenshot on
+ *      2026-08-06. This can't be automated (it needs a real code from your
+ *      phone/email), so login() uses a *persistent* browser profile
+ *      (./data/browser-profile/) plus ticking "Remember me" — RealPage's
+ *      device-trust cookie then usually skips 2FA on later runs that reuse
+ *      the same profile. Run `npm run setup:realpage-session` once,
+ *      interactively, to complete the challenge by hand and establish that
+ *      trust; scheduled/headless runs reuse it from then on. If a headless
+ *      run ever hits the 2FA screen anyway, trust has expired — rerun setup.
+ * `login()` below drives exactly this sequence, and lands on the "RealPage
+ * Unified Platform" app launcher/home page.
+ *
+ * REPORTS ARCHITECTURE — confirmed 2026-08-06, and a significant correction
+ * to an earlier assumption in this file: reports do NOT live inside OneSite's
+ * own ui2 dashboard. Both "Delinquent and Prepaid (Excel)" and "Availability"
+ * live in a separate, Unified-Platform-level page — a cross-product Reports
+ * hub at https://www.realpage.com/reporting/reports (breadcrumb "Unified
+ * Platform / Reports"; its "Product" column just labels which underlying
+ * product a report *comes from*, e.g. "OneSite" — it's not a OneSite-hosted
+ * page). This is reached directly from the Unified Platform launcher's own
+ * left nav ("Reports"), with NO SSO handoff to the OneSite subdomain needed.
+ * So this file no longer clicks through the OneSite tile at all — see the
+ * (kept, but now unused-by-default) oneSiteTile selector / goToOneSite()
+ * below, preserved only in case some other report ever turns out to need it.
+ *
+ * Confirmed end-to-end flow for generating + downloading a report from this
+ * hub (walked through live with real screenshots on 2026-08-06):
+ *   1. Go to https://www.realpage.com/reporting/reports.
+ *   2. Type a search term (e.g. "delin") into the search box to filter the
+ *      report table down to the row you want. Exact-match the row by its
+ *      link text — "Delinquent and Prepaid" and "Delinquent and Prepaid
+ *      (Excel)" are DIFFERENT rows and one is a text-prefix of the other, so
+ *      substring matching is not safe here.
+ *   3. Click that row's kebab (⋮) menu (rightmost control in the row) and
+ *      choose "Generate & Schedule". A "Generate Report" panel slides in
+ *      from the right.
+ *   4. In that panel: "Generate Now" is selected by default (vs. "Schedule
+ *      for Later") — leave it. Format is a required dropdown; the
+ *      "(Excel)" report row pre-selects Excel, but "Availability" does not
+ *      pre-select PDF, so this code explicitly sets Format when needed.
+ *      "Select Property" is a required multi-select that, once opened,
+ *      defaults to ALL properties checked ("Select All" ticked) — confirmed
+ *      this is exactly what's wanted here (Brandon: "select all buildings
+ *      and leave everything else defaulted"). Fiscal Period / Subproperty
+ *      parameters default sensibly (Current AR Period / ALL) and were
+ *      confirmed to not need touching.
+ *   5. Click "Generate". The panel closes. Generation is ASYNC — a
+ *      notification appears, and (confirmed) it produces one COMPLETED
+ *      REPORT PER PROPERTY, not one combined file. This is actually
+ *      convenient: it's already split the way the archive wants it.
+ *   6. To get the files: open the same row's kebab menu again and choose
+ *      "View Completed". A panel opens with Scheduled / In Progress /
+ *      Completed tabs and a table: Completed Date, Property, User/Report
+ *      Group, Format, File ID, Status, and a "View Report" link per row.
+ *      Confirmed clicking "View Report" triggers an IMMEDIATE browser
+ *      download (no intermediate viewer/download button) — exactly what
+ *      `page.waitForEvent("download")` is for.
+ *
+ * generateAndDownloadAllProperties() below implements this whole flow and
+ * returns one Download per property, keyed by RealPage's own displayed
+ * property name (confirmed to match the names you seeded, e.g. "Anaheim
+ * Gardens", "Walnut Hill") — runScrape.ts looks each one up by property.name.
+ *
+ * UNVERIFIED PARTS (flagged inline below, in order of riskiness): the exact
+ * kebab-menu button selector (guessed as "the last <button> in the row" —
+ * no DevTools inspection done yet for this specific control), the Format /
+ * Select Property dropdown internals inside the "Generate Report" panel,
+ * and the polling behavior while waiting for all properties to appear in
+ * "Completed" (assumed near-instant based on the one live run we watched,
+ * where everything completed inside the same minute — may not hold at full
+ * 35-property scale or under load). Run `HEADLESS=false npm run scrape:test`
+ * and send a screenshot + terminal output the moment it stalls or errors, the
+ * same way we nailed down login() — captureDebugArtifacts() saves a
+ * screenshot + HTML dump automatically on any failure in this file.
+ */
+ 
+import { chromium, type BrowserContext, type Download, type Locator, type Page } from "playwright";
+import { mkdir, writeFile } from "node:fs/promises";
+import { createInterface } from "node:readline/promises";
+import path from "node:path";
+ 
+/**
+ * Where the persistent browser profile (cookies, local storage, RealPage's
+ * "remember this device" state) lives on disk. Reused across every login —
+ * both the interactive setup script and real scheduled/manual scrape runs —
+ * so that completing the 2FA challenge once carries device trust forward
+ * instead of every run hitting a fresh, untrusted browser.
+ */
+const PROFILE_DIR = path.resolve(process.cwd(), "data", "browser-profile");
+ 
+export interface RealPageCredentials {
+  baseUrl: string; // the Unified Login entry point, e.g. "https://www.realpage.com/login/identity/Account/SignIn"
+  // — NOT your OneSite subdomain directly; see the file-level comment above on
+  // why that skips the SSO handoff and falls back to a legacy login page.
+  username: string;
+  password: string;
+}
+ 
+export type ReportType = "delinquent_and_prepaid" | "availability";
+export type ReportFormat = "excel" | "pdf";
+ 
+const REPORTS_HUB_URL = "https://www.realpage.com/reporting/reports";
+ 
+/**
+ * One entry per report this scraper needs. `searchTerm` just needs to filter
+ * the table down enough to find `exactRowName` — it does NOT need to be
+ * precise. `exactRowName` MUST be the exact, full link text of the report
+ * row (confirmed exact-match matters — see file header on the "Delinquent
+ * and Prepaid" vs "Delinquent and Prepaid (Excel)" collision).
+ */
+const REPORT_DEFINITIONS: Record<ReportType, { searchTerm: string; exactRowName: string; format: ReportFormat }> = {
+  delinquent_and_prepaid: {
+    searchTerm: "delin",
+    exactRowName: "Delinquent and Prepaid (Excel)",
+    format: "excel",
+  },
+  availability: {
+    // Confirmed 2026-08-06 via screenshot: searching "availability" in the same
+    // Reports hub finds an exact "Availability" row (Report Area "Property
+    // Information / Management", Product "OneSite"). Format is NOT pre-selected
+    // by the row name here (unlike the "(Excel)" row), so generateAndDownload...
+    // explicitly sets Format to PDF for this one — see setFormatIfNeeded().
+    searchTerm: "availability",
+    exactRowName: "Availability",
+    format: "pdf",
+  },
+};
+ 
+const SELECTORS = {
+  // Step 1 — https://www.realpage.com/login/identity/Account/SignIn
+  usernameField: '#Username, input[name="Username"]',
+  // The visible "Next" label is NOT inside the <button> — RealPage renders an
+  // empty `<button type="submit"></button>` CSS-positioned under a sibling
+  // <div class="login-page-form-button__content"><span>Next</span></div>. A
+  // text-based selector can never match this button (confirmed via a saved
+  // debug screenshot + HTML dump on 2026-08-06), so target the real element.
+  usernameNextButton: '#submit_form button[type="submit"]',
+  // Only one checkbox on this page — ticking it is what lets RealPage's
+  // "remember this device" cookie persist across the browser profile reuse.
+  rememberMeCheckbox: 'input[type="checkbox"]',
+  // Step 2 — https://www.realpage.com/login/identity/Account/Local (separate page load)
+  passwordField: '#Password, input[name="Password"]',
+  // Same button/label split pattern is likely here too — go straight for the
+  // real submit button rather than matching visible "Login" text.
+  passwordLoginButton: 'form button[type="submit"]',
+  // Step 2.5 (conditional) — the 2FA challenge page, confirmed via a saved
+  // debug screenshot on 2026-08-06 ("Choose how you want to sign in", with a
+  // Text / Email / Authenticator App choice). #sendCodeBtn is a unique,
+  // reliable marker that we've landed here instead of the real dashboard.
+  mfaSendCodeButton: "#sendCodeBtn",
+  // A "logged in and past 2FA" marker that doesn't depend on OneSite at all —
+  // this header text is confirmed present on the launcher, the Reports hub,
+  // and every other Unified Platform page we've seen a screenshot of.
+  unifiedPlatformHeaderText: "RealPage Unified Platform",
+  // Kept for reference / in case some future report genuinely needs OneSite
+  // itself (none of the currently-needed reports do — see file header) —
+  // NOT called by default anymore.
+  oneSiteTile: 'a:has(.box-title:has-text("OneSite"))',
+  oneSitePermissionDeniedText: "You don't have permission to access this product.",
+ 
+  // --- Reports hub (https://www.realpage.com/reporting/reports) ---
+  //
+  // CONFIRMED 2026-08-06 via a saved failure HTML dump — this whole page is
+  // NOT built from standard <table>/<tr>/<a>/<button> tags. It's RealPage's
+  // own "raul-" component library: rows are <raul-grid-row role="listitem">
+  // containing <raul-grid-cell>s, the report name is a plain clickable
+  // <span class="r-cursor-pointer">{name}</span> (not a real link — a plain
+  // getByRole("link") search can never match it), and the kebab (⋮) menu is
+  // a <div role="button" class="r-dropdown-menu__toggle"> (not a real
+  // <button> — "last button in the row" was matching nothing real, since the
+  // row's only actual <button> is a hidden popover-trigger for the (i) icon).
+  //
+  // Also confirmed: the search input we want is a SPECIFIC element,
+  // `id="searchReportInput"` — a broader `input[placeholder*="Search" i]`
+  // guess was matching a completely different global "app switcher" search
+  // box earlier in the DOM instead (confirmed via a saved screenshot showing
+  // our real search box empty and the full unfiltered 309-report list still
+  // showing).
+  reportsHubSearchInput: "#searchReportInput",
+  reportRowTag: "raul-grid-row",
+  reportRowKebabTrigger: ".r-dropdown-menu__toggle",
+  generateAndScheduleMenuItem: "Generate & Schedule",
+  viewCompletedMenuItem: "View Completed",
+  generateReportPanelHeading: "Generate Report",
+  // Confirmed 2026-08-06 via an actual Playwright error log (pulled from the
+  // run's saved errorSummary): the real component tag wrapping the whole
+  // "Generate Report" slide-in panel. Discovered because an unscoped
+  // `:visible:text-is("Generate")` matched a COMPLETELY DIFFERENT, also
+  // legitimately-visible "Generate" text elsewhere on screen (most likely
+  // part of "Generate Now" or a tooltip) instead of the real submit button —
+  // and that wrong element's click got blocked by the panel's own backdrop
+  // div. Scoping every lookup inside this panel to `app-generate-report`
+  // eliminates that whole class of "which visible 'Generate' did I just
+  // click" ambiguity, rather than patching one more special case.
+  generateReportPanelTag: "app-generate-report",
+  selectPropertyLabel: "Select Property",
+  selectAllPropertiesLabel: "Select All",
+  generateSubmitButton: "Generate",
+  completedTabLabel: "Completed",
+  viewReportLinkText: "View Report",
+  // Confirmed 2026-08-06 via a saved failure HTML dump for run 27/28: the
+  // "View Completed" panel re-fetches its grid data from an API every time
+  // it's (re)opened, and shows a `<raul-container-loader>` spinner with an
+  // EMPTY grid-body while that fetch is in flight. The final debug capture
+  // for both runs caught this exact state — spinner still visible, 0 rows —
+  // proving the row-count check was racing the fetch, not (necessarily)
+  // reflecting the report's real completion status.
+  completedPanelLoader: "raul-container-loader",
+  asideCloseButton: "Close",
+  // Confirmed 2026-08-06 via a saved failure screenshot + error log: RealPage
+  // runs a Qualtrics customer-feedback survey widget ("Help us improve!")
+  // that can pop up mid-session and physically overlaps the page — a run
+  // failed with Playwright's own click-retry log showing
+  // `<div class="QSIWebResponsive-creative-container-fade">` intercepting
+  // every click attempt on the report row's kebab menu for the full 30s
+  // timeout. `class^="QSIWebResponsive"` is Qualtrics' own container class.
+  feedbackSurveyContainer: '[class^="QSIWebResponsive"]',
+  feedbackSurveyDismissButton: "No Thanks",
+} as const;
+ 
+export class RealPageSession {
+  private context: BrowserContext | null = null;
+  private page: Page | null = null;
+ 
+  constructor(private creds: RealPageCredentials, private headless = true) {}
+ 
+  async login(): Promise<void> {
+    await mkdir(PROFILE_DIR, { recursive: true });
+    // A persistent context (not chromium.launch() + newContext()) so cookies
+    // and RealPage's "remember this device" state survive between runs —
+    // see the module-level PROFILE_DIR comment.
+    this.context = await chromium.launchPersistentContext(PROFILE_DIR, {
+      headless: this.headless,
+      acceptDownloads: true,
+      // OneSite showed "you don't have permission" under plain Chromium but
+      // opened fine in the user's real Microsoft Edge (confirmed 2026-08-06)
+      // — see the file-level comment. Requires Edge to actually be installed
+      // wherever this runs; Playwright downloads Chromium by default but does
+      // NOT bundle Edge — see the README/SETUP note this change adds.
+      channel: "msedge",
+    });
+    this.page = this.context.pages()[0] ?? (await this.context.newPage());
+    const page = this.page;
+ 
+    try {
+      // Load the Unified Login entry point. Two very different things can
+      // happen here depending on whether this browser profile already has a
+      // LIVE session (not just 2FA device-trust, but an actual active login):
+      // either the Username field shows up (needs a fresh login), or RealPage's
+      // SSO redirect chain skips the login form entirely and lands straight on
+      // the launcher/home page (already logged in). Confirmed via a saved
+      // debug screenshot on 2026-08-06 where assuming the former unconditionally
+      // caused a timeout waiting for a Username field that was never coming.
+      await page.goto(this.creds.baseUrl, { waitUntil: "domcontentloaded" });
+ 
+      let needsLogin: boolean;
+      try {
+        needsLogin = await Promise.any([
+          page
+            .locator(SELECTORS.usernameField)
+            .first()
+            .waitFor({ state: "visible", timeout: 45_000 })
+            .then(() => true),
+          page
+            .getByText(SELECTORS.unifiedPlatformHeaderText, { exact: false })
+            .first()
+            .waitFor({ state: "visible", timeout: 45_000 })
+            .then(() => false),
+        ]);
+      } catch {
+        await this.captureDebugArtifacts("login-landing-page-unrecognized");
+        throw new Error(
+          "After navigating to REALPAGE_BASE_URL, landed on neither a Username field nor the " +
+            '"RealPage Unified Platform" header — see the saved debug screenshot for what page this actually is.'
+        );
+      }
+ 
+      if (needsLogin) {
+        // Step 1: Username -> Next.
+        await page.locator(SELECTORS.usernameField).first().fill(this.creds.username);
+ 
+        // Tick "Remember me" — this is what lets the device-trust cookie persist
+        // in the profile dir for next time. Best-effort: if this selector is ever
+        // wrong on RealPage's end, we'd rather continue without it than fail login.
+        await page
+          .locator(SELECTORS.rememberMeCheckbox)
+          .first()
+          .check({ timeout: 10_000 })
+          .catch(() => {});
+ 
+        // Click Next, then explicitly wait for the URL to change to the password
+        // step. Racing click() against waitForNavigation() in a Promise.all can
+        // miss a fast navigation or hang if the click itself doesn't fire — doing
+        // this as two sequential steps with waitForURL is more robust.
+        await page.locator(SELECTORS.usernameNextButton).first().click();
+        await page.waitForURL(/Account\/Local/i, { timeout: 45_000 });
+ 
+        // Step 2: Password -> Login.
+        await page.locator(SELECTORS.passwordField).first().waitFor({ state: "visible", timeout: 45_000 });
+        await page.locator(SELECTORS.passwordField).first().fill(this.creds.password);
+        await page.locator(SELECTORS.passwordLoginButton).first().click();
+ 
+        // Step 2.5 (conditional): RealPage may show a 2FA challenge here. With a
+        // trusted device-profile it usually won't — but the first time (or once
+        // that trust expires), it will. Handle both cases explicitly rather than
+        // silently continuing into a page that isn't the real dashboard.
+        const mfaShown = await page
+          .locator(SELECTORS.mfaSendCodeButton)
+          .first()
+          .waitFor({ state: "visible", timeout: 10_000 })
+          .then(() => true)
+          .catch(() => false);
+ 
+        if (mfaShown) {
+          if (this.headless) {
+            await this.captureDebugArtifacts("mfa-challenge-in-headless-run");
+            throw new Error(
+              "RealPage showed a 2FA challenge during a headless run — the saved browser " +
+                "profile's device trust has expired (or was never established). Run " +
+                "`npm run setup:realpage-session` once, interactively, to re-establish it, then retry."
+            );
+          }
+          // Interactive run (setup script or a supervised HEADLESS=false test): pause
+          // and let a human actually complete the challenge in the visible browser.
+          const rl = createInterface({ input: process.stdin, output: process.stdout });
+          await rl.question(
+            "\n>>> RealPage is asking for a 2FA code. In the browser window that just " +
+              "opened, choose Text/Email/Authenticator, enter the code, and get to the " +
+              "real dashboard — then come back here and press Enter to continue...\n"
+          );
+          rl.close();
+        }
+ 
+        // Give the launcher a moment to settle.
+        await page.waitForLoadState("networkidle", { timeout: 30_000 }).catch(() => {});
+      }
+ 
+      // Confirm we actually landed somewhere inside Unified Platform, whichever
+      // branch got us here. No OneSite hop needed — see file header.
+      await page.getByText(SELECTORS.unifiedPlatformHeaderText, { exact: false }).first().waitFor({
+        state: "visible",
+        timeout: 20_000,
+      });
+    } catch (err) {
+      await this.captureDebugArtifacts("login-failure");
+      throw err;
+    }
+ 
+    // Confirmed 2026-08-06, repeatedly: the Reports hub app is genuinely slow
+    // on its first-ever load in a fresh browser session — even a 2-attempt,
+    // 45s-each retry inside generateAndDownloadAllProperties() still wasn't
+    // always enough. But every navigation AFTER the first one in the same
+    // session loads fast (its JS chunks are warm by then). So pay that cold-
+    // load cost exactly once, right here, with a generous budget and nothing
+    // riding on it — rather than gambling on it during the first real report
+    // attempt and burning a whole report-type's retry budget on pure page
+    // load. Best-effort: if this itself times out, the real attempt's own
+    // retry logic still gets a chance.
+    await this.warmUpReportsHub();
+  }
+ 
+  private async warmUpReportsHub(): Promise<void> {
+    if (!this.page) return;
+    try {
+      await this.page.goto(REPORTS_HUB_URL, { waitUntil: "domcontentloaded", timeout: 30_000 });
+      await this.page
+        .locator(SELECTORS.reportsHubSearchInput)
+        .first()
+        .waitFor({ state: "visible", timeout: 90_000 });
+    } catch {
+      // Best-effort warm-up only — a failure here just means the real
+      // attempt later falls back to its own retry logic.
+    }
+  }
+ 
+  /**
+   * Locator for the currently VISIBLE element with this exact text.
+   *
+   * Confirmed 2026-08-06: this app duplicates many interactive elements for
+   * responsive mobile/desktop layouts — bit us twice already (the kebab
+   * trigger itself, then even its own already-open menu items: after fixing
+   * the kebab to click the visible one, a follow-up failure screenshot
+   * showed the menu correctly open on screen, yet the click on its
+   * "Generate & Schedule" text still silently timed out, because an
+   * unscoped `getByText(...).first()` picks DOM order — which was the
+   * *hidden* mobile copy's identical menu-item text, not the visible one).
+   * Use this instead of a bare getByText(...).first() for any text that
+   * lives inside row-level or menu-level UI in this app.
+   */
+  private visibleText(text: string): Locator {
+    if (!this.page) throw new Error("Call login() first.");
+    return this.page.locator(`:visible:text-is(${JSON.stringify(text)})`);
+  }
+ 
+  /**
+   * Same as visibleText(), but scoped to inside the "Generate Report" side
+   * panel (`<app-generate-report>` — confirmed 2026-08-06 via an actual error
+   * log, see SELECTORS.generateReportPanelTag's doc comment). Use this for
+   * anything inside that panel instead of the page-wide visibleText() — short
+   * generic words like "Generate" can legitimately appear elsewhere on
+   * screen at the same time (e.g. inside "Generate Now", or a tooltip), and
+   * page-wide `:visible` alone doesn't disambiguate those from the real
+   * control.
+   */
+  private panelVisibleText(text: string): Locator {
+    if (!this.page) throw new Error("Call login() first.");
+    return this.page
+      .locator(SELECTORS.generateReportPanelTag)
+      .locator(`:visible:text-is(${JSON.stringify(text)})`);
+  }
+ 
+  /**
+   * Saves a full-page screenshot + the page's current HTML to ./data/debug/
+   * whenever something goes wrong. Drag the .png (and the .html if useful)
+   * straight into the chat — no need to hunt for the right browser window or
+   * dig through DevTools by hand.
+   */
+  private async captureDebugArtifacts(label: string): Promise<void> {
+    if (!this.page) return;
+    try {
+      const dir = path.resolve(process.cwd(), "data", "debug");
+      await mkdir(dir, { recursive: true });
+      const stamp = Date.now();
+      const pngPath = path.join(dir, `${label}-${stamp}.png`);
+      const htmlPath = path.join(dir, `${label}-${stamp}.html`);
+      await this.page.screenshot({ path: pngPath, fullPage: true }).catch(() => {});
+      const html = await this.page.content().catch(() => "");
+      await writeFile(htmlPath, html).catch(() => {});
+      console.error(`[debug] saved failure screenshot + HTML:\n  ${pngPath}\n  ${htmlPath}`);
+    } catch {
+      // Debug capture is best-effort — never let it mask the real error.
+    }
+  }
+ 
+  /**
+   * Locates the exact report row in the Reports hub grid by its full, exact
+   * display text (see file header on why exact match matters — some report
+   * names are text-prefixes of others, e.g. "Delinquent and Prepaid" vs.
+   * "Delinquent and Prepaid (Excel)").
+   *
+   * Confirmed 2026-08-06 (see file header): the report name is a plain
+   * `<span class="r-cursor-pointer">`, not a real link — getByText (not
+   * getByRole("link")) is what actually matches it. The row itself is a
+   * `<raul-grid-row role="listitem">`, not a `<tr>`.
+   */
+  private async findReportRow(exactRowName: string): Promise<Locator> {
+    if (!this.page) throw new Error("Call login() first.");
+    const nameText = this.page.getByText(exactRowName, { exact: true }).first();
+    await nameText.waitFor({ state: "visible", timeout: 20_000 });
+    return this.page.locator(SELECTORS.reportRowTag, { has: nameText });
+  }
+ 
+  /**
+   * Best-effort dismiss of RealPage's Qualtrics feedback-survey popup (see
+   * SELECTORS.feedbackSurveyContainer's doc comment) if it's currently on
+   * screen. Non-fatal by design — this can pop up at any unpredictable
+   * moment, so every risky click site calls this defensively rather than
+   * trying to guess exactly when it will appear.
+   */
+  private async dismissFeedbackSurveyIfPresent(): Promise<void> {
+    if (!this.page) return;
+    const container = this.page.locator(SELECTORS.feedbackSurveyContainer).first();
+    const present = await container.isVisible().catch(() => false);
+    if (!present) return;
+    const noThanks = this.visibleText(SELECTORS.feedbackSurveyDismissButton).first();
+    await noThanks
+      .click({ timeout: 5_000 })
+      .catch(() => {
+        // No visible "No Thanks" button for some reason — fall back to Escape.
+        return this.page!.keyboard.press("Escape").catch(() => {});
+      });
+  }
+ 
+  /**
+   * Opens a report row's kebab (⋮) menu and clicks the given menu item
+   * ("Generate & Schedule" or "View Completed").
+   *
+   * Confirmed 2026-08-06 (see file header): the kebab trigger is
+   * `<div role="button" class="r-dropdown-menu__toggle">`, not a real
+   * `<button>` — the row's only actual <button> is a hidden popover trigger
+   * for the (i) info icon, which is why "last button in the row" never
+   * worked. Menu items are `<div class="r-dropdown-menu__menu-item" role=
+   * "button">` wrapping a label div whose text has extra surrounding
+   * whitespace (" Generate & Schedule ") — Playwright's text matching
+   * normalizes whitespace even with exact:true, so this still matches fine.
+   *
+   * SECOND bug found 2026-08-06 from a follow-up failure dump: each row
+   * actually renders TWO of these kebab menus — a responsive mobile-viewport
+   * copy (class also has "lg:r-hidden") that comes FIRST in DOM order, and
+   * the real desktop one (class has "r-hidden lg:r-inline-block") further
+   * down. `.first()` was grabbing the mobile one, which is display:none at
+   * our desktop viewport size, so the click+wait silently timed out with no
+   * menu ever opening (confirmed: the debug screenshot just showed the plain
+   * report list, nothing expanded). `:visible` filters that out.
+   *
+   * THIRD bug found 2026-08-06, same failure family: after fixing the kebab
+   * itself, a follow-up screenshot showed the menu correctly OPEN on screen
+   * — but the click on its "Generate & Schedule" text still timed out,
+   * because the hidden mobile copy's menu items are ALSO in the DOM with
+   * identical text, and `.first()` picked that hidden one again. Switched
+   * to visibleText() for the same reason as the kebab fix above.
+   *
+   * FOURTH bug found 2026-08-06: a run's error log showed Playwright retrying
+   * this exact kebab click for the full 30s, every attempt blocked by
+   * `<div class="QSIWebResponsive-creative-container-fade">` — RealPage's own
+   * Qualtrics feedback-survey popup ("Help us improve?") appearing mid-run
+   * and physically overlapping the row. Dismissing it defensively right
+   * before the click that's most likely to collide with it.
+   */
+  private async openRowMenu(row: Locator, menuItemText: string): Promise<void> {
+    if (!this.page) throw new Error("Call login() first.");
+    await this.dismissFeedbackSurveyIfPresent();
+    const kebab = row.locator(`${SELECTORS.reportRowKebabTrigger}:visible`).first();
+    await kebab.waitFor({ state: "visible", timeout: 15_000 });
+    await kebab.click();
+    const menuItem = this.visibleText(menuItemText).first();
+    await menuItem.waitFor({ state: "visible", timeout: 10_000 });
+    await menuItem.click();
+  }
+ 
+  /**
+   * Sets the "Generate Report" panel's Format dropdown to the given format,
+   * but only if it doesn't already show it — the "(Excel)" report row
+   * pre-selects Excel on its own; "Availability" does not pre-select PDF.
+   *
+   * UNVERIFIED: no DevTools inspection of this dropdown's real markup yet.
+   * Assumes a clickable control near the "Format" label that, once opened,
+   * offers plain-text options ("Excel", "PDF") to click. Uses
+   * panelVisibleText() (scoped to the panel, see its doc comment) rather than
+   * the page-wide visibleText() — short words like "Excel"/"PDF" could
+   * plausibly also appear elsewhere on screen (e.g. a "Format" column value
+   * for some other row on the dimmed background list).
+   */
+  private async setFormatIfNeeded(format: ReportFormat): Promise<void> {
+    if (!this.page) throw new Error("Call login() first.");
+    const wanted = format === "excel" ? "Excel" : "PDF";
+    const alreadySet = await this.panelVisibleText(wanted)
+      .first()
+      .isVisible()
+      .catch(() => false);
+    if (alreadySet) return;
+ 
+    const formatLabel = this.panelVisibleText("Format").first();
+    const formatControl = formatLabel.locator("xpath=following::*[self::button or self::input or @role='combobox'][1]");
+    await formatControl.click();
+    await this.panelVisibleText(wanted).first().click();
+  }
+ 
+  /**
+   * Opens the "Select Property" multi-select and makes sure every property
+   * is checked, then closes it again.
+   *
+   * Two earlier guesses at this (a plain "Select All" text click closed with
+   * Escape, then the same closed via clicking elsewhere in the panel) both
+   * left the field showing its empty placeholder and Generate disabled in
+   * saved failure screenshots — worth recording since it means "closing via
+   * clickaway" was ALSO wrong, not just Escape. Pulling the real HTML dump
+   * for this exact control finally gave unambiguous, structural markup to
+   * drive directly instead of guessing at close semantics:
+   *   <raul-select label="Select Property" ...>
+   *     <button class="r-select__toggle" aria-haspopup="true" aria-expanded="...">
+   *       ...<div class="r-select__toggle__content__text">Select Property</div>
+   *     </button>
+   *     <div class="r-select__menu">...
+   *       <raul-option aria-selected="false">  <!-- always "Select All", confirmed first -->
+   *         <div class="r-option__text__title" title="Select All">Select All</div>
+   *         <raul-checkbox>...<input type="checkbox" ...></raul-checkbox>  <!-- aria-hidden, not the click target -->
+   *       </raul-option>
+   *       <raul-option>...</raul-option>  <!-- one per property -->
+   * `raul-select[label="Select Property"]` is a unique, unambiguous scope —
+   * no more risk of matching a duplicate/wrong element. Re-clicking the same
+   * toggle button closes it (a plain, known open/close toggle), avoiding any
+   * guessing about what a keyboard shortcut or an arbitrary "elsewhere"
+   * click does inside this component.
+   */
+  private async selectAllProperties(): Promise<void> {
+    if (!this.page) throw new Error("Call login() first.");
+    const selectEl = this.page.locator(`raul-select[label="${SELECTORS.selectPropertyLabel}"]`);
+    const toggle = selectEl.locator(".r-select__toggle");
+    await toggle.waitFor({ state: "visible", timeout: 15_000 });
+    await toggle.click();
+ 
+    const selectAllOption = selectEl.locator("raul-option").first();
+    await selectAllOption.waitFor({ state: "visible", timeout: 10_000 });
+    const isSelected = (await selectAllOption.getAttribute("aria-selected")) === "true";
+    if (!isSelected) {
+      await selectAllOption.click();
+    }
+ 
+    // Close by re-clicking the same toggle rather than Escape or an
+    // arbitrary outside click (see doc comment above on why those failed).
+    await toggle.click();
+ 
+    // Verify the selection actually committed: the toggle's own closed-state
+    // text should no longer be the literal empty placeholder. Fail loudly
+    // with a screenshot here instead of letting a later, more confusing
+    // error (e.g. clicking a disabled Generate button) obscure the cause.
+    const closedStateText = (
+      await selectEl.locator(".r-select__toggle__content__text").innerText().catch(() => "")
+    ).trim();
+    if (closedStateText === SELECTORS.selectPropertyLabel) {
+      await this.captureDebugArtifacts("select-all-properties-did-not-commit");
+      throw new Error(
+        '"Select Property" still shows its empty placeholder after selecting all properties — ' +
+          "see the saved debug screenshot for the dropdown's actual state."
+      );
+    }
+  }
+ 
+  /**
+   * Runs the given report for every property and returns one Download per
+   * property, keyed by RealPage's own displayed property name (which is
+   * confirmed to match the names seeded into the properties table, e.g.
+   * "Anaheim Gardens"). See the file header for the full confirmed flow this
+   * implements.
+   */
+  async generateAndDownloadAllProperties(reportType: ReportType): Promise<Map<string, Download>> {
+    if (!this.page) throw new Error("Call login() first.");
+    const page = this.page;
+    const def = REPORT_DEFINITIONS[reportType];
+ 
+    try {
+      // Confirmed 2026-08-06: this Angular app can be genuinely, and
+      // inconsistently, slow on its FIRST load in a browser session — one
+      // saved failure screenshot showed nothing but a loading spinner even
+      // after a 45s wait, with zero <input> elements in the DOM (app shell
+      // hadn't mounted), while a second attempt straight after loaded fully
+      // in well under that. Rather than pick one fixed timeout that's either
+      // too short sometimes or wastefully long always, retry the whole
+      // navigation once with a fresh 45s budget before giving up.
+      let searchVisible = false;
+      for (let navAttempt = 1; navAttempt <= 2 && !searchVisible; navAttempt++) {
+        await page.goto(REPORTS_HUB_URL, { waitUntil: "domcontentloaded" });
+        await page.waitForLoadState("networkidle", { timeout: 45_000 }).catch(() => {});
+        searchVisible = await page
+          .locator(SELECTORS.reportsHubSearchInput)
+          .first()
+          .waitFor({ state: "visible", timeout: 45_000 })
+          .then(() => true)
+          .catch(() => false);
+      }
+      if (!searchVisible) {
+        await this.captureDebugArtifacts(`reports-hub-never-loaded-${reportType}`);
+        throw new Error(
+          "The Reports hub search box never became visible after two full page-load attempts " +
+            "(~90s each) — see the saved debug screenshot for what's actually on screen."
+        );
+      }
+ 
+      const search = page.locator(SELECTORS.reportsHubSearchInput).first();
+      await search.fill(def.searchTerm);
+      // Let the grid's debounced filter actually apply before searching for the row.
+      await page.waitForTimeout(1_500);
+ 
+      const row = await this.findReportRow(def.exactRowName);
+ 
+      // --- Generate & Schedule ---
+      await this.openRowMenu(row, SELECTORS.generateAndScheduleMenuItem);
+      // Confirmed 2026-08-06 from the actual thrown error text (pulled from the
+      // run's saved errorSummary in SQLite, not just a screenshot): this exact
+      // line was the REAL cause of every "Select Property" failure in this
+      // whole investigation. `getByText('Generate Report').first()` was
+      // resolving to one of 30+ HIDDEN `<a id="bcClose">Generate Report</a>`
+      // breadcrumb-close links that silently accumulate in this app's DOM
+      // across repeated panel opens (never cleaned up) — not the real, visible
+      // panel heading. That means every run up to now likely threw HERE,
+      // before ever reaching setFormatIfNeeded()/selectAllProperties() at
+      // all — the screenshots just showed whatever the panel's natural
+      // just-opened state happened to look like. Switched to visibleText()
+      // like everywhere else that's bitten us this way. Also now scoped to
+      // the panel itself (panelVisibleText, not visibleText) for the same
+      // reason as the generateButton fix right below — belt-and-suspenders,
+      // since "Generate Report" as a heading is unlikely but not impossible
+      // to collide with something else on screen.
+      const panelHeading = this.panelVisibleText(SELECTORS.generateReportPanelHeading).first();
+      await panelHeading.waitFor({ state: "visible", timeout: 15_000 });
+ 
+      await this.setFormatIfNeeded(def.format);
+      await this.selectAllProperties();
+ 
+      // Confirmed 2026-08-06 from an actual error log: a page-wide
+      // `:visible:text-is("Generate")` matched a DIFFERENT, also legitimately
+      // visible "Generate" elsewhere on screen (most likely part of
+      // "Generate Now" or a tooltip) instead of the real submit button, and
+      // clicking that wrong element got blocked by the panel's own backdrop
+      // — a run got all the way through selectAllProperties() successfully,
+      // yet the report never actually got queued. Scoped to panelVisibleText()
+      // (inside <app-generate-report> — see SELECTORS.generateReportPanelTag)
+      // instead of the page-wide lookup, and the post-click check stays FATAL
+      // so a failed submission surfaces immediately instead of wasting a
+      // 2-minute poll on a report that was never queued.
+      const generateButton = this.panelVisibleText(SELECTORS.generateSubmitButton).first();
+      await generateButton.click();
+      // Confirmed 2026-08-06: a saved screenshot right at this point showed
+      // "Select Property" correctly reading "35 options selected" and both
+      // Cancel/Generate visibly dimmed mid-submit — the click WAS registering,
+      // it just needed longer than 20s to actually finish and close the panel.
+      // Bumped to 45s to give the real submission room, not just UI feedback.
+      const panelClosed = await panelHeading
+        .waitFor({ state: "hidden", timeout: 45_000 })
+        .then(() => true)
+        .catch(() => false);
+      if (!panelClosed) {
+        await this.captureDebugArtifacts(`generate-button-click-did-not-submit-${reportType}`);
+        throw new Error(
+          'Clicking "Generate" did not close the panel within 45s — the submission likely never ' +
+            "went through. See the saved debug screenshot."
+        );
+      }
+ 
+      // --- Wait for + collect completed reports ---
+      const rows = await this.waitForCompletedRows(row, /* expectedMinimum */ 1);
+ 
+      // --- Download each one, sequentially (Playwright download events don't
+      // interleave cleanly if fired concurrently from the same page). ---
+      const downloads = new Map<string, Download>();
+      for (const { propertyName, viewReportLink } of rows) {
+        const downloadPromise = page.waitForEvent("download", { timeout: 60_000 });
+        await viewReportLink.click();
+        const download = await downloadPromise;
+        downloads.set(propertyName, download);
+      }
+ 
+      return downloads;
+    } catch (err) {
+      await this.captureDebugArtifacts(`generate-and-download-failure-${reportType}`);
+      throw err;
+    }
+  }
+ 
+  /**
+   * Opens the report row's "View Completed" panel and polls until at least
+   * `expectedMinimum` rows are present with today's completed date, then
+   * returns each row's property name + its "View Report" link locator.
+   *
+   * FIXED 2026-08-06 (runs 27 & 28): every attempt was checking the row count
+   * immediately after opening the panel/clicking the tab, with zero wait for
+   * the grid's own async data fetch. The panel re-fetches from an API on
+   * every open and shows a `<raul-container-loader>` spinner with an empty
+   * grid-body while that's in flight — the saved debug HTML for both failed
+   * runs caught EXACTLY that state (spinner still visible, 0 rows) after the
+   * full ~2 minutes of polling, proving the check was racing the fetch on
+   * every single attempt rather than reflecting real completion status. Now
+   * explicitly waits for the loader to clear before counting rows.
+   *
+   * UNVERIFIED at full 35-property scale: the one live run watched on
+   * 2026-08-06 had all properties land in "Completed" within the same minute,
+   * so this polls defensively (up to ~3 minutes) rather than assuming
+   * instant completion.
+   */
+  private async waitForCompletedRows(
+    reportRow: Locator,
+    expectedMinimum: number
+  ): Promise<Array<{ propertyName: string; viewReportLink: Locator }>> {
+    if (!this.page) throw new Error("Call login() first.");
+    const page = this.page;
+ 
+    const maxAttempts = 9; // ~3 minutes: each attempt waits up to ~20s for the
+    // loader itself plus a 10s gap before retrying.
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      await this.openRowMenu(reportRow, SELECTORS.viewCompletedMenuItem);
+ 
+      const completedTab = this.visibleText(SELECTORS.completedTabLabel).first();
+      await completedTab.waitFor({ state: "visible", timeout: 15_000 });
+      await completedTab.click().catch(() => {}); // best-effort — it may already be the active tab
+ 
+      // Wait for the panel's own async fetch to finish before trusting a 0
+      // count — see the FIXED note above. Swallow a timeout here: if the
+      // loader never appears (fetch already cached/instant) that's fine too.
+      await page
+        .locator(`${SELECTORS.completedPanelLoader}:visible`)
+        .first()
+        .waitFor({ state: "hidden", timeout: 20_000 })
+        .catch(() => {});
+ 
+      const viewReportLinks = this.visibleText(SELECTORS.viewReportLinkText);
+      const count = await viewReportLinks.count();
+ 
+      if (count >= expectedMinimum) {
+        const results: Array<{ propertyName: string; viewReportLink: Locator }> = [];
+        for (let i = 0; i < count; i++) {
+          const link = viewReportLinks.nth(i);
+          // Same "raul-" grid component confirmed for the main Reports list
+          // (see file header) — this panel is very likely built from the same
+          // shared component, so reusing raul-grid-row/-cell here instead of
+          // guessing native <tr>/<td> (which we now know is wrong elsewhere
+          // in this app). Still UNVERIFIED for this specific panel — if wrong,
+          // propertyName will come back empty and the debug screenshot from
+          // the outer catch will show the panel's real structure.
+          const dataRow = page.locator(SELECTORS.reportRowTag, { has: link });
+          // "Property" is the 2nd column (after Completed Date) — confirmed
+          // via screenshot on 2026-08-06.
+          const propertyName = (await dataRow.locator("raul-grid-cell").nth(1).innerText().catch(() => "")).trim();
+          results.push({ propertyName, viewReportLink: link });
+        }
+        return results;
+      }
+ 
+      if (attempt < maxAttempts) {
+        // Close via the panel's own explicit "Close" button rather than
+        // Escape — a different aside (Select Property) was confirmed earlier
+        // to treat Escape as its own built-in "Cancel", so prefer the real
+        // button here too rather than assuming Escape is a plain dismiss.
+        const closeButton = this.visibleText(SELECTORS.asideCloseButton).first();
+        const closed = await closeButton
+          .click()
+          .then(() => true)
+          .catch(() => false);
+        if (!closed) {
+          await page.keyboard.press("Escape").catch(() => {});
+        }
+        await page.waitForTimeout(10_000);
+      } else {
+        await this.captureDebugArtifacts("completed-reports-never-appeared");
+        throw new Error(
+          `Only ${count} completed report row(s) appeared after ~3 minutes of polling ` +
+            `(wanted at least ${expectedMinimum}) — see the saved debug screenshot.`
+        );
+      }
+    }
+ 
+    return [];
+  }
+ 
+  async close(): Promise<void> {
+    // launchPersistentContext's context.close() also shuts down the browser
+    // process — there's no separate Browser handle to close in this mode.
+    await this.context?.close();
+  }
+}
+ 
+

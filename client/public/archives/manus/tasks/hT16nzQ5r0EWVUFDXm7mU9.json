@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-07T13:04:18.889542Z",
+  "task": {
+    "id": "hT16nzQ5r0EWVUFDXm7mU9",
+    "title": "Connecting You Here",
+    "status": "stopped",
+    "type": "standard",
+    "agent_profile": "manus-1.6",
+    "credits_used": 5,
+    "created_at": "1785989003",
+    "updated_at": "1785989007",
+    "task_url": "https://manus.im/app/hT16nzQ5r0EWVUFDXm7mU9",
+    "message_count": 0
+  },
+  "event_count": 4,
+  "events": [
+    {
+      "id": "mrPpVh7l3XXIdJH1GUnRsq",
+      "timestamp": "1785989003334",
+      "type": "user_message",
+      "user_message": {
+        "content": "just connecting you here ",
+        "message_type": "text"
+      }
+    },
+    {
+      "id": "5sZQPerxafiHFTesxbeCuT-1",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785989003666",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "Connected—glad to be here. What would you like to work on?"
+      },
+      "id": "hYkCzs1dyDpRBEbuJJFAmP",
+      "timestamp": "1785989007561",
+      "type": "assistant_message"
+    },
+    {
+      "id": "Q9W858jEwBoKbHZZidrprY",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785989007817",
+      "type": "status_update"
+    }
+  ],
+  "attachments": []
+}

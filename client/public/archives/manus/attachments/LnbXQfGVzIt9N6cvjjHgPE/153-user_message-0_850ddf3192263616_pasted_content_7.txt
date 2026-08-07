@@ -1,0 +1,290 @@
+Last login: Sun Jul  5 10:02:24 on ttys001
+brandonrose@Brandons-MacBook-Pro ~ % rclone config create gdrive drive scope=drive
+
+2026/07/05 10:03:57 NOTICE: Make sure your Redirect URL is set to "http://127.0.0.1:53682/" in your custom config.
+Error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+Usage:
+  rclone config create name type [key value]* [flags]
+
+Flags:
+      --all               Ask the full set of config questions
+      --continue          Continue the configuration process with an answer
+  -h, --help              help for create
+      --no-obscure        Force any passwords not to be obscured
+      --no-output         Don't provide any output
+      --non-interactive   Don't interact with user and return questions
+      --obscure           Force any passwords to be obscured
+      --result string     Result - use with --continue
+      --state string      State - use with --continue
+
+Use "rclone [command] --help" for more information about a command.
+Use "rclone help flags" for to see the global flags.
+Use "rclone help backends" for a list of supported services.
+
+2026/07/05 10:03:57 NOTICE: Fatal error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+brandonrose@Brandons-MacBook-Pro ~ % rclone config create gdrive drive scope=drive
+
+2026/07/05 10:04:35 NOTICE: Make sure your Redirect URL is set to "http://127.0.0.1:53682/" in your custom config.
+Error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+Usage:
+  rclone config create name type [key value]* [flags]
+
+Flags:
+      --all               Ask the full set of config questions
+      --continue          Continue the configuration process with an answer
+  -h, --help              help for create
+      --no-obscure        Force any passwords not to be obscured
+      --no-output         Don't provide any output
+      --non-interactive   Don't interact with user and return questions
+      --obscure           Force any passwords to be obscured
+      --result string     Result - use with --continue
+      --state string      State - use with --continue
+
+Use "rclone [command] --help" for more information about a command.
+Use "rclone help flags" for to see the global flags.
+Use "rclone help backends" for a list of supported services.
+
+2026/07/05 10:04:35 NOTICE: Fatal error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+brandonrose@Brandons-MacBook-Pro ~ % killall rclone 2>/dev/null; sleep 2
+
+brandonrose@Brandons-MacBook-Pro ~ % rclone config create gdrive drive scope=drive
+
+2026/07/05 10:05:20 NOTICE: Make sure your Redirect URL is set to "http://127.0.0.1:53682/" in your custom config.
+Error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+Usage:
+  rclone config create name type [key value]* [flags]
+
+Flags:
+      --all               Ask the full set of config questions
+      --continue          Continue the configuration process with an answer
+  -h, --help              help for create
+      --no-obscure        Force any passwords not to be obscured
+      --no-output         Don't provide any output
+      --non-interactive   Don't interact with user and return questions
+      --obscure           Force any passwords to be obscured
+      --result string     Result - use with --continue
+      --state string      State - use with --continue
+
+Use "rclone [command] --help" for more information about a command.
+Use "rclone help flags" for to see the global flags.
+Use "rclone help backends" for a list of supported services.
+
+2026/07/05 10:05:20 NOTICE: Fatal error: config failed to refresh token: failed to start auth webserver: listen tcp 127.0.0.1:53682: bind: address already in use
+brandonrose@Brandons-MacBook-Pro ~ % rclone lsd gdrive:Recordings
+
+2026/07/05 10:05:45 ERROR : error listing: directory not found
+2026/07/05 10:05:45 NOTICE: Failed to lsd with 2 errors: last error was: directory not found
+brandonrose@Brandons-MacBook-Pro ~ % rclone lsd gdrive:Recordings → directory not found
+
+Usage:
+  rclone lsd remote:path [flags]
+
+Flags:
+  -h, --help        help for lsd
+  -R, --recursive   Recurse into the listing
+
+Flags for filtering directory listings (flag group Filter):
+      --delete-excluded                     Delete files on dest excluded from sync
+      --exclude stringArray                 Exclude files matching pattern
+      --exclude-from stringArray            Read file exclude patterns from file (use - to read from stdin)
+      --exclude-if-present stringArray      Exclude directories if filename is present
+      --files-from stringArray              Read list of source-file names from file (use - to read from stdin)
+      --files-from-raw stringArray          Read list of source-file names from file without any processing of lines (use - to read from stdin)
+  -f, --filter stringArray                  Add a file filtering rule
+      --filter-from stringArray             Read file filtering patterns from a file (use - to read from stdin)
+      --hash-filter string                  Partition filenames by hash k/n or randomly @/n
+      --ignore-case                         Ignore case in filters (case insensitive)
+      --include stringArray                 Include files matching pattern
+      --include-from stringArray            Read file include patterns from file (use - to read from stdin)
+      --max-age Duration                    Only transfer files younger than this in s or suffix ms|s|m|h|d|w|M|y (default off)
+      --max-depth int                       If set limits the recursion depth to this (default -1)
+      --max-size SizeSuffix                 Only transfer files smaller than this in KiB or suffix B|K|M|G|T|P (default off)
+      --metadata-exclude stringArray        Exclude metadatas matching pattern
+      --metadata-exclude-from stringArray   Read metadata exclude patterns from file (use - to read from stdin)
+      --metadata-filter stringArray         Add a metadata filtering rule
+      --metadata-filter-from stringArray    Read metadata filtering patterns from a file (use - to read from stdin)
+      --metadata-include stringArray        Include metadatas matching pattern
+      --metadata-include-from stringArray   Read metadata include patterns from file (use - to read from stdin)
+      --min-age Duration                    Only transfer files older than this in s or suffix ms|s|m|h|d|w|M|y (default off)
+      --min-size SizeSuffix                 Only transfer files bigger than this in KiB or suffix B|K|M|G|T|P (default off)
+
+Flags for listing directories (flag group Listing):
+      --default-time Time   Time to show if modtime is unknown for files and directories (default 2000-01-01T00:00:00Z)
+      --fast-list           Use recursive list if available; uses more memory but fewer transactions
+
+Use "rclone [command] --help" for more information about a command.
+Use "rclone help flags" for to see the global flags.
+Use "rclone help backends" for a list of supported services.
+Command lsd needs 1 arguments maximum: you provided 5 non flag arguments: ["gdrive:Recordings" "→" "directory" "not" "found"]
+brandonrose@Brandons-MacBook-Pro ~ % rclone lsd gdrive:
+
+           0 2022-11-04 05:44:36        -1 135 S Bedford Dr
+           0 2025-07-02 12:57:49        -1 15141 Marlin Pl, Van Nuys, CA Lease Application Documents
+           0 2025-10-28 15:34:33        -1 AI
+           0 2026-02-04 13:34:49        -1 About Brandon Rose
+           0 2026-03-10 09:55:35        -1 Apartment Corp Files
+           0 2026-04-24 00:34:57        -1 ApartmentCorp
+           0 2025-06-20 08:16:26        -1 Brenda's Last Meeting - Video
+           0 2025-08-25 21:17:56        -1 Christopher and Brandon
+           0 2023-06-09 09:18:51        -1 Clients
+           0 2026-03-17 09:46:11        -1 Dali Photos
+           0 2025-04-23 19:27:41        -1 Digital Products
+           0 2023-02-09 11:06:14        -1 Equity Real Estate Shared Drive - Agent Access
+           0 2022-03-17 11:52:10        -1 Google Earth
+           0 2024-07-08 19:35:17        -1 NetworkRing
+           0 2025-07-16 12:06:48        -1 OneDay MBA Program
+           0 2025-09-26 10:19:31        -1 Properties to Research 
+           0 2023-02-09 11:50:21        -1 REAP List
+           0 2026-07-05 09:01:32        -1 Recordings Vault
+           0 2026-04-24 00:35:28        -1 Remove Emails
+           0 2025-04-18 16:25:00        -1 Rose Equipment Company
+           0 2025-02-18 18:28:28        -1 SalesMessage
+           0 2023-02-09 11:24:45        -1 Sandy's Contact List
+           0 2026-02-16 14:10:28        -1 ScannerPro
+           0 2025-12-31 08:45:02        -1 Shelene & Brandon
+           0 2026-03-01 09:15:05        -1 Sherman Oaks Farming
+           0 2024-11-12 08:23:12        -1 Shopify
+           0 2024-01-16 16:06:12        -1 Spy Essentials Themes
+           0 2024-04-19 09:11:33        -1 The Brandon Rose Group
+           0 2025-06-19 07:11:15        -1 The Sandy Dunkley Group
+           0 2026-07-01 20:47:36        -1 🫦 💞 Gerland 🫦 💞
+brandonrose@Brandons-MacBook-Pro ~ % rclone lsd gdrive: --drive-shared-with-me
+
+           0 2026-07-03 04:39:58        -1 107752 - Completed Studies
+           0 2026-06-08 01:35:38        -1 3115
+           0 2025-09-09 16:29:01        -1 Atkinson Ave_11707 - Sandy:Candace & Brandon - (DUAL) 9:3
+           0 2023-10-12 11:52:50        -1 Brand Builder Course 
+           0 2023-12-20 15:35:20        -1 CLE Logo
+           0 2022-12-04 14:36:53        -1 Creatives That Convert
+           0 2026-03-14 12:27:25        -1 Cuidado Integral de la salud RE-I-26-1
+           0 2024-01-24 18:48:52        -1 Jan. 16
+           0 2025-10-20 20:24:55        -1 ShermanOaksFarm
+           0 2024-01-17 10:42:53        -1 Shopify - Kamran
+           0 2024-04-09 09:29:04        -1 Sylmar - Sherman Oaks
+           0 2025-04-27 08:51:23        -1 Workbooks
+           0 2025-04-24 14:46:12        -1 Zoom Recordings - LA5 Friday Meetings
+brandonrose@Brandons-MacBook-Pro ~ % rclone lsd gdrive: --drive-root-folder-id 1Gxg3gg06CVLO-F05kke5CXvdXgVXSPsP
+
+           0 2026-06-24 23:51:22        -1 Calls
+           0 2026-06-24 23:51:22        -1 Inbox
+           0 2026-06-24 23:51:22        -1 Marc's Inappropriate Screaming
+           0 2026-06-24 23:51:22        -1 Meetings
+           0 2026-06-24 23:51:22        -1 Other
+           0 2026-06-24 23:51:22        -1 Personal Notes
+brandonrose@Brandons-MacBook-Pro ~ % curl -sL "https://files.manuscdn.com/user_upload_by_module/session_file/310519663449376037/QAkkjBGeFNhORRfo.command" -o /tmp/install_v2.sh && bash /tmp/install_v2.sh
+
+==============================================
+ ROSE-REC Automation Installer v2 (rclone)
+==============================================
+Detected user: brandonrose
+rclone + gdrive remote: OK
+[1/3] Watcher script (rclone edition) installed
+[2/3] Auto-run trigger refreshed
+[3/3] Auto-run trigger activated
+
+==============================================
+ DONE! Plug in ROSE-REC1 or ROSE-REC2 to test.
+ Uploads go straight to Google Drive Inbox
+ via rclone (no Drive desktop app needed).
+
+ Log: ~/Library/Logs/rose_rec_watcher.log
+==============================================
+brandonrose@Brandons-MacBook-Pro ~ % tail -10 ~/Library/Logs/rose_rec_watcher.log
+
+2026-07-05 09:41:40 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 09:42:50 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 09:43:24 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 09:50:37 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 09:50:47 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 09:52:27 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 09:56:22 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 09:56:32 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 09:56:50 ERROR: Google Drive Recordings/Inbox not found. Is Google Drive for desktop running?
+2026-07-05 10:09:44 WARN: ROSE-REC2 mounted but no Recordings folder found
+brandonrose@Brandons-MacBook-Pro ~ % WARN: ROSE-REC2 mounted but no Recordings folder found
+
+zsh: command not found: WARN:
+brandonrose@Brandons-MacBook-Pro ~ % find /Volumes/ROSE-REC2 -maxdepth 4 \( -type d -o -iname "*.m4a" -o -iname "*.mp3" -o -iname "*.wav" \) 2>/dev/null | head -40
+
+/Volumes/ROSE-REC2
+/Volumes/ROSE-REC2/.fseventsd
+/Volumes/ROSE-REC2/System Volume Information
+/Volumes/ROSE-REC2/.TemporaryItems
+/Volumes/ROSE-REC2/.TemporaryItems/folders.501
+/Volumes/ROSE-REC2/.TemporaryItems/folders.501/TemporaryItems
+/Volumes/ROSE-REC2/.Spotlight-V100
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.repair
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.corespotlight
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.live
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.live_system
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.live_user
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.live_priority
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.assisted_import_pre
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.assisted_import_post
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.health_check
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.migration
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.migration_secondchance
+/Volumes/ROSE-REC2/.Spotlight-V100/Store-V2/321A93A2-E3C2-441E-BE96-1953E7C97F3E/journals.scan
+/Volumes/ROSE-REC2/.Trashes
+/Volumes/ROSE-REC2/.Trashes/501
+/Volumes/ROSE-REC2/RECORD
+/Volumes/ROSE-REC2/RECORD/._V2025-12-27-15-58-16.WAV
+/Volumes/ROSE-REC2/RECORD/06-23-2026
+/Volumes/ROSE-REC2/RECORD/06-23-2026/06-23-2026.WAV
+/Volumes/ROSE-REC2/RECORD/06-23-2026/Save.WAV
+/Volumes/ROSE-REC2/RECORD/06-23-2026/._Save.WAV
+/Volumes/ROSE-REC2/RECORD/06-23-2026/V2025-12-26-12-33-52.WAV
+/Volumes/ROSE-REC2/RECORD/06-23-2026/._Ethan Company Mail Error.WAV
+/Volumes/ROSE-REC2/RECORD/06-23-2026/._V2025-12-26-12-33-52.WAV
+/Volumes/ROSE-REC2/RECORD/06-23-2026/Ethan Company Mail Error.WAV
+/Volumes/ROSE-REC2/RECORD/._V2025-12-27-15-51-38.WAV
+/Volumes/ROSE-REC2/RECORD/._V2025-12-27-13-44-38.WAV
+/Volumes/ROSE-REC2/RECORD/._V2025-12-27-12-31-19.WAV
+/Volumes/ROSE-REC2/RECORD/Tuesday
+/Volumes/ROSE-REC2/RECORD/Tuesday/V2026-06-30-23-18-06.WAV
+/Volumes/ROSE-REC2/RECORD/Tuesday/V2026-06-29-23-55-53.WAV
+/Volumes/ROSE-REC2/RECORD/Tuesday/V2026-06-30-00-58-56.WAV
+brandonrose@Brandons-MacBook-Pro ~ % curl -sL "https://files.manuscdn.com/user_upload_by_module/session_file/310519663449376037/WKgrPuPQffmiBCnD.command" -o /tmp/install_v3.sh && bash /tmp/install_v3.sh
+
+==============================================
+ ROSE-REC Automation Installer v3
+==============================================
+Detected user: brandonrose
+rclone + gdrive remote: OK
+[1/3] Watcher v3 installed
+[2/3] Auto-run trigger refreshed
+[3/3] Auto-run trigger activated
+
+Device detected — running first scan now (may take a while for large files)...
+First scan complete. Last log lines:
+2026/07/05 10:57:33 ERROR : Attempt 2/3 failed with 1 errors and: object not found
+2026/07/05 10:57:33 ERROR : Attempt 3/3 failed with 1 errors and: object not found
+2026/07/05 10:57:33 NOTICE: Failed to copyto: object not found
+2026-07-05 10:57:33 ERROR uploading V2026-07-01-11-08-04.WAV (will retry on next plug-in)
+2026-07-05 10:57:34 ROSE-REC2: 32 new file(s) uploaded.
+
+==============================================
+ DONE! New recordings on ROSE-REC1/ROSE-REC2
+ now upload straight to Google Drive Inbox.
+ Log: ~/Library/Logs/rose_rec_watcher.log
+==============================================
+brandonrose@Brandons-MacBook-Pro ~ % tail -15 ~/Library/Logs/rose_rec_watcher.log
+
+2026-07-05 19:20:46 NOTE: ROSE-REC1 has no RECORD-style folder; scanning entire volume
+2026-07-05 19:20:46 Scanning ROSE-REC1 (/Volumes/ROSE-REC1)...
+2026-07-05 19:20:46 ROSE-REC1: 0 new file(s) uploaded.
+2026-07-05 19:26:26 NOTE: ROSE-REC2 has no RECORD-style folder; scanning entire volume
+2026-07-05 19:26:26 Scanning ROSE-REC2 (/Volumes/ROSE-REC2)...
+2026-07-05 19:26:26 ROSE-REC2: 0 new file(s) uploaded.
+2026-07-05 22:01:42 NOTE: ROSE-REC2 has no RECORD-style folder; scanning entire volume
+2026-07-05 22:01:42 Scanning ROSE-REC2 (/Volumes/ROSE-REC2)...
+2026-07-05 22:01:42 ROSE-REC2: 0 new file(s) uploaded.
+2026-07-05 22:01:52 NOTE: ROSE-REC2 has no RECORD-style folder; scanning entire volume
+2026-07-05 22:01:52 Scanning ROSE-REC2 (/Volumes/ROSE-REC2)...
+2026-07-05 22:01:52 ROSE-REC2: 0 new file(s) uploaded.
+2026-07-06 07:10:33 NOTE: ROSE-REC2 has no RECORD-style folder; scanning entire volume
+2026-07-06 07:10:33 Scanning ROSE-REC2 (/Volumes/ROSE-REC2)...
+2026-07-06 07:10:33 ROSE-REC2: 0 new file(s) uploaded.
+brandonrose@Brandons-MacBook-Pro ~ % 

@@ -1,0 +1,82 @@
+Last login: Thu Jul  2 11:43:00 on ttys003
+brandonrose@Brandons-MacBook-Pro ~ % npx antigravity-awesome-skills install --target claude-code
+/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/lib/cli/validate-engines.js:25
+    throw err
+    ^
+
+Error: Cannot find module '/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (node:internal/modules/cjs/loader:531:19)
+    at Module._findPath (node:internal/modules/cjs/loader:799:18)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1441:27)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.require (node:internal/modules/cjs/loader:1556:12)
+    at require (node:internal/modules/helpers:152:16)
+    at module.exports (/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/lib/cli/entry.js:7:3) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/Users/brandonrose/.nvm/versions/node/v24.14.0/lib/node_modules/npm/node_modules/graceful-fs/package.json',
+  requestPath: 'graceful-fs'
+}
+
+Node.js v24.14.0
+brandonrose@Brandons-MacBook-Pro ~ % nvm reinstall-packages v24.14.0
+Can not reinstall packages from the current version of node.
+brandonrose@Brandons-MacBook-Pro ~ % rm -rf ~/.nvm/versions/node/v24.14.0/lib/node_modules/npm
+nvm install 24
+Downloading and installing node v24.18.0...
+Downloading https://nodejs.org/dist/v24.18.0/node-v24.18.0-darwin-arm64.tar.xz...
+######################################################################### 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v24.18.0 (npm v11.16.0)
+brandonrose@Brandons-MacBook-Pro ~ % npx antigravity-awesome-skills install --target claude-code
+Need to install the following packages:
+antigravity-awesome-skills@13.7.0
+Ok to proceed? (y) y
+Cloning repository…
+Cloning repository at v13.7.0…
+Cloning into '/var/folders/rt/_lfq1vsn6tndhwr_vq62_yf80000gn/T/ag-skills-WBA626'...
+remote: Enumerating objects: 9629, done.
+remote: Counting objects: 100% (9629/9629), done.
+remote: Compressing objects: 100% (7078/7078), done.
+remote: Total 9629 (delta 800), reused 7760 (delta 762), pack-reused 0 (from 0)
+Receiving objects: 100% (9629/9629), 38.17 MiB | 9.03 MiB/s, done.
+Resolving deltas: 100% (800/800), done.
+Note: switching to '736a72c3ba5c111a41b40bdd5fe3b49b559d2e1a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files: 100% (19587/19587), done.
+
+Installing for 1 target(s):
+
+Antigravity:
+  ✓ Installed to /Users/brandonrose/.agents/skills
+
+Pick a bundle in docs/users/bundles.md and use @skill-name in your AI assistant.
+
+If Antigravity hits context/truncation limits, see docs/users/agent-overload-recovery.md
+
+For the agy CLI slash-command menu, install the Antigravity CLI layout with --agy.
+
+For clone-based installs, use scripts/activate-skills.sh or scripts/activate-skills.bat
+
+For Antigravity 2.0, OpenCode, or other .agents/skills installs, prefer a reduced install with --risk, --category, or --tags to avoid context overload.
+
+Example: npx antigravity-awesome-skills --path .agents/skills --category development,backend --risk safe,none
+brandonrose@Brandons-MacBook-Pro ~ % 

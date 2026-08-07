@@ -1,0 +1,70 @@
+Last login: Mon Jul  6 13:16:03 on ttys002
+brandonrose@Mac ~ % tail -f ~/Library/Logs/rose_rec_watcher.log
+
+2026-07-06 13:21:54 Uploaded: /Volumes/ROSE-REC1/RECORDINGS/V2025-06-24-21-55-36.WAV -> Inbox/Tuesday 06-24-2025/ROSE-REC1_V2025-06-24-21-55-36.WAV
+2026-07-06 13:21:55 Verified + deleted from device: V2025-06-24-21-55-36.WAV (20218368 bytes)
+2026-07-06 13:22:40 Uploaded: /Volumes/ROSE-REC1/RECORDINGS/V2025-06-25-08-22-10.WAV -> Inbox/Wednesday 06-25-2025/ROSE-REC1_V2025-06-25-08-22-10.WAV
+2026-07-06 13:22:41 Verified + deleted from device: V2025-06-25-08-22-10.WAV (173398528 bytes)
+2026-07-06 13:23:02 Uploaded: /Volumes/ROSE-REC1/RECORDINGS/V2025-06-25-11-45-20.WAV -> Inbox/Wednesday 06-25-2025/ROSE-REC1_V2025-06-25-11-45-20.WAV
+2026-07-06 13:23:41 Verified + deleted from device: V2025-06-25-11-45-20.WAV (87126528 bytes)
+2026-07-06 13:23:43 Uploaded: /Volumes/ROSE-REC1/RECORDINGS/V2025-06-25-15-13-00.WAV -> Inbox/Wednesday 06-25-2025/ROSE-REC1_V2025-06-25-15-13-00.WAV
+2026-07-06 13:23:44 Verified + deleted from device: V2025-06-25-15-13-00.WAV (76288 bytes)
+2026-07-06 13:23:45 Uploaded: /Volumes/ROSE-REC1/RECORDINGS/V2025-06-25-15-13-50.WAV -> Inbox/Wednesday 06-25-2025/ROSE-REC1_V2025-06-25-15-13-50.WAV
+2026-07-06 13:23:46 Verified + deleted from device: V2025-06-25-15-13-50.WAV (219648 bytes)
+2026/07/06 13:43:45 ERROR : V2025-06-25-16-34-47.WAV: Failed to copy: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+2026/07/06 13:43:45 ERROR : Attempt 1/3 failed with 1 errors and: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+

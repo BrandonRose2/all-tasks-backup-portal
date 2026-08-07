@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "archived_at": "2026-08-04T18:26:58.267201Z",
+  "archived_at": "2026-08-07T13:04:28.010653Z",
   "task": {
     "id": "2XqeJHVCUfQjgcoz2gCQuS",
     "title": "Research Freelance and Side Job Opportunities for Family",
-    "status": "waiting",
+    "status": "stopped",
     "type": "standard",
     "agent_profile": "manus-1.6",
-    "credits_used": 150,
+    "credits_used": 176,
     "created_at": "1785812514",
-    "updated_at": "1785867667",
+    "updated_at": "1785965108",
     "task_url": "https://manus.im/app/2XqeJHVCUfQjgcoz2gCQuS",
     "message_count": 0
   },
-  "event_count": 13,
+  "event_count": 16,
   "events": [
     {
       "id": "Q1SMUf86RGHzOyaZWOfhj4-1",
@@ -184,6 +184,34 @@
         }
       },
       "timestamp": "1785867667254",
+      "type": "status_update"
+    },
+    {
+      "id": "CEdbLtLSUS3jJ51Y3HjJnY",
+      "status_update": {
+        "agent_status": "running",
+        "brief": "Manus is running",
+        "description": "Manus is working on your request"
+      },
+      "timestamp": "1785965094639",
+      "type": "status_update"
+    },
+    {
+      "assistant_message": {
+        "content": "The retry succeeded. The official Amazon KDP page is open and shows **Join KDP** as the direct start path. It confirms self-publishing for print and digital books, publication in three steps, eBook royalties up to **70%**, and print-book royalties up to **60%**. No account was created or application submitted."
+      },
+      "id": "AxRyCUqfR1TtDt2hcIZwz4",
+      "timestamp": "1785965107424",
+      "type": "assistant_message"
+    },
+    {
+      "id": "H1Kj7whQ4flW7v9XCavJQr",
+      "status_update": {
+        "agent_status": "stopped",
+        "brief": "Manus finished working",
+        "description": "Manus has completed the current task and is ready for new requests or revisions."
+      },
+      "timestamp": "1785965108347",
       "type": "status_update"
     }
   ],

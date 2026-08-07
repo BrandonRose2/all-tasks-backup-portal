@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do from Marc</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1b2a;
+            color: #e2e8f0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 28px;
+            color: #e89f1f;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #63738a;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        .progress-bar {
+            background: #1b2838;
+            border-radius: 8px;
+            height: 12px;
+            margin-bottom: 32px;
+            overflow: hidden;
+            border: 1px solid #2a3a4a;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #e89f1f, #f5c542);
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease;
+            border-radius: 8px;
+        }
+        .progress-text {
+            text-align: center;
+            color: #93a2b7;
+            font-size: 13px;
+            margin-bottom: 24px;
+            margin-top: -24px;
+        }
+        .manager-card {
+            background: #1b2838;
+            border: 1px solid #2a3a4a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        .manager-card.completed {
+            border-color: #22c55e;
+            opacity: 0.7;
+        }
+        .manager-card h2 {
+            font-size: 20px;
+            color: #f1f5f9;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #2a3a4a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .manager-card h2 span {
+            flex: 1;
+        }
+        .checklist-items {
+            margin-bottom: 12px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            cursor: pointer;
+            user-select: none;
+        }
+        .checklist-item:hover {
+            background: rgba(232, 159, 31, 0.05);
+            border-radius: 6px;
+            margin: 0 -8px;
+            padding: 10px 8px;
+        }
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-top: 2px;
+            accent-color: #e89f1f;
+            cursor: pointer;
+        }
+        .item-content {
+            flex: 1;
+        }
+        .checklist-item label {
+            font-size: 15px;
+            color: #cbd5e1;
+            cursor: pointer;
+            line-height: 1.4;
+            display: block;
+        }
+        .checklist-item.checked label {
+            text-decoration: line-through;
+            color: #63738a;
+        }
+        .timestamp {
+            font-size: 11px;
+            color: #22c55e;
+            margin-top: 3px;
+            font-style: italic;
+        }
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #4a5568;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .checklist-item:hover .delete-btn {
+            opacity: 1;
+        }
+        .delete-btn:hover {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .header-delete-btn {
+            background: none;
+            border: none;
+            color: #4a5568;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .header-delete-btn:hover {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .add-item-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            padding-top: 12px;
+            border-top: 1px solid #2a3a4a;
+        }
+        .add-item-input {
+            flex: 1;
+            background: #0d1b2a;
+            border: 1px solid #2a3a4a;
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: #e2e8f0;
+            font-size: 14px;
+            outline: none;
+        }
+        .add-item-input:focus {
+            border-color: #e89f1f;
+        }
+        .add-item-input::placeholder {
+            color: #4a5568;
+        }
+        .add-item-btn {
+            background: #e89f1f;
+            color: #0d1b2a;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .add-item-btn:hover {
+            background: #f5c542;
+        }
+        .add-manager-section {
+            background: #1b2838;
+            border: 2px dashed #2a3a4a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .add-manager-row {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .add-manager-input {
+            background: #0d1b2a;
+            border: 1px solid #2a3a4a;
+            border-radius: 6px;
+            padding: 10px 16px;
+            color: #e2e8f0;
+            font-size: 15px;
+            outline: none;
+            width: 250px;
+        }
+        .add-manager-input:focus {
+            border-color: #e89f1f;
+        }
+        .add-manager-input::placeholder {
+            color: #4a5568;
+        }
+        .add-manager-btn {
+            background: #e89f1f;
+            color: #0d1b2a;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .add-manager-btn:hover {
+            background: #f5c542;
+        }
+        .actions-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .action-btn {
+            padding: 12px 24px;
+            background: #2a3a4a;
+            color: #93a2b7;
+            border: 1px solid #3a4a5a;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .action-btn:hover {
+            background: #3a4a5a;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do from Marc</h1>
+        <p class="subtitle">Tasks to Address with Managers</p>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <p class="progress-text" id="progressText">0 of 0 completed</p>
+
+        <div id="cardsContainer"></div>
+
+        <div class="add-manager-section">
+            <div class="add-manager-row">
+                <input type="text" class="add-manager-input" id="newManagerName" placeholder="Add new person..." onkeypress="if(event.key==='Enter')addManager()">
+                <button class="add-manager-btn" onclick="addManager()">+ Add Person</button>
+            </div>
+        </div>
+
+        <div class="actions-row">
+            <button class="action-btn" onclick="resetAll()">Reset All</button>
+            <button class="action-btn" onclick="exportList()">Export as Text</button>
+        </div>
+    </div>
+
+    <script>
+        const defaultData = {
+            managers: [
+                {
+                    name: "Jefferson",
+                    items: [
+                        { text: "Not checking off to-dos in phone calls", checked: false, completedAt: null },
+                        { text: "Not going through tasks", checked: false, completedAt: null },
+                        { text: 'Needs to ask "How did you hear about us?"', checked: false, completedAt: null }
+                    ]
+                },
+                {
+                    name: "Deon Toliver",
+                    items: [
+                        { text: "Not checking off to-dos in phone calls", checked: false, completedAt: null },
+                        { text: "Not going through tasks", checked: false, completedAt: null },
+                        { text: 'Needs to ask "How did you hear about us?"', checked: false, completedAt: null }
+                    ]
+                },
+                {
+                    name: "Erica Finch",
+                    items: [
+                        { text: "Not checking off to-dos in phone calls", checked: false, completedAt: null },
+                        { text: "Not going through tasks", checked: false, completedAt: null },
+                        { text: 'Needs to ask "How did you hear about us?"', checked: false, completedAt: null }
+                    ]
+                },
+                {
+                    name: "James Abeyta",
+                    items: [
+                        { text: "Not checking off to-dos in phone calls", checked: false, completedAt: null },
+                        { text: "Not going through tasks", checked: false, completedAt: null },
+                        { text: 'Needs to ask "How did you hear about us?"', checked: false, completedAt: null },
+                        { text: "Not following the script at all", checked: false, completedAt: null }
+                    ]
+                },
+                {
+                    name: "Haily",
+                    items: [
+                        { text: "Not checking off to-dos in phone calls", checked: false, completedAt: null },
+                        { text: "Not going through tasks", checked: false, completedAt: null },
+                        { text: 'Needs to ask "How did you hear about us?"', checked: false, completedAt: null },
+                        { text: "Not following the script at all", checked: false, completedAt: null }
+                    ]
+                }
+            ]
+        };
+
+        let data;
+
+        function loadData() {
+            const saved = localStorage.getItem('todoFromMarc');
+            if (saved) {
+                data = JSON.parse(saved);
+            } else {
+                data = JSON.parse(JSON.stringify(defaultData));
+            }
+            render();
+        }
+
+        function saveData() {
+            localStorage.setItem('todoFromMarc', JSON.stringify(data));
+        }
+
+        function formatTimestamp(isoStr) {
+            if (!isoStr) return '';
+            const d = new Date(isoStr);
+            const month = d.toLocaleString('en-US', { month: 'short' });
+            const day = d.getDate();
+            const year = d.getFullYear();
+            const time = d.toLocaleString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            return `Completed ${month} ${day}, ${year} at ${time}`;
+        }
+
+        function render() {
+            const container = document.getElementById('cardsContainer');
+            container.innerHTML = '';
+
+            data.managers.forEach((manager, mIdx) => {
+                const allChecked = manager.items.length > 0 && manager.items.every(i => i.checked);
+                const card = document.createElement('div');
+                card.className = 'manager-card' + (allChecked ? ' completed' : '');
+
+                let itemsHtml = '';
+                manager.items.forEach((item, iIdx) => {
+                    const ts = item.checked && item.completedAt ? `<div class="timestamp">${formatTimestamp(item.completedAt)}</div>` : '';
+                    itemsHtml += `
+                        <div class="checklist-item ${item.checked ? 'checked' : ''}" onclick="toggleItem(${mIdx}, ${iIdx})">
+                            <input type="checkbox" ${item.checked ? 'checked' : ''} onclick="event.stopPropagation(); toggleItem(${mIdx}, ${iIdx})">
+                            <div class="item-content">
+                                <label>${escapeHtml(item.text)}</label>
+                                ${ts}
+                            </div>
+                            <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(${mIdx}, ${iIdx})" title="Delete">✕</button>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <h2><span>${escapeHtml(manager.name)}</span><button class="header-delete-btn" onclick="deleteManager(${mIdx})" title="Remove">✕</button></h2>
+                    <div class="checklist-items">${itemsHtml}</div>
+                    <div class="add-item-row">
+                        <input type="text" class="add-item-input" placeholder="Add task..." onkeypress="if(event.key==='Enter')addItem(${mIdx}, this)">
+                        <button class="add-item-btn" onclick="addItem(${mIdx}, this.previousElementSibling)">+ Add</button>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            updateProgress();
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function toggleItem(mIdx, iIdx) {
+            const item = data.managers[mIdx].items[iIdx];
+            item.checked = !item.checked;
+            if (item.checked) {
+                item.completedAt = new Date().toISOString();
+            } else {
+                item.completedAt = null;
+            }
+            saveData();
+            render();
+        }
+
+        function deleteItem(mIdx, iIdx) {
+            data.managers[mIdx].items.splice(iIdx, 1);
+            saveData();
+            render();
+        }
+
+        function addItem(mIdx, input) {
+            const text = input.value.trim();
+            if (!text) return;
+            data.managers[mIdx].items.push({ text: text, checked: false, completedAt: null });
+            input.value = '';
+            saveData();
+            render();
+        }
+
+        function addManager() {
+            const input = document.getElementById('newManagerName');
+            const name = input.value.trim();
+            if (!name) return;
+            data.managers.push({ name: name, items: [] });
+            input.value = '';
+            saveData();
+            render();
+        }
+
+        function deleteManager(mIdx) {
+            if (confirm('Remove ' + data.managers[mIdx].name + ' from the list?')) {
+                data.managers.splice(mIdx, 1);
+                saveData();
+                render();
+            }
+        }
+
+        function updateProgress() {
+            let total = 0, checked = 0;
+            data.managers.forEach(m => {
+                m.items.forEach(i => {
+                    total++;
+                    if (i.checked) checked++;
+                });
+            });
+            const pct = total > 0 ? Math.round((checked / total) * 100) : 0;
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('progressText').textContent = checked + ' of ' + total + ' completed';
+        }
+
+        function resetAll() {
+            if (confirm('Reset all checkboxes? (Keeps items but unchecks everything and clears timestamps)')) {
+                data.managers.forEach(m => m.items.forEach(i => { i.checked = false; i.completedAt = null; }));
+                saveData();
+                render();
+            }
+        }
+
+        function exportList() {
+            let text = 'TO-DO FROM MARC\n' + '='.repeat(40) + '\n\n';
+            data.managers.forEach(m => {
+                text += m.name + '\n' + '-'.repeat(m.name.length) + '\n';
+                m.items.forEach(i => {
+                    text += (i.checked ? '[x] ' : '[ ] ') + i.text;
+                    if (i.checked && i.completedAt) {
+                        text += '  — ' + formatTimestamp(i.completedAt);
+                    }
+                    text += '\n';
+                });
+                text += '\n';
+            });
+            const blob = new Blob([text], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'todo-from-marc-export.txt';
+            a.click();
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

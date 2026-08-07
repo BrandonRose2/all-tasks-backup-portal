@@ -1,0 +1,343 @@
+Last login: Tue Aug  4 11:51:12 on ttys000
+brandonrose@Brandons-MacBook-Pro ~ % brew install poppler
+✔︎ JSON API packages.arm64_tahoe.jws.json                                                    Downloaded   15.3MB/ 15.3MB
+Warning: The following taps are not trusted:
+  apify/tap
+
+Homebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.
+
+Untap them with:
+  brew untap apify/tap
+Trust specific formulae, casks and commands with:
+  brew trust --formula <user>/<tap>/<formula>
+  brew trust --cask <user>/<tap>/<cask>
+  brew trust --command <user>/<tap>/<command>
+Whole-tap trust is broader and includes all current and future formulae,
+casks and commands from the listed taps. Trust whole taps with:
+  brew trust apify/tap
+To disable trust checks:
+  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
+This is not recommended and will be removed in a later release.
+For more information, see:
+  https://docs.brew.sh/Tap-Trust
+==> Would install 1 formula:
+poppler
+==> Downloading https://ghcr.io/v2/homebrew/core/poppler/manifests/26.08.0
+################################################################################################################# 100.0%
+==> Would install 39 dependencies for poppler:
+libpng
+freetype
+json-c
+fontconfig
+glib
+xorgproto
+libxau
+libxdmcp
+libxcb
+libx11
+libxext
+libxrender
+lzo
+pixman
+cairo
+gmp
+libidn2
+libtasn1
+nettle
+p11-kit
+gnutls
+libgpg-error
+libassuan
+libgcrypt
+libksba
+libusb
+npth
+pinentry
+gnupg
+gpgme
+gpgmepp
+jpeg-turbo
+giflib
+webp
+libtiff
+little-cms2
+nspr
+nss
+openjpeg
+==> Do you want to proceed with the installation? [y/n]
+==> Fetching downloads for: poppler
+✔︎ Bottle Manifest libpng (1.6.58)                                                           Downloaded    8.6KB/  8.6KB
+✔︎ Bottle libpng (1.6.58)                                                                    Downloaded  459.8KB/459.8KB
+✔︎ Bottle Manifest freetype (2.14.3)                                                         Downloaded    9.4KB/  9.4KB
+✔︎ Bottle freetype (2.14.3)                                                                  Downloaded  996.4KB/996.4KB
+✔︎ Bottle Manifest json-c (0.19)                                                             Downloaded    7.2KB/  7.2KB
+✔︎ Bottle json-c (0.19)                                                                      Downloaded  106.9KB/106.9KB
+✔︎ Bottle Manifest fontconfig (2.18.2)                                                       Downloaded   48.1KB/ 48.1KB
+✔︎ Bottle fontconfig (2.18.2)                                                                Downloaded  447.8KB/447.8KB
+✔︎ Bottle Manifest glib (2.88.3)                                                             Downloaded   75.4KB/ 75.4KB
+✔︎ Bottle glib (2.88.3)                                                                      Downloaded    9.3MB/  9.3MB
+✔︎ Bottle Manifest xorgproto (2025.1)                                                        Downloaded   13.1KB/ 13.1KB
+✔︎ Bottle xorgproto (2025.1)                                                                 Downloaded  720.1KB/720.1KB
+✔︎ Bottle Manifest libxau (1.0.12)                                                           Downloaded   10.3KB/ 10.3KB
+✔︎ Bottle libxau (1.0.12)                                                                    Downloaded   33.4KB/ 33.4KB
+✔︎ Bottle Manifest libxdmcp (1.1.5)                                                          Downloaded   12.0KB/ 12.0KB
+✔︎ Bottle libxdmcp (1.1.5)                                                                   Downloaded   36.8KB/ 36.8KB
+✔︎ Bottle Manifest libxcb (1.17.0)                                                           Downloaded   19.2KB/ 19.2KB
+✔︎ Bottle Manifest libx11 (1.8.13)                                                           Downloaded   14.4KB/ 14.4KB
+✔︎ Bottle libx11 (1.8.13)                                                                    Downloaded    2.3MB/  2.3MB
+✔︎ Bottle Manifest libxext (1.3.7)                                                           Downloaded   11.5KB/ 11.5KB
+✔︎ Bottle libxext (1.3.7)                                                                    Downloaded  109.6KB/109.6KB
+✔︎ Bottle Manifest libxrender (0.9.12)                                                       Downloaded   14.2KB/ 14.2KB
+✔︎ Bottle libxrender (0.9.12)                                                                Downloaded   54.6KB/ 54.6KB
+✔︎ Bottle Manifest lzo (2.10)                                                                Downloaded   16.7KB/ 16.7KB
+✔︎ Bottle lzo (2.10)                                                                         Downloaded  149.6KB/149.6KB
+✔︎ Bottle Manifest pixman (0.46.4)                                                           Downloaded    9.3KB/  9.3KB
+✔︎ Bottle pixman (0.46.4)                                                                    Downloaded  416.2KB/416.2KB
+✔︎ Bottle Manifest cairo (1.18.4)                                                            Downloaded   29.8KB/ 29.8KB
+✔︎ Bottle cairo (1.18.4)                                                                     Downloaded    1.6MB/  1.6MB
+✔︎ Bottle Manifest gmp (6.3.0)                                                               Downloaded   13.3KB/ 13.3KB
+✔︎ Bottle gmp (6.3.0)                                                                        Downloaded    1.0MB/  1.0MB
+✔︎ Bottle Manifest libidn2 (2.3.8)                                                           Downloaded   12.8KB/ 12.8KB
+✔︎ Bottle libidn2 (2.3.8)                                                                    Downloaded  309.8KB/309.8KB
+✔︎ Bottle Manifest libtasn1 (4.21.0)                                                         Downloaded    7.9KB/  7.9KB
+✔︎ Bottle libtasn1 (4.21.0)                                                                  Downloaded  165.3KB/165.3KB
+✔︎ Bottle Manifest nettle (4.0)                                                              Downloaded    9.4KB/  9.4KB
+✔︎ Bottle nettle (4.0)                                                                       Downloaded  990.8KB/990.8KB
+✔︎ Bottle Manifest p11-kit (0.26.4)                                                          Downloaded   30.1KB/ 30.1KB
+✔︎ Bottle p11-kit (0.26.4)                                                                   Downloaded  993.8KB/993.8KB
+✔︎ Bottle Manifest gnutls (3.8.13_2)                                                         Downloaded   17.1KB/ 17.1KB
+✔︎ Bottle Manifest libgpg-error (1.61)                                                       Downloaded    9.5KB/  9.5KB
+✔︎ Bottle libgpg-error (1.61)                                                                Downloaded  581.6KB/581.6KB
+✔︎ Bottle Manifest libassuan (3.0.2)                                                         Downloaded   12.9KB/ 12.9KB
+✔︎ Bottle libassuan (3.0.2)                                                                  Downloaded  175.5KB/175.5KB
+✔︎ Bottle Manifest libgcrypt (1.12.2)                                                        Downloaded   10.6KB/ 10.6KB
+✔︎ Bottle libgcrypt (1.12.2)                                                                 Downloaded    1.5MB/  1.5MB
+✔︎ Bottle Manifest libksba (1.8.0)                                                           Downloaded   10.3KB/ 10.3KB
+✔︎ Bottle libksba (1.8.0)                                                                    Downloaded  182.3KB/182.3KB
+✔︎ Bottle Manifest libusb (1.0.30)                                                           Downloaded   15.0KB/ 15.0KB
+✔︎ Bottle libusb (1.0.30)                                                                    Downloaded  192.2KB/192.2KB
+✔︎ Bottle Manifest npth (1.8)                                                                Downloaded    9.3KB/  9.3KB
+✔︎ Bottle npth (1.8)                                                                         Downloaded   39.5KB/ 39.5KB
+✔︎ Bottle Manifest pinentry (1.3.3)                                                          Downloaded   18.5KB/ 18.5KB
+✔︎ Bottle pinentry (1.3.3)                                                                   Downloaded  135.1KB/135.1KB
+✔︎ Bottle Manifest gnupg (2.5.21)                                                            Downloaded   34.6KB/ 34.6KB
+✔︎ Bottle Manifest gpgme (2.1.2)                                                             Downloaded   34.2KB/ 34.2KB
+✔︎ Bottle gpgme (2.1.2)                                                                      Downloaded  793.7KB/793.7KB
+✔︎ Bottle Manifest gpgmepp (2.1.0)                                                           Downloaded   38.5KB/ 38.5KB
+✔︎ Bottle gpgmepp (2.1.0)                                                                    Downloaded  199.8KB/199.8KB
+✔︎ Bottle Manifest jpeg-turbo (3.2.0)                                                        Downloaded    8.3KB/  8.3KB
+✔︎ Bottle Manifest giflib (6.1.3)                                                            Downloaded    7.7KB/  7.7KB
+✔︎ Bottle giflib (6.1.3)                                                                     Downloaded  143.2KB/143.2KB
+✔︎ Bottle Manifest webp (1.6.0)                                                              Downloaded   19.5KB/ 19.5KB
+✔︎ Bottle Manifest libtiff (4.7.2)                                                           Downloaded   61.8KB/ 61.8KB
+✔︎ Bottle Manifest little-cms2 (2.19)                                                        Downloaded   13.0KB/ 13.0KB
+✔︎ Bottle Manifest nspr (4.39)                                                               Downloaded    7.7KB/  7.7KB
+✔︎ Bottle gnutls (3.8.13_2)                                                                  Downloaded    3.0MB/  3.0MB
+✔︎ Bottle jpeg-turbo (3.2.0)                                                                 Downloaded    1.3MB/  1.3MB
+✔︎ Bottle webp (1.6.0)                                                                       Downloaded  901.9KB/901.9KB
+✔︎ Bottle Manifest nss (3.126)                                                               Downloaded   33.7KB/ 33.7KB
+✔︎ Bottle gnupg (2.5.21)                                                                     Downloaded    5.6MB/  5.6MB
+✔︎ Bottle Manifest openjpeg (2.5.4)                                                          Downloaded   14.0KB/ 14.0KB
+✔︎ Bottle little-cms2 (2.19)                                                                 Downloaded  433.7KB/433.7KB
+✔︎ Bottle libxcb (1.17.0)                                                                    Downloaded  999.8KB/999.8KB
+✔︎ Bottle nspr (4.39)                                                                        Downloaded  330.6KB/330.6KB
+✔︎ Bottle libtiff (4.7.2)                                                                    Downloaded    2.0MB/  2.0MB
+✔︎ Bottle poppler (26.08.0)                                                                  Downloaded    9.9MB/  9.9MB
+✔︎ Bottle nss (3.126)                                                                        Downloaded    6.2MB/  6.2MB
+✔︎ Bottle openjpeg (2.5.4)                                                                   Downloaded    2.2MB/  2.2MB
+==> Installing dependencies for poppler: libpng, freetype, json-c, fontconfig, glib, xorgproto, libxau, libxdmcp, libxcb, libx11, libxext, libxrender, lzo, pixman, cairo, gmp, libidn2, libtasn1, nettle, p11-kit, gnutls, libgpg-error, libassuan, libgcrypt, libksba, libusb, npth, pinentry, gnupg, gpgme, gpgmepp, jpeg-turbo, giflib, webp, libtiff, little-cms2, nspr, nss and openjpeg
+==> Installing poppler dependency: libpng
+==> Pouring libpng--1.6.58.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libpng/1.6.58: 28 files, 1.4MB
+==> Installing poppler dependency: freetype
+==> Pouring freetype--2.14.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/freetype/2.14.3: 68 files, 2.7MB
+==> Installing poppler dependency: json-c
+==> Pouring json-c--0.19.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/json-c/0.19: 34 files, 360.5KB
+==> Installing poppler dependency: fontconfig
+==> Pouring fontconfig--2.18.2.arm64_tahoe.bottle.tar.gz
+==> Regenerating font cache, this may take a while
+==> /opt/homebrew/Cellar/fontconfig/2.18.2/bin/fc-cache --force --really-force --verbose
+🍺  /opt/homebrew/Cellar/fontconfig/2.18.2: 102 files, 1.8MB
+==> Installing poppler dependency: glib
+==> Pouring glib--2.88.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/glib/2.88.3: 501 files, 39.6MB
+==> Installing poppler dependency: xorgproto
+==> Pouring xorgproto--2025.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/xorgproto/2025.1: 268 files, 4.1MB
+==> Installing poppler dependency: libxau
+==> Pouring libxau--1.0.12.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxau/1.0.12: 21 files, 117.2KB
+==> Installing poppler dependency: libxdmcp
+==> Pouring libxdmcp--1.1.5.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxdmcp/1.1.5: 12 files, 122.8KB
+==> Installing poppler dependency: libxcb
+==> Pouring libxcb--1.17.0.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/libxcb/1.17.0: 2,498 files, 7.4MB
+==> Installing poppler dependency: libx11
+==> Pouring libx11--1.8.13.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libx11/1.8.13: 1,043 files, 7.3MB
+==> Installing poppler dependency: libxext
+==> Pouring libxext--1.3.7.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxext/1.3.7: 88 files, 448.8KB
+==> Installing poppler dependency: libxrender
+==> Pouring libxrender--0.9.12.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxrender/0.9.12: 13 files, 206.5KB
+==> Installing poppler dependency: lzo
+==> Pouring lzo--2.10.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/lzo/2.10: 32 files, 561.1KB
+==> Installing poppler dependency: pixman
+==> Pouring pixman--0.46.4.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/pixman/0.46.4: 11 files, 1.4MB
+==> Installing poppler dependency: cairo
+==> Pouring cairo--1.18.4.arm64_tahoe.bottle.2.tar.gz
+🍺  /opt/homebrew/Cellar/cairo/1.18.4: 58 files, 4.6MB
+==> Installing poppler dependency: gmp
+==> Pouring gmp--6.3.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gmp/6.3.0: 22 files, 3.4MB
+==> Installing poppler dependency: libidn2
+==> Pouring libidn2--2.3.8.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libidn2/2.3.8: 80 files, 908.5KB
+==> Installing poppler dependency: libtasn1
+==> Pouring libtasn1--4.21.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libtasn1/4.21.0: 64 files, 651.7KB
+==> Installing poppler dependency: nettle
+==> Pouring nettle--4.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/nettle/4.0: 93 files, 2.7MB
+==> Installing poppler dependency: p11-kit
+==> Pouring p11-kit--0.26.4.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/p11-kit/0.26.4: 33 files, 4.8MB
+==> Installing poppler dependency: gnutls
+==> Pouring gnutls--3.8.13_2.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/gnutls/3.8.13_2: 1,289 files, 11MB
+==> Installing poppler dependency: libgpg-error
+==> Pouring libgpg-error--1.61.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libgpg-error/1.61: 50 files, 1.8MB
+==> Installing poppler dependency: libassuan
+==> Pouring libassuan--3.0.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libassuan/3.0.2: 18 files, 557.4KB
+==> Installing poppler dependency: libgcrypt
+==> Pouring libgcrypt--1.12.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libgcrypt/1.12.2: 24 files, 4MB
+==> Installing poppler dependency: libksba
+==> Pouring libksba--1.8.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libksba/1.8.0: 19 files, 529.9KB
+==> Installing poppler dependency: libusb
+==> Pouring libusb--1.0.30.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libusb/1.0.30: 23 files, 622.3KB
+==> Installing poppler dependency: npth
+==> Pouring npth--1.8.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/npth/1.8: 13 files, 153.4KB
+==> Installing poppler dependency: pinentry
+==> Pouring pinentry--1.3.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/pinentry/1.3.3: 13 files, 439.3KB
+==> Installing poppler dependency: gnupg
+==> Pouring gnupg--2.5.21.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gnupg/2.5.21: 149 files, 15.9MB
+==> Installing poppler dependency: gpgme
+==> Pouring gpgme--2.1.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gpgme/2.1.2: 29 files, 2.7MB
+==> Installing poppler dependency: gpgmepp
+==> Pouring gpgmepp--2.1.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gpgmepp/2.1.0: 73 files, 824.0KB
+==> Installing poppler dependency: jpeg-turbo
+==> Pouring jpeg-turbo--3.2.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/jpeg-turbo/3.2.0: 47 files, 4.2MB
+==> Installing poppler dependency: giflib
+==> Pouring giflib--6.1.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/giflib/6.1.3: 19 files, 515.1KB
+==> Installing poppler dependency: webp
+==> Pouring webp--1.6.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/webp/1.6.0: 64 files, 2.5MB
+==> Installing poppler dependency: libtiff
+==> Pouring libtiff--4.7.2.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/libtiff/4.7.2: 493 files, 9.0MB
+==> Installing poppler dependency: little-cms2
+==> Pouring little-cms2--2.19.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/little-cms2/2.19: 23 files, 1.4MB
+==> Installing poppler dependency: nspr
+==> Pouring nspr--4.39.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/nspr/4.39: 79 files, 1.2MB
+==> Installing poppler dependency: nss
+==> Pouring nss--3.126.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/nss/3.126: 210 files, 19.1MB
+==> Installing poppler dependency: openjpeg
+==> Pouring openjpeg--2.5.4.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/openjpeg/2.5.4: 512 files, 14.7MB
+==> Installing poppler
+==> Pouring poppler--26.08.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/poppler/26.08.0: 447 files, 34.2MB
+==> Running `brew cleanup poppler`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+brandonrose@Brandons-MacBook-Pro ~ % pdftohtml -s ~/Downloads/"Guide - PropertyMax.ai Training #1.pdf" ~/Desktop/index.html
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Page-1
+Page-2
+Page-3
+Page-4
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Page-5
+Page-6
+Page-7
+Page-8
+Page-9
+Page-10
+Page-11
+Page-12
+Page-13
+Page-14
+Page-15
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Page-16
+Page-17
+Page-18
+Page-19
+Page-20
+Page-21
+Page-22
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Page-23
+Page-24
+Page-25
+Page-26
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Page-27
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Page-28
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Page-29
+Syntax Warning: Couldn't allocate 0 bytes for profile
+Syntax Warning: read ICCBased color space profile error
+Page-30
+Page-31
+Page-32
+Page-33
+Page-34
+Page-35
+Page-36
+Page-37
+Page-38
+Page-39
+Page-40
+brandonrose@Brandons-MacBook-Pro ~ % 
